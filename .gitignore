@@ -3,4 +3,5 @@ __pycache__
 entorno1
 db.sqlite3
 .DS_Store
+
 .idea/
