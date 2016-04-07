@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 
 def login_user(request):
@@ -12,11 +12,11 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                state = "You're successfully logged in!"
+                state = "Has iniciado sesion correctamente!"
             else:
-                state = "Your account is not active, please contact the site admin."
+                state = "La cuenta no esta activa. Contacte con el administrador."
         else:
-            state = "Your username and/or password were incorrect."
+            state = "Su nombre de usuario o password es incorrecto/a."
 
-    return render_to_response('login.html',{'state':state, 'username': username})
+    return render(request,'login.html',{'state':state, 'username': username})
 
