@@ -4,3 +4,4 @@ entorno1
 db.sqlite3
 .DS_Store
 .idea/
+env/
