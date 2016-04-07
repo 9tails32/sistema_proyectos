@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'sistema_proyectos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sistema-proyectos',
+        'NAME': 'sistemaproyectos',
         'USER': 'django',
         'PASSWORD': 'django123',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
