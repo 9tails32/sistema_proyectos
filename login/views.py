@@ -1,8 +1,12 @@
-from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+
 
 def login_user(request):
     state = "Please log in below..."
+    if request.user.is_authenticated():
+        state = "Esta logueado como " + str(request.user.username)
+
     username = password = ''
     if request.POST:
         username = request.POST.get('username')
@@ -20,3 +24,6 @@ def login_user(request):
 
     return render(request,'login.html',{'state':state, 'username': username})
 
+def logout_user(request):
+    logout(request)
+    return redirect("/")
