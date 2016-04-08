@@ -3,7 +3,11 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def login_user(request):
-    state = "Please log in below..."
+    """
+    Funcion de login de usuario. Recibe los datos de usuario en el request y redirecciona la pagina,
+    pasando el estado final del login, luego de la autenticacion, dentro del context, al template.
+    """
+    state = "Por favor ingrese sus datos..."
     if request.user.is_authenticated():
         state = "Esta logueado como " + str(request.user.username)
 
