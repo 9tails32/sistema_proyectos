@@ -1,0 +1,17 @@
+{
+  "name": "sistema_proyectos",
+  "homepage": "https://github.com/rubenfig/sistema_proyectos",
+  "authors": [
+    "rauleb <rauleburro@gmail.com>"
+  ],
+  "description": "LLibrerias static del sistema de gestion de proyectos basado en SCRUM y KAMBAM",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

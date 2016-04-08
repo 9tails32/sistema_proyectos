@@ -3,11 +3,22 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def login_user(request):
-    state = "Please log in below..."
+    """
+    Funcion de login de usuario.
+
+    Variables
+    username = Nombre de usuario.
+    password = Clave de usuario.
+    state = Estado del login, puede ser logueado, esperando datos, o demostrar un error de datos incorrectos.
+
+    La funcion recibe en el request los datos de usuario determina si es correcta y esta activada.
+    La funcion retorna por medio del context el estado del login y el username.
+    """
+    state = ""
     if request.user.is_authenticated():
         state = "Esta logueado como " + str(request.user.username)
 
-    username = password = ''
+    username = password = ""
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -25,5 +36,6 @@ def login_user(request):
     return render(request,'login.html',{'state':state, 'username': username})
 
 def logout_user(request):
+    """Funcion que cierra sesion de un usuario y redirecciona a la pantalla de login."""
     logout(request)
     return redirect("/")
