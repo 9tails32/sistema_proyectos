@@ -7,11 +7,11 @@ def login_user(request):
     Funcion de login de usuario. Recibe los datos de usuario en el request y redirecciona la pagina,
     pasando el estado final del login, luego de la autenticacion, dentro del context, al template.
     """
-    state = "Por favor ingrese sus datos..."
+    state = ""
     if request.user.is_authenticated():
         state = "Esta logueado como " + str(request.user.username)
 
-    username = password = ''
+    username = password = ""
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
