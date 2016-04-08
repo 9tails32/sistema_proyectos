@@ -4,8 +4,15 @@ from django.contrib.auth import authenticate, login, logout
 
 def login_user(request):
     """
-    Funcion de login de usuario. Recibe los datos de usuario en el request y redirecciona la pagina,
-    pasando el estado final del login, luego de la autenticacion, dentro del context, al template.
+    Funcion de login de usuario.
+
+    Variables
+    username = Nombre de usuario.
+    password = Clave de usuario.
+    state = Estado del login, puede ser logueado, esperando datos, o demostrar un error de datos incorrectos.
+
+    La funcion recibe en el request los datos de usuario determina si es correcta y esta activada.
+    La funcion retorna por medio del context el estado del login y el username.
     """
     state = ""
     if request.user.is_authenticated():
@@ -29,5 +36,6 @@ def login_user(request):
     return render(request,'login.html',{'state':state, 'username': username})
 
 def logout_user(request):
+    """Funcion que cierra sesion de un usuario y redirecciona a la pantalla de login."""
     logout(request)
     return redirect("/")
