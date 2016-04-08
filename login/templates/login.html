@@ -13,10 +13,10 @@ body{
 <body>
 	{% if user.is_authenticated %}
 	{{state}}
-	<a href="logout">Logout</a>
+	<a href="/logout/">Logout</a>
 	{% else %}
 	{{ state }}
-	<form action="" method="post">
+	<form method="post">
 		{% if next %}
 		<input type="hidden" name="next" value="{{ next }}" />
 		{% endif %}
