@@ -9,6 +9,8 @@ virtualenv env
 . env/bin/activate
 echo "Hola"
 pip install -r requirements.txt
+./manage.py migrate
+./manage.py loaddata data.json
 ./manage.py runserver
 
 
