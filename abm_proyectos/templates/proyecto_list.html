@@ -8,7 +8,7 @@
     <h1>Proyectos</h1>
     <ul>
         {% for proyecto in proyecto_list %}
-            <li>{{ proyecto.nombre }}</li>
+            <li><a href="/proyecto/u{{ proyecto.pk }}">{{ proyecto.nombre }}</a></li>
         {% empty %}
             <li>No existe ningun proyecto.</li>
         {% endfor %}

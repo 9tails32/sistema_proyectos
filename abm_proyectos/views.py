@@ -14,13 +14,13 @@ class CreateProyecto (CreateView):
     model = Proyecto
     template_name = 'proyecto_create.html'
     success_url = '/proyecto'
-    fields = ['nombre','fechaCreacion','fechaInicio', 'fechaFin','lider_proyecto',
+    fields = ['nombre','fechaCreacion','fechaInicio', 'fechaFin','lider_proyecto', 'cliente',
               'descripcion','estado', 'observaciones']
 
 class UpdateProyecto (UpdateView):
     model = Proyecto
     template_name = 'proyecto_create.html'
     success_url = '/proyecto'
-    fields = ['nombre', 'fechaCreacion', 'fechaInicio', 'fechaFin', 'lider_proyecto',
+    fields = ['nombre', 'fechaCreacion', 'fechaInicio', 'fechaFin', 'lider_proyecto', 'cliente',
               'descripcion', 'estado', 'observaciones']
 

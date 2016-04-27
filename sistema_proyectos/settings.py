@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'abm_proyectos',
+    'abm_clientes',
 ]
 
 MIDDLEWARE_CLASSES = [

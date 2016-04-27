@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cliente</title>
+</head>
+    <h1>Clientes</h1>
+    <ul>
+        {% for cliente in cliente_list %}
+            <li><a href="/cliente/u{{ cliente.pk }}">{{ cliente.nombre }}</a></li>
+        {% empty %}
+            <li>No existe ningun proyecto.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

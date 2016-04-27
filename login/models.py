@@ -3,6 +3,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+class Telefono (models.Model):
+    valor = models.PositiveIntegerField(default=0)
+
+    def set_valor (v):
+        self.valor = v
+
+    def __unicode__(self):
+        return self.valor
 
 class Usuario (User):
     """
@@ -11,7 +19,7 @@ class Usuario (User):
     cedula = numero de cedula del usuario.
     direccion = direccion del usuario.
     """
-    telefono = models.PositiveIntegerField(default=0, blank=True)
+    #telefono = models.ForeignKey(Telefono)
     cedula = models.PositiveIntegerField(default=0)
     direccion = models.TextField(max_length=50, blank=True, null=False)
 

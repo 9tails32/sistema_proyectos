@@ -2,6 +2,7 @@
 from django.utils import timezone
 from django.db import models
 from login.models import Usuario
+from abm_clientes.models import Cliente
 
 class Proyecto (models.Model):
     """
@@ -31,6 +32,7 @@ class Proyecto (models.Model):
     descripcion = models.TextField(max_length=140, help_text='Introduzca una breve reseña del proyecto', null=True)
     estado = models.CharField(max_length=3, choices=opciones_estado, default='PEN', help_text='Estado del proyecto')
     observaciones = models.TextField(max_length=140, null=True, default='No hay observaciones')
+    cliente = models.ForeignKey(Cliente, on_delete= models.DO_NOTHING)
 
     def hacerLider (self, lider):
         self.lider_proyecto=lider
@@ -38,3 +40,7 @@ class Proyecto (models.Model):
 
     def __unicode__ (self):
         return self.nombre
+
+    def get_absolute_url(self):
+        return reverse('author-detail', kwargs={'pk': self.pk})
+
