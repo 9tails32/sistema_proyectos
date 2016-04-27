@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de proyectos</title>
+</head>
+<body>
+    <h1>Proyectos</h1>
+    <ul>
+        {% for proyecto in proyecto_list %}
+            <li>{{ proyecto.nombre }}</li>
+        {% empty %}
+            <li>No existe ningun proyecto.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
