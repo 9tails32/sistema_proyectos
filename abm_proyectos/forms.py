@@ -1,29 +1,33 @@
-from django.forms import DateField, ModelForm, HiddenInput
-from django.contrib.admin.widgets import AdminDateWidget
-from .models import Proyecto
-from Notificaciones.views import notificar_mod_proyecto, notificar_creacion_proyecto
+#encoding:utf-8
+from django import forms
+from login.models import Usuario
+from abm_clientes.models import Cliente
+from django.utils import timezone
 
-class ProyectoForm(ModelForm):
+class ProyectoForm(forms.Form):
     """
     Clase para crear Proyecto
     """
-    def __init__(self, *args, **kwargs):
+    opciones_estado = (
+        ('PEN', 'Pendiente'),
+        ('ANU', 'Anulado'),
+        ('ACT', 'Activo'),
+        ('FIN', 'Finalizado'),)
+    nombre = forms.CharField(max_length=50)
+    fecha_inicio = forms.DateField(widget=forms.SelectDateWidget)
+    fecha_fin = forms.DateField(widget=forms.SelectDateWidget)
+    lider_proyecto = forms.ModelChoiceField(queryset=Usuario.objects.all())
+    cliente = forms.ModelChoiceField(queryset=Cliente.objects.all())
+    descripcion = forms.CharField(widget=forms.Textarea, max_length=140, help_text='Introduzca una breve reseña del proyecto')
+    estado = forms.ChoiceField(choices=opciones_estado, help_text='Estado del proyecto')
+    observaciones = forms.CharField(widget=forms.Textarea,max_length=140, initial='No hay observaciones.')
 
-        super(ProyectoForm, self).__init__(*args, **kwargs)
-        self.fields['nombre'].required = True
-        fechaInicio = DateField(widget=AdminDateWidget)
-        fechaFin = DateField(widget=AdminDateWidget)
-
-    class Meta:
-        model = Proyecto
-        fields = ('nombre','lider_proyecto', 'cliente', 'fecha_inicio', 'fecha_fin', 'descripcion', 'observaciones')
 
     def clean(self):
         """
         Validacion de fecha, inicio menor a fin
         """
         cleaned_data = super(ProyectoForm, self).clean()
-        diccionario_limpio = self.cleaned_data
         fecha_inicio = cleaned_data.get('fecha_inicio')
         fecha_fin = cleaned_data.get('fecha_fin')
 

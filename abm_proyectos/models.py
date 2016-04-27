@@ -41,6 +41,5 @@ class Proyecto (models.Model):
     def __unicode__ (self):
         return self.nombre
 
-    def get_absolute_url(self):
-        return reverse('author-detail', kwargs={'pk': self.pk})
+
 
