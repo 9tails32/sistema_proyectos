@@ -34,6 +34,31 @@ def create_proyecto (request):
         form = ProyectoForm
         return render(request,'proyecto_create.html', {'form': form})
 
+def update_proyecto (request, pk):
+    if request.method == 'POST':
+        form = ProyectoForm(request.POST)
+        if form.is_valid():
+            cd=form.cleaned_data
+            proyecto = Proyecto.objects.get(pk=pk)
+            proyecto.nombre= cd['nombre']
+            proyecto.fecha_creacion= cd['fecha_creacion']
+            proyecto.fecha_fin= cd['fecha_fin']
+            proyecto.fecha_inicio= cd['fecha_inicio']
+            proyecto.lider_proyecto=cd['lider_proyecto']
+            proyecto.cliente=cd['cliente']
+            proyecto.descripcion= cd['descripcion']
+            proyecto.estado= cd['estado']
+            proyecto.observaciones= cd['observaciones']
+
+            return HttpResponseRedirect('/cliente/')
+    else:
+        proyecto = Proyecto.objects.get(pk = pk)
+        form = ProyectoForm({'nombre':proyecto.nombre, 'fecha_creacion':proyecto.fecha_creacion,
+                             'fecha_fin':proyecto.fecha_fin, 'fecha_inicio': proyecto.fecha_inicio,
+                             'lider_proyecto':proyecto.lider_proyecto, 'cliente': proyecto.cliente,
+                             'descripcion': proyecto.descripcion, 'estado': proyecto.estado,
+                             'observaciones':proyecto.observaciones})
+        return render(request, 'cliente_create.html', {'form': form})
 
 class UpdateProyecto (UpdateView):
     model = Proyecto
