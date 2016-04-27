@@ -25,9 +25,9 @@ class Proyecto (models.Model):
         ('ACT', 'Activo'),
         ('FIN', 'Finalizado'),)
     nombre = models.CharField(max_length=50, null=False)
-    fechaCreacion = models.DateField(default=timezone.now())
-    fechaInicio = models.DateField()
-    fechaFin = models.DateField()
+    fecha_creacion = models.DateField(default=timezone.now())
+    fecha_inicio = models.DateField()
+    fecha_fin = models.DateField()
     lider_proyecto = models.ForeignKey(Usuario, related_name='Lider')
     descripcion = models.TextField(max_length=140, help_text='Introduzca una breve reseña del proyecto', null=True)
     estado = models.CharField(max_length=3, choices=opciones_estado, default='PEN', help_text='Estado del proyecto')
