@@ -15,7 +15,6 @@ class ListProyecto (ListView):
 
 
 
-
 def create_proyecto (request):
     if request.method == 'POST':
         form = ProyectoForm(request.POST)
@@ -59,15 +58,4 @@ def update_proyecto (request, pk):
                              'descripcion': proyecto.descripcion, 'estado': proyecto.estado,
                              'observaciones':proyecto.observaciones})
         return render(request, 'cliente_create.html', {'form': form})
-
-class UpdateProyecto (UpdateView):
-    model = Proyecto
-    template_name = 'proyecto_create.html'
-    success_url = '/proyecto'
-    form_class = modelform_factory(Proyecto, fields=['nombre', 'fecha_creacion', 'fecha_inicio', 'fecha_fin',
-                                                     'lider_proyecto', 'cliente',
-                                                     'descripcion', 'estado', 'observaciones'],
-                                   widgets={'fecha_inicio': forms.SelectDateWidget(),
-                                            'fecha_fin': forms.SelectDateWidget(),
-                                            'fecha_creacion': forms.SelectDateWidget()})
 
