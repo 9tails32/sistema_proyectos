@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('abm_clientes', '0002_auto_20160427_0200'),
+        ('cliente', '0002_auto_20160427_0200'),
         ('login', '0002_auto_20160427_0200'),
     ]
 
@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='telefono',
             name='cliente',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='abm_clientes.Cliente'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='cliente.Cliente'),
         ),
         migrations.AddField(
             model_name='telefono',

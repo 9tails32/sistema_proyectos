@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 def login_user(request):
@@ -28,6 +29,7 @@ def login_user(request):
             if user.is_active:
                 login(request, user)
                 state = "Has iniciado sesion correctamente!"
+                return redirect('/')
             else:
                 state = "La cuenta no esta activa. Contacte con el administrador."
         else:
@@ -35,7 +37,13 @@ def login_user(request):
 
     return render(request,'login.html',{'state':state, 'username': username})
 
+@login_required(None,'login','/login/')
 def logout_user(request):
     """Funcion que cierra sesion de un usuario y redirecciona a la pantalla de login."""
     logout(request)
     return redirect("/")
+
+@login_required(None,'login','/login/')
+def dashboard(request):
+    """Funcion que muestra el menu principal del sistema"""
+    return render(request,'dashboard.html',{})

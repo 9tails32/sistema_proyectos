@@ -2,7 +2,7 @@
 from django.utils import timezone
 from django.db import models
 from login.models import Usuario
-from abm_clientes.models import Cliente
+from cliente.models import Cliente
 
 class Proyecto (models.Model):
     """

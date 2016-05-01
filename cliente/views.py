@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.template import RequestContext
 from django.views.generic import CreateView,ListView,UpdateView, DetailView
 from .models import Cliente
 from django.http import HttpResponseRedirect
@@ -25,8 +26,8 @@ def create_cliente (request):
             p.save()
             return HttpResponseRedirect('/cliente/')
     else:
-        form = ClienteForm
-        return render(request,'cliente_create.html', {'form': form})
+        form = ClienteForm()
+    return render(request,'cliente_create.html', {'form': form},context_instance=RequestContext(request))
 
 def update_cliente (request, pk):
     if request.method == 'POST':
@@ -40,5 +41,5 @@ def update_cliente (request, pk):
             return HttpResponseRedirect('/cliente/')
     else:
         cliente = Cliente.objects.get(pk = pk)
-        form = ClienteForm({'nombre':cliente.nombre, 'direccion':cliente.direccion, 'email':cliente.email})
-        return render(request, 'cliente_create.html', {'form': form})
+        form = ClienteForm(initial={'nombre':cliente.nombre, 'direccion':cliente.direccion, 'email':cliente.email})
+        return render(request, 'cliente_create.html', {'form': form,'cliente':cliente},context_instance=RequestContext(request))

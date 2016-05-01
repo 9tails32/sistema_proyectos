@@ -13,8 +13,6 @@ class ListProyecto (ListView):
     template_name = 'proyecto_list.html'
 
 
-
-
 def create_proyecto (request):
     if request.method == 'POST':
         form = ProyectoForm(request.POST)

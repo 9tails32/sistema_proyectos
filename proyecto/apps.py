@@ -3,5 +3,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class AbmClientesConfig(AppConfig):
-    name = 'abm_clientes'
+class AbmProyectosConfig(AppConfig):
+    name = 'proyecto'
