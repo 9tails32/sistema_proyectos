@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'login',
     'cliente',
     'proyecto',
-    'equipo'
+    'equipo',
+    'configuraciones',
 ]
 
 MIDDLEWARE_CLASSES = [
