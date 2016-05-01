@@ -25,7 +25,7 @@ class Proyecto (models.Model):
         ('ACT', 'Activo'),
         ('FIN', 'Finalizado'),)
     nombre = models.CharField(max_length=50, null=False)
-    fecha_creacion = models.DateField(default=timezone.now())
+    fecha_creacion = models.DateField(auto_now=True)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     lider_proyecto = models.ForeignKey(Usuario, related_name='Lider')

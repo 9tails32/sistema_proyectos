@@ -20,9 +20,9 @@ class Usuario (User):
         ('html', 'HTML'),
         ('txt', 'Texto Plano')
     )
-    noti_creacion_proyecto = models.BooleanField(name="Notificacion de proyectos creados")
-    noti_creacion_usuario = models.BooleanField(name="Notificacion de usuarios creados")
-    noti_creacion_equipos = models.BooleanField(name="Notificacion de equipos creados")
+    noti_creacion_proyecto = models.BooleanField(name="Notificacion de proyectos creados",default=True)
+    noti_creacion_usuario = models.BooleanField(name="Notificacion de usuarios creados",default=True)
+    noti_creacion_equipos = models.BooleanField(name="Notificacion de equipos creados",default=True)
 
     def __unicode__(self):
         return self.username

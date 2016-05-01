@@ -8,9 +8,9 @@ class Cliente (models.Model):
     nombre = models.CharField(max_length=100)
     direccion = models.CharField (max_length=100)
     email = models.EmailField()
+    activo = models.BooleanField(default=True)
+
     def __unicode__(self):
         return self.nombre
 
-    def get_absolute_url(self):
-        return reverse('author-detail', kwargs={'pk': self.pk})
 
