@@ -37,9 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Modulos de teceros
+
+    # Modulos Generados en el proyecto
     'login',
-    'abm_proyectos',
-    'abm_clientes',
+    'cliente',
+    'proyecto',
+    'equipo'
 ]
 
 MIDDLEWARE_CLASSES = [

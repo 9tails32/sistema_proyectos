@@ -1,7 +1,7 @@
 #encoding:utf-8
 from django import forms
 from login.models import Usuario
-from abm_clientes.models import Cliente
+from cliente.models import Cliente
 from django.utils import timezone
 
 class ProyectoForm(forms.Form):

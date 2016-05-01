@@ -11,14 +11,14 @@ from django.utils.timezone import utc
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('abm_proyectos', '0005_auto_20160427_0200'),
+        ('proyecto', '0005_auto_20160427_0200'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='proyecto',
             name='cliente',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='abm_clientes.Cliente'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='cliente.Cliente'),
         ),
         migrations.AlterField(
             model_name='proyecto',

@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
-from abm_clientes.models import Cliente
+from cliente.models import Cliente
 # Create your models here.
 
 class Usuario (User):
