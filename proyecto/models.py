@@ -1,12 +1,10 @@
 #encoding:utf-8
-from __future__ import unicode_literals
-
 from django.utils import timezone
 from django.db import models
 from login.models import Usuario
 from cliente.models import Cliente
 
-class Proyecto(models.Model):
+class Proyecto (models.Model):
     """
     Se crea la clase Proyecto, que hereda de Model de django, con los siguientes atributos:
     nombre : El nombre del proyecto.

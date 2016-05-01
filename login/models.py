@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from cliente.models import Cliente
 # Create your models here.
 
-class Usuario(User):
+class Usuario (User):
     """
     Se crea la clase Usuario que hereda del modelo User de django, para agregarle mas atributos.
     telefono = Numero de telefono del usuario.
