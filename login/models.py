@@ -14,6 +14,16 @@ class Usuario (User):
     cedula = models.PositiveIntegerField(default=0)
     direccion = models.TextField(max_length=50, blank=True, null=False)
 
+    # Configuraciones de usuario
+    hora_notificaciones = models.TimeField(null=True)
+    formato_notificaciones = (
+        ('html', 'HTML'),
+        ('txt', 'Texto Plano')
+    )
+    noti_creacion_proyecto = models.BooleanField(name="Notificacion de proyectos creados")
+    noti_creacion_usuario = models.BooleanField(name="Notificacion de usuarios creados")
+    noti_creacion_equipos = models.BooleanField(name="Notificacion de equipos creados")
+
     def __unicode__(self):
         return self.username
 

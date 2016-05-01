@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'cliente',
     'proyecto',
     'equipo',
-    'configuraciones',
 ]
 
 MIDDLEWARE_CLASSES = [
