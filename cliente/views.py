@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render
 from django.template import RequestContext
 from django.views.generic import CreateView,ListView,UpdateView, DetailView
@@ -5,23 +6,29 @@ from .models import Cliente
 from login.models import Telefono
 from django.http import HttpResponseRedirect
 from .forms import *
+
+
 # Create your views here.
+@login_required(None, 'login', '/login/')
+@permission_required('cliente.can_view',raise_exception=True)
+def list_cliente (request):
+    cliente_list = Cliente.objects.filter(activo=True)
 
-class ListCliente (ListView):
-    """
-        Vista generica de django que permite displayar un listado de los clientes activos existentes.
-    """
-    model = Cliente
-    queryset = Cliente.objects.filter(activo=True)
-    template_name = 'cliente_list.html'
+    return render(request,'cliente_list.html', {'cliente_list': cliente_list})
 
-class DetailCliente (DetailView):
-    """
-        Vista generica de django que permite displayar los detalles de un cliente seleccionado.
-    """
-    model = Cliente
-    template_name = 'cliente_detail.html'
+@login_required(None, 'login', '/login/')
+@permission_required('cliente.can_view',raise_exception=True)
+def detail_cliente(request,pk):
+    try:
+        cliente = Cliente.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/cliente/')
 
+    return render(request, 'cliente_detail.html', {'object': cliente})
+
+
+@login_required(None, 'login', '/login/')
+@permission_required('login.add_telefono',raise_exception=True)
 def create_telefono (request, pk):
     try:
         cliente = Cliente.objects.get(pk=pk)
@@ -42,7 +49,8 @@ def create_telefono (request, pk):
 
     return render(request,'edit_telefono.html', {'form': form})
 
-
+@login_required(None, 'login', '/login/')
+@permission_required('cliente.add_cliente',raise_exception=True)
 def create_cliente (request):
     """
         Funcion para crear cliente utilizando el form ClienteForm.
@@ -67,6 +75,8 @@ def create_cliente (request):
         form = ClienteForm()
     return render(request,'cliente_create.html', {'form': form},context_instance=RequestContext(request))
 
+@login_required(None, 'login', '/login/')
+@permission_required('cliente.change_cliente',raise_exception=True)
 def update_cliente (request, pk):
     """
         Funcion para actualizar cliente utilizando el form ClienteForm.
@@ -97,6 +107,8 @@ def update_cliente (request, pk):
         form = ClienteForm(initial={'nombre':cliente.nombre, 'direccion':cliente.direccion, 'email':cliente.email})
         return render(request, 'cliente_create.html', {'form': form,'cliente':cliente},context_instance=RequestContext(request))
 
+@login_required(None, 'login', '/login/')
+@permission_required('cliente.delete_cliente',raise_exception=True)
 def delete_cliente(request, pk):
     """
         Busca el cliente con pk igual al que es parametro y cambia su estado activo a False.

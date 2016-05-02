@@ -14,7 +14,7 @@ class Usuario (AbstractUser):
     direccion = models.TextField(max_length=50, blank=True, null=False)
 
     # Configuraciones de usuario
-    hora_notificaciones = models.TimeField(null=True)
+    hora_notificaciones = models.TimeField(null=True,default="00:00:00")
     formato = (
         ('htm', 'HTML'),
         ('txt', 'Texto Plano')

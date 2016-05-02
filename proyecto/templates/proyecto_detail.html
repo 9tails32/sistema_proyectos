@@ -8,7 +8,7 @@
 {% block content %}
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Proyectos</h1>
-            <a class="btn btn-default" href="/proyecto/create/">Crear nuevo</a>
+            {% if perms.proyecto.add_proyecto %}<a class="btn btn-primary" href="/proyecto/create/">Crear nuevo</a>{% endif %}
             <h2 class="sub-header">Detalle</h2>
             <p>Nombre: <strong>{{ object.nombre }}</strong></p>
             <p>Fecha de inicio: {{ object.fecha_inicio }}</p>
@@ -19,7 +19,10 @@
             <p>Estado: {{ object.get_estado_display }}</p>
             <p>Observaciones: {{ object.observaciones }}</p>
 
-            <a class="btn btn-default" href="/proyecto/update/{{ proyecto.id }}">Modificar</a><a class="btn btn-danger" href="/proyecto/delete/{{ proyecto.id }}">Eliminar</a>
+            {% if perms.proyecto.change_proyecto %}<a class="btn btn-default" role="button" href="/proyecto/update/{{ object.id }}">Modificar</a>{% endif %}
+            {% if perms.proyecto.delete_proyecto %}<a class="btn btn-danger" role="button" href="/proyecto/delete/{{ object.id }}">Eliminar</a>{% endif %}
+            {% if perms.proyecto.change_estado %}<a class="btn btn-default" role="button" href="/proyecto/cambiar_estado/{{ object.id }}">Cambiar estado</a>{% endif %}
+
         </div>
 {% endblock %}
 

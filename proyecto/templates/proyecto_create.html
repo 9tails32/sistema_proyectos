@@ -11,7 +11,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Proyectos</h1>
             <h2 class="sub-header">{% if proyecto %}Modificar proyecto {% else %} Crear nuevo proyecto{% endif %}</h2>
-            <div class="col-md-offset-4 col-md-4">
+            <div class="col-md-offset-3 col-md-6">
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="id_nombre">Nombre:</label>
@@ -65,11 +65,26 @@
   <script src="{% static 'jquery-ui-1.11.4/jquery-ui.js' %}"></script>
 
   <script>
+ $.datepicker.regional['es'] = {
+ closeText: 'Cerrar',
+ prevText: '<Ant',
+ nextText: 'Sig>',
+ currentText: 'Hoy',
+ monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+ monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+ dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+ dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+ dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+ weekHeader: 'Sm',
+ dateFormat: 'dd/mm/yy',
+ firstDay: 1,
+ isRTL: false,
+ showMonthAfterYear: false,
+ yearSuffix: ''
+ };
+ $.datepicker.setDefaults($.datepicker.regional['es']);
   $(function() {
-    $( "#id_fecha_inicio" ).datepicker();
-    $( "#id_fecha_inicio" ).datepicker("option","dateFormat", "dd/mm/yy");
-    $( "#id_fecha_fin" ).datepicker();
-    $( "#id_fecha_fin" ).datepicker("option","dateFormat", "dd/mm/yy");
+  $( ".selector" ).datepicker({dateFormat: "dd/mm/yy"});
   });
   </script>
 {% endblock %}

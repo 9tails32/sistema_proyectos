@@ -9,7 +9,7 @@
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Clientes</h1>
-            <a class="btn btn-default" href="/cliente/create/">Crear nuevo</a>
+            {% if perms.cliente.add_cliente %}<a class="btn btn-primary" href="/cliente/create/">Crear nuevo</a>{% endif %}
             <h2 class="sub-header">Listado</h2>
             <ul>
                 {% for cliente in cliente_list %}

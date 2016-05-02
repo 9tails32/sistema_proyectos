@@ -8,18 +8,20 @@
 {% block content %}
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Clientes</h1>
-            <a class="btn btn-default" href="/cliente/create/">Crear nuevo</a>
+            {% if perms.cliente.add_cliente %}<a class="btn btn-primary" href="/cliente/create/">Crear nuevo</a>{% endif %}
+
             <h2 class="sub-header">Detalle</h2>
             <p>Nombre: <strong>{{ object.nombre }}</strong></p>
             <p>Email: {{ object.email }}</p>
             <p>Direccion: {{ object.direccion }}</p>
-            <a class="btn btn-default" href="/cliente/update/{{ object.id }}">Modificar</a><a class="btn btn-danger" href="/cliente/delete/{{ object.id }}">Eliminar</a>
+            {% if perms.cliente.change_cliente %}<a class="btn btn-default" role="button" href="/cliente/update/{{ object.id }}">Modificar</a>{% endif %}
+            {% if perms.cliente.delete_cliente %}<a class="btn btn-danger" role="button" href="/cliente/delete/{{ object.id }}">Eliminar</a>{% endif %}
             <h2 class="sub-header">Teléfonos</h2>
-            <a class="btn btn-default" href="/cliente/add_telefono/{{object.id}}">Crear nuevo</a>
+            {% if perms.login.add_telefono %}<a class="btn btn-primary" href="/cliente/add_telefono/{{object.id}}">Crear nuevo</a>{% endif %}
             <br>
             <ul>
                 {% for tel in object.telefonos.all %}
-                <li>{{tel.numero}} <a href="/modificar_telefono/{{tel.id}}" class="text-primary">modificar</a> <a href="/delete_telefono/{{tel.id}}" class="text-danger">delete</a></li>
+                <li>{{tel.numero}}{% if perms.login.change_telefono %} <a href="/modificar_telefono/{{tel.id}}" class="text-primary">modificar</a>{% endif %}{% if perms.login.delete_telefono %} <a href="/delete_telefono/{{tel.id}}" class="text-danger">delete</a>{% endif %}</li>
                 {% endfor %}
             </ul>
 
