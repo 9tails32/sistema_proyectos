@@ -1,9 +1,9 @@
 from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DetailView
-from .models import Proyecto
+from proyecto.models import Proyecto
 from django.utils import timezone
-from .forms import *
+from proyecto.forms import *
 from django.http import HttpResponseRedirect
 from django.forms.models import modelform_factory
 from django import forms

@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from proyecto.models import Proyecto
-from .models import *
-from .forms import *
+from equipo.models import *
+from equipo.forms import *
 
 
 # Create your views here.
