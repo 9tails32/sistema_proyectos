@@ -41,10 +41,30 @@
         </div>
       </div>
     </nav>
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
 
+                <li class="{{dasboard}}"><a href="/">Dashboard <span class="sr-only">(current)</span></a></li>
+                {% if perms.cliente.can_view %}
+                <li class="{{cliente}}"><a href="/cliente/">Clientes</a></li>
+                {% endif %}
+                {% if perms.proyecto.can_view %}
+                <li class="{{proyecto}}"><a href="/proyecto/">Proyectos</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+    {% else %}
+    {% block login %}
+    {% endblock %}
     {% endif %}
-{% block content %}
-{% endblock %}
+
+
 
 <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>

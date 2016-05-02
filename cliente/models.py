@@ -21,4 +21,8 @@ class Cliente (models.Model):
     def __unicode__(self):
         return self.nombre
 
+    class Meta:
+        permissions = (
+            ("can_view", "Puede ver cliente"),
+        )
 
