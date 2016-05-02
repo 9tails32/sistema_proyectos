@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cliente.tests</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cliente-module.html">Package&nbsp;cliente</a> ::
+        Module&nbsp;tests
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cliente.tests-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="cliente.tests-module.html">Module cliente.tests</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">test</tt> <tt class="py-keyword">import</tt> <tt class="py-name">TestCase</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module cliente.models=cliente.models-module.html,Module equipo.models=equipo.models-module.html,Module login.models=login.models-module.html,Module proyecto.models=proyecto.models-module.html"><a title="cliente.models
+equipo.models
+login.models
+proyecto.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Class cliente.models.Cliente=cliente.models.Cliente-class.html"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-1', 'Cliente', 'link-1');">Cliente</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module cliente.forms=cliente.forms-module.html,Module equipo.forms=equipo.forms-module.html,Module login.forms=login.forms-module.html,Module proyecto.forms=proyecto.forms-module.html"><a title="cliente.forms
+equipo.forms
+login.forms
+proyecto.forms" class="py-name" href="#" onclick="return doclink('link-2', 'forms', 'link-2');">forms</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class cliente.forms.ClienteForm=cliente.forms.ClienteForm-class.html"><a title="cliente.forms.ClienteForm" class="py-name" href="#" onclick="return doclink('link-3', 'ClienteForm', 'link-3');">ClienteForm</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># Create your tests here.</tt> </tt>
+<a name="ClienteViewTest"></a><div id="ClienteViewTest-def"><a name="L6"></a><tt class="py-lineno"> 6</tt> <a class="py-toggle" href="#" id="ClienteViewTest-toggle" onclick="return toggle('ClienteViewTest');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="cliente.tests.ClienteViewTest-class.html">ClienteViewTest</a><tt class="py-op">(</tt><tt class="py-base-class">TestCase</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ClienteViewTest-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ClienteViewTest-expanded"><a name="ClienteViewTest.test_list"></a><div id="ClienteViewTest.test_list-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="ClienteViewTest.test_list-toggle" onclick="return toggle('ClienteViewTest.test_list');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cliente.tests.ClienteViewTest-class.html#test_list">test_list</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ClienteViewTest.test_list-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ClienteViewTest.test_list-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">        <tt class="py-name">resp</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">client</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'/cliente/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">resp</tt><tt class="py-op">.</tt><tt class="py-name">status_code</tt><tt class="py-op">,</tt> <tt class="py-number">200</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="ClienteViewTest.test_create"></a><div id="ClienteViewTest.test_create-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="ClienteViewTest.test_create-toggle" onclick="return toggle('ClienteViewTest.test_create');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cliente.tests.ClienteViewTest-class.html#test_create">test_create</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ClienteViewTest.test_create-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ClienteViewTest.test_create-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt id="link-4" class="py-name" targets="Package cliente=cliente-module.html,Variable login.models.Telefono.cliente=login.models.Telefono-class.html#cliente,Variable proyecto.forms.CambioEstadoForm.cliente=proyecto.forms.CambioEstadoForm-class.html#cliente,Variable proyecto.forms.ProyectoForm.cliente=proyecto.forms.ProyectoForm-class.html#cliente,Variable proyecto.models.Proyecto.cliente=proyecto.models.Proyecto-class.html#cliente"><a title="cliente
+login.models.Telefono.cliente
+proyecto.forms.CambioEstadoForm.cliente
+proyecto.forms.ProyectoForm.cliente
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-4', 'cliente', 'link-4');">cliente</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-5', 'Cliente', 'link-1');">Cliente</a></tt><tt class="py-op">(</tt><tt class="py-name">pk</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt id="link-6" class="py-name" targets="Variable cliente.forms.ClienteForm.nombre=cliente.forms.ClienteForm-class.html#nombre,Variable cliente.models.Cliente.nombre=cliente.models.Cliente-class.html#nombre,Variable equipo.forms.EquipoForm.nombre=equipo.forms.EquipoForm-class.html#nombre,Variable equipo.models.Equipo.nombre=equipo.models.Equipo-class.html#nombre,Variable proyecto.forms.CambioEstadoForm.nombre=proyecto.forms.CambioEstadoForm-class.html#nombre,Variable proyecto.forms.ProyectoForm.nombre=proyecto.forms.ProyectoForm-class.html#nombre,Variable proyecto.models.Proyecto.nombre=proyecto.models.Proyecto-class.html#nombre"><a title="cliente.forms.ClienteForm.nombre
+cliente.models.Cliente.nombre
+equipo.forms.EquipoForm.nombre
+equipo.models.Equipo.nombre
+proyecto.forms.CambioEstadoForm.nombre
+proyecto.forms.ProyectoForm.nombre
+proyecto.models.Proyecto.nombre" class="py-name" href="#" onclick="return doclink('link-6', 'nombre', 'link-6');">nombre</a></tt><tt class="py-op">=</tt><tt class="py-string">'cliente'</tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Variable cliente.forms.ClienteForm.email=cliente.forms.ClienteForm-class.html#email,Variable cliente.models.Cliente.email=cliente.models.Cliente-class.html#email"><a title="cliente.forms.ClienteForm.email
+cliente.models.Cliente.email" class="py-name" href="#" onclick="return doclink('link-7', 'email', 'link-7');">email</a></tt><tt class="py-op">=</tt><tt class="py-string">'asdd@hotmail.com'</tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name" targets="Variable cliente.forms.ClienteForm.direccion=cliente.forms.ClienteForm-class.html#direccion,Variable cliente.models.Cliente.direccion=cliente.models.Cliente-class.html#direccion,Variable login.models.Usuario.direccion=login.models.Usuario-class.html#direccion"><a title="cliente.forms.ClienteForm.direccion
+cliente.models.Cliente.direccion
+login.models.Usuario.direccion" class="py-name" href="#" onclick="return doclink('link-8', 'direccion', 'link-8');">direccion</a></tt><tt class="py-op">=</tt><tt class="py-string">'azara'</tt><tt class="py-op">)</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">        <tt id="link-9" class="py-name"><a title="cliente
+login.models.Telefono.cliente
+proyecto.forms.CambioEstadoForm.cliente
+proyecto.forms.ProyectoForm.cliente
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-9', 'cliente', 'link-4');">cliente</a></tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertTrue</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-10', 'Cliente', 'link-1');">Cliente</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">filter</tt><tt class="py-op">(</tt><tt id="link-11" class="py-name"><a title="cliente.forms.ClienteForm.nombre
+cliente.models.Cliente.nombre
+equipo.forms.EquipoForm.nombre
+equipo.models.Equipo.nombre
+proyecto.forms.CambioEstadoForm.nombre
+proyecto.forms.ProyectoForm.nombre
+proyecto.models.Proyecto.nombre" class="py-name" href="#" onclick="return doclink('link-11', 'nombre', 'link-6');">nombre</a></tt><tt class="py-op">=</tt><tt class="py-string">'cliente'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-name">resp</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">client</tt><tt class="py-op">.</tt><tt class="py-name">post</tt><tt class="py-op">(</tt><tt class="py-string">'/cliente/create/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">resp</tt><tt class="py-op">.</tt><tt class="py-name">status_code</tt><tt class="py-op">,</tt> <tt class="py-number">200</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="ClienteViewTest.test_update"></a><div id="ClienteViewTest.test_update-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="ClienteViewTest.test_update-toggle" onclick="return toggle('ClienteViewTest.test_update');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cliente.tests.ClienteViewTest-class.html#test_update">test_update</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ClienteViewTest.test_update-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ClienteViewTest.test_update-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt id="link-12" class="py-name"><a title="cliente
+login.models.Telefono.cliente
+proyecto.forms.CambioEstadoForm.cliente
+proyecto.forms.ProyectoForm.cliente
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-12', 'cliente', 'link-4');">cliente</a></tt><tt class="py-op">=</tt><tt id="link-13" class="py-name"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-13', 'Cliente', 'link-1');">Cliente</a></tt><tt class="py-op">(</tt><tt class="py-name">pk</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt id="link-14" class="py-name"><a title="cliente.forms.ClienteForm.nombre
+cliente.models.Cliente.nombre
+equipo.forms.EquipoForm.nombre
+equipo.models.Equipo.nombre
+proyecto.forms.CambioEstadoForm.nombre
+proyecto.forms.ProyectoForm.nombre
+proyecto.models.Proyecto.nombre" class="py-name" href="#" onclick="return doclink('link-14', 'nombre', 'link-6');">nombre</a></tt><tt class="py-op">=</tt><tt class="py-string">'cliente'</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="cliente
+login.models.Telefono.cliente
+proyecto.forms.CambioEstadoForm.cliente
+proyecto.forms.ProyectoForm.cliente
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-15', 'cliente', 'link-4');">cliente</a></tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-name">resp</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">client</tt><tt class="py-op">.</tt><tt class="py-name">post</tt><tt class="py-op">(</tt><tt class="py-string">'/cliente/update/1'</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">resp</tt><tt class="py-op">.</tt><tt class="py-name">status_code</tt><tt class="py-op">,</tt> <tt class="py-number">301</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertTrue</tt><tt class="py-op">(</tt><tt id="link-16" class="py-name"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-16', 'Cliente', 'link-1');">Cliente</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">filter</tt><tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="cliente.forms.ClienteForm.nombre
+cliente.models.Cliente.nombre
+equipo.forms.EquipoForm.nombre
+equipo.models.Equipo.nombre
+proyecto.forms.CambioEstadoForm.nombre
+proyecto.forms.ProyectoForm.nombre
+proyecto.models.Proyecto.nombre" class="py-name" href="#" onclick="return doclink('link-17', 'nombre', 'link-6');">nombre</a></tt><tt class="py-op">=</tt><tt class="py-string">'cliente'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon May  2 14:13:40 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
