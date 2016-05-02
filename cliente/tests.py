@@ -6,7 +6,7 @@ from .forms import ClienteForm
 class ClienteViewTest(TestCase):
     def test_list(self):
         resp = self.client.get('/cliente/')
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 302)
 
     def test_create(self):
         cliente = Cliente(pk=1, nombre='cliente', email='asdd@hotmail.com', direccion='azara')
@@ -14,7 +14,7 @@ class ClienteViewTest(TestCase):
 
         self.assertTrue(Cliente.objects.filter(nombre='cliente').exists())
         resp = self.client.post('/cliente/create/')
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 302)
 
     def test_update(self):
         cliente=Cliente(pk=1, nombre='cliente')
