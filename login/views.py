@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from models import Telefono
 from cliente.forms import TelefonoForm
+from login.forms import ConfiguracionForm
 
 
 def login_user(request):
@@ -38,21 +39,24 @@ def login_user(request):
         else:
             state = "Su nombre de usuario o password es incorrecto/a."
 
-    return render(request,'login.html',{'state':state, 'username': username})
+    return render(request, 'login.html', {'state': state, 'username': username})
 
-@login_required(None,'login','/login/')
+
+@login_required(None, 'login', '/login/')
 def logout_user(request):
     """Funcion que cierra sesion de un usuario y redirecciona a la pantalla de login."""
     logout(request)
     return redirect("/")
 
-@login_required(None,'login','/login/')
+
+@login_required(None, 'login', '/login/')
 def dashboard(request):
     """Funcion que muestra el menu principal del sistema"""
-    return render(request,'dashboard.html',{})
+    return render(request, 'dashboard.html', {})
 
-@login_required(None,'login','/login/')
-def delete_telefono(request,pk):
+
+@login_required(None, 'login', '/login/')
+def delete_telefono(request, pk):
     try:
         telefono = Telefono.objects.get(pk=pk)
     except:
@@ -61,14 +65,15 @@ def delete_telefono(request,pk):
     if telefono.cliente:
         aux = telefono.cliente
         telefono.delete()
-        return HttpResponseRedirect('/cliente/'+str(aux.id))
+        return HttpResponseRedirect('/cliente/' + str(aux.id))
     else:
         aux = telefono.usuario
         telefono.delete()
-        return HttpResponseRedirect('/usuario/'+str(aux.id))
+        return HttpResponseRedirect('/usuario/' + str(aux.id))
 
-@login_required(None,'login','/login/')
-def modificar_telefono (request, pk):
+
+@login_required(None, 'login', '/login/')
+def modificar_telefono(request, pk):
     try:
         t = Telefono.objects.get(pk=pk)
     except:
@@ -85,10 +90,22 @@ def modificar_telefono (request, pk):
             else:
                 return HttpResponseRedirect('/usuario/' + str(t.usuario.id))
     else:
-        form = TelefonoForm({'telefono':t.numero})
+        form = TelefonoForm({'telefono': t.numero})
 
-    return render(request,'edit_telefono.html', {'form': form})
+    return render(request, 'edit_telefono.html', {'form': form})
+
 
 def configuracion(request):
     """funcion paa la configuracion del sistema"""
-    return render(request,'configuracion.html',{})
+
+    if request.method == 'POST':
+        form = ConfiguracionForm(request.POST)
+    else:
+        usuario = request.user
+        form = ConfiguracionForm({'hora_notificacion': usuario.hora_notificacion,
+                                  'formato_notificacion': usuario.formato_notificacion,
+                                  'noti_creacion_proyecto': usuario.noti_creacion_proyecto,
+                                  'noti_creacion_usuario': usuario.noti_creacion_usuario,
+                                  'noti_creacion_equipo': usuario.noti_creacion_equipo
+                                  })
+        return render(request, 'configuracion.html', {'form': form, 'usuario': usuario})

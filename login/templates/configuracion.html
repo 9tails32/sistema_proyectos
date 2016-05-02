@@ -17,13 +17,13 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Configuraciones</h1>
-            <h2 class="sub-header">{% if proyecto %}Modificar proyecto {% else %} Crear nuevo proyecto{% endif %}</h2>
+            <h2 class="sub-header">Configuraciones de usuario y sistema</h2>
             <div class="col-md-offset-4 col-md-4">
                 <form action="" method="post">
                     <div class="form-group">
-                        <label for="id_nombre">Nombre:</label>
-                        {{form.nombre}}
-                        <p class="text-danger">{{form.nombre.errors.0}}</p>
+                        <label for="id_nombre">Hora de notificacion</label>
+                        {{form.hora_notificacion}}
+                        <p class="text-danger">{{form.hora_notificacion.errors.0}}</p>
                     </div>
                     <div class="form-group">
                         <label for="id_fecha_inicio">Fecha inicio:</label>
