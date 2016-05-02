@@ -12,7 +12,8 @@ class CambioEstadoForm(forms.Form):
         ('PEN', 'Pendiente'),
         ('ANU', 'Anulado'),
         ('ACT', 'Activo'),
-        ('FIN', 'Finalizado'),)
+        ('FIN', 'Finalizado'),
+    )
     nombre = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'class':'form-control','readonly':'true',}))
     fecha_inicio = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control','readonly':'true',}),required=True)
     fecha_fin = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control','readonly':'true',}),required=True)
@@ -27,18 +28,13 @@ class ProyectoForm(forms.Form):
     """
     Form para crear o editar Proyecto
     """
-    opciones_estado = (
-        ('PEN', 'Pendiente'),
-        ('ANU', 'Anulado'),
-        ('ACT', 'Activo'),
-        ('FIN', 'Finalizado'),)
+
     nombre = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'class':'form-control',}))
     fecha_inicio = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control selector',}),required=True)
     fecha_fin = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control selector',}),required=True)
     lider_proyecto = forms.ModelChoiceField(queryset=Usuario.objects.all(),widget=forms.Select(attrs={'class':'form-control',}))
     cliente = forms.ModelChoiceField(queryset=Cliente.objects.filter(activo=True),widget=forms.Select(attrs={'class':'form-control',}))
     descripcion = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control',}), max_length=140, help_text='Introduzca una breve reseña del proyecto')
-    estado = forms.ChoiceField(choices=opciones_estado,widget=forms.Select(attrs={'class':'form-control',}), help_text='Estado del proyecto')
     observaciones = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control',}),max_length=140, initial='No hay observaciones.')
 
 

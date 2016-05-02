@@ -60,7 +60,7 @@ def create_proyecto (request):
             p = Proyecto(nombre=cd['nombre'],
                          fecha_inicio=cd['fecha_inicio'], fecha_fin=cd['fecha_fin'],
                          lider_proyecto=cd['lider_proyecto'], cliente=cd['cliente'],
-                         descripcion=cd['descripcion'], estado=cd['estado'], observaciones=cd['observaciones'])
+                         descripcion=cd['descripcion'], observaciones=cd['observaciones'])
             p.save()
             return HttpResponseRedirect('/proyecto/' + str(p.id))
         else:
@@ -136,7 +136,6 @@ def update_proyecto (request, pk):
             proyecto.lider_proyecto=cd['lider_proyecto']
             proyecto.cliente=cd['cliente']
             proyecto.descripcion= cd['descripcion']
-            proyecto.estado= cd['estado']
             proyecto.observaciones= cd['observaciones']
             proyecto.save()
             return HttpResponseRedirect('/proyecto/'+str(proyecto.id))
@@ -145,7 +144,7 @@ def update_proyecto (request, pk):
         form = ProyectoForm(initial={'nombre':proyecto.nombre,
                              'fecha_fin':proyecto.fecha_fin, 'fecha_inicio': proyecto.fecha_inicio,
                              'lider_proyecto':proyecto.lider_proyecto, 'cliente': proyecto.cliente,
-                             'descripcion': proyecto.descripcion, 'estado': proyecto.estado,
+                             'descripcion': proyecto.descripcion,
                              'observaciones':proyecto.observaciones})
         return render(request, 'proyecto_create.html', {'form': form,'proyecto':proyecto})
 

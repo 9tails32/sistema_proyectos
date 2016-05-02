@@ -23,7 +23,7 @@
             {% for proyecto,permisos in proyectos %}
 
             <tr>
-              <td>{% if 'view_proyecto' in permisos %}<a href="/proyecto/{{proyecto.id}}">{{proyecto.nombre}}</a>{% else %}{{proyecto.nombre}}  {% endif %}</td>
+              <td>{% if 'view_proyecto' in permisos or proyecto.lider_proyecto == user %}<a href="/proyecto/{{proyecto.id}}">{{proyecto.nombre}}</a>{% else %}{{proyecto.nombre}}  {% endif %}</td>
               <td>{{proyecto.lider_proyecto}}</td>
               <td>{{proyecto.cliente}}</td>
               <td>{{proyecto.get_estado_display}}{{permisos}}</td>
