@@ -3,8 +3,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from models import Telefono, Usuario
+from proyecto.models import Proyecto
 from cliente.forms import TelefonoForm
 from login.forms import ConfiguracionForm
+from django.db.models import Q
 
 
 def login_user(request):
@@ -52,7 +54,18 @@ def logout_user(request):
 @login_required(None, 'login', '/login/')
 def dashboard(request):
     """Funcion que muestra el menu principal del sistema"""
-    return render(request, 'dashboard.html', {})
+    user= request.user
+    if user.equipos:
+        result = []
+        proyectos = Proyecto.objects.filter(Q(activo=True,equipos__in=user.equipos.values('id')) |Q(activo=True,lider_proyecto=user) ).distinct()
+
+        for p in proyectos:
+            permisos = []
+            equipos = p.equipos.all().values_list('permisos__codename', flat=True)#.filter(usuarios=user.id).distinct().values_list('permisos__codename', flat=True)
+            permisos.extend(equipos)
+            result.append([p,permisos])
+
+    return render(request, 'dashboard.html', {'proyectos':result})
 
 
 @login_required(None, 'login', '/login/')

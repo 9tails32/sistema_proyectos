@@ -9,7 +9,6 @@ from .forms import *
 # Create your views here.
 
 @login_required(None, 'login', '/login/')
-@permission_required('equipo.add_equipo',raise_exception=True)
 def create_equipo (request, pk):
     try:
         proyecto = Proyecto.objects.get(pk=pk)

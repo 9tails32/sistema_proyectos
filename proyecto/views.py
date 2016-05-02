@@ -11,14 +11,16 @@ from django import forms
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('proyecto.can_view', raise_exception=True)
+@permission_required('proyecto.view_proyecto', raise_exception=True)
 def list_proyecto(request):
     """
         Vista que permite displayar un listado de los proyectos existentes.
         """
+
     queryset = Proyecto.objects.filter(activo=True)
     return render(request, 'proyecto_list.html', {'proyecto_list': queryset})
 
+@login_required(None, 'login', '/login/')
 def detail_proyecto(request,pk):
     """
         Vista que permite displayar los detalles de un proyecto seleccionado.
@@ -28,7 +30,15 @@ def detail_proyecto(request,pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    return render(request, 'proyecto_detail.html', {'object': proyecto})
+    permisos = proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
+    permisos2 = []
+    for i in proyecto.equipos.filter(usuarios=request.user.id).distinct():
+        permisos2.extend(i.permisos.all())
+
+    if not 'view_proyecto' in permisos and not request.user.is_superuser and not request.user==proyecto.lider_proyecto:
+        return HttpResponseRedirect('/proyecto/')
+
+    return render(request, 'proyecto_detail.html', {'object': proyecto,'permisos':permisos,'permisos2':permisos2})
 
 @login_required(None, 'login', '/login/')
 @permission_required('proyecto.add_proyecto', raise_exception=True)

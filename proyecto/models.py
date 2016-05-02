@@ -40,7 +40,7 @@ class Proyecto (models.Model):
 
     class Meta:
         permissions = (
-            ("can_view", "Puede ver proyecto"),
+            ("view_proyecto", "Puede ver proyecto"),
             ("change_estado", "Puede cambiar el estado del proyecto"),
         )
 
