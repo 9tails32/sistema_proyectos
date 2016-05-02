@@ -3,13 +3,13 @@
 {% block head %}
     <title>Log in</title>
 {% endblock %}}
-{% block content %}
+{% block login %}
 <div class="container" style="margin-top: 15%">
     {% if user.is_authenticated %}
         <div class="col-md-offset-4">
         {{ state }}
         <a href="/logout/">Logout</a>
-        <div>
+        </div>
     {% else %}
         <div class="col-md-offset-4 col-md-4">
 
@@ -28,5 +28,6 @@
                 </div>
             </form>
         </div>
+            </div>
     {% endif %}
 {% endblock%}

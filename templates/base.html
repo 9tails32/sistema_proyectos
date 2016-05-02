@@ -20,33 +20,51 @@
     {% endblock %}
 </head>
 <body>
-{% if user.is_authenticated %}
+    {% if user.is_authenticated %}
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Sistema Proyectos</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li><a href="/logout/">Logout</a></li>
-                    <li><a href="/configuracion/">Configuraciones</a></li>
-                </ul>
-            </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Sistema Proyectos</a>
         </div>
-    </nav>
+        <div id="navbar" class="navbar-collapse collapse">
 
-{% endif %}
-{% block content %}
-{% endblock %}
+          <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="/logout/">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+
+                <li class="{{dasboard}}"><a href="/">Dashboard <span class="sr-only">(current)</span></a></li>
+                {% if perms.cliente.can_view %}
+                <li class="{{cliente}}"><a href="/cliente/">Clientes</a></li>
+                {% endif %}
+                {% if perms.proyecto.can_view %}
+                <li class="{{proyecto}}"><a href="/proyecto/">Proyectos</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+    {% else %}
+    {% block login %}
+    {% endblock %}
+    {% endif %}
+
+
 
 <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>

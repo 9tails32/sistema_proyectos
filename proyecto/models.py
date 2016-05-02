@@ -38,6 +38,11 @@ class Proyecto (models.Model):
     cliente = models.ForeignKey(Cliente, on_delete= models.DO_NOTHING)
     activo = models.BooleanField(default=True)
 
+    class Meta:
+        permissions = (
+            ("can_view", "Puede ver proyecto"),
+        )
+
     def hacerLider (self, lider):
         self.lider_proyecto=lider
         self.save()
