@@ -30,3 +30,17 @@ def create_equipo (request, pk):
         form = EquipoForm()
 
     return render(request,'equipo_create.html', {'form': form})
+
+@login_required(None, 'login', '/login/')
+def delete_equipo(request, pk):
+    try:
+        equipo = Equipo.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/')
+
+    proyecto = equipo.proyecto
+
+    equipo.delete()
+
+    return HttpResponseRedirect('/proyecto/'+str(proyecto.id))
+
