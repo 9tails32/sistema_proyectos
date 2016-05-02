@@ -33,6 +33,7 @@ class Proyecto (models.Model):
     estado = models.CharField(max_length=3, choices=opciones_estado, default='PEN', help_text='Estado del proyecto')
     observaciones = models.TextField(max_length=140, null=True, default='No hay observaciones')
     cliente = models.ForeignKey(Cliente, on_delete= models.DO_NOTHING)
+    activo = models.BooleanField(default=True)
 
     def hacerLider (self, lider):
         self.lider_proyecto=lider

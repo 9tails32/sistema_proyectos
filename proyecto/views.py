@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView
 from .models import Proyecto
 from django.utils import timezone
 from .forms import ProyectoForm
@@ -12,6 +12,9 @@ class ListProyecto (ListView):
     model = Proyecto
     template_name = 'proyecto_list.html'
 
+class DetailProyecto(DetailView):
+    model = Proyecto
+    template_name = 'proyecto_detail.html'
 
 def create_proyecto (request):
     if request.method == 'POST':
@@ -32,13 +35,16 @@ def create_proyecto (request):
         return render(request,'proyecto_create.html', {'form': form})
 
 def update_proyecto (request, pk):
+    try:
+        proyecto = Proyecto.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
     if request.method == 'POST':
         form = ProyectoForm(request.POST)
         if form.is_valid():
             cd=form.cleaned_data
-            proyecto = Proyecto.objects.get(pk=pk)
             proyecto.nombre= cd['nombre']
-            proyecto.fecha_creacion= cd['fecha_creacion']
             proyecto.fecha_fin= cd['fecha_fin']
             proyecto.fecha_inicio= cd['fecha_inicio']
             proyecto.lider_proyecto=cd['lider_proyecto']
@@ -46,14 +52,24 @@ def update_proyecto (request, pk):
             proyecto.descripcion= cd['descripcion']
             proyecto.estado= cd['estado']
             proyecto.observaciones= cd['observaciones']
-
-            return HttpResponseRedirect('/cliente/')
+            proyecto.save()
+            return HttpResponseRedirect('/proyecto/')
     else:
         proyecto = Proyecto.objects.get(pk = pk)
-        form = ProyectoForm({'nombre':proyecto.nombre, 'fecha_creacion':proyecto.fecha_creacion,
+        form = ProyectoForm({'nombre':proyecto.nombre,
                              'fecha_fin':proyecto.fecha_fin, 'fecha_inicio': proyecto.fecha_inicio,
                              'lider_proyecto':proyecto.lider_proyecto, 'cliente': proyecto.cliente,
                              'descripcion': proyecto.descripcion, 'estado': proyecto.estado,
                              'observaciones':proyecto.observaciones})
-        return render(request, 'cliente_create.html', {'form': form})
+        return render(request, 'proyecto_create.html', {'form': form,'proyecto':proyecto})
 
+def delete_proyecto(request, pk):
+    try:
+        proyecto = Proyecto.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    proyecto.activo = False
+    proyecto.save()
+
+    return HttpResponseRedirect('/proyecto/')
