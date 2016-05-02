@@ -1,8 +1,9 @@
 from django.conf.urls import include, url
-from . import views
+from .views import *
 
 urlpatterns = [
-    url(r'^$', views.dashboard),
-    url(r'^login/', views.login_user),
-    url(r'^logout/',views.logout_user),
+    url(r'^$', dashboard),
+    url(r'^login/', login_user),
+    url(r'^logout/', logout_user),
+    url(r'configuracion/', configuracion, name='configuracion'),
 ]

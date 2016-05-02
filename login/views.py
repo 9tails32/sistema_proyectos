@@ -47,3 +47,7 @@ def logout_user(request):
 def dashboard(request):
     """Funcion que muestra el menu principal del sistema"""
     return render(request,'dashboard.html',{})
+
+def configuracion(request):
+    """Funcion para la configuracion del sistema"""
+    return render(request,'configuracion.html',{})
