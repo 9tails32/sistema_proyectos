@@ -7,16 +7,32 @@ from .forms import ClienteForm
 # Create your views here.
 
 class ListCliente (ListView):
+    """
+        Vista generica de django que permite displayar un listado de los clientes activos existentes.
+    """
     model = Cliente
     queryset = Cliente.objects.filter(activo=True)
     template_name = 'cliente_list.html'
 
 class DetailCliente (DetailView):
+    """
+        Vista generica de django que permite displayar los detalles de un cliente seleccionado.
+    """
     model = Cliente
     template_name = 'cliente_detail.html'
 
 
 def create_cliente (request):
+    """
+        Funcion para crear cliente utilizando el form ClienteForm.
+        Recibe en el request el form completado, o displaya uno vacio en caso de que no se llame a
+        post. Controla la validez del form antes de guardarlo como un cliente nuevo en la base de datos.
+        Parametros: Recibe el request.
+        Retorna:
+        -El render del template cliente_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de clientes si el form es valido
+
+    """
     if request.method == 'POST':
         form = ClienteForm(request.POST)
         if form.is_valid():
@@ -31,6 +47,17 @@ def create_cliente (request):
     return render(request,'cliente_create.html', {'form': form},context_instance=RequestContext(request))
 
 def update_cliente (request, pk):
+    """
+        Funcion para actualizar cliente utilizando el form ClienteForm.
+        Recibe en el request el form completado, o displaya uno con los datos previos del cliente en
+        caso de que no se llame a post. Controla la validez del form antes de guardarlo como un cliente
+        nuevo en la base de datos.
+        Parametros: Recibe el request y el pk del cliente a editar.
+        Retorna:
+        -El render del template cliente_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de clientes si el form es valido
+
+    """
     try:
         cliente = Cliente.objects.get(pk=pk)
     except:
@@ -50,6 +77,11 @@ def update_cliente (request, pk):
         return render(request, 'cliente_create.html', {'form': form,'cliente':cliente},context_instance=RequestContext(request))
 
 def delete_cliente(request, pk):
+    """
+        Busca el cliente con pk igual al que es parametro y cambia su estado activo a False.
+        Parametros: recibe el request y el pk del cliente a eliminar.
+        Retorna: Redireccion a lista de clientes.
+    """
     try:
         cliente = Cliente.objects.get(pk=pk)
     except:

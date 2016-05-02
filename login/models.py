@@ -7,7 +7,6 @@ from cliente.models import Cliente
 class Usuario (User):
     """
     Se crea la clase Usuario que hereda del modelo User de django, para agregarle mas atributos.
-    telefono = Numero de telefono del usuario.
     cedula = numero de cedula del usuario.
     direccion = direccion del usuario.
     """
@@ -28,6 +27,13 @@ class Usuario (User):
         return self.username
 
 class Telefono (models.Model):
+    """
+    Se crea la clase Telefono que hereda del moodelo Model de django.
+    numero : Integer que representa al telefono.
+    cliente : CCliente asociado al telefono.
+    usuario : Usuario asociado al telefono.
+
+    """
     numero = models.PositiveIntegerField(default=0)
     cliente = models.ForeignKey(Cliente, null=True)
     usuario = models.ForeignKey(Usuario, null=True)

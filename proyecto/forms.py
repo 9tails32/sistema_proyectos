@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class ProyectoForm(forms.Form):
     """
-    Clase para crear Proyecto
+    Form para crear o editar Proyecto
     """
     opciones_estado = (
         ('PEN', 'Pendiente'),

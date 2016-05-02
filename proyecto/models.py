@@ -15,6 +15,9 @@ class Proyecto (models.Model):
     descripcion : breve descripcion del proyecto.
     estado : Estado actual del proyecto, puede ser Pendiente, Anulado, Activo o Finalizado.
     Obvservaciones : Ciertas observaciones del proyecto.
+    cliente : Cliente que solicito el proyecto.
+    activo : variable que determina un estado de "eliminado" para el Proyecto.
+
 
     Metodos:
     hacerLider : Establece un Usuario como lider del proyecto.
