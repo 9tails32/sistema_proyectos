@@ -10,6 +10,7 @@ from django import forms
 
 class ListProyecto (ListView):
     model = Proyecto
+    queryset = Proyecto.objects.filter(activo=True)
     template_name = 'proyecto_list.html'
 
 class DetailProyecto(DetailView):
