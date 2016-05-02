@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -27,10 +26,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Modulos de teceros
-
     # Modulos Generados en el proyecto
     'login',
     'cliente',
@@ -51,7 +49,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -78,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sistema_proyectos.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -88,7 +85,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -122,14 +118,42 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
 
-#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (
-os.path.join(BASE_DIR, "static"),
-#'/var/www/static/',
+    os.path.join(BASE_DIR, "static"),
+    # '/var/www/static/',
 )
+
+SUIT_CONFIG = {
+    # header
+    'ADMIN_NAME': 'Sistema Proyectos 2016 - Administrador',
+    # 'HEADER_DATE_FORMAT': 'l, j. F Y',
+    # 'HEADER_TIME_FORMAT': 'H:i',
+
+    # forms
+    # 'SHOW_REQUIRED_ASTERISK': True,  # Default True
+    # 'CONFIRM_UNSAVED_CHANGES': True, # Default True
+
+    # menu
+    # 'SEARCH_URL': '/admin/auth/user/',
+    # 'MENU_ICONS': {
+    #    'sites': 'icon-leaf',
+    #    'auth': 'icon-lock',
+    # },
+    # 'MENU_OPEN_FIRST_CHILD': True, # Default True
+    # 'MENU_EXCLUDE': ('auth.group',),
+    # 'MENU': (
+    #     'sites',
+    #     {'app': 'auth', 'icon':'icon-lock', 'models': ('user', 'group')},
+    #     {'label': 'Settings', 'icon':'icon-cog', 'models': ('auth.user', 'auth.group')},
+    #     {'label': 'Support', 'icon':'icon-question-sign', 'url': '/support/'},
+    # ),
+
+    # misc
+    # 'LIST_PER_PAGE': 15
+}
