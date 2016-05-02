@@ -1,6 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from models import Telefono
+from cliente.forms import TelefonoForm
 
 
 def login_user(request):
@@ -47,3 +50,45 @@ def logout_user(request):
 def dashboard(request):
     """Funcion que muestra el menu principal del sistema"""
     return render(request,'dashboard.html',{})
+
+@login_required(None,'login','/login/')
+def delete_telefono(request,pk):
+    try:
+        telefono = Telefono.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/')
+
+    if telefono.cliente:
+        aux = telefono.cliente
+        telefono.delete()
+        return HttpResponseRedirect('/cliente/'+str(aux.id))
+    else:
+        aux = telefono.usuario
+        telefono.delete()
+        return HttpResponseRedirect('/usuario/'+str(aux.id))
+
+@login_required(None,'login','/login/')
+def modificar_telefono (request, pk):
+    try:
+        t = Telefono.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/')
+
+    if request.method == 'POST':
+        form = TelefonoForm(request.POST)
+        if form.is_valid():
+            telefono = form.cleaned_data['telefono']
+            t.numero = telefono
+            t.save()
+            if t.cliente:
+                return HttpResponseRedirect('/cliente/' + str(t.cliente.id))
+            else:
+                return HttpResponseRedirect('/usuario/' + str(t.usuario.id))
+    else:
+        form = TelefonoForm({'telefono':t.numero})
+
+    return render(request,'edit_telefono.html', {'form': form})
+
+
+
+

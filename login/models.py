@@ -35,8 +35,8 @@ class Telefono (models.Model):
 
     """
     numero = models.PositiveIntegerField(default=0)
-    cliente = models.ForeignKey(Cliente, null=True)
-    usuario = models.ForeignKey(Usuario, null=True)
+    cliente = models.ForeignKey(Cliente, null=True, related_name="telefonos")
+    usuario = models.ForeignKey(Usuario, null=True, related_name="telefonos")
 
 
     def __unicode__(self):

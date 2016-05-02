@@ -13,6 +13,7 @@ class ListProyecto (ListView):
     Vista generica de django que permite displayar un listado de los proyectos existentes.
     """
     model = Proyecto
+    queryset = Proyecto.objects.filter(activo=True)
     template_name = 'proyecto_list.html'
 
 class DetailProyecto(DetailView):
