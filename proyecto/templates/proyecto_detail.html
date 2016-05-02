@@ -18,14 +18,17 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Proyectos</h1>
             <a class="btn btn-default" href="/proyecto/create/">Crear nuevo</a>
-            <h2 class="sub-header">Listado</h2>
-            <ul>
-                {% for proyecto in proyecto_list %}
-                <li><a href="/proyecto/{{ proyecto.pk }}">{{ proyecto.nombre }}</a></li>
-                {% empty %}
-                <li>No existe ningun proyecto.</li>
-                {% endfor %}
-            </ul>
+            <h2 class="sub-header">Detalle</h2>
+            <p>Nombre: <strong>{{ object.nombre }}</strong></p>
+            <p>Fecha de inicio: {{ object.fecha_inicio }}</p>
+            <p>Fecha de fin: {{ object.fecha_fin }}</p>
+            <p>Lider del proyecto: {{ object.lider_proyecto }}</p>
+            <p>Cliente: {{ object.cliente }}</p>
+            <p>Descripción: {{ object.descripcion }}</p>
+            <p>Estado: {{ object.get_estado_display }}</p>
+            <p>Observaciones: {{ object.observaciones }}</p>
+
+            <a class="btn btn-default" href="/proyecto/update/{{ proyecto.id }}">Modificar</a><a class="btn btn-danger" href="/proyecto/delete/{{ proyecto.id }}">Eliminar</a>
         </div>
     </div>
 </div>

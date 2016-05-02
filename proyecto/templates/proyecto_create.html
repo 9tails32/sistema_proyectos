@@ -1,180 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Proyecto</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+<title>Proyecto</title>
+<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'jquery-ui-1.11.4/jquery-ui.css' %}">
 
+{% endblock %}
 
-<form action="" method="post">
-    <table>
-        <tr>
-            <th><label for="id_nombre">Nombre:</label></th>
-            <td><input id="id_nombre" maxlength="50" name="nombre" type="text"/></td>
-        </tr>
-        <tr>
-            <th><label for="id_fecha_inicio_day">Fecha inicio:</label></th>
-            <td><select id="id_fecha_inicio_day" name="fecha_inicio_day">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
-            </select>
-                <select id="id_fecha_inicio_month" name="fecha_inicio_month">
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Mayo</option>
-                    <option value="6">Junio</option>
-                    <option value="7">Julio</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Septiembre</option>
-                    <option value="10">Octubre</option>
-                    <option value="11">Noviembre</option>
-                    <option value="12">Diciembre</option>
-                </select>
-                <select id="id_fecha_inicio_year" name="fecha_inicio_year">
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                </select></td>
-        </tr>
-        <tr>
-            <th><label for="id_fecha_fin_day">Fecha fin:</label></th>
-            <td><select id="id_fecha_fin_day" name="fecha_fin_day">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
-            </select>
-                <select id="id_fecha_fin_month" name="fecha_fin_month">
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Mayo</option>
-                    <option value="6">Junio</option>
-                    <option value="7">Julio</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Septiembre</option>
-                    <option value="10">Octubre</option>
-                    <option value="11">Noviembre</option>
-                    <option value="12">Diciembre</option>
-                </select>
-                <select id="id_fecha_fin_year" name="fecha_fin_year">
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                </select></td>
-        </tr>
-        <tr>
-            <th><label for="id_lider_proyecto">Lider proyecto:</label></th>
-            <td><select id="id_lider_proyecto" name="lider_proyecto">
-                <option value="" selected="selected">---------</option>
-                <option value="2">ruben2</option>
-            </select></td>
-        </tr>
-        <tr>
-            <th><label for="id_cliente">Cliente:</label></th>
-            <td><select id="id_cliente" name="cliente">
-                <option value="" selected="selected">---------</option>
-                <option value="1">pclabs</option>
-                <option value="2">Pollos</option>
-                <option value="3">Polloz</option>
-            </select></td>
-        </tr>
-        <tr>
-            <th><label for="id_descripcion">Descripcion:</label></th>
-            <td><textarea cols="40" id="id_descripcion" maxlength="140" name="descripcion" rows="10">
-</textarea><br/><span class="helptext">Introduzca una breve reseña del proyecto</span></td>
-        </tr>
-        <tr>
-            <th><label for="id_estado">Estado:</label></th>
-            <td><select id="id_estado" name="estado">
-                <option value="PEN">Pendiente</option>
-                <option value="ANU">Anulado</option>
-                <option value="ACT">Activo</option>
-                <option value="FIN">Finalizado</option>
-            </select><br/><span class="helptext">Estado del proyecto</span></td>
-        </tr>
-        <tr>
-            <th><label for="id_observaciones">Observaciones:</label></th>
-            <td><textarea cols="40" id="id_observaciones" maxlength="140" name="observaciones" rows="10">
-No hay observaciones.</textarea></td>
-        </tr>
-    </table>
-    <input type='hidden' name='csrfmiddlewaretoken' value='Z9QaLztxKZy4BLDNtr6PVdqpWO49ALKC'/>
-    <input type="submit" value="Submit">
-</form>
-</body>
-</html>
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="/">Dashboard <span class="sr-only">(current)</span></a></li>
+                <li><a href="/cliente/">Clientes</a></li>
+                <li  class="active"><a href="/proyecto/">Proyectos</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Proyectos</h1>
+            <h2 class="sub-header">{% if proyecto %}Modificar proyecto {% else %} Crear nuevo proyecto{% endif %}</h2>
+            <div class="col-md-offset-4 col-md-4">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="id_nombre">Nombre:</label>
+                        {{form.nombre}}
+                        <p class="text-danger">{{form.nombre.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_fecha_inicio">Fecha inicio:</label>
+                        {{form.fecha_inicio}}
+                        <p class="text-danger">{{form.fecha_inicio.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_fecha_fin">Fecha fin:</label>
+                        {{form.fecha_fin}}
+                        <p class="text-danger">{{form.fecha_fin.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_lider_proyecto">Lider del proyecto:</label>
+                        {{form.lider_proyecto}}
+                        <p class="text-danger">{{form.lider_proyecto.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_cliente">Cliente:</label>
+                        {{form.cliente}}
+                        <p class="text-danger">{{form.cliente.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_descripcion">Descripcion:</label>
+                        {{form.descripcion}}
+                        <p class="text-danger">{{form.descripcion.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_estado">Estado:</label>
+                        {{form.estado}}
+                        <p class="text-danger">{{form.estado.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_observaciones">Observaciones:</label>
+                        {{form.observaciones}}
+                        <p class="text-danger">{{form.observaciones.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="form-control primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'jquery-ui-1.11.4/jquery-ui.js' %}"></script>
+
+  <script>
+  $(function() {
+    $( "#id_fecha_inicio" ).datepicker();
+    $( "#id_fecha_inicio" ).datepicker("option","dateFormat", "dd/mm/yy");
+    $( "#id_fecha_fin" ).datepicker();
+    $( "#id_fecha_fin" ).datepicker("option","dateFormat", "dd/mm/yy");
+  });
+  </script>
+{% endblock %}

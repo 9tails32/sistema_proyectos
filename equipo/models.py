@@ -10,4 +10,4 @@ from proyecto.models import Proyecto
 
 
 class Equipo(Group):
-    proyecto = models.ForeignKey(Proyecto)
+    proyecto = models.ForeignKey(Proyecto,null=True)

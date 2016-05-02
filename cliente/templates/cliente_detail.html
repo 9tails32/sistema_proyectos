@@ -22,9 +22,20 @@
             <p>Nombre: <strong>{{ object.nombre }}</strong></p>
             <p>Email: {{ object.email }}</p>
             <p>Direccion: {{ object.direccion }}</p>
-            <a class="btn btn-default" href="/cliente/update/{{ user.id }}">Modificar</a><a class="btn btn-danger" href="/cliente/update/{{ user.id }}">Eliminar</a>
+            <a class="btn btn-default" href="/cliente/update/{{ object.id }}">Modificar</a><a class="btn btn-danger" href="/cliente/delete/{{ object.id }}">Eliminar</a>
+            <h2 class="sub-header">Teléfonos</h2>
+            <a class="btn btn-default" href="/cliente/add_telefono/{{object.id}}">Crear nuevo</a>
+            <br>
+            <ul>
+                {% for tel in object.telefonos.all %}
+                <li>{{tel.numero}} <a href="/modificar_telefono/{{tel.id}}" class="text-primary">modificar</a> <a href="/delete_telefono/{{tel.id}}" class="text-danger">delete</a></li>
+                {% endfor %}
+            </ul>
+
+
         </div>
     </div>
 </div>
 {% endblock %}
+
 

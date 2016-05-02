@@ -15,6 +15,9 @@ class Proyecto (models.Model):
     descripcion : breve descripcion del proyecto.
     estado : Estado actual del proyecto, puede ser Pendiente, Anulado, Activo o Finalizado.
     Obvservaciones : Ciertas observaciones del proyecto.
+    cliente : Cliente que solicito el proyecto.
+    activo : variable que determina un estado de "eliminado" para el Proyecto.
+
 
     Metodos:
     hacerLider : Establece un Usuario como lider del proyecto.
@@ -25,7 +28,7 @@ class Proyecto (models.Model):
         ('ACT', 'Activo'),
         ('FIN', 'Finalizado'),)
     nombre = models.CharField(max_length=50, null=False)
-    fecha_creacion = models.DateField(default=timezone.now())
+    fecha_creacion = models.DateField(auto_now=True)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     lider_proyecto = models.ForeignKey(Usuario, related_name='Lider')
@@ -33,6 +36,7 @@ class Proyecto (models.Model):
     estado = models.CharField(max_length=3, choices=opciones_estado, default='PEN', help_text='Estado del proyecto')
     observaciones = models.TextField(max_length=140, null=True, default='No hay observaciones')
     cliente = models.ForeignKey(Cliente, on_delete= models.DO_NOTHING)
+    activo = models.BooleanField(default=True)
 
     def hacerLider (self, lider):
         self.lider_proyecto=lider
