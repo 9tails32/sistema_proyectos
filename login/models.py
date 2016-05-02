@@ -1,10 +1,10 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from cliente.models import Cliente
 # Create your models here.
 
-class Usuario (User):
+class Usuario (AbstractUser):
     """
     Se crea la clase Usuario que hereda del modelo User de django, para agregarle mas atributos.
     cedula = numero de cedula del usuario.
