@@ -22,43 +22,28 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="id_nombre">Hora de notificacion</label>
-                        {{form.hora_notificacion}}
-                        <p class="text-danger">{{form.hora_notificacion.errors.0}}</p>
+                        {{form.hora_notificaciones}}
+                        <p class="text-danger">{{form.hora_notificaciones.errors.0}}</p>
                     </div>
                     <div class="form-group">
-                        <label for="id_fecha_inicio">Fecha inicio:</label>
-                        {{form.fecha_inicio}}
-                        <p class="text-danger">{{form.fecha_inicio.errors.0}}</p>
+                        <label for="id_fecha_inicio">Formato de notificaciones</label>
+                        {{form.formato_notificaciones}}
+                        <p class="text-danger">{{form.formato_notificaciones.errors.0}}</p>
                     </div>
                     <div class="form-group">
-                        <label for="id_fecha_fin">Fecha fin:</label>
-                        {{form.fecha_fin}}
-                        <p class="text-danger">{{form.fecha_fin.errors.0}}</p>
+                        <label for="id_fecha_fin">Notificar por creacion de Proyecto</label>
+                        {{form.noti_creacion_proyecto}}
+                        <p class="text-danger">{{form.noti_creacion_proyecto.errors.0}}</p>
                     </div>
                     <div class="form-group">
-                        <label for="id_lider_proyecto">Lider del proyecto:</label>
-                        {{form.lider_proyecto}}
-                        <p class="text-danger">{{form.lider_proyecto.errors.0}}</p>
+                        <label for="id_lider_proyecto">Notificar por creacion de Equipo</label>
+                        {{form.noti_creacion_equipo}}
+                        <p class="text-danger">{{form.noti_creacion_equipo.errors.0}}</p>
                     </div>
                     <div class="form-group">
-                        <label for="id_cliente">Cliente:</label>
-                        {{form.cliente}}
-                        <p class="text-danger">{{form.cliente.errors.0}}</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_descripcion">Descripcion:</label>
-                        {{form.descripcion}}
-                        <p class="text-danger">{{form.descripcion.errors.0}}</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_estado">Estado:</label>
-                        {{form.estado}}
-                        <p class="text-danger">{{form.estado.errors.0}}</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_observaciones">Observaciones:</label>
-                        {{form.observaciones}}
-                        <p class="text-danger">{{form.observaciones.errors.0}}</p>
+                        <label for="id_cliente">Notificar por creacion de Usuario</label>
+                        {{form.noti_creacion_usuario}}
+                        <p class="text-danger">{{form.noti_creacion_usuario.errors.0}}</p>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Submit" class="form-control primary">

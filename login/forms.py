@@ -14,3 +14,5 @@ class ConfiguracionForm(forms.Form):
     noti_creacion_proyecto = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class':'form-control'}),help_text="Notificacion de proyectos creados")
     noti_creacion_usuario = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class':'form-control'}),help_text="Notificacion de usuarios creados")
     noti_creacion_equipo = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class':'form-control'}),help_text="Notificacion de equipos creados")
+
+

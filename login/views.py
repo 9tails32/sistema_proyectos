@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from models import Telefono
+from models import Telefono, Usuario
 from cliente.forms import TelefonoForm
 from login.forms import ConfiguracionForm
 
@@ -98,14 +98,20 @@ def modificar_telefono(request, pk):
 def configuracion(request):
     """funcion paa la configuracion del sistema"""
 
+    try:
+        usuario = Usuario.objects.get(pk=request.user.id)
+    except:
+        return HttpResponseRedirect('/login/')
+
     if request.method == 'POST':
         form = ConfiguracionForm(request.POST)
+        return HttpResponseRedirect('/login/')
     else:
-        usuario = request.user
-        form = ConfiguracionForm({'hora_notificacion': usuario.hora_notificacion,
-                                  'formato_notificacion': usuario.formato_notificacion,
+        usuario = Usuario.objects.get(pk=request.user.id)
+        form = ConfiguracionForm({'hora_notificacion': usuario.hora_notificaciones,
+                                  'formato_notificacion': usuario.formato_notificaciones,
                                   'noti_creacion_proyecto': usuario.noti_creacion_proyecto,
                                   'noti_creacion_usuario': usuario.noti_creacion_usuario,
-                                  'noti_creacion_equipo': usuario.noti_creacion_equipo
+                                  'noti_creacion_equipo': usuario.noti_creacion_equipos
                                   })
         return render(request, 'configuracion.html', {'form': form, 'usuario': usuario})
