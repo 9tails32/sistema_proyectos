@@ -43,11 +43,13 @@
                         {{form.descripcion}}
                         <p class="text-danger">{{form.descripcion.errors.0}}</p>
                     </div>
+                    {% if proyecto and form.estado %}
                     <div class="form-group">
                         <label for="id_estado">Estado:</label>
                         {{form.estado}}
                         <p class="text-danger">{{form.estado.errors.0}}</p>
                     </div>
+                    {% endif %}
                     <div class="form-group">
                         <label for="id_observaciones">Observaciones:</label>
                         {{form.observaciones}}

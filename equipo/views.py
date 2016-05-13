@@ -2,14 +2,13 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from proyecto.models import Proyecto
-from .models import *
-from .forms import *
+from equipo.models import *
+from equipo.forms import *
 
 
 # Create your views here.
 
 @login_required(None, 'login', '/login/')
-@permission_required('equipo.add_equipo',raise_exception=True)
 def create_equipo (request, pk):
     try:
         proyecto = Proyecto.objects.get(pk=pk)
@@ -31,3 +30,17 @@ def create_equipo (request, pk):
         form = EquipoForm()
 
     return render(request,'equipo_create.html', {'form': form})
+
+@login_required(None, 'login', '/login/')
+def delete_equipo(request, pk):
+    try:
+        equipo = Equipo.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/')
+
+    proyecto = equipo.proyecto
+
+    equipo.delete()
+
+    return HttpResponseRedirect('/proyecto/'+str(proyecto.id))
+

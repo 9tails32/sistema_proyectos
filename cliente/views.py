@@ -2,10 +2,10 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render
 from django.template import RequestContext
 from django.views.generic import CreateView,ListView,UpdateView, DetailView
-from .models import Cliente
+from cliente.models import Cliente
 from login.models import Telefono
 from django.http import HttpResponseRedirect
-from .forms import *
+from cliente.forms import *
 
 
 # Create your views here.

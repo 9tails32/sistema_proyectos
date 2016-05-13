@@ -8,12 +8,12 @@ from .forms import ProyectoForm
 class TestViewProyecto(TestCase):
     def test_list(self):
         resp = self.client.get('/proyecto/')
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 302)
 
     def test_create_template(self):
 
         resp = self.client.get('/proyecto/create/')
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 302)
 
     def test_create_form_valid(self):
         usuario = Usuario(username= 'user1', password= 'pass')

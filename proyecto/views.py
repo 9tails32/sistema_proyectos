@@ -1,9 +1,9 @@
 from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DetailView
-from .models import Proyecto
+from proyecto.models import Proyecto
 from django.utils import timezone
-from .forms import *
+from proyecto.forms import *
 from django.http import HttpResponseRedirect
 from django.forms.models import modelform_factory
 from django import forms
@@ -11,14 +11,16 @@ from django import forms
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('proyecto.can_view', raise_exception=True)
+@permission_required('proyecto.view_proyecto', raise_exception=True)
 def list_proyecto(request):
     """
         Vista que permite displayar un listado de los proyectos existentes.
         """
+
     queryset = Proyecto.objects.filter(activo=True)
     return render(request, 'proyecto_list.html', {'proyecto_list': queryset})
 
+@login_required(None, 'login', '/login/')
 def detail_proyecto(request,pk):
     """
         Vista que permite displayar los detalles de un proyecto seleccionado.
@@ -28,7 +30,15 @@ def detail_proyecto(request,pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    return render(request, 'proyecto_detail.html', {'object': proyecto})
+    permisos = proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
+    permisos2 = []
+    for i in proyecto.equipos.filter(usuarios=request.user.id).distinct():
+        permisos2.extend(i.permisos.all())
+
+    if not 'view_proyecto' in permisos and not request.user.is_superuser and not request.user==proyecto.lider_proyecto:
+        return HttpResponseRedirect('/proyecto/')
+
+    return render(request, 'proyecto_detail.html', {'object': proyecto,'permisos':permisos,'permisos2':permisos2})
 
 @login_required(None, 'login', '/login/')
 @permission_required('proyecto.add_proyecto', raise_exception=True)
@@ -50,7 +60,7 @@ def create_proyecto (request):
             p = Proyecto(nombre=cd['nombre'],
                          fecha_inicio=cd['fecha_inicio'], fecha_fin=cd['fecha_fin'],
                          lider_proyecto=cd['lider_proyecto'], cliente=cd['cliente'],
-                         descripcion=cd['descripcion'], estado=cd['estado'], observaciones=cd['observaciones'])
+                         descripcion=cd['descripcion'], observaciones=cd['observaciones'])
             p.save()
             return HttpResponseRedirect('/proyecto/' + str(p.id))
         else:
@@ -126,7 +136,6 @@ def update_proyecto (request, pk):
             proyecto.lider_proyecto=cd['lider_proyecto']
             proyecto.cliente=cd['cliente']
             proyecto.descripcion= cd['descripcion']
-            proyecto.estado= cd['estado']
             proyecto.observaciones= cd['observaciones']
             proyecto.save()
             return HttpResponseRedirect('/proyecto/'+str(proyecto.id))
@@ -135,7 +144,7 @@ def update_proyecto (request, pk):
         form = ProyectoForm(initial={'nombre':proyecto.nombre,
                              'fecha_fin':proyecto.fecha_fin, 'fecha_inicio': proyecto.fecha_inicio,
                              'lider_proyecto':proyecto.lider_proyecto, 'cliente': proyecto.cliente,
-                             'descripcion': proyecto.descripcion, 'estado': proyecto.estado,
+                             'descripcion': proyecto.descripcion,
                              'observaciones':proyecto.observaciones})
         return render(request, 'proyecto_create.html', {'form': form,'proyecto':proyecto})
 

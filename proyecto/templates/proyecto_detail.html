@@ -22,14 +22,18 @@
             {% if perms.proyecto.change_proyecto %}<a class="btn btn-default" role="button" href="/proyecto/update/{{ object.id }}">Modificar</a>{% endif %}
             {% if perms.proyecto.delete_proyecto %}<a class="btn btn-danger" role="button" href="/proyecto/delete/{{ object.id }}">Eliminar</a>{% endif %}
             {% if perms.proyecto.change_estado %}<a class="btn btn-default" role="button" href="/proyecto/cambiar_estado/{{ object.id }}">Cambiar estado</a>{% endif %}
+
             <h2 class="sub-header">Equipos</h2>
-            <a class="btn btn-primary" href="/equipo/create/{{object.id}}/">Crear nuevo</a>
+            {% if perms.equipo.add_equipo or 'add_equipo' in permisos %}<a class="btn btn-primary" href="/equipo/create/{{object.id}}/">Crear nuevo</a>{% endif %}
             <table class="table table-responsive">
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Integrantes</th>
                         <th>Permisos</th>
+                        {% if 'delete_equipo' in permisos %}
+                        <th></th>
+                        {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +42,9 @@
                         <td>{{equipo.nombre}}</td>
                         <td><ul>{% for u in equipo.usuarios.all %}<li>{{u}}</li>{% endfor %}</ul></td>
                         <td><ul>{% for p in equipo.permisos.all %}<li>{{p}}</li>{% endfor %}</ul></td>
+                        {% if 'delete_equipo' in permisos %}
+                        <td><a class="text-danger" href="/equipo/delete/{{equipo.id}}">remove</a></td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                 </tbody>
