@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'proyecto',
     'equipo',
     'sprint',
+    'tipoUS',
+    'flujo',
+    'US'
 ]
 
 MIDDLEWARE_CLASSES = [
