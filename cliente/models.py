@@ -23,6 +23,6 @@ class Cliente (models.Model):
 
     class Meta:
         permissions = (
-            ("can_view", "Puede ver cliente"),
+            ("ver_cliente", "Puede ver cliente"),
         )
 
