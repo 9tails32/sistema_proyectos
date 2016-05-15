@@ -30,18 +30,18 @@ class Actividades(models.Model):
 
 
 class US(models.Model):
-    proyecto = models.ForeignKey(Proyecto)
+    proyecto = models.ForeignKey(Proyecto,null=True)
     sprint = models.ForeignKey(Sprint, null=True)
     descripcion_corta = models.TextField(default="")
     descripcion_larga = models.TextField(default="")
     tiempo_planificado = models.IntegerField(default=0)
     valor_negocio = models.IntegerField(default=0)  # 0 a 4
     urgencia = models.IntegerField(default=0)  # 0 a 4
-    usuario_asignado = models.ForeignKey(Usuario)
+    usuario_asignado = models.ForeignKey(Usuario, null=True)
 
     tipoUS = models.ForeignKey(TipoUS)
 
-    actividad = models.ForeignKey(Actividades, limit_choices_to={'tipoUS': tipoUS})
+    actividad = models.ForeignKey(Actividades, limit_choices_to={'tipoUS': tipoUS},null=True)
 
     options_estado_actividad = (
         ('TOD', 'Todo'),
