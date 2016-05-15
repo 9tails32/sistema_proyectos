@@ -62,6 +62,8 @@ class US(models.Model):
         permissions = (
             ("ver_US", "Puede ver US"),
             ("crear_US", "Puede crear US"),
+            ("change_actividad","Puede cambiar actividad"),
+            ("change_estado_actividad","Puede cambiar el estado de actividad"),
         )
 
     def __unicode__(self):

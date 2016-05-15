@@ -175,7 +175,6 @@ def update_tipo_us (request, pk):
     return render(request, 'tipo_us_create.html', {'form': form,'tipo_us':tipo_us})
 
 @login_required(None, 'login', '/login/')
-@permission_required('us.ver_tipo_US', raise_exception=True)
 def detail_us(request,pk):
     """
         Vista que permite displayar los detalles de un proyecto seleccionado.
@@ -185,4 +184,59 @@ def detail_us(request,pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    return render(request, 'us_detail.html', {'object': us})
+    permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
+
+    return render(request, 'us_detail.html', {'object': us,'permisos':permisos})
+
+@login_required(None, 'login', '/login/')
+def delete_us(request, pk):
+    """
+    Busca el proyecto con pk igual al que es parametro y cambia su estado activo a False.
+    Parametros: recibe el request y el pk del proyecto a eliminar.
+    Retorna: Redireccion a lista de proyectos.
+    """
+    try:
+        us = US.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+    proyecto = us.proyecto
+    us.delete()
+
+    return HttpResponseRedirect('/proyecto/' + str(proyecto.id))
+
+@login_required(None, 'login', '/login/')
+@permission_required('')
+def update_us(request, pk):
+    try:
+        us = US.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    equipos = us.proyecto.equipos.all()
+    usuarios = Usuario.objects.filter(Q(equipos__in=equipos) | Q(lider=us.proyecto)).distinct()
+    if request.method == 'POST':
+        form = USForm(request.POST)
+        form.fields["usuario_asignado"].queryset = usuarios
+        if form.is_valid():
+            us.descripcion_corta = form.cleaned_data['descripcion_corta']
+            us.descripcion_larga = form.cleaned_data['descripcion_larga']
+            us.tiempo_planificado = form.cleaned_data['tiempo_planificado']
+            us.valor_negocio = form.cleaned_data['valor_negocio']
+            us.urgencia = form.cleaned_data['urgencia']
+            us.usuario_asignado = form.cleaned_data['usuario_asignado']
+            us.tipoUS = form.cleaned_data['tipoUS']
+            us.save()
+            return HttpResponseRedirect('/us/us/' + str(us.id))
+    else:
+        form = USForm(initial={'descripcion_corta': us.descripcion_corta,
+                               'descripcion_larga':us.descripcion_larga,
+                               'tiempo_planificado':us.tiempo_planificado,
+                               'valor_negocio':us.valor_negocio,
+                               'urgencia':us.urgencia,
+                               'usuario_asignado':us.usuario_asignado,
+                               'tipoUS':us.tipoUS})
+
+    form.fields["usuario_asignado"].queryset = usuarios
+
+
+    return render(request, 'us_create.html', {'form': form,'us':us}, )
