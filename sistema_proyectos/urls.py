@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^proyecto/', include('proyecto.urls')),
     url(r'^cliente/', include ('cliente.urls')),
     url(r'^equipo/', include('equipo.urls')),
+    url(r'^sprint/', include('sprint.urls')),
 ]

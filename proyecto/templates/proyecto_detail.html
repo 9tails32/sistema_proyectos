@@ -50,6 +50,28 @@
                 </tbody>
 
             </table>
+
+            <h2 class="sub-header">Sprints</h2>
+            {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}<a class="btn btn-primary" href="/sprint/create/{{object.id}}/">Crear nuevo</a>{% endif %}
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Duración</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sprint in object.sprints.all %}
+                    <tr>
+                        <td>{{sprint.nombre}}</td>
+                        <td>{{sprint.duracion}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
         </div>
 {% endblock %}
 

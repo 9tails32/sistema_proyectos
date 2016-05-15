@@ -15,3 +15,5 @@ class Sprint(models.Model):
             ("ver_sprint", "Puede ver Sprint"),
             ("crear_sprint", "Puede crear un nuevo Sprint"),
         )
+    def __unicode__(self):
+        return self.nombre
