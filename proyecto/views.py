@@ -31,14 +31,11 @@ def detail_proyecto(request,pk):
         return HttpResponseRedirect('/proyecto/')
 
     permisos = proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
-    permisos2 = []
-    for i in proyecto.equipos.filter(usuarios=request.user.id).distinct():
-        permisos2.extend(i.permisos.all())
 
     if not 'view_proyecto' in permisos and not request.user.is_superuser and not request.user==proyecto.lider_proyecto:
         return HttpResponseRedirect('/proyecto/')
 
-    return render(request, 'proyecto_detail.html', {'object': proyecto,'permisos':permisos,'permisos2':permisos2})
+    return render(request, 'proyecto_detail.html', {'object': proyecto,'permisos':permisos})
 
 @login_required(None, 'login', '/login/')
 @permission_required('proyecto.add_proyecto', raise_exception=True)

@@ -30,7 +30,8 @@
 
         <h2 class="sub-header">Equipos</h2>
         {% if perms.equipo.add_equipo or 'add_equipo' in permisos %}
-            <a class="btn btn-primary" href="/equipo/create/{{ object.id }}/">Crear nuevo</a>{% endif %}
+            <a class="btn btn-primary" href="/equipo/create/{{ object.id }}/">Crear nuevo</a>
+        {% endif %}
         <table class="table table-responsive">
             <thead>
             <tr>
@@ -65,7 +66,12 @@
 
         <h2 class="sub-header">Sprints</h2>
         {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
-            <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>{% endif %}
+            {% if object.us.all %}
+            <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>
+            {% else %}
+            <a class="btn btn-primary" href="#" onClick="alert('No puedes crear Sprints sin tener algun us')">Crear nuevo</a>
+            {% endif %}
+        {% endif %}
         <table class="table table-responsive">
             <thead>
             <tr>
