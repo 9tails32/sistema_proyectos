@@ -104,7 +104,7 @@ def create_us(request, pk):
             us.usuario_asignado = form.cleaned_data['usuario_asignado']
             us.tipoUS = form.cleaned_data['tipoUS']
             us.save()
-            return HttpResponseRedirect('/us/us' + str(us.id))
+            return HttpResponseRedirect('/us/us/' + str(us.id))
 
     return render(request, 'us_create.html', {'form': form}, )
 
