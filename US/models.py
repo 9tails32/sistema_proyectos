@@ -17,6 +17,11 @@ class TipoUS(models.Model):
             ("crear_Tipo_US", "Puede crear Tipos de US"),
         )
 
+    def __unicode__(self):
+        return self.nombre
+
+
+
 
 class Actividades(models.Model):
     nombre = models.TextField(default="")
@@ -28,10 +33,13 @@ class Actividades(models.Model):
             ("crear_actividades", "Puede crear actividades"),
         )
 
+    def __unicode__(self):
+        return self.nombre
+
 
 class US(models.Model):
     proyecto = models.ForeignKey(Proyecto,null=True)
-    sprint = models.ForeignKey(Sprint, null=True)
+    sprint = models.ForeignKey(Sprint, null=True,blank=True)
     descripcion_corta = models.TextField(default="")
     descripcion_larga = models.TextField(default="")
     tiempo_planificado = models.IntegerField(default=0)
@@ -55,3 +63,6 @@ class US(models.Model):
             ("ver_US", "Puede ver US"),
             ("crear_US", "Puede crear US"),
         )
+
+    def __unicode__(self):
+        return unicode(self.descripcion_corta)

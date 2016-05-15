@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required, permission_required
+from django.db.models import Q
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.forms import formset_factory, BaseFormSet
@@ -66,8 +67,12 @@ def create_us(request, pk):
     except:
         print 'Error'
 
+    form = USForm(request.POST or None)
+    equipos = proyecto.equipos.all()
+    usuarios = Usuario.objects.filter(Q(equipos__in=equipos) | Q(lider=proyecto)).distinct()
+
+    form.fields["usuario_asignado"].queryset = usuarios
     if request.method == 'POST':
-        form = USForm(request.POST)
         if form.is_valid():
             us = US()
             us.proyecto = proyecto
@@ -78,12 +83,7 @@ def create_us(request, pk):
             us.urgencia = form.cleaned_data['urgencia']
             us.usuario_asignado = form.cleaned_data['usuario_asignado']
             us.tipoUS = form.cleaned_data['tipoUS']
-            us.actividad = form.cleaned_data['actividad']
-            us.estado_actividad = form.cleaned_data['estado_actividad']
             us.save()
+            return HttpResponseRedirect('/us/us' + str(us.id))
 
-            return HttpResponseRedirect('/us/us/' + str(us.id))
-        else:
-            form = TipoUSForm()
-
-        return render(request, 'us_create.html', {'form': form}, )
+    return render(request, 'us_create.html', {'form': form}, )

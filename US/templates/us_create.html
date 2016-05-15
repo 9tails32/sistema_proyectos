@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+<title>US</title>
+<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'jquery-ui-1.11.4/jquery-ui.css' %}">
+
+{% endblock %}
+
+{% block content %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">US</h1>
+            <h2 class="sub-header">{% if us %}Modificar US {% else %} Crear nuevo US{% endif %}</h2>
+            <div class="col-md-offset-3 col-md-6">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="id_descripcion_corta">Descripcion corta:</label>
+                        {{form.descripcion_corta}}
+                        <p class="text-danger">{{form.descripcion_corta.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_descripcion_larga">Descripcion larga:</label>
+                        {{form.descripcion_larga}}
+                        <p class="text-danger">{{form.descripcion_larga.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_tiempo_planificado">Tiempo Planificado:</label>
+                        {{form.tiempo_planificado}}
+                        <p class="text-danger">{{form.tiempo_planificado.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_valor_negocio">Valor de negocio:</label>
+                        {{form.valor_negocio}}
+                        <p class="text-danger">{{form.valor_negocio.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_urgencia">Urgencia:</label>
+                        {{form.urgencia}}
+                        <p class="text-danger">{{form.urgencia.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_tipoUS">Tipo US:</label>
+                        {{form.tipoUS}}
+                        <p class="text-danger">{{form.tipoUS.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_usuario_asignado">usuario_asignado:</label>
+                        {{form.usuario_asignado}}
+                        <p class="text-danger">{{form.usuario_asignado.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="form-control primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'jquery-ui-1.11.4/jquery-ui.js' %}"></script>
+{% endblock %}
