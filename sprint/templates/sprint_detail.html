@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+    <title>Sprints</title>
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'jquery-ui-1.11.4/jquery-ui.css' %}">
+
+{% endblock %}
+{% block content %}
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Sprint</h1>
+        {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
+            {% if object.uss.all %}
+                <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>
+            {% else %}
+                <a class="btn btn-primary" href="#"
+                   onClick="alert('No puedes crear Sprints sin tener algun us')">Crear
+                    nuevo</a>
+            {% endif %}
+        {% endif %}
+        <h2 class="sub-header">Detalle</h2>
+        <p>Nombre: <strong>{{ sprint.nombre }}</strong></p>
+        <p>Duracion: <strong>{{ sprint.duracion }}</strong></p>
+
+        {% if perms.tipous.change_tipous %}
+            <a class="btn btn-default" role="button" href="/us/tipo/update/{{ object.id }}/">Modificar</a>{% endif %}
+        {% if perms.proyecto.delete_tipous and not object.uss.all %}
+            <a class="btn btn-danger" role="button" href="/us/tipo/delete/{{ object.id }}/">Eliminar</a>
+        {% endif %}
+
+
+        <h2 class="sub-header">US</h2>
+        {% if perms.actividades.add_actividad %}
+            <a class="btn btn-primary" href="/us/actividades/create/{{ object.id }}/">Agregar</a>
+        {% endif %}
+        <table class="table table-responsive">
+            <thead>
+            <tr>
+                <th>Descripcion Corta</th>
+                <th>Tipo US</th>
+                <th>Actividad</th>
+                <th>Estado</th>
+                {% if perms.us.delete_us and not sprint.uss.all %}
+                    <th></th>
+                {% endif %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for us in object.uss.all %}
+                <tr>
+                    <td><a href="/us/us/{{ us.id }}/">{{ us.descripcion_corta }}</a></td>
+                    <td>{{ us.tipoUS }}</td>
+                    {% if us.actividad %}
+                        <td>{{ us.actividad }}</td>
+                        <td>{{ us.get_estado_actividad_display }}</td>
+                    {% else %}
+                        <td>Actividad no asignada</td>
+                    {% endif %}
+                    {% if perms.us.delete_us and not object.uss.all %}
+                        <td><a class="text-danger" href="/us/actividades/delete/{{ act.id }}/">remove</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}

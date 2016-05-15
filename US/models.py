@@ -38,7 +38,7 @@ class Actividades(models.Model):
 
 
 class US(models.Model):
-    sprint = models.ForeignKey(Sprint, null=True,blank=True)
+    sprint = models.ForeignKey(Sprint, null=True,blank=True, related_name='uss')
     proyecto = models.ForeignKey(Proyecto,null=True,related_name='uss')
     descripcion_corta = models.TextField(default="")
     descripcion_larga = models.TextField(default="")
