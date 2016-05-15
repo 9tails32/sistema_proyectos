@@ -25,7 +25,7 @@ class TipoUS(models.Model):
 
 class Actividades(models.Model):
     nombre = models.TextField(default="")
-    tipoUS = models.ForeignKey(TipoUS)
+    tipoUS = models.ForeignKey(TipoUS, related_name='actividades')
 
     class Meta:
         permissions = (
@@ -47,7 +47,7 @@ class US(models.Model):
     urgencia = models.IntegerField(default=1)  # 0 a 4
     usuario_asignado = models.ForeignKey(Usuario, null=True)
 
-    tipoUS = models.ForeignKey(TipoUS)
+    tipoUS = models.ForeignKey(TipoUS,related_name='uss')
 
     actividad = models.ForeignKey(Actividades, null=True)
 

@@ -58,6 +58,9 @@
                     {% if perms.proyecto.can_view %}
                         <li class="{{ proyecto }}"><a href="/proyecto/">Proyectos</a></li>
                     {% endif %}
+                    {% if perms.tipous.ver_tipo_US %}
+                        <li class="{{ tipous }}"><a href="/us/tipo/">Tipo US</a></li>
+                    {% endif %}
 
                 </ul>
             </div>
