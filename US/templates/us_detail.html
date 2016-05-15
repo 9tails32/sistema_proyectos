@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+    <title>US</title>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">US</h1>
+        {% if perms.us.add_us %}
+            <a class="btn btn-primary" href="/us/create/{{object.proyecto.id}}/">Crear nuevo</a>{% endif %}
+        <h2 class="sub-header">Detalle</h2>
+        <p>Descripcion corta: <strong>{{ object.descripcion_corta }}</strong></p>
+        <p>Descripcion larga: {{ object.descripcion_larga }}</p>
+        <p>Tiempo planificado: {{ object.tiempo_planificado }}</p>
+        <p>Valor de negocio: {{ object.valor_negocio }}</p>
+        <p>Urgencia: {{ object.urgencia }}</p>
+        <p>Usuario asignado: {{ object.usuario_asignado }}</p>
+        <p>Tipo US: {{ object.tipoUS }}</p>
+        <p>Actividad: {{ object.actividad }}</p>
+        <p>Estado actividad: {{object.get_estado_actividad_display}} </p>
+
+        {% if perms.us.change_us %}
+            <a class="btn btn-default" role="button" href="/us/update/{{ object.id }}">Modificar</a>{% endif %}
+        {% if perms.us.delete_us %}
+            <a class="btn btn-danger" role="button" href="/us/delete/{{ object.id }}">Eliminar</a>{% endif %}
+        {% if perms.us.change_actividad %}
+            <a class="btn btn-default" role="button" href="/us/cambiar_actividad/{{ object.id }}">Cambiar
+                actividad</a>{% endif %}
+        {% if perms.us.change_estado_actividad %}
+            <a class="btn btn-default" role="button" href="/us/cambiar_estado_actividad/{{ object.id }}">Cambiar
+                estado de actividad</a>{% endif %}
+
+    </div>
+{% endblock %}
+

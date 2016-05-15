@@ -104,7 +104,7 @@ def create_us(request, pk):
             us.usuario_asignado = form.cleaned_data['usuario_asignado']
             us.tipoUS = form.cleaned_data['tipoUS']
             us.save()
-            return HttpResponseRedirect('/us/us' + str(us.id))
+            return HttpResponseRedirect('/us/us/' + str(us.id))
 
     return render(request, 'us_create.html', {'form': form}, )
 
@@ -173,3 +173,16 @@ def update_tipo_us (request, pk):
         form = TipoUSForm(initial={'nombre':tipo_us.nombre})
 
     return render(request, 'tipo_us_create.html', {'form': form,'tipo_us':tipo_us})
+
+@login_required(None, 'login', '/login/')
+@permission_required('us.ver_tipo_US', raise_exception=True)
+def detail_us(request,pk):
+    """
+        Vista que permite displayar los detalles de un proyecto seleccionado.
+    """
+    try:
+        us = US.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    return render(request, 'us_detail.html', {'object': us})
