@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^cliente/', include ('cliente.urls')),
     url(r'^equipo/', include('equipo.urls')),
     url(r'^sprint/', include('sprint.urls')),
+    url(r'^us/', include ('US.urls')),
 ]
