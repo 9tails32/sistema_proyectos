@@ -118,10 +118,14 @@
                     <tbody>
                     {% for us in object.uss.all %}
                         <tr>
-                            <td>{{ us.descripcion_corta }}</td>
+                            <td><a href="/us/us/{{ us.id }}/">{{ us.descripcion_corta }}</a></td>
                             <td>{{ us.tipoUS }}</td>
-                            <td>{{ us.actividad }}</td>
-                            <td>{{ us.estado }}</td>
+                            {% if us.actividad %}
+                                <td>{{ us.actividad }}</td>
+                                <td>{{ us.get_estado_actividad_display }}</td>
+                            {% else %}
+                                <td>Actividad no asignada</td>
+                            {% endif %}
                         </tr>
                     {% endfor %}
                     </tbody>
