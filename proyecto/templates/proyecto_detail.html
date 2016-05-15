@@ -68,7 +68,7 @@
             <div class="col-md-6 col-sm-6 col-lg-6">
                 <h2 class="sub-header">Sprints</h2>
                 {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
-                    {% if object.us.all %}
+                    {% if object.uss.all %}
                         <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>
                     {% else %}
                         <a class="btn btn-primary" href="#"
