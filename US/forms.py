@@ -1,5 +1,6 @@
 from django import forms
 from login.models import Usuario
+from models import *
 
 class TipoUSForm(forms.Form):
     nombre = forms.CharField(max_length=50 ,widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -14,3 +15,4 @@ class USForm(forms.Form):
     valor_negocio = forms.IntegerField(widget=forms.NumberInput(attrs={'class':'form-control',}),min_value=1,max_value=5)  # 1 a 5
     urgencia = forms.IntegerField(widget=forms.NumberInput(attrs={'class':'form-control',}),min_value=1,max_value=5) # 1 a 5
     usuario_asignado = forms.ModelChoiceField(queryset=Usuario.objects.none(),widget=forms.Select(attrs={'class':'form-control',}),required=False)
+    tipoUS = forms.ModelChoiceField(queryset=TipoUS.objects.all(),widget=forms.Select(attrs={'class':'form-control',}))

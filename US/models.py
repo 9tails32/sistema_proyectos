@@ -41,7 +41,7 @@ class US(models.Model):
 
     tipoUS = models.ForeignKey(TipoUS)
 
-    actividad = models.ForeignKey(Actividades, limit_choices_to={'tipoUS': tipoUS},null=True)
+    actividad = models.ForeignKey(Actividades, null=True)
 
     options_estado_actividad = (
         ('TOD', 'Todo'),
