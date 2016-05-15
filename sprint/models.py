@@ -8,7 +8,7 @@ from proyecto.models import Proyecto
 class Sprint(models.Model):
     nombre = models.TextField(default='')
     duracion = models.IntegerField(default=0)
-    proyecto = models.ForeignKey(Proyecto,null=True)
+    proyecto = models.ForeignKey(Proyecto,null=True,related_name='sprints')
 
     class Meta:
         permissions = (
