@@ -64,48 +64,70 @@
 
         </table>
 
-        <h2 class="sub-header">Sprints</h2>
-        {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
-            {% if object.us.all %}
-            <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>
-            {% else %}
-            <a class="btn btn-primary" href="#" onClick="alert('No puedes crear Sprints sin tener algun us')">Crear nuevo</a>
-            {% endif %}
-        {% endif %}
-        <table class="table table-responsive">
-            <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Duración</th>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6">
+                <h2 class="sub-header">Sprints</h2>
+                {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
+                    {% if object.us.all %}
+                        <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>
+                    {% else %}
+                        <a class="btn btn-primary" href="#"
+                           onClick="alert('No puedes crear Sprints sin tener algun us')">Crear
+                            nuevo</a>
+                    {% endif %}
+                {% endif %}
+                <table class="table table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Duración</th>
 
-            </tr>
-            </thead>
-            <tbody>
-            {% for sprint in object.sprints.all %}
-                <tr>
-                    <td>{{ sprint.nombre }}</td>
-                    <td>{{ sprint.duracion }}</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for sprint in object.sprints.all %}
+                        <tr>
+                            <td>{{ sprint.nombre }}</td>
+                            <td>{{ sprint.duracion }}</td>
 
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-        <h2 class="sub-header">US</h2>
-        <table class="table table-responsive">
-            <thead>
-            <tr>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for us in object.uss.all %}
-                <tr>
-                    <td></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6">
+                <h2 class="sub-header">US</h2>
+                {% if perms.us.crear_US or 'add_us' in permisos %}
+                    {% if tipoUS %}
+                        <a class="btn btn-primary" href="/us/us/create/{{ object.id }}/">Crear nuevo</a>
+                    {% else %}
+                        <a class="btn btn-primary" href="#"
+                           onClick="alert('No puedes crear US sin tener algun tipo de US')">Crear
+                            nuevo</a>
+                    {% endif %}
+                {% endif %}
+                <table class="table table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Descripcion Corta</th>
+                        <th>Tipo US</th>
+                        <th>Actividad</th>
+                        <th>Estado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for us in object.uss.all %}
+                        <tr>
+                            <td>{{ us.descripcion_corta }}</td>
+                            <td>{{ us.tipoUS }}</td>
+                            <td>{{ us.actividad }}</td>
+                            <td>{{ us.estado }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 {% endblock %}
 

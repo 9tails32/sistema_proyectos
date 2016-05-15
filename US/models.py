@@ -38,8 +38,8 @@ class Actividades(models.Model):
 
 
 class US(models.Model):
-    proyecto = models.ForeignKey(Proyecto,null=True)
     sprint = models.ForeignKey(Sprint, null=True,blank=True)
+    proyecto = models.ForeignKey(Proyecto,null=True,related_name='uss')
     descripcion_corta = models.TextField(default="")
     descripcion_larga = models.TextField(default="")
     tiempo_planificado = models.IntegerField(default=0)
