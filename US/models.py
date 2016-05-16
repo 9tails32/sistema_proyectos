@@ -9,6 +9,10 @@ from login.models import Usuario
 
 
 class TipoUS(models.Model):
+    """
+    Clase TipoUS que hereda de models.Model
+    nombre = El nombre del tipo de US
+    """
     nombre = models.TextField(default="")
 
     class Meta:
@@ -24,6 +28,12 @@ class TipoUS(models.Model):
 
 
 class Actividades(models.Model):
+    """
+    Clase Actividades que hereda de models.Model
+    nombre = Nombre de la actividad
+    tipoUS= Tipo dee US al que pertenece la actividad.
+    """
+
     nombre = models.TextField(default="")
     tipoUS = models.ForeignKey(TipoUS, related_name='actividades')
 
@@ -38,6 +48,19 @@ class Actividades(models.Model):
 
 
 class US(models.Model):
+    """
+    Clase US que hereda de models.Model.
+    sprint = Sprint al que esta asignado el US.
+    proyecto = Proyecto al que pertenece el US.
+    descripcion_corta = Descripcion corta del US.
+    descripcion_larga = Descripcion larga del US.
+    tiempo_planificado = Tiempo aproximado que tomaria terminar el US.
+    valor_negocio = Entero que representa el valor del US en el proyecto.
+    urgencia = Entero que representa la urgencia para terminar el US.
+    tipoUS = Tipo de US del US, define el flujo a utilizar.
+    actividad = Actividad actual del US dentro del flujo.
+    estado_actividad = Estado de la actividad actual.
+    """
     sprint = models.ForeignKey(Sprint, null=True,blank=True, related_name='uss')
     proyecto = models.ForeignKey(Proyecto,null=True,related_name='uss')
     descripcion_corta = models.TextField(default="")

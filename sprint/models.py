@@ -6,6 +6,13 @@ from proyecto.models import Proyecto
 
 # Create your models here.
 class Sprint(models.Model):
+    """
+    Clase Sprint que hereda de models.Model
+    nombre = Nombre del Sprint.
+    duracion = Duracion calculada del Sprint.
+    proyecto = Proyecto al que pertenece el Sprint.
+    """
+
     nombre = models.TextField(default='')
     duracion = models.IntegerField(default=0)
     proyecto = models.ForeignKey(Proyecto,null=True,related_name='sprints')

@@ -56,31 +56,39 @@
 <a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt class="py-name">decorators</tt> <tt class="py-keyword">import</tt> <tt class="py-name">login_required</tt><tt class="py-op">,</tt> <tt class="py-name">permission_required</tt> </tt>
 <a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">shortcuts</tt> <tt class="py-keyword">import</tt> <tt class="py-name">render</tt> </tt>
 <a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">template</tt> <tt class="py-keyword">import</tt> <tt class="py-name">RequestContext</tt> </tt>
-<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module cliente.views=cliente.views-module.html,Module equipo.views=equipo.views-module.html,Module login.views=login.views-module.html,Module proyecto.views=proyecto.views-module.html"><a title="cliente.views
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module US.views=US.views-module.html,Module cliente.views=cliente.views-module.html,Module equipo.views=equipo.views-module.html,Module login.views=login.views-module.html,Module proyecto.views=proyecto.views-module.html,Module sprint.views=sprint.views-module.html"><a title="US.views
+cliente.views
 equipo.views
 login.views
-proyecto.views" class="py-name" href="#" onclick="return doclink('link-0', 'views', 'link-0');">views</a></tt><tt class="py-op">.</tt><tt class="py-name">generic</tt> <tt class="py-keyword">import</tt> <tt class="py-name">CreateView</tt><tt class="py-op">,</tt><tt class="py-name">ListView</tt><tt class="py-op">,</tt><tt class="py-name">UpdateView</tt><tt class="py-op">,</tt> <tt class="py-name">DetailView</tt> </tt>
+proyecto.views
+sprint.views" class="py-name" href="#" onclick="return doclink('link-0', 'views', 'link-0');">views</a></tt><tt class="py-op">.</tt><tt class="py-name">generic</tt> <tt class="py-keyword">import</tt> <tt class="py-name">CreateView</tt><tt class="py-op">,</tt><tt class="py-name">ListView</tt><tt class="py-op">,</tt><tt class="py-name">UpdateView</tt><tt class="py-op">,</tt> <tt class="py-name">DetailView</tt> </tt>
 <a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Package cliente=cliente-module.html,Variable login.models.Telefono.cliente=login.models.Telefono-class.html#cliente,Variable proyecto.forms.CambioEstadoForm.cliente=proyecto.forms.CambioEstadoForm-class.html#cliente,Variable proyecto.forms.ProyectoForm.cliente=proyecto.forms.ProyectoForm-class.html#cliente,Variable proyecto.models.Proyecto.cliente=proyecto.models.Proyecto-class.html#cliente"><a title="cliente
 login.models.Telefono.cliente
 proyecto.forms.CambioEstadoForm.cliente
 proyecto.forms.ProyectoForm.cliente
-proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-1', 'cliente', 'link-1');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module cliente.models=cliente.models-module.html,Module equipo.models=equipo.models-module.html,Module login.models=login.models-module.html,Module proyecto.models=proyecto.models-module.html"><a title="cliente.models
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-1', 'cliente', 'link-1');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module US.models=US.models-module.html,Module cliente.models=cliente.models-module.html,Module equipo.models=equipo.models-module.html,Module login.models=login.models-module.html,Module proyecto.models=proyecto.models-module.html,Module sprint.models=sprint.models-module.html"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-2', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class cliente.models.Cliente=cliente.models.Cliente-class.html"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-3', 'Cliente', 'link-3');">Cliente</a></tt> </tt>
-<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package login=login-module.html"><a title="login" class="py-name" href="#" onclick="return doclink('link-4', 'login', 'link-4');">login</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="cliente.models
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-2', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class cliente.models.Cliente=cliente.models.Cliente-class.html"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-3', 'Cliente', 'link-3');">Cliente</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package login=login-module.html"><a title="login" class="py-name" href="#" onclick="return doclink('link-4', 'login', 'link-4');">login</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-5', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Class login.models.Telefono=login.models.Telefono-class.html"><a title="login.models.Telefono" class="py-name" href="#" onclick="return doclink('link-6', 'Telefono', 'link-6');">Telefono</a></tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-5', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Class login.models.Telefono=login.models.Telefono-class.html"><a title="login.models.Telefono" class="py-name" href="#" onclick="return doclink('link-6', 'Telefono', 'link-6');">Telefono</a></tt> </tt>
 <a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">http</tt> <tt class="py-keyword">import</tt> <tt class="py-name">HttpResponseRedirect</tt> </tt>
 <a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-7" class="py-name"><a title="cliente
 login.models.Telefono.cliente
 proyecto.forms.CambioEstadoForm.cliente
 proyecto.forms.ProyectoForm.cliente
-proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-7', 'cliente', 'link-1');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Module cliente.forms=cliente.forms-module.html,Module equipo.forms=equipo.forms-module.html,Module login.forms=login.forms-module.html,Module proyecto.forms=proyecto.forms-module.html"><a title="cliente.forms
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-7', 'cliente', 'link-1');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Module US.forms=US.forms-module.html,Module cliente.forms=cliente.forms-module.html,Module equipo.forms=equipo.forms-module.html,Module login.forms=login.forms-module.html,Module proyecto.forms=proyecto.forms-module.html,Module sprint.forms=sprint.forms-module.html"><a title="US.forms
+cliente.forms
 equipo.forms
 login.forms
-proyecto.forms" class="py-name" href="#" onclick="return doclink('link-8', 'forms', 'link-8');">forms</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-8', 'forms', 'link-8');">forms</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
 <a name="list_cliente"></a><div id="list_cliente-def"><a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
 <a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
 <a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"># Create your views here.</tt> </tt>
@@ -168,13 +176,19 @@ proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return docli
 <a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt class="py-name">nombreC</tt> <tt class="py-op">=</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">cleaned_data</tt><tt class="py-op">[</tt><tt class="py-string">'nombre'</tt><tt class="py-op">]</tt> </tt>
 <a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">direccionC</tt> <tt class="py-op">=</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">cleaned_data</tt><tt class="py-op">[</tt><tt class="py-string">'direccion'</tt><tt class="py-op">]</tt> </tt>
 <a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-name">emailC</tt> <tt class="py-op">=</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">cleaned_data</tt><tt class="py-op">[</tt><tt class="py-string">'email'</tt><tt class="py-op">]</tt> </tt>
-<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-26', 'Cliente', 'link-3');">Cliente</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name" targets="Variable cliente.forms.ClienteForm.nombre=cliente.forms.ClienteForm-class.html#nombre,Variable cliente.models.Cliente.nombre=cliente.models.Cliente-class.html#nombre,Variable equipo.forms.EquipoForm.nombre=equipo.forms.EquipoForm-class.html#nombre,Variable equipo.models.Equipo.nombre=equipo.models.Equipo-class.html#nombre,Variable proyecto.forms.CambioEstadoForm.nombre=proyecto.forms.CambioEstadoForm-class.html#nombre,Variable proyecto.forms.ProyectoForm.nombre=proyecto.forms.ProyectoForm-class.html#nombre,Variable proyecto.models.Proyecto.nombre=proyecto.models.Proyecto-class.html#nombre"><a title="cliente.forms.ClienteForm.nombre
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-26', 'Cliente', 'link-3');">Cliente</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name" targets="Variable US.forms.ActividadesForm.nombre=US.forms.ActividadesForm-class.html#nombre,Variable US.forms.TipoUSForm.nombre=US.forms.TipoUSForm-class.html#nombre,Variable US.models.Actividades.nombre=US.models.Actividades-class.html#nombre,Variable US.models.TipoUS.nombre=US.models.TipoUS-class.html#nombre,Variable cliente.forms.ClienteForm.nombre=cliente.forms.ClienteForm-class.html#nombre,Variable cliente.models.Cliente.nombre=cliente.models.Cliente-class.html#nombre,Variable equipo.forms.EquipoForm.nombre=equipo.forms.EquipoForm-class.html#nombre,Variable equipo.models.Equipo.nombre=equipo.models.Equipo-class.html#nombre,Variable proyecto.forms.CambioEstadoForm.nombre=proyecto.forms.CambioEstadoForm-class.html#nombre,Variable proyecto.forms.ProyectoForm.nombre=proyecto.forms.ProyectoForm-class.html#nombre,Variable proyecto.models.Proyecto.nombre=proyecto.models.Proyecto-class.html#nombre,Variable sprint.forms.SprintForm.nombre=sprint.forms.SprintForm-class.html#nombre,Variable sprint.models.Sprint.nombre=sprint.models.Sprint-class.html#nombre"><a title="US.forms.ActividadesForm.nombre
+US.forms.TipoUSForm.nombre
+US.models.Actividades.nombre
+US.models.TipoUS.nombre
+cliente.forms.ClienteForm.nombre
 cliente.models.Cliente.nombre
 equipo.forms.EquipoForm.nombre
 equipo.models.Equipo.nombre
 proyecto.forms.CambioEstadoForm.nombre
 proyecto.forms.ProyectoForm.nombre
-proyecto.models.Proyecto.nombre" class="py-name" href="#" onclick="return doclink('link-27', 'nombre', 'link-27');">nombre</a></tt> <tt class="py-op">=</tt> <tt class="py-name">nombreC</tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name" targets="Variable cliente.forms.ClienteForm.direccion=cliente.forms.ClienteForm-class.html#direccion,Variable cliente.models.Cliente.direccion=cliente.models.Cliente-class.html#direccion,Variable login.models.Usuario.direccion=login.models.Usuario-class.html#direccion"><a title="cliente.forms.ClienteForm.direccion
+proyecto.models.Proyecto.nombre
+sprint.forms.SprintForm.nombre
+sprint.models.Sprint.nombre" class="py-name" href="#" onclick="return doclink('link-27', 'nombre', 'link-27');">nombre</a></tt> <tt class="py-op">=</tt> <tt class="py-name">nombreC</tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name" targets="Variable cliente.forms.ClienteForm.direccion=cliente.forms.ClienteForm-class.html#direccion,Variable cliente.models.Cliente.direccion=cliente.models.Cliente-class.html#direccion,Variable login.models.Usuario.direccion=login.models.Usuario-class.html#direccion"><a title="cliente.forms.ClienteForm.direccion
 cliente.models.Cliente.direccion
 login.models.Usuario.direccion" class="py-name" href="#" onclick="return doclink('link-28', 'direccion', 'link-28');">direccion</a></tt> <tt class="py-op">=</tt> <tt class="py-name">direccionC</tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name" targets="Variable cliente.forms.ClienteForm.email=cliente.forms.ClienteForm-class.html#email,Variable cliente.models.Cliente.email=cliente.models.Cliente-class.html#email"><a title="cliente.forms.ClienteForm.email
 cliente.models.Cliente.email" class="py-name" href="#" onclick="return doclink('link-29', 'email', 'link-29');">email</a></tt><tt class="py-op">=</tt> <tt class="py-name">emailC</tt><tt class="py-op">)</tt> </tt>
@@ -214,13 +228,19 @@ proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return docli
 login.models.Telefono.cliente
 proyecto.forms.CambioEstadoForm.cliente
 proyecto.forms.ProyectoForm.cliente
-proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-34', 'cliente', 'link-1');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="cliente.forms.ClienteForm.nombre
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-34', 'cliente', 'link-1');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="US.forms.ActividadesForm.nombre
+US.forms.TipoUSForm.nombre
+US.models.Actividades.nombre
+US.models.TipoUS.nombre
+cliente.forms.ClienteForm.nombre
 cliente.models.Cliente.nombre
 equipo.forms.EquipoForm.nombre
 equipo.models.Equipo.nombre
 proyecto.forms.CambioEstadoForm.nombre
 proyecto.forms.ProyectoForm.nombre
-proyecto.models.Proyecto.nombre" class="py-name" href="#" onclick="return doclink('link-35', 'nombre', 'link-27');">nombre</a></tt><tt class="py-op">=</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">cleaned_data</tt><tt class="py-op">[</tt><tt class="py-string">'nombre'</tt><tt class="py-op">]</tt> </tt>
+proyecto.models.Proyecto.nombre
+sprint.forms.SprintForm.nombre
+sprint.models.Sprint.nombre" class="py-name" href="#" onclick="return doclink('link-35', 'nombre', 'link-27');">nombre</a></tt><tt class="py-op">=</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">cleaned_data</tt><tt class="py-op">[</tt><tt class="py-string">'nombre'</tt><tt class="py-op">]</tt> </tt>
 <a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">            <tt id="link-36" class="py-name"><a title="cliente
 login.models.Telefono.cliente
 proyecto.forms.CambioEstadoForm.cliente
@@ -250,13 +270,19 @@ proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return docli
 login.models.Telefono.cliente
 proyecto.forms.CambioEstadoForm.cliente
 proyecto.forms.ProyectoForm.cliente
-proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-44', 'cliente', 'link-1');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="cliente.forms.ClienteForm.nombre
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-44', 'cliente', 'link-1');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="US.forms.ActividadesForm.nombre
+US.forms.TipoUSForm.nombre
+US.models.Actividades.nombre
+US.models.TipoUS.nombre
+cliente.forms.ClienteForm.nombre
 cliente.models.Cliente.nombre
 equipo.forms.EquipoForm.nombre
 equipo.models.Equipo.nombre
 proyecto.forms.CambioEstadoForm.nombre
 proyecto.forms.ProyectoForm.nombre
-proyecto.models.Proyecto.nombre" class="py-name" href="#" onclick="return doclink('link-45', 'nombre', 'link-27');">nombre</a></tt><tt class="py-op">,</tt> <tt class="py-string">'direccion'</tt><tt class="py-op">:</tt><tt id="link-46" class="py-name"><a title="cliente
+proyecto.models.Proyecto.nombre
+sprint.forms.SprintForm.nombre
+sprint.models.Sprint.nombre" class="py-name" href="#" onclick="return doclink('link-45', 'nombre', 'link-27');">nombre</a></tt><tt class="py-op">,</tt> <tt class="py-string">'direccion'</tt><tt class="py-op">:</tt><tt id="link-46" class="py-name"><a title="cliente
 login.models.Telefono.cliente
 proyecto.forms.CambioEstadoForm.cliente
 proyecto.forms.ProyectoForm.cliente
@@ -334,7 +360,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon May  2 14:13:40 2016
+    Generated by Epydoc 3.0.1 on Mon May 16 00:51:41 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

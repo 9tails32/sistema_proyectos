@@ -12,7 +12,7 @@ from US.forms import *
 @permission_required('US.ver_tipo_US', raise_exception=True)
 def detail_tipo_us(request, pk):
     """
-        Vista que permite displayar los detalles de un proyecto seleccionado.
+        Vista que permite displayar los detalles de un US seleccionado.
     """
     try:
         tipo_us = TipoUS.objects.get(pk=pk)
@@ -25,6 +25,9 @@ def detail_tipo_us(request, pk):
 @login_required(None, 'login', '/login/')
 @permission_required('US.ver_tipo_US', raise_exception=True)
 def list_tipo_us(request):
+    """
+        Vista que permite listar los tipos de US.
+    """
     tipo_us_list = TipoUS.objects.all()
     return render(request, 'tipo_us_list.html', {'tipo_us_list': tipo_us_list})
 
@@ -32,6 +35,16 @@ def list_tipo_us(request):
 @login_required(None, 'login', '/login/')
 @permission_required('US.crear_tipo_US', raise_exception=True)
 def create_tipo(request):
+    """
+        Funcion para crear tipo de US utilizando el form TipoUSForm.
+        Recibe en el request el form completado, o displaya uno vacio en caso de que no se llame a
+        post. Controla la validez del form antes de guardarlo como un tipo nuevo en la base de datos.
+        Parametros: Recibe el request.
+        Retorna:
+        -El render del template tipo_us_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de actividades si el form es valido
+
+        """
     if request.method == 'POST':
         form = TipoUSForm(request.POST)
         if form.is_valid():
@@ -49,6 +62,18 @@ def create_tipo(request):
 @login_required(None, 'login', '/login/')
 @permission_required('US.crear_actividades', raise_exception=True)
 def create_actividad(request, pk):
+    """
+        Funcion para crear actividad utilizando el form ActividadesForm.
+        Recibe en el request el form completado o displaya uno vacio en caso de que no se llame a post,
+        y el pk del tipo de us al que pertenecen la actividad. Controla la validez del form antes de
+        guardarlo como una actividad nueva en la base de datos.
+        Parametros: Recibe el request.
+        Retorna:
+        -El render del template actividad_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de actividades si el form es valido.
+        -Menu de creacion de tipos, si no existe el tipo.
+
+        """
     try:
         tipo = TipoUS.objects.get(pk=pk)
     except:
@@ -71,6 +96,9 @@ def create_actividad(request, pk):
 
 @login_required(None, 'login', '/login/')
 def list_actividades(request, pk):
+    """
+        Vista que permite listar las actividades de un tipo de US.
+    """
     try:
         tipo = TipoUS.objects.get(pk=pk)
     except:
@@ -83,6 +111,18 @@ def list_actividades(request, pk):
 @login_required(None, 'login', '/login/')
 @permission_required('')
 def create_us(request, pk):
+    """
+        Funcion para crear us utilizando el form USForm.
+        Recibe en el request el form completadoo o displaya uno vacio en caso de que no se llame a post,
+        y el pk del proyecto al que pertenece el us . Controla la validez del form antes de guardarlo
+        como un us nuevo en la base de datos.
+        Parametros: Recibe el request.
+        Retorna:
+        -El render del template us_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de us si el form es valido.
+        -Error, si no existe el proyecto.
+
+        """
     try:
         proyecto = Proyecto.objects.get(pk=pk)
     except:
@@ -114,9 +154,9 @@ def create_us(request, pk):
 @permission_required('tipous.delete_tipous', raise_exception=True)
 def delete_actividad(request, pk):
     """
-    Busca el proyecto con pk igual al que es parametro y cambia su estado activo a False.
-    Parametros: recibe el request y el pk del proyecto a eliminar.
-    Retorna: Redireccion a lista de proyectos.
+    Busca la actividad con pk igual al que es parametro y la elimina.
+    Parametros: recibe el request y el pk de la actividad a eliminar.
+    Retorna: Redireccion a lista de actividades.
     """
     try:
         actividad = Actividades.objects.get(pk=pk)
@@ -132,9 +172,9 @@ def delete_actividad(request, pk):
 @permission_required('tipous.delete_tipous', raise_exception=True)
 def delete_tipo_us(request, pk):
     """
-    Busca el proyecto con pk igual al que es parametro y cambia su estado activo a False.
-    Parametros: recibe el request y el pk del proyecto a eliminar.
-    Retorna: Redireccion a lista de proyectos.
+    Busca el tipo de us con pk igual al que es parametro y elimina si no contiene ningun US.
+    Parametros: recibe el request y el pk del tipo a eliminar.
+    Retorna: Redireccion a lista de tipos.
     """
     try:
         tipo_us = TipoUS.objects.get(pk=pk)
@@ -150,14 +190,14 @@ def delete_tipo_us(request, pk):
 @permission_required('tipous.change_tipous', raise_exception=True)
 def update_tipo_us(request, pk):
     """
-        Funcion para actualizar proyecto utilizando el form ProyectoForm.
-        Recibe en el request el form completado, o displaya uno con los datos previos del proyecto en
-        caso de que no se llame a post. Controla la validez del form antes de guardarlo como un proyecto
+        Funcion para actualizar tipo de US utilizando el form TipoUSForm.
+        Recibe en el request el form completado, o displaya uno con los datos previos del tipo en
+        caso de que no se llame a post. Controla la validez del form antes de guardarlo como un tipo
          nuevo en la base de datos.
-        Parametros: Recibe el request y el pk del proyecto a editar.
+        Parametros: Recibe el request y el pk del tipo a editar.
         Retorna:
-        -El render del template proyecto_create.html en caso de form vacio o invalido.
-        -Redireccion a lista de proyectos si el form es valido
+        -El render del template tipo_us_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de tipos si el form es valido
 
     """
     try:
@@ -182,7 +222,7 @@ def update_tipo_us(request, pk):
 @login_required(None, 'login', '/login/')
 def detail_us(request, pk):
     """
-        Vista que permite displayar los detalles de un proyecto seleccionado.
+        Vista que permite displayar los detalles de un us seleccionado.
     """
     try:
         us = US.objects.get(pk=pk)
@@ -198,9 +238,9 @@ def detail_us(request, pk):
 @login_required(None, 'login', '/login/')
 def delete_us(request, pk):
     """
-    Busca el proyecto con pk igual al que es parametro y cambia su estado activo a False.
-    Parametros: recibe el request y el pk del proyecto a eliminar.
-    Retorna: Redireccion a lista de proyectos.
+    Busca el us con pk igual al que es parametro y lo borra.
+    Parametros: recibe el request y el pk del us a eliminar.
+    Retorna: Redireccion a ldetalle del proyecto.
     """
     try:
         us = US.objects.get(pk=pk)
@@ -215,6 +255,17 @@ def delete_us(request, pk):
 @login_required(None, 'login', '/login/')
 @permission_required('')
 def update_us(request, pk):
+    """
+        Funcion para actualizar US utilizando el form USForm.
+        Recibe en el request el form completado, o displaya uno con los datos previos del tipo en
+        caso de que no se llame a post. Controla la validez del form antes de guardarlo como un US
+         nuevo en la base de datos.
+        Parametros: Recibe el request y el pk del US a editar.
+        Retorna:
+        -El render del template us_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de IS si el form es valido
+
+    """
     try:
         us = US.objects.get(pk=pk)
     except:
@@ -250,6 +301,15 @@ def update_us(request, pk):
 
 
 def cambiar_actividad(request, pk):
+    """
+    Funcion que permite cambiar la actividad actual del US que recibe como parametro
+    :param request:
+    :type request:
+    :param pk:
+    :type pk:
+    :return:
+    :rtype:
+    """
     try:
         us = US.objects.get(pk=pk)
     except:
@@ -273,6 +333,15 @@ def cambiar_actividad(request, pk):
 
 
 def cambiar_estado_actividad(request, pk):
+    """
+    Funcion que permite cambiar el estado de la actividad actual del US.
+    :param request:
+    :type request:
+    :param pk:
+    :type pk:
+    :return:
+    :rtype:
+    """
     try:
         us = US.objects.get(pk=pk)
     except:

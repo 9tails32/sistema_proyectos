@@ -54,22 +54,28 @@
 <h1 class="epydoc">Source Code for <a href="login.models-module.html">Module login.models</a></h1>
 <pre class="py-src">
 <a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">unicode_literals</tt> </tt>
-<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module cliente.models=cliente.models-module.html,Module equipo.models=equipo.models-module.html,Module login.models=login.models-module.html,Module proyecto.models=proyecto.models-module.html"><a title="cliente.models
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module US.models=US.models-module.html,Module cliente.models=cliente.models-module.html,Module equipo.models=equipo.models-module.html,Module login.models=login.models-module.html,Module proyecto.models=proyecto.models-module.html,Module sprint.models=sprint.models-module.html"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> </tt>
-<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="cliente.models
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt><tt class="py-op">,</tt> <tt class="py-name">AbstractUser</tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt><tt class="py-op">,</tt> <tt class="py-name">AbstractUser</tt> </tt>
 <a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Package cliente=cliente-module.html,Variable login.models.Telefono.cliente=login.models.Telefono-class.html#cliente,Variable proyecto.forms.CambioEstadoForm.cliente=proyecto.forms.CambioEstadoForm-class.html#cliente,Variable proyecto.forms.ProyectoForm.cliente=proyecto.forms.ProyectoForm-class.html#cliente,Variable proyecto.models.Proyecto.cliente=proyecto.models.Proyecto-class.html#cliente"><a title="cliente
 login.models.Telefono.cliente
 proyecto.forms.CambioEstadoForm.cliente
 proyecto.forms.ProyectoForm.cliente
-proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-2', 'cliente', 'link-2');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="cliente.models
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-2', 'cliente', 'link-2');">cliente</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-3', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class cliente.models.Cliente=cliente.models.Cliente-class.html"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-4', 'Cliente', 'link-4');">Cliente</a></tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-3', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class cliente.models.Cliente=cliente.models.Cliente-class.html"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-4', 'Cliente', 'link-4');">Cliente</a></tt> </tt>
 <a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># Create your models here.</tt> </tt>
 <a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
 <a name="Usuario"></a><div id="Usuario-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="Usuario-toggle" onclick="return toggle('Usuario');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="login.models.Usuario-class.html">Usuario</a> <tt class="py-op">(</tt><tt class="py-base-class">AbstractUser</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
@@ -78,48 +84,62 @@ proyecto.models" class="py-name" href="#" onclick="return doclink('link-3', 'mod
 <a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">    cedula = numero de cedula del usuario.</tt> </tt>
 <a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">    direccion = direccion del usuario.</tt> </tt>
 <a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
-<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable login.models.Usuario.cedula=login.models.Usuario-class.html#cedula"><a title="login.models.Usuario.cedula" class="py-name" href="#" onclick="return doclink('link-5', 'cedula', 'link-5');">cedula</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="cliente.models
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable login.models.Usuario.cedula=login.models.Usuario-class.html#cedula"><a title="login.models.Usuario.cedula" class="py-name" href="#" onclick="return doclink('link-5', 'cedula', 'link-5');">cedula</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-6', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">PositiveIntegerField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-6', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">PositiveIntegerField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
 <a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable cliente.forms.ClienteForm.direccion=cliente.forms.ClienteForm-class.html#direccion,Variable cliente.models.Cliente.direccion=cliente.models.Cliente-class.html#direccion,Variable login.models.Usuario.direccion=login.models.Usuario-class.html#direccion"><a title="cliente.forms.ClienteForm.direccion
 cliente.models.Cliente.direccion
-login.models.Usuario.direccion" class="py-name" href="#" onclick="return doclink('link-7', 'direccion', 'link-7');">direccion</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="cliente.models
+login.models.Usuario.direccion" class="py-name" href="#" onclick="return doclink('link-7', 'direccion', 'link-7');">direccion</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-8', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">TextField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">50</tt><tt class="py-op">,</tt> <tt class="py-name">blank</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">null</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-8', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">TextField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">50</tt><tt class="py-op">,</tt> <tt class="py-name">blank</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">null</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
 <a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
 <a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt class="py-comment"># Configuraciones de usuario</tt> </tt>
 <a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable login.forms.ConfiguracionForm.hora_notificaciones=login.forms.ConfiguracionForm-class.html#hora_notificaciones,Variable login.models.Usuario.hora_notificaciones=login.models.Usuario-class.html#hora_notificaciones"><a title="login.forms.ConfiguracionForm.hora_notificaciones
-login.models.Usuario.hora_notificaciones" class="py-name" href="#" onclick="return doclink('link-9', 'hora_notificaciones', 'link-9');">hora_notificaciones</a></tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="cliente.models
+login.models.Usuario.hora_notificaciones" class="py-name" href="#" onclick="return doclink('link-9', 'hora_notificaciones', 'link-9');">hora_notificaciones</a></tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-10', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">TimeField</tt><tt class="py-op">(</tt><tt class="py-name">null</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-string">"00:00:00"</tt><tt class="py-op">)</tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-10', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">TimeField</tt><tt class="py-op">(</tt><tt class="py-name">null</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-string">"00:00:00"</tt><tt class="py-op">)</tt> </tt>
 <a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Variable login.forms.ConfiguracionForm.formato=login.forms.ConfiguracionForm-class.html#formato,Variable login.models.Usuario.formato=login.models.Usuario-class.html#formato"><a title="login.forms.ConfiguracionForm.formato
 login.models.Usuario.formato" class="py-name" href="#" onclick="return doclink('link-11', 'formato', 'link-11');">formato</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> </tt>
 <a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'htm'</tt><tt class="py-op">,</tt> <tt class="py-string">'HTML'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
 <a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'txt'</tt><tt class="py-op">,</tt> <tt class="py-string">'Texto Plano'</tt><tt class="py-op">)</tt> </tt>
 <a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
 <a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable login.forms.ConfiguracionForm.formato_notificaciones=login.forms.ConfiguracionForm-class.html#formato_notificaciones,Variable login.models.Usuario.formato_notificaciones=login.models.Usuario-class.html#formato_notificaciones"><a title="login.forms.ConfiguracionForm.formato_notificaciones
-login.models.Usuario.formato_notificaciones" class="py-name" href="#" onclick="return doclink('link-12', 'formato_notificaciones', 'link-12');">formato_notificaciones</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="cliente.models
+login.models.Usuario.formato_notificaciones" class="py-name" href="#" onclick="return doclink('link-12', 'formato_notificaciones', 'link-12');">formato_notificaciones</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-13', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-name">choices</tt><tt class="py-op">=</tt><tt id="link-14" class="py-name"><a title="login.forms.ConfiguracionForm.formato
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-13', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-name">choices</tt><tt class="py-op">=</tt><tt id="link-14" class="py-name"><a title="login.forms.ConfiguracionForm.formato
 login.models.Usuario.formato" class="py-name" href="#" onclick="return doclink('link-14', 'formato', 'link-11');">formato</a></tt><tt class="py-op">,</tt> <tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-string">'htm'</tt><tt class="py-op">,</tt> <tt class="py-name">help_text</tt><tt class="py-op">=</tt><tt class="py-string">'Formato'</tt><tt class="py-op">)</tt> </tt>
 <a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt id="link-15" class="py-name" targets="Variable login.forms.ConfiguracionForm.noti_creacion_proyecto=login.forms.ConfiguracionForm-class.html#noti_creacion_proyecto,Variable login.models.Usuario.noti_creacion_proyecto=login.models.Usuario-class.html#noti_creacion_proyecto"><a title="login.forms.ConfiguracionForm.noti_creacion_proyecto
-login.models.Usuario.noti_creacion_proyecto" class="py-name" href="#" onclick="return doclink('link-15', 'noti_creacion_proyecto', 'link-15');">noti_creacion_proyecto</a></tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="cliente.models
+login.models.Usuario.noti_creacion_proyecto" class="py-name" href="#" onclick="return doclink('link-15', 'noti_creacion_proyecto', 'link-15');">noti_creacion_proyecto</a></tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-16', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">BooleanField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-16', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">BooleanField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
 <a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt id="link-17" class="py-name" targets="Variable login.forms.ConfiguracionForm.noti_creacion_usuario=login.forms.ConfiguracionForm-class.html#noti_creacion_usuario,Variable login.models.Usuario.noti_creacion_usuario=login.models.Usuario-class.html#noti_creacion_usuario"><a title="login.forms.ConfiguracionForm.noti_creacion_usuario
-login.models.Usuario.noti_creacion_usuario" class="py-name" href="#" onclick="return doclink('link-17', 'noti_creacion_usuario', 'link-17');">noti_creacion_usuario</a></tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="cliente.models
+login.models.Usuario.noti_creacion_usuario" class="py-name" href="#" onclick="return doclink('link-17', 'noti_creacion_usuario', 'link-17');">noti_creacion_usuario</a></tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-18', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">BooleanField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
-<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt id="link-19" class="py-name" targets="Variable login.models.Usuario.noti_creacion_equipos=login.models.Usuario-class.html#noti_creacion_equipos"><a title="login.models.Usuario.noti_creacion_equipos" class="py-name" href="#" onclick="return doclink('link-19', 'noti_creacion_equipos', 'link-19');">noti_creacion_equipos</a></tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="cliente.models
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-18', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">BooleanField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt id="link-19" class="py-name" targets="Variable login.models.Usuario.noti_creacion_equipos=login.models.Usuario-class.html#noti_creacion_equipos"><a title="login.models.Usuario.noti_creacion_equipos" class="py-name" href="#" onclick="return doclink('link-19', 'noti_creacion_equipos', 'link-19');">noti_creacion_equipos</a></tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-20', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">BooleanField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-20', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">BooleanField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
 <a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
 <a name="Usuario.__unicode__"></a><div id="Usuario.__unicode__-def"><a name="L27"></a><tt class="py-lineno">27</tt> <a class="py-toggle" href="#" id="Usuario.__unicode__-toggle" onclick="return toggle('Usuario.__unicode__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="login.models.Usuario-class.html#__unicode__">__unicode__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="Usuario.__unicode__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Usuario.__unicode__-expanded"><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">username</tt> </tt>
@@ -132,22 +152,28 @@ proyecto.models" class="py-name" href="#" onclick="return doclink('link-20', 'mo
 <a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">    usuario : Usuario asociado al telefono.</tt> </tt>
 <a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
-<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt id="link-21" class="py-name" targets="Variable login.models.Telefono.numero=login.models.Telefono-class.html#numero"><a title="login.models.Telefono.numero" class="py-name" href="#" onclick="return doclink('link-21', 'numero', 'link-21');">numero</a></tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name"><a title="cliente.models
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt id="link-21" class="py-name" targets="Variable login.models.Telefono.numero=login.models.Telefono-class.html#numero"><a title="login.models.Telefono.numero" class="py-name" href="#" onclick="return doclink('link-21', 'numero', 'link-21');">numero</a></tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-22', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">PositiveIntegerField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-22', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">PositiveIntegerField</tt><tt class="py-op">(</tt><tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
 <a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt id="link-23" class="py-name"><a title="cliente
 login.models.Telefono.cliente
 proyecto.forms.CambioEstadoForm.cliente
 proyecto.forms.ProyectoForm.cliente
-proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-23', 'cliente', 'link-2');">cliente</a></tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="cliente.models
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-23', 'cliente', 'link-2');">cliente</a></tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-24', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">ForeignKey</tt><tt class="py-op">(</tt><tt id="link-25" class="py-name"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-25', 'Cliente', 'link-4');">Cliente</a></tt><tt class="py-op">,</tt> <tt class="py-name">null</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">related_name</tt><tt class="py-op">=</tt><tt class="py-string">"telefonos"</tt><tt class="py-op">)</tt> </tt>
-<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt id="link-26" class="py-name" targets="Variable login.models.Telefono.usuario=login.models.Telefono-class.html#usuario"><a title="login.models.Telefono.usuario" class="py-name" href="#" onclick="return doclink('link-26', 'usuario', 'link-26');">usuario</a></tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name"><a title="cliente.models
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-24', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">ForeignKey</tt><tt class="py-op">(</tt><tt id="link-25" class="py-name"><a title="cliente.models.Cliente" class="py-name" href="#" onclick="return doclink('link-25', 'Cliente', 'link-4');">Cliente</a></tt><tt class="py-op">,</tt> <tt class="py-name">null</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">related_name</tt><tt class="py-op">=</tt><tt class="py-string">"telefonos"</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt id="link-26" class="py-name" targets="Variable login.models.Telefono.usuario=login.models.Telefono-class.html#usuario"><a title="login.models.Telefono.usuario" class="py-name" href="#" onclick="return doclink('link-26', 'usuario', 'link-26');">usuario</a></tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name"><a title="US.models
+cliente.models
 equipo.models
 login.models
-proyecto.models" class="py-name" href="#" onclick="return doclink('link-27', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">ForeignKey</tt><tt class="py-op">(</tt><tt id="link-28" class="py-name" targets="Class login.models.Usuario=login.models.Usuario-class.html"><a title="login.models.Usuario" class="py-name" href="#" onclick="return doclink('link-28', 'Usuario', 'link-28');">Usuario</a></tt><tt class="py-op">,</tt> <tt class="py-name">null</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">related_name</tt><tt class="py-op">=</tt><tt class="py-string">"telefonos"</tt><tt class="py-op">)</tt> </tt>
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-27', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">ForeignKey</tt><tt class="py-op">(</tt><tt id="link-28" class="py-name" targets="Class login.models.Usuario=login.models.Usuario-class.html"><a title="login.models.Usuario" class="py-name" href="#" onclick="return doclink('link-28', 'Usuario', 'link-28');">Usuario</a></tt><tt class="py-op">,</tt> <tt class="py-name">null</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">related_name</tt><tt class="py-op">=</tt><tt class="py-string">"telefonos"</tt><tt class="py-op">)</tt> </tt>
 <a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
 <a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
 <a name="Telefono.__unicode__"></a><div id="Telefono.__unicode__-def"><a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="Telefono.__unicode__-toggle" onclick="return toggle('Telefono.__unicode__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="login.models.Telefono-class.html#__unicode__">__unicode__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
@@ -182,7 +208,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon May  2 14:13:40 2016
+    Generated by Epydoc 3.0.1 on Mon May 16 00:51:41 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -53,46 +53,64 @@
 </table>
 <h1 class="epydoc">Source Code for <a href="cliente.forms-module.html">Module cliente.forms</a></h1>
 <pre class="py-src">
-<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module cliente.forms=cliente.forms-module.html,Module equipo.forms=equipo.forms-module.html,Module login.forms=login.forms-module.html,Module proyecto.forms=proyecto.forms-module.html"><a title="cliente.forms
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module US.forms=US.forms-module.html,Module cliente.forms=cliente.forms-module.html,Module equipo.forms=equipo.forms-module.html,Module login.forms=login.forms-module.html,Module proyecto.forms=proyecto.forms-module.html,Module sprint.forms=sprint.forms-module.html"><a title="US.forms
+cliente.forms
 equipo.forms
 login.forms
-proyecto.forms" class="py-name" href="#" onclick="return doclink('link-0', 'forms', 'link-0');">forms</a></tt> </tt>
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-0', 'forms', 'link-0');">forms</a></tt> </tt>
 <a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
 <a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
 <a name="ClienteForm"></a><div id="ClienteForm-def"><a name="L4"></a><tt class="py-lineno"> 4</tt> <a class="py-toggle" href="#" id="ClienteForm-toggle" onclick="return toggle('ClienteForm');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="cliente.forms.ClienteForm-class.html">ClienteForm</a><tt class="py-op">(</tt><tt class="py-base-class">forms</tt><tt class="py-op">.</tt><tt class="py-base-class">Form</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="ClienteForm-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ClienteForm-expanded"><a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
 <a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">    Form para editar o crear cliente.</tt> </tt>
 <a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
-<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable cliente.forms.ClienteForm.nombre=cliente.forms.ClienteForm-class.html#nombre,Variable cliente.models.Cliente.nombre=cliente.models.Cliente-class.html#nombre,Variable equipo.forms.EquipoForm.nombre=equipo.forms.EquipoForm-class.html#nombre,Variable equipo.models.Equipo.nombre=equipo.models.Equipo-class.html#nombre,Variable proyecto.forms.CambioEstadoForm.nombre=proyecto.forms.CambioEstadoForm-class.html#nombre,Variable proyecto.forms.ProyectoForm.nombre=proyecto.forms.ProyectoForm-class.html#nombre,Variable proyecto.models.Proyecto.nombre=proyecto.models.Proyecto-class.html#nombre"><a title="cliente.forms.ClienteForm.nombre
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable US.forms.ActividadesForm.nombre=US.forms.ActividadesForm-class.html#nombre,Variable US.forms.TipoUSForm.nombre=US.forms.TipoUSForm-class.html#nombre,Variable US.models.Actividades.nombre=US.models.Actividades-class.html#nombre,Variable US.models.TipoUS.nombre=US.models.TipoUS-class.html#nombre,Variable cliente.forms.ClienteForm.nombre=cliente.forms.ClienteForm-class.html#nombre,Variable cliente.models.Cliente.nombre=cliente.models.Cliente-class.html#nombre,Variable equipo.forms.EquipoForm.nombre=equipo.forms.EquipoForm-class.html#nombre,Variable equipo.models.Equipo.nombre=equipo.models.Equipo-class.html#nombre,Variable proyecto.forms.CambioEstadoForm.nombre=proyecto.forms.CambioEstadoForm-class.html#nombre,Variable proyecto.forms.ProyectoForm.nombre=proyecto.forms.ProyectoForm-class.html#nombre,Variable proyecto.models.Proyecto.nombre=proyecto.models.Proyecto-class.html#nombre,Variable sprint.forms.SprintForm.nombre=sprint.forms.SprintForm-class.html#nombre,Variable sprint.models.Sprint.nombre=sprint.models.Sprint-class.html#nombre"><a title="US.forms.ActividadesForm.nombre
+US.forms.TipoUSForm.nombre
+US.models.Actividades.nombre
+US.models.TipoUS.nombre
+cliente.forms.ClienteForm.nombre
 cliente.models.Cliente.nombre
 equipo.forms.EquipoForm.nombre
 equipo.models.Equipo.nombre
 proyecto.forms.CambioEstadoForm.nombre
 proyecto.forms.ProyectoForm.nombre
-proyecto.models.Proyecto.nombre" class="py-name" href="#" onclick="return doclink('link-1', 'nombre', 'link-1');">nombre</a></tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name"><a title="cliente.forms
+proyecto.models.Proyecto.nombre
+sprint.forms.SprintForm.nombre
+sprint.models.Sprint.nombre" class="py-name" href="#" onclick="return doclink('link-1', 'nombre', 'link-1');">nombre</a></tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name"><a title="US.forms
+cliente.forms
 equipo.forms
 login.forms
-proyecto.forms" class="py-name" href="#" onclick="return doclink('link-2', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">100</tt><tt class="py-op">,</tt> <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">'Nombre'</tt><tt class="py-op">,</tt> <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-2', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">100</tt><tt class="py-op">,</tt> <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">'Nombre'</tt><tt class="py-op">,</tt> <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
 <a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable cliente.forms.ClienteForm.direccion=cliente.forms.ClienteForm-class.html#direccion,Variable cliente.models.Cliente.direccion=cliente.models.Cliente-class.html#direccion,Variable login.models.Usuario.direccion=login.models.Usuario-class.html#direccion"><a title="cliente.forms.ClienteForm.direccion
 cliente.models.Cliente.direccion
-login.models.Usuario.direccion" class="py-name" href="#" onclick="return doclink('link-3', 'direccion', 'link-3');">direccion</a></tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="cliente.forms
+login.models.Usuario.direccion" class="py-name" href="#" onclick="return doclink('link-3', 'direccion', 'link-3');">direccion</a></tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="US.forms
+cliente.forms
 equipo.forms
 login.forms
-proyecto.forms" class="py-name" href="#" onclick="return doclink('link-4', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">100</tt><tt class="py-op">,</tt> <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">'Direccion'</tt><tt class="py-op">,</tt> <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-4', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">100</tt><tt class="py-op">,</tt> <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">'Direccion'</tt><tt class="py-op">,</tt> <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
 <a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable cliente.forms.ClienteForm.email=cliente.forms.ClienteForm-class.html#email,Variable cliente.models.Cliente.email=cliente.models.Cliente-class.html#email"><a title="cliente.forms.ClienteForm.email
-cliente.models.Cliente.email" class="py-name" href="#" onclick="return doclink('link-5', 'email', 'link-5');">email</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="cliente.forms
+cliente.models.Cliente.email" class="py-name" href="#" onclick="return doclink('link-5', 'email', 'link-5');">email</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="US.forms
+cliente.forms
 equipo.forms
 login.forms
-proyecto.forms" class="py-name" href="#" onclick="return doclink('link-6', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">EmailField</tt><tt class="py-op">(</tt><tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">'Email'</tt><tt class="py-op">,</tt><tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-6', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">EmailField</tt><tt class="py-op">(</tt><tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">'Email'</tt><tt class="py-op">,</tt><tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
 <a name="TelefonoForm"></a><div id="TelefonoForm-def"><a name="L12"></a><tt class="py-lineno">12</tt> <a class="py-toggle" href="#" id="TelefonoForm-toggle" onclick="return toggle('TelefonoForm');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="cliente.forms.TelefonoForm-class.html">TelefonoForm</a><tt class="py-op">(</tt><tt class="py-base-class">forms</tt><tt class="py-op">.</tt><tt class="py-base-class">Form</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="TelefonoForm-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="TelefonoForm-expanded"><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable cliente.forms.TelefonoForm.telefono=cliente.forms.TelefonoForm-class.html#telefono"><a title="cliente.forms.TelefonoForm.telefono" class="py-name" href="#" onclick="return doclink('link-7', 'telefono', 'link-7');">telefono</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="cliente.forms
+</div><div id="TelefonoForm-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="TelefonoForm-expanded"><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable cliente.forms.TelefonoForm.telefono=cliente.forms.TelefonoForm-class.html#telefono"><a title="cliente.forms.TelefonoForm.telefono" class="py-name" href="#" onclick="return doclink('link-7', 'telefono', 'link-7');">telefono</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="US.forms
+cliente.forms
 equipo.forms
 login.forms
-proyecto.forms" class="py-name" href="#" onclick="return doclink('link-8', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">IntegerField</tt><tt class="py-op">(</tt><tt class="py-name">min_value</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">widget</tt><tt class="py-op">=</tt><tt id="link-9" class="py-name"><a title="cliente.forms
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-8', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">IntegerField</tt><tt class="py-op">(</tt><tt class="py-name">min_value</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">widget</tt><tt class="py-op">=</tt><tt id="link-9" class="py-name"><a title="US.forms
+cliente.forms
 equipo.forms
 login.forms
-proyecto.forms" class="py-name" href="#" onclick="return doclink('link-9', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">NumberInput</tt><tt class="py-op">(</tt><tt class="py-name">attrs</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-string">'class'</tt><tt class="py-op">:</tt><tt class="py-string">'form-control'</tt><tt class="py-op">,</tt><tt class="py-op">}</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-9', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">NumberInput</tt><tt class="py-op">(</tt><tt class="py-name">attrs</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-string">'class'</tt><tt class="py-op">:</tt><tt class="py-string">'form-control'</tt><tt class="py-op">,</tt><tt class="py-op">}</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
@@ -123,7 +141,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon May  2 14:13:40 2016
+    Generated by Epydoc 3.0.1 on Mon May 16 00:51:41 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

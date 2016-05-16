@@ -10,6 +10,18 @@ from proyecto.models import Proyecto
 @login_required(None, 'login', '/login/')
 @permission_required('sprint.crear_sprint', raise_exception=True)
 def create_sprint(request, pk):
+    """
+        Funcion para crear sprint utilizando el form SprintForm.
+        Recibe en el request el form completado o o displaya uno vacio en caso de que no se llame a post,
+        y el pk del proyecto al que pertenece el sprint. Controla la validez del form antes de guardarlo
+        como un sprint nuevo en la base de datos.
+        Parametros: Recibe el request.
+        Retorna:
+        -El render del template sprint_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de sprint si el form es valido.
+        -Error, si no existe el proyecto.
+
+        """
     try:
         proyecto = Proyecto.objects.get(pk=pk)
     except:
@@ -33,7 +45,7 @@ def create_sprint(request, pk):
 @permission_required('sprint.ver_sprint', raise_exception=True)
 def detail_sprint(request,pk):
     """
-        Vista que permite displayar los detalles de un proyecto seleccionado.
+        Vista que permite displayar los detalles de un sprint seleccionado.
     """
     try:
         sprint = Sprint.objects.get(pk=pk)
@@ -46,14 +58,13 @@ def detail_sprint(request,pk):
 @permission_required('proyecto.can_cambiar_estado', raise_exception=True)
 def asignar_us(request, pk):
     """
-        Funcion para actualizar el estado del proyecto utilizando el form CambiarEstadoForm.
+        Funcion para asignar us a un sprint utilizando el form AsignarUSForm.
         Recibe en el request el form completado, o displaya uno con los datos previos del proyecto en
-        caso de que no se llame a post. Controla la validez del form antes de guardarlo como un proyecto
-         nuevo en la base de datos.
-        Parametros: Recibe el request y el pk del proyecto a editar.
+        caso de que no se llame a post. Controla la validez del form antes de asignar el US al Sprint.
+        Parametros: Recibe el request y el pk del Sprint a editar.
         Retorna:
-        -El render del template proyecto_create.html en caso de form vacio o invalido.
-        -Redireccion a lista de proyectos si el form es valido
+        -El render del template asignar_us.html en caso de form vacio o invalido.
+        -Redireccion a lista de sprints si el form es valido
 
     """
     try:
