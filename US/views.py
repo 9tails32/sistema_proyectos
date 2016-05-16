@@ -10,7 +10,7 @@ from US.forms import *
 # Create your views here.
 @login_required(None, 'login', '/login/')
 @permission_required('US.ver_tipo_US', raise_exception=True)
-def detail_tipo_us(request,pk):
+def detail_tipo_us(request, pk):
     """
         Vista que permite displayar los detalles de un proyecto seleccionado.
     """
@@ -68,6 +68,7 @@ def create_actividad(request, pk):
 
     return render(request, 'actividad_create.html', {'form': form})
 
+
 @login_required(None, 'login', '/login/')
 def list_actividades(request, pk):
     try:
@@ -108,6 +109,7 @@ def create_us(request, pk):
 
     return render(request, 'us_create.html', {'form': form}, )
 
+
 @login_required(None, 'login', '/login/')
 @permission_required('tipous.delete_tipous', raise_exception=True)
 def delete_actividad(request, pk):
@@ -124,6 +126,7 @@ def delete_actividad(request, pk):
     actividad.delete()
 
     return HttpResponseRedirect('/us/tipo/' + str(tipo_us.id))
+
 
 @login_required(None, 'login', '/login/')
 @permission_required('tipous.delete_tipous', raise_exception=True)
@@ -142,9 +145,10 @@ def delete_tipo_us(request, pk):
 
     return HttpResponseRedirect('/us/tipo/')
 
+
 @login_required(None, 'login', '/login/')
 @permission_required('tipous.change_tipous', raise_exception=True)
-def update_tipo_us (request, pk):
+def update_tipo_us(request, pk):
     """
         Funcion para actualizar proyecto utilizando el form ProyectoForm.
         Recibe en el request el form completado, o displaya uno con los datos previos del proyecto en
@@ -164,18 +168,19 @@ def update_tipo_us (request, pk):
     if request.method == 'POST':
         form = TipoUSForm(request.POST)
         if form.is_valid():
-            cd=form.cleaned_data
-            tipo_us.nombre= cd['nombre']
+            cd = form.cleaned_data
+            tipo_us.nombre = cd['nombre']
             tipo_us.save()
-            return HttpResponseRedirect('/us/tipo/'+str(tipo_us.id))
+            return HttpResponseRedirect('/us/tipo/' + str(tipo_us.id))
     else:
-        tipo_us = TipoUS.objects.get(pk = pk)
-        form = TipoUSForm(initial={'nombre':tipo_us.nombre})
+        tipo_us = TipoUS.objects.get(pk=pk)
+        form = TipoUSForm(initial={'nombre': tipo_us.nombre})
 
-    return render(request, 'tipo_us_create.html', {'form': form,'tipo_us':tipo_us})
+    return render(request, 'tipo_us_create.html', {'form': form, 'tipo_us': tipo_us})
+
 
 @login_required(None, 'login', '/login/')
-def detail_us(request,pk):
+def detail_us(request, pk):
     """
         Vista que permite displayar los detalles de un proyecto seleccionado.
     """
@@ -184,9 +189,11 @@ def detail_us(request,pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
+    permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
+                                                                                           flat=True)
 
-    return render(request, 'us_detail.html', {'object': us,'permisos':permisos})
+    return render(request, 'us_detail.html', {'object': us, 'permisos': permisos})
+
 
 @login_required(None, 'login', '/login/')
 def delete_us(request, pk):
@@ -203,6 +210,7 @@ def delete_us(request, pk):
     us.delete()
 
     return HttpResponseRedirect('/proyecto/' + str(proyecto.id))
+
 
 @login_required(None, 'login', '/login/')
 @permission_required('')
@@ -229,14 +237,55 @@ def update_us(request, pk):
             return HttpResponseRedirect('/us/us/' + str(us.id))
     else:
         form = USForm(initial={'descripcion_corta': us.descripcion_corta,
-                               'descripcion_larga':us.descripcion_larga,
-                               'tiempo_planificado':us.tiempo_planificado,
-                               'valor_negocio':us.valor_negocio,
-                               'urgencia':us.urgencia,
-                               'usuario_asignado':us.usuario_asignado,
-                               'tipoUS':us.tipoUS})
+                               'descripcion_larga': us.descripcion_larga,
+                               'tiempo_planificado': us.tiempo_planificado,
+                               'valor_negocio': us.valor_negocio,
+                               'urgencia': us.urgencia,
+                               'usuario_asignado': us.usuario_asignado,
+                               'tipoUS': us.tipoUS})
 
     form.fields["usuario_asignado"].queryset = usuarios
 
+    return render(request, 'us_create.html', {'form': form, 'us': us}, )
 
-    return render(request, 'us_create.html', {'form': form,'us':us}, )
+
+def cambiar_actividad(request, pk):
+    try:
+        us = US.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    actividades = us.tipoUS.actividades.all()
+
+    if request.method == 'POST':
+        form = CambiarActividadForm(request.POST)
+        form.fields['actividad'].queryset = actividades
+        if form.is_valid():
+            us.actividad = form.cleaned_data['actividad']
+            us.save()
+            return HttpResponseRedirect('/us/us/' + str(us.id))
+    else:
+        form = CambiarActividadForm(initial={'actividad': us.actividad})
+
+    form.fields['actividad'].queryset = actividades
+
+    return render(request, 'cambiar_actividad.html', {'form': form, 'us': us})
+
+
+def cambiar_estado_actividad(request, pk):
+    try:
+        us = US.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    if request.method == 'POST':
+        form = CambiarEstadoActividadForm(request.POST)
+        if form.is_valid():
+            us.estado_actividad = form.cleaned_data['estado_actividad']
+            us.save()
+            return HttpResponseRedirect('/us/us/' + str(us.id))
+
+    else:
+        form = CambiarEstadoActividadForm(initial={'estado_actividad': us.estado_actividad})
+
+    return render(request, 'cambiar_estado_actividad.html', {'form': form, 'us': us})

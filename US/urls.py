@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^us/delete/(?P<pk>[0-9]+)/$', delete_us, name='us_delete'),
     url(r'^us/update/(?P<pk>[0-9]+)/$', update_us, name='us_update'),
     url(r'^us/(?P<pk>[0-9]+)/$', detail_us, name='us_detail'),
-
-
+    url(r'^us/cambiar_actividad/(?P<pk>[0-9]+)/$', cambiar_actividad, name='cambiar_actividad'),
+    url(r'^us/cambiar_estado_actividad/(?P<pk>[0-9]+)/$', cambiar_estado_actividad, name='cambiar_estado_actividad'),
 
 ]
