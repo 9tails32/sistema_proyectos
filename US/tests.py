@@ -91,15 +91,25 @@ class TestViewUS(TestCase):
 
 
 
+    def test_check_actividad(self):
+        tipo = TipoUS(pk=7, nombre='tipo')
+        tipo.save()
+        actividad = Actividades(pk=7, nombre='actividad', tipoUS=TipoUS.objects.get(pk=1))
+        actividad.save()
+        us = US(descripcion_corta='a', descripcion_larga='a', tiempo_planificado=3, valor_negocio=1,
+                urgencia=1, tipoUS=TipoUS.objects.get(pk=7), usuario_asignado=Usuario.objects.get(pk=1),actividad=actividad)
+        us.save()
+        self.assertEqual(us.actividad, actividad)
+
 
 
     def test_cambiar_actividad_us_template(self):
         resp = self.client.get('/us/us/cambiar_actividad/1/')
         self.assertEqual(resp.status_code, 200)
 
-    def test_delete_estado_actividad_us_template(self):
+    def test_cambiar_estado_actividad_us_template(self):
         resp = self.client.get('/us/us/cambiar_estado_actividad/1/')
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 302)
 
 
 

@@ -36,6 +36,7 @@ class Actividades(models.Model):
 
     nombre = models.TextField(default="")
     tipoUS = models.ForeignKey(TipoUS, related_name='actividades')
+    numero = models.IntegerField(default=0)
 
     class Meta:
         permissions = (
@@ -73,7 +74,7 @@ class US(models.Model):
     tipoUS = models.ForeignKey(TipoUS,related_name='uss')
 
     actividad = models.ForeignKey(Actividades, null=True)
-
+    finalizado = models.BooleanField(default=False)
     options_estado_actividad = (
         ('TOD', 'Todo'),
         ('DOI', 'Doing'),
@@ -87,6 +88,7 @@ class US(models.Model):
             ("crear_US", "Puede crear US"),
             ("change_actividad","Puede cambiar actividad"),
             ("change_estado_actividad","Puede cambiar el estado de actividad"),
+
         )
 
     def __unicode__(self):
