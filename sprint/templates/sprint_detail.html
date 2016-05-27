@@ -38,26 +38,91 @@
             <thead>
             <tr>
                 <th>Descripcion Corta</th>
-                <th>Tipo US</th>
-                <th>Actividad</th>
-                <th>Estado</th>
+                <th>Usuario asignado</th>
+                <th style="text-align:right;">Tiempo planificado</th>
+                <th style="text-align:right;">Urgencia</th>
+
             </tr>
             </thead>
             <tbody>
             {% for us in sprint.uss.all %}
                 <tr>
                     <td><a href="/us/us/{{ us.id }}/">{{ us.descripcion_corta }}</a></td>
-                    <td>{{ us.tipoUS }}</td>
-                    {% if us.actividad %}
-                        <td>{{ us.actividad }}</td>
-                        <td>{{ us.get_estado_actividad_display }}</td>
-                    {% else %}
-                        <td>Actividad no asignada</td>
-                    {% endif %}
+                    <td>{{ us.usuario_asignado }}</td>
+                    <td style="text-align:right;">{{ us.tiempo_planificado }}</td>
+                    <td style="text-align:right;">{{ us.urgencia }}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+
+        <h2 class="sub-header">Kanban</h2>
+        {% for tipo,uss in tipos %}
+        <br>
+        <h4 class="title text-center">{{tipo.nombre}}</h4>
+        <table class="table table-responsive table-bordered">
+            <thead>
+
+            <tr style="background-color: #337ab7;color:#FFFFFF;">
+                {% for act in tipo.actividades.all %}
+                <th>{{act.nombre}}</th>
+                {% endfor %}
+                <th>Finalizado</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr>
+            {% for act in tipo.actividades.all %}
+
+                    <td style="marign:0 !important; padding:0 !important;">
+                        <table class="table table-bordered" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th>To do</th>
+                                    <th>Doing</th>
+                                    <th>Done</th>
+                                </tr>
+                            </thead>
+
+                             <tbody>
+                             {% for us in uss %}
+                                {% if us.actividad == act and not us.finalizado %}
+                                <tr>
+                                    {% if us.estado_actividad == 'TOD' %}<td class="warning">{{us.descripcion_corta}}</td>{% else %}<td></td>{% endif %}
+                                    {% if us.estado_actividad == 'DOI' %}<td class="info">{{us.descripcion_corta}}</td>{% else %}<td></td>{% endif %}
+                                    {% if us.estado_actividad == 'DON' %}<td class="success">{{us.descripcion_corta}}</td>{% else %}<td></td>{% endif %}
+                                </tr>
+                                {% endif %}
+                             {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </td>
+            {% endfor %}
+                <td style="marign:0 !important; padding:0 !important;">
+
+                    <table class="table table-bordered" style="margin: 0;">
+                        <thead>
+                        <tr><th>Done</th></tr>
+                        </thead>
+                        <tbody>
+                        {% for us in uss %}
+                        {% if us.finalizado %}
+                        <tr>
+                            <td class="success">{{us.descripcion_corta}}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        {% endfor %}
 
     </div>
 

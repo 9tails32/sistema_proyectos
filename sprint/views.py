@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from sprint.models import Sprint
 from sprint.forms import *
 from proyecto.models import Proyecto
+from US.models import US,TipoUS
 
 
 # Create your views here.
@@ -52,7 +53,15 @@ def detail_sprint(request,pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    return render(request, 'sprint_detail.html', {'sprint': sprint})
+    uss = sprint.uss.all()
+    tipos_us = uss.values('tipoUS').distinct()
+    tipos = []
+    for t in tipos_us:
+        tipo_id = t["tipoUS"]
+        tipos.append([TipoUS.objects.get(id=tipo_id),uss.filter(tipoUS=tipo_id)])
+
+
+    return render(request, 'sprint_detail.html', {'sprint': sprint, 'tipos':tipos})
 
 @login_required(None, 'login', '/login/')
 @permission_required('proyecto.can_cambiar_estado', raise_exception=True)
