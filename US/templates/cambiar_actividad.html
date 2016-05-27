@@ -10,16 +10,30 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Actividad</h1>
         <div class="col-md-offset-3 col-md-6">
-            <form action="" method="post">
-                <div class="form-group">
-                    <label for="id_actividad">actividad:</label>
+            <form action="" method="post" >
+                <div class="form-group" >
+                    <label for="id_actividad">Actividad:</label>
                     {{ form.actividad }}
                     <p class="text-danger">{{ form.actividad.errors.0 }}</p>
                 </div>
+
+
+                <div class="form-group" >
+                    <label for="id_estado_actividad">Estado actividad:</label>
+                    {{ form_estado.estado_actividad }}
+                    <p class="text-danger">{{ form_estado.estado_actividad.errors.0 }}</p>
+                </div>
+                <input type="checkbox" name="finalizado" value="Si" {% if fin %}checked{% endif %}> US finalizado?<br>
+
                 <div class="form-group">
                     <input type="submit" value="Submit" class="form-control primary">
                 </div>
+
             </form>
+
+
         </div>
+
+    </div>
 
 {% endblock %}

@@ -85,6 +85,7 @@ def create_actividad(request, pk):
             actividad = Actividades()
             actividad.tipoUS = tipo
             actividad.nombre = form.cleaned_data['nombre']
+            actividad.numero = Actividades.objects.filter(tipoUS__pk=pk).count()+1
             actividad.save()
 
             return HttpResponseRedirect('/us/tipo/' + str(tipo.id))
@@ -144,6 +145,7 @@ def create_us(request, pk):
             us.urgencia = form.cleaned_data['urgencia']
             us.usuario_asignado = form.cleaned_data['usuario_asignado']
             us.tipoUS = form.cleaned_data['tipoUS']
+            us.actividad = Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).get(numero=1)
             us.save()
             return HttpResponseRedirect('/us/us/' + str(us.id))
 
@@ -320,16 +322,24 @@ def cambiar_actividad(request, pk):
     if request.method == 'POST':
         form = CambiarActividadForm(request.POST)
         form.fields['actividad'].queryset = actividades
-        if form.is_valid():
+        form_estado = CambiarEstadoActividadForm(request.POST)
+        finalizado = request.POST.get('finalizado')
+        if finalizado == 'Si':
+            us.finalizado= True
+        else: us.finalizado= False
+        if form.is_valid() and form_estado.is_valid():
+            us.estado_actividad = form_estado.cleaned_data['estado_actividad']
             us.actividad = form.cleaned_data['actividad']
+
             us.save()
             return HttpResponseRedirect('/us/us/' + str(us.id))
     else:
         form = CambiarActividadForm(initial={'actividad': us.actividad})
-
+        form_estado = CambiarEstadoActividadForm(initial={'estado_actividad': us.estado_actividad})
+        fin=us.finalizado
     form.fields['actividad'].queryset = actividades
 
-    return render(request, 'cambiar_actividad.html', {'form': form, 'us': us})
+    return render(request, 'cambiar_actividad.html', {'form': form, 'us': us, 'form_estado':form_estado,'fin':fin})
 
 
 def cambiar_estado_actividad(request, pk):
@@ -346,7 +356,27 @@ def cambiar_estado_actividad(request, pk):
         us = US.objects.get(pk=pk)
     except:
         return HttpResponseRedirect('/proyecto/')
+    if  (us.estado_actividad=='TOD'):
+        us.estado_actividad='DOI'
+        us.save()
+        return HttpResponseRedirect('/us/us/' + str(us.id))
+    elif (us.estado_actividad=='DOI'):
+        us.estado_actividad='DON'
+        us.save()
+        return HttpResponseRedirect('/us/us/' + str(us.id))
+    else:
+        """
+        actividad_nueva=Actividades.objects.filter(tipoUS__pk=pk).filter(numero__gt=us.actividad.numero).order_by('numero')[0:1]
+        if actividad_nueva:
+            us.actividad=actividad_nueva[0]
+            us.estado_actividad = 'TOD'
+            us.save()
+            return HttpResponseRedirect('/us/us/' + str(us.id))
+        else:"""
 
+        return render(request, 'ultimo_estado.html', {'pk':pk})
+
+    """
     if request.method == 'POST':
         form = CambiarEstadoActividadForm(request.POST)
         if form.is_valid():
@@ -358,3 +388,4 @@ def cambiar_estado_actividad(request, pk):
         form = CambiarEstadoActividadForm(initial={'estado_actividad': us.estado_actividad})
 
     return render(request, 'cambiar_estado_actividad.html', {'form': form, 'us': us})
+    """

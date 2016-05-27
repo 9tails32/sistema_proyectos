@@ -18,10 +18,11 @@
         <p>Urgencia: {{ object.urgencia }}</p>
         <p>Usuario asignado: {{ object.usuario_asignado }}</p>
         <p>Tipo US: {{ object.tipoUS }}</p>
-
+        <p>Finalizado: {% if object.finalizado%}Si{% else %}No {% endif %}</p>
+        {% if not object.finalizado %}
         <p>Actividad: {{ object.actividad | default:'Actividad no asignada' }}</p>
         <p>Estado actividad: {% if object.actividad %}{{object.get_estado_actividad_display}}{% endif %} </p>
-
+        {% endif %}
         {% if perms.us.change_us or 'change_us' in permisos %}
             <a class="btn btn-default" role="button" href="/us/us/update/{{ object.id }}">Modificar</a>{% endif %}
         {% if perms.us.delete_us or 'delete_us' in permisos %}
