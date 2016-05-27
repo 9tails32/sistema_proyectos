@@ -145,7 +145,9 @@ def create_us(request, pk):
             us.urgencia = form.cleaned_data['urgencia']
             us.usuario_asignado = form.cleaned_data['usuario_asignado']
             us.tipoUS = form.cleaned_data['tipoUS']
-            us.actividad = Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).get(numero=1)
+            if (Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).exists()):
+                us.actividad=Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).get(numero=1)
+
             us.save()
             return HttpResponseRedirect('/us/us/' + str(us.id))
 
@@ -238,6 +240,7 @@ def detail_us(request, pk):
 
 
 @login_required(None, 'login', '/login/')
+@permission_required('us.delete_us', raise_exception=True)
 def delete_us(request, pk):
     """
     Busca el us con pk igual al que es parametro y lo borra.
@@ -255,7 +258,7 @@ def delete_us(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('')
+@permission_required('us.crear_us', raise_exception=True)
 def update_us(request, pk):
     """
         Funcion para actualizar US utilizando el form USForm.
@@ -301,10 +304,12 @@ def update_us(request, pk):
 
     return render(request, 'us_create.html', {'form': form, 'us': us}, )
 
-
+@login_required(None, 'login', '/login/')
+@permission_required('us.change_actividad', raise_exception=True)
 def cambiar_actividad(request, pk):
     """
-    Funcion que permite cambiar la actividad actual del US que recibe como parametro
+    Funcion que permite al usuario con los permisos adecuados cambiar las actividades y el estado de la actividad de un
+    US. Tambien permite finalizar el US.
     :param request:
     :type request:
     :param pk:
@@ -341,10 +346,12 @@ def cambiar_actividad(request, pk):
 
     return render(request, 'cambiar_actividad.html', {'form': form, 'us': us, 'form_estado':form_estado,'fin':fin})
 
+@permission_required('us.change_estado_actividad', raise_exception=True)
 
 def cambiar_estado_actividad(request, pk):
     """
-    Funcion que permite cambiar el estado de la actividad actual del US.
+    Funcion que permite cambiar el estado de la actividad actual del US. Permite a usuarios con permisos restringidos
+    cambiar el estado de la actividad actual. Sin cambiar de actividad
     :param request:
     :type request:
     :param pk:
