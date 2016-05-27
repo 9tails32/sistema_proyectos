@@ -43,7 +43,7 @@ def create_sprint(request, pk):
 
 @login_required(None, 'login', '/login/')
 @permission_required('sprint.ver_sprint', raise_exception=True)
-def detail_sprint(request,pk):
+def detail_sprint(request, pk):
     """
         Vista que permite displayar los detalles de un sprint seleccionado.
     """
@@ -53,6 +53,7 @@ def detail_sprint(request,pk):
         return HttpResponseRedirect('/proyecto/')
 
     return render(request, 'sprint_detail.html', {'sprint': sprint})
+
 
 @login_required(None, 'login', '/login/')
 @permission_required('proyecto.can_cambiar_estado', raise_exception=True)
@@ -72,7 +73,7 @@ def asignar_us(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    uss = US.objects.filter(Q(proyecto=sprint.proyecto,sprint=None)|Q(sprint=sprint))
+    uss = US.objects.filter(Q(proyecto=sprint.proyecto, sprint=None) | Q(sprint=sprint))
 
     if request.method == 'POST':
         form = AsignarUSForm(request.POST)
@@ -87,7 +88,20 @@ def asignar_us(request, pk):
 
             return HttpResponseRedirect('/sprint/' + str(sprint.id))
     else:
-        form = AsignarUSForm(initial={'uss':sprint.uss.all})
+        form = AsignarUSForm(initial={'uss': sprint.uss.all})
         form.fields["uss"].queryset = uss
 
     return render(request, 'asignar_us.html', {'form': form, 'sprint': sprint})
+
+
+@login_required(None, 'login', '/login/')
+@permission_required('sprint.borrar_sprint', raise_exception=True)
+def borrar_sprint(request, pk):
+    try:
+        sprint = Sprint.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    sprint.delete()
+
+    return HttpResponseRedirect('/proyecto/')

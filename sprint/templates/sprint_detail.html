@@ -24,9 +24,9 @@
         <p>Duracion: <strong>{{ sprint.duracion }}</strong></p>
 
         {% if perms.sprint.change_sprint %}
-            <a class="btn btn-default" role="button" href="/sprint/update/{{ object.id }}/">Modificar</a>{% endif %}
+            <a class="btn btn-default" role="button" href="/sprint/update/{{ sprint.id }}/">Modificar</a>{% endif %}
         {% if perms.sprint.delete_sprint and not sprint.uss.all %}
-            <a class="btn btn-danger" role="button" href="/sprint/delete/{{ object.id }}/">Eliminar</a>
+            <a class="btn btn-danger" role="button" href="/sprint/delete/{{ sprint.id }}/">Eliminar</a>
         {% endif %}
 
 

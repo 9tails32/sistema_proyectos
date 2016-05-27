@@ -38,13 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Modulos de teceros
+    'periodically',
     # Modulos Generados en el proyecto
     'login',
     'cliente',
     'proyecto',
     'equipo',
     'sprint',
-    'US'
+    'US',
 ]
 
 MIDDLEWARE_CLASSES = [
