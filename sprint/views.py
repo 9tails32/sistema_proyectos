@@ -38,6 +38,7 @@ def create_sprint(request, pk):
             sprint = Sprint()
             sprint.proyecto = proyecto
             sprint.nombre = form.cleaned_data['nombre']
+            sprint.fecha_inicio = form.cleaned_data['fecha_inicio']
             sprint.save()
             return HttpResponseRedirect('/proyecto/' + str(proyecto.id))
     else:
@@ -61,7 +62,8 @@ def detail_sprint(request, pk):
         sprint.fecha_fin = sprint.fecha_inicio+timedelta(days=sprint.duracion)
 
     # Aca verificamos si ya inicio el sprint
-    if sprint.fecha_inicio >= datetime.date.today():
+
+    if sprint.fecha_inicio <= datetime.date.today():
         print 'Proyecto iniciado'
         sprint.estado_sprint = 'INI'
     else:
@@ -70,7 +72,7 @@ def detail_sprint(request, pk):
 
     # Aca verificamos si ya finalizo
     if sprint.fecha_fin != None:
-        if datetime.date.today() >= sprint.fecha_fin:
+        if datetime.date.today() <= sprint.fecha_fin:
             sprint.estado_sprint = 'FIN'
 
     uss = sprint.uss.all()
