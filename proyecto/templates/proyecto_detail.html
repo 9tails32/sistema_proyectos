@@ -81,6 +81,9 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Duración</th>
+                        {% if perms.sprint.delete_sprint or 'delete_sprint' in permisos %}
+                        <th>Eliminar</th>
+                        {% endif %}
 
                     </tr>
                     </thead>
@@ -89,6 +92,11 @@
                         <tr>
                             <td><a href="/sprint/{{ sprint.id }}/"> {{ sprint.nombre }}</a></td>
                             <td>{{ sprint.duracion }}</td>
+                            {% if sprint.estado_sprint == 'PEN' %}
+                            {% if perms.sprint.delete_sprint or 'delete_sprint' in permisos %}
+                            <td><a class="text-danger" href="/sprint/delete/{{ sprint.id }}">remove</a></td>
+                            {% endif %}
+                            {% endif %}
 
                         </tr>
                     {% endfor %}
