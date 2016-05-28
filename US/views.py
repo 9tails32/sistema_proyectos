@@ -236,6 +236,7 @@ def detail_us(request, pk):
     permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
                                                                                            flat=True)
 
+
     return render(request, 'us_detail.html', {'object': us, 'permisos': permisos})
 
 

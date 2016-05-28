@@ -63,16 +63,17 @@ def detail_sprint(request, pk):
 
     # Aca verificamos si ya inicio el sprint
 
-    if sprint.fecha_inicio <= datetime.date.today():
-        print 'Proyecto iniciado'
-        sprint.estado_sprint = 'INI'
-    else:
+    if datetime.date.today() <= sprint.fecha_inicio:
         sprint.estado_sprint = 'PEN'
         print 'Proyecto pendiente'
+    else:
+        print 'Proyecto iniciado'
+        sprint.estado_sprint = 'INI'
 
     # Aca verificamos si ya finalizo
     if sprint.fecha_fin != None:
-        if datetime.date.today() <= sprint.fecha_fin:
+        if sprint.fecha_fin <= datetime.date.today():
+            print 'Proyecto finalizado'
             sprint.estado_sprint = 'FIN'
 
     uss = sprint.uss.all()

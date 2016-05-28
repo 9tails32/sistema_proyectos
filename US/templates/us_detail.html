@@ -9,7 +9,7 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">US</h1>
         {% if perms.us.add_us %}
-            <a class="btn btn-primary" href="/us/us/create/{{object.proyecto.id}}/">Crear nuevo</a>{% endif %}
+            <a class="btn btn-primary" href="/us/us/create/{{ object.proyecto.id }}/">Crear nuevo</a>{% endif %}
         <h2 class="sub-header">Detalle</h2>
         <p>Descripcion corta: <strong>{{ object.descripcion_corta }}</strong></p>
         <p>Descripcion larga: {{ object.descripcion_larga }}</p>
@@ -18,24 +18,25 @@
         <p>Urgencia: {{ object.urgencia }}</p>
         <p>Usuario asignado: {{ object.usuario_asignado }}</p>
         <p>Tipo US: {{ object.tipoUS }}</p>
-        <p>Finalizado: {% if object.finalizado%}Si{% else %}No {% endif %}</p>
+        <p>Finalizado: {% if object.finalizado %}Si{% else %}No {% endif %}</p>
         {% if not object.finalizado %}
-        <p>Actividad: {{ object.actividad | default:'Actividad no asignada' }}</p>
-        <p>Estado actividad: {% if object.actividad %}{{object.get_estado_actividad_display}}{% endif %} </p>
+            <p>Actividad: {{ object.actividad | default:'Actividad no asignada' }}</p>
+            <p>Estado actividad: {% if object.actividad %}{{ object.get_estado_actividad_display }}{% endif %} </p>
         {% endif %}
 
-
-        {% if perms.us.change_us or 'change_us' in permisos %}
-            <a class="btn btn-default" role="button" href="/us/us/update/{{ object.id }}">Modificar</a>{% endif %}
-        {% if perms.us.delete_us or 'delete_us' in permisos %}
-            <a class="btn btn-danger" role="button" href="/us/us/delete/{{ object.id }}">Eliminar</a>{% endif %}
-        {% if perms.us.change_actividad or 'change_actividad' in permisos %}
-            <a class="btn btn-default" role="button" href="/us/us/cambiar_actividad/{{ object.id }}">Cambiar
-                actividad</a>{% endif %}
-        {% if perms.us.change_estado_actividad or 'change_estado_actividad' in permisos %}
-            <a class="btn btn-default" role="button" href="/us/us/cambiar_estado_actividad/{{ object.id }}">Cambiar
-                estado de actividad</a>{% endif %}
-
+        {% if object.sprint.estado_sprint == 'PEN' %}
+            {% if perms.us.change_us or 'change_us' in permisos %}
+                <a class="btn btn-default" role="button" href="/us/us/update/{{ object.id }}">Modificar</a>{% endif %}
+            {% if perms.us.delete_us or 'delete_us' in permisos %}
+                <a class="btn btn-danger" role="button" href="/us/us/delete/{{ object.id }}">Eliminar</a>{% endif %}
+        {% else %}
+            {% if perms.us.change_actividad or 'change_actividad' in permisos %}
+                <a class="btn btn-default" role="button" href="/us/us/cambiar_actividad/{{ object.id }}">Cambiar
+                    actividad</a>{% endif %}
+            {% if perms.us.change_estado_actividad or 'change_estado_actividad' in permisos %}
+                <a class="btn btn-default" role="button" href="/us/us/cambiar_estado_actividad/{{ object.id }}">Cambiar
+                    estado de actividad</a>{% endif %}
+        {% endif %}
     </div>
 {% endblock %}
 

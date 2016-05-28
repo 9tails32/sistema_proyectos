@@ -32,7 +32,7 @@
             {% endif %}
             <a class="btn btn-primary" role="button" href="/sprint/iniciar/{{ sprint.id }}">Iniciar Sprint</a>
         {% else %}
-            <p><strong>Proyecto iniciado/finalizado, no se pueden hacer cambios</strong></p>
+            <p><strong>Proyecto {{ sprint.get_estado_sprint_display }}, no se pueden hacer cambios</strong></p>
         {% endif %}
         <h2 class="sub-header">US</h2>
         {% if sprint.estado_sprint == 'PEN' %}
