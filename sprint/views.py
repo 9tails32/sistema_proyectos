@@ -61,7 +61,7 @@ def detail_sprint(request, pk):
 
     # Aca verificamos si ya inicio el sprint
 
-    if datetime.date.today() <= sprint.fecha_inicio:
+    if (datetime.date.today() <= sprint.fecha_inicio) and sprint.estado_sprint == 'PEN':
         sprint.estado_sprint = 'PEN'
         print 'Proyecto pendiente'
     else:
