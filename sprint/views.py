@@ -1,14 +1,13 @@
 import datetime
-
 from datetime import timedelta
 
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from sprint.models import Sprint
+from django.shortcuts import render
+
+from US.models import TipoUS
 from sprint.forms import *
-from proyecto.models import Proyecto
-from US.models import US, TipoUS
+from sprint.models import Sprint
 
 
 # Create your views here.
@@ -50,6 +49,10 @@ def create_sprint(request, pk):
 def detail_sprint(request, pk):
     """
         Vista que permite displayar los detalles de un sprint seleccionado.
+
+        En esta vista traemos el sprint y verificamos si es que la fecha de inicio ya es igual a la fecha entonces inicia el proyecto
+        o lo finaliza respectivamente.
+
     """
     try:
         sprint = Sprint.objects.get(pk=pk)
@@ -95,7 +98,6 @@ def asignar_us(request, pk):
         Retorna:
         -El render del template asignar_us.html en caso de form vacio o invalido.
         -Redireccion a lista de sprints si el form es valido
-
     """
     try:
         sprint = Sprint.objects.get(pk=pk)
@@ -158,6 +160,14 @@ def modificar_sprint(request, pk):
 
 @login_required(None, 'login', '/login/')
 def iniciar_sprint(request, pk):
+    """
+    En esta funcion se cambia la fecha de inicio del sprint, la fecha de fin segun la duracion del mismo y se coloca estado iniciado
+    :param request:
+        Este es el request de la web al view
+    :param pk:
+        El primary key del sprint actual
+    :return:
+    """
     try:
         sprint = Sprint.objects.get(pk=pk)
         sprint.fecha_inicio = datetime.date.today()
@@ -168,4 +178,4 @@ def iniciar_sprint(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    return HttpResponseRedirect('/sprint/'+str(sprint.id))
+    return HttpResponseRedirect('/sprint/' + str(sprint.id))
