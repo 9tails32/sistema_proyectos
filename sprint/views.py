@@ -162,6 +162,8 @@ def iniciar_sprint(request, pk):
         sprint = Sprint.objects.get(pk=pk)
         sprint.fecha_inicio = datetime.date.today()
         sprint.fecha_fin = sprint.fecha_inicio + timedelta(days=sprint.duracion)
+        print 'Proyecto iniciado'
+        sprint.estado_sprint = 'INI'
         sprint.save()
     except:
         return HttpResponseRedirect('/proyecto/')
