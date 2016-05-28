@@ -59,7 +59,7 @@ def detail_sprint(request, pk):
         return HttpResponseRedirect('/proyecto/')
 
     if sprint.duracion > 0:
-        sprint.fecha_fin = sprint.fecha_inicio+timedelta(days=sprint.duracion)
+        sprint.fecha_fin = sprint.fecha_inicio + timedelta(days=sprint.duracion)
 
     # Aca verificamos si ya inicio el sprint
 
@@ -135,3 +135,24 @@ def borrar_sprint(request, pk):
     sprint.delete()
 
     return HttpResponseRedirect('/proyecto/')
+
+
+@login_required(None, 'login', '/login/')
+@permission_required('Sprint.change_sprint', raise_exception=True)
+def modificar_sprint(request, pk):
+    try:
+        sprint = Sprint.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    if request.method == 'POST':
+        form = SprintForm(request.POST)
+        if form.is_valid():
+            sprint.nombre = form.cleaned_data['nombre']
+            sprint.fecha_inicio = form.cleaned_data['fecha_inicio']
+            sprint.save()
+            return HttpResponseRedirect('/sprint/' + str(sprint.id))
+    else:
+        form = SprintForm()
+
+    return render(request, 'sprint_create.html', {'form': form})
