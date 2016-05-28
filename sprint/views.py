@@ -1,10 +1,14 @@
+import datetime
+
+from datetime import timedelta
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponseRedirect
 from sprint.models import Sprint
 from sprint.forms import *
 from proyecto.models import Proyecto
-from US.models import US,TipoUS
+from US.models import US, TipoUS
 
 
 # Create your views here.
@@ -34,6 +38,7 @@ def create_sprint(request, pk):
             sprint = Sprint()
             sprint.proyecto = proyecto
             sprint.nombre = form.cleaned_data['nombre']
+            sprint.fecha_inicio = form.cleaned_data['fecha_inicio']
             sprint.save()
             return HttpResponseRedirect('/proyecto/' + str(proyecto.id))
     else:
@@ -44,7 +49,7 @@ def create_sprint(request, pk):
 
 @login_required(None, 'login', '/login/')
 @permission_required('sprint.ver_sprint', raise_exception=True)
-def detail_sprint(request,pk):
+def detail_sprint(request, pk):
     """
         Vista que permite displayar los detalles de un sprint seleccionado.
     """
@@ -53,15 +58,34 @@ def detail_sprint(request,pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
+    if sprint.duracion > 0:
+        sprint.fecha_fin = sprint.fecha_inicio + timedelta(days=sprint.duracion)
+
+    # Aca verificamos si ya inicio el sprint
+
+    if datetime.date.today() <= sprint.fecha_inicio:
+        sprint.estado_sprint = 'PEN'
+        print 'Proyecto pendiente'
+    else:
+        print 'Proyecto iniciado'
+        sprint.estado_sprint = 'INI'
+
+    # Aca verificamos si ya finalizo
+    if sprint.fecha_fin != None:
+        if sprint.fecha_fin <= datetime.date.today():
+            print 'Proyecto finalizado'
+            sprint.estado_sprint = 'FIN'
+    sprint.save()
+
     uss = sprint.uss.all()
     tipos_us = uss.values('tipoUS').distinct()
     tipos = []
     for t in tipos_us:
         tipo_id = t["tipoUS"]
-        tipos.append([TipoUS.objects.get(id=tipo_id),uss.filter(tipoUS=tipo_id)])
+        tipos.append([TipoUS.objects.get(id=tipo_id), uss.filter(tipoUS=tipo_id)])
 
+    return render(request, 'sprint_detail.html', {'sprint': sprint, 'tipos': tipos})
 
-    return render(request, 'sprint_detail.html', {'sprint': sprint, 'tipos':tipos})
 
 @login_required(None, 'login', '/login/')
 @permission_required('proyecto.can_cambiar_estado', raise_exception=True)
@@ -81,7 +105,7 @@ def asignar_us(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    uss = US.objects.filter(Q(proyecto=sprint.proyecto,sprint=None)|Q(sprint=sprint))
+    uss = US.objects.filter(Q(proyecto=sprint.proyecto, sprint=None) | Q(sprint=sprint))
 
     if request.method == 'POST':
         form = AsignarUSForm(request.POST)
@@ -96,7 +120,55 @@ def asignar_us(request, pk):
 
             return HttpResponseRedirect('/sprint/' + str(sprint.id))
     else:
-        form = AsignarUSForm(initial={'uss':sprint.uss.all})
+        form = AsignarUSForm(initial={'uss': sprint.uss.all})
         form.fields["uss"].queryset = uss
 
     return render(request, 'asignar_us.html', {'form': form, 'sprint': sprint})
+
+
+@login_required(None, 'login', '/login/')
+@permission_required('sprint.borrar_sprint', raise_exception=True)
+def borrar_sprint(request, pk):
+    try:
+        sprint = Sprint.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    sprint.delete()
+
+    return HttpResponseRedirect('/proyecto/')
+
+
+@login_required(None, 'login', '/login/')
+@permission_required('Sprint.change_sprint', raise_exception=True)
+def modificar_sprint(request, pk):
+    try:
+        sprint = Sprint.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    if request.method == 'POST':
+        form = SprintForm(request.POST)
+        if form.is_valid():
+            sprint.nombre = form.cleaned_data['nombre']
+            sprint.fecha_inicio = form.cleaned_data['fecha_inicio']
+            sprint.save()
+            return HttpResponseRedirect('/sprint/' + str(sprint.id))
+    else:
+        form = SprintForm(initial={'nombre': sprint.nombre,
+                                   'fecha_inicio': sprint.fecha_inicio})
+
+        return render(request, 'sprint_create.html', {'form': form, 'sprint': sprint})
+
+
+@login_required(None, 'login', '/login/')
+def iniciar_sprint(request, pk):
+    try:
+        sprint = Sprint.objects.get(pk=pk)
+        sprint.fecha_inicio = datetime.date.today()
+        sprint.fecha_fin = sprint.fecha_inicio + timedelta(days=sprint.duracion)
+        sprint.save()
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    return HttpResponseRedirect('/sprint/'+str(sprint.id))

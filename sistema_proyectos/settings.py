@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'proyecto',
     'equipo',
     'sprint',
-    'US'
+    'US',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -112,7 +112,7 @@ AUTH_USER_MODEL = 'login.Usuario'
 
 LANGUAGE_CODE = 'es-mx'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Asuncion'
 
 USE_I18N = True
 

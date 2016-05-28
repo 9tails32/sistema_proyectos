@@ -21,18 +21,25 @@
         {% endif %}
         <h2 class="sub-header">Detalle</h2>
         <p>Nombre: <strong>{{ sprint.nombre }}</strong></p>
-        <p>Duracion: <strong>{{ sprint.duracion }}</strong></p>
+        <p>Duracion: <strong>{{ sprint.duracion }}</strong> dias</p>
+        <p>Fecha de inicio: <strong>{{ sprint.fecha_inicio }}</strong></p>
+        <p>Fecha de fin: <strong>{{ sprint.fecha_fin }}</strong></p>
 
-        {% if perms.sprint.change_sprint %}
-            <a class="btn btn-default" role="button" href="/sprint/update/{{ object.id }}/">Modificar</a>{% endif %}
-        {% if perms.sprint.delete_sprint and not sprint.uss.all %}
-            <a class="btn btn-danger" role="button" href="/sprint/delete/{{ object.id }}/">Eliminar</a>
+        {% if sprint.estado_sprint == 'PEN' %}
+            {% if perms.sprint.change_sprint %}
+                <a class="btn btn-default" role="button" href="/sprint/update/{{ sprint.id }}/">Modificar</a>{% endif %}
+            {% if perms.sprint.delete_sprint and not sprint.uss.all %}
+                <a class="btn btn-danger" role="button" href="/sprint/delete/{{ sprint.id }}/">Eliminar</a>
+            {% endif %}
+            <a class="btn btn-primary" role="button" href="/sprint/iniciar/{{ sprint.id }}">Iniciar Sprint</a>
+        {% else %}
+            <p><strong>Proyecto {{ sprint.get_estado_sprint_display }}, no se pueden hacer cambios</strong></p>
         {% endif %}
-
-
         <h2 class="sub-header">US</h2>
-        {% if perms.us.add_us %}
-            <a class="btn btn-primary" href="/sprint/asignar_us/{{ sprint.id }}/">Asignar US</a>
+        {% if sprint.estado_sprint == 'PEN' %}
+            {% if perms.us.add_us %}
+                <a class="btn btn-primary" href="/sprint/asignar_us/{{ sprint.id }}/">Asignar US</a>
+            {% endif %}
         {% endif %}
         <table class="table table-responsive">
             <thead>
@@ -58,70 +65,78 @@
 
         <h2 class="sub-header">Kanban</h2>
         {% for tipo,uss in tipos %}
-        <br>
-        <h4 class="title text-center">{{tipo.nombre}}</h4>
-        <table class="table table-responsive table-bordered">
-            <thead>
+            <br>
+            <h4 class="title text-center">{{ tipo.nombre }}</h4>
+            <table class="table table-responsive table-bordered">
+                <thead>
 
-            <tr style="background-color: #337ab7;color:#FFFFFF;">
-                {% for act in tipo.actividades.all %}
-                <th>{{act.nombre}}</th>
-                {% endfor %}
-                <th>Finalizado</th>
-            </tr>
+                <tr style="background-color: #337ab7;color:#FFFFFF;">
+                    {% for act in tipo.actividades.all %}
+                        <th>{{ act.nombre }}</th>
+                    {% endfor %}
+                    <th>Finalizado</th>
+                </tr>
 
-            </thead>
-            <tbody>
-            <tr>
-            {% for act in tipo.actividades.all %}
+                </thead>
+                <tbody>
+                <tr>
+                    {% for act in tipo.actividades.all %}
 
-                    <td style="marign:0 !important; padding:0 !important;">
-                        <table class="table table-bordered" style="margin: 0;">
-                            <thead>
+                        <td style="marign:0 !important; padding:0 !important;">
+                            <table class="table table-bordered" style="margin: 0;">
+                                <thead>
                                 <tr>
                                     <th>To do</th>
                                     <th>Doing</th>
                                     <th>Done</th>
                                 </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for us in uss %}
+                                    {% if us.actividad == act and not us.finalizado %}
+                                        <tr>
+                                            {% if us.estado_actividad == 'TOD' %}
+                                                <td class="warning">{{ us.descripcion_corta }}</td>{% else %}
+                                                <td></td>{% endif %}
+                                            {% if us.estado_actividad == 'DOI' %}
+                                                <td class="info">{{ us.descripcion_corta }}</td>{% else %}
+                                                <td></td>{% endif %}
+                                            {% if us.estado_actividad == 'DON' %}
+                                                <td class="success">{{ us.descripcion_corta }}</td>{% else %}
+                                                <td></td>{% endif %}
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </td>
+                    {% endfor %}
+                    <td style="marign:0 !important; padding:0 !important;">
+
+                        <table class="table table-bordered" style="margin: 0;">
+                            <thead>
+                            <tr>
+                                <th>Done</th>
+                            </tr>
                             </thead>
-
-                             <tbody>
-                             {% for us in uss %}
-                                {% if us.actividad == act and not us.finalizado %}
-                                <tr>
-                                    {% if us.estado_actividad == 'TOD' %}<td class="warning">{{us.descripcion_corta}}</td>{% else %}<td></td>{% endif %}
-                                    {% if us.estado_actividad == 'DOI' %}<td class="info">{{us.descripcion_corta}}</td>{% else %}<td></td>{% endif %}
-                                    {% if us.estado_actividad == 'DON' %}<td class="success">{{us.descripcion_corta}}</td>{% else %}<td></td>{% endif %}
-                                </tr>
+                            <tbody>
+                            {% for us in uss %}
+                                {% if us.finalizado %}
+                                    <tr>
+                                        <td class="success">{{ us.descripcion_corta }}</td>
+                                    </tr>
                                 {% endif %}
-                             {% endfor %}
-
+                            {% endfor %}
                             </tbody>
                         </table>
+
                     </td>
-            {% endfor %}
-                <td style="marign:0 !important; padding:0 !important;">
-
-                    <table class="table table-bordered" style="margin: 0;">
-                        <thead>
-                        <tr><th>Done</th></tr>
-                        </thead>
-                        <tbody>
-                        {% for us in uss %}
-                        {% if us.finalizado %}
-                        <tr>
-                            <td class="success">{{us.descripcion_corta}}</td>
-                        </tr>
-                        {% endif %}
-                        {% endfor %}
-                        </tbody>
-                    </table>
-
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <br>
+                </tr>
+                </tbody>
+            </table>
+            <br>
         {% endfor %}
 
     </div>

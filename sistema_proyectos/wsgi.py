@@ -13,4 +13,7 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sistema_proyectos.settings")
 
+from . import periodic_task
+#periodic_task.iniciar_task()
+
 application = get_wsgi_application()
