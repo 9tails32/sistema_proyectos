@@ -13,7 +13,6 @@ from US.models import US, TipoUS
 
 # Create your views here.
 @login_required(None, 'login', '/login/')
-@permission_required('sprint.crear_sprint', raise_exception=True)
 def create_sprint(request, pk):
     """
         Funcion para crear sprint utilizando el form SprintForm.
@@ -48,7 +47,6 @@ def create_sprint(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('sprint.ver_sprint', raise_exception=True)
 def detail_sprint(request, pk):
     """
         Vista que permite displayar los detalles de un sprint seleccionado.
@@ -63,7 +61,7 @@ def detail_sprint(request, pk):
 
     # Aca verificamos si ya inicio el sprint
 
-    if datetime.date.today() <= sprint.fecha_inicio:
+    if datetime.date.today() < sprint.fecha_inicio:
         sprint.estado_sprint = 'PEN'
         print 'Proyecto pendiente'
     else:
@@ -88,7 +86,6 @@ def detail_sprint(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('proyecto.can_cambiar_estado', raise_exception=True)
 def asignar_us(request, pk):
     """
         Funcion para asignar us a un sprint utilizando el form AsignarUSForm.
@@ -127,7 +124,6 @@ def asignar_us(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('sprint.borrar_sprint', raise_exception=True)
 def borrar_sprint(request, pk):
     try:
         sprint = Sprint.objects.get(pk=pk)
@@ -140,7 +136,6 @@ def borrar_sprint(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('Sprint.change_sprint', raise_exception=True)
 def modificar_sprint(request, pk):
     try:
         sprint = Sprint.objects.get(pk=pk)

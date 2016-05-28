@@ -110,7 +110,6 @@ def list_actividades(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('US.crear_US', raise_exception=True)
 def create_us(request, pk):
     """
         Funcion para crear us utilizando el form USForm.
@@ -191,7 +190,6 @@ def delete_tipo_us(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('tipous.change_tipous', raise_exception=True)
 def update_tipo_us(request, pk):
     """
         Funcion para actualizar tipo de US utilizando el form TipoUSForm.
@@ -240,7 +238,6 @@ def detail_us(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('us.delete_us', raise_exception=True)
 def delete_us(request, pk):
     """
     Busca el us con pk igual al que es parametro y lo borra.
@@ -258,7 +255,6 @@ def delete_us(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('us.crear_us', raise_exception=True)
 def update_us(request, pk):
     """
         Funcion para actualizar US utilizando el form USForm.
@@ -306,7 +302,6 @@ def update_us(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('us.change_actividad', raise_exception=True)
 def cambiar_actividad(request, pk):
     """
     Funcion que permite al usuario con los permisos adecuados cambiar las actividades y el estado de la actividad de un
@@ -349,7 +344,7 @@ def cambiar_actividad(request, pk):
     return render(request, 'cambiar_actividad.html', {'form': form, 'us': us, 'form_estado': form_estado, 'fin': fin})
 
 
-@permission_required('us.change_estado_actividad', raise_exception=True)
+@login_required(None, 'login', '/login/')
 def cambiar_estado_actividad(request, pk):
     """
     Funcion que permite cambiar el estado de la actividad actual del US. Permite a usuarios con permisos restringidos

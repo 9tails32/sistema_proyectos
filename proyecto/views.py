@@ -77,7 +77,6 @@ def create_proyecto(request):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('proyecto.can_cambiar_estado', raise_exception=True)
 def cambiar_estado(request, pk):
     """
         Funcion para actualizar el estado del proyecto utilizando el form CambiarEstadoForm.
@@ -113,7 +112,6 @@ def cambiar_estado(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('proyecto.change_proyecto', raise_exception=True)
 def update_proyecto(request, pk):
     """
         Funcion para actualizar proyecto utilizando el form ProyectoForm.
@@ -155,7 +153,6 @@ def update_proyecto(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('proyecto.delete_proyecto', raise_exception=True)
 def delete_proyecto(request, pk):
     """
     Busca el proyecto con pk igual al que es parametro y cambia su estado activo a False.

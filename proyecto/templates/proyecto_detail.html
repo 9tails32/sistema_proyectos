@@ -38,7 +38,7 @@
                 <th>Nombre</th>
                 <th>Integrantes</th>
                 <th>Permisos</th>
-                {% if 'delete_equipo' in permisos %}
+                {% if perms.equipo.delete_equipo or 'delete_equipo' in permisos %}
                     <th></th>
                 {% endif %}
             </tr>
@@ -55,7 +55,7 @@
                         <ul>{% for p in equipo.permisos.all %}
                             <li>{{ p }}</li>{% endfor %}</ul>
                     </td>
-                    {% if 'delete_equipo' in permisos %}
+                    {% if perms.equipo.delete_equipo or 'delete_equipo' in permisos %}
                         <td><a class="text-danger" href="/equipo/delete/{{ equipo.id }}">remove</a></td>
                     {% endif %}
                 </tr>
