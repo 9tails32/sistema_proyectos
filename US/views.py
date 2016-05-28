@@ -110,7 +110,7 @@ def list_actividades(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('')
+@permission_required('US.crear_US', raise_exception=True)
 def create_us(request, pk):
     """
         Funcion para crear us utilizando el form USForm.

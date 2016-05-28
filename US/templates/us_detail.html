@@ -30,7 +30,7 @@
         {% if perms.us.change_actividad or 'change_actividad' in permisos %}
             <a class="btn btn-default" role="button" href="/us/us/cambiar_actividad/{{ object.id }}">Cambiar
                 actividad</a>{% endif %}
-        {% if perms.us.change_estado_actividad or 'change_estado_actividad' in permisos %}
+        {% if perms.us.change_estado_actividad or 'change_estado_actividad' in permisos and not object.finalizado%}
             <a class="btn btn-default" role="button" href="/us/us/cambiar_estado_actividad/{{ object.id }}">Cambiar
                 estado de actividad</a>{% endif %}
 
