@@ -159,3 +159,16 @@ def modificar_sprint(request, pk):
                                    'fecha_inicio': sprint.fecha_inicio})
 
         return render(request, 'sprint_create.html', {'form': form, 'sprint': sprint})
+
+
+@login_required(None, 'login', '/login/')
+def iniciar_sprint(request, pk):
+    try:
+        sprint = Sprint.objects.get(pk=pk)
+        sprint.fecha_inicio = datetime.date.today()
+        sprint.fecha_fin = sprint.fecha_inicio + timedelta(days=sprint.duracion)
+        sprint.save()
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    return HttpResponseRedirect('/sprint/'+str(sprint.id))
