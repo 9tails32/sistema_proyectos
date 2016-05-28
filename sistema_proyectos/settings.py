@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Django settings for sistema_proyectos project.
 
@@ -29,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,8 @@ INSTALLED_APPS = [
     'sprint',
     'US',
 ]
+
+ADMIN_SITE_HEADER = "Administración"
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
