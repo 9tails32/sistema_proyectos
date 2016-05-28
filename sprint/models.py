@@ -24,7 +24,7 @@ class Sprint(models.Model):
     )
     estado_sprint = models.CharField(max_length=3, choices=options_estado_sprint, default='PEN')
 
-    fecha_inicio = models.DateField(auto_now=True)
+    fecha_inicio = models.DateField()
     fecha_fin = models.DateField(null=True)
 
 

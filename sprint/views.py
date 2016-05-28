@@ -1,10 +1,14 @@
+import datetime
+
+from datetime import timedelta
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponseRedirect
 from sprint.models import Sprint
 from sprint.forms import *
 from proyecto.models import Proyecto
-from US.models import US,TipoUS
+from US.models import US, TipoUS
 
 
 # Create your views here.
@@ -53,15 +57,30 @@ def detail_sprint(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
+    if sprint.duracion > 0:
+        sprint.fecha_fin = sprint.fecha_inicio+timedelta(days=sprint.duracion)
+
+    # Aca verificamos si ya inicio el sprint
+    if sprint.fecha_inicio >= datetime.date.today():
+        print 'Proyecto iniciado'
+        sprint.estado_sprint = 'INI'
+    else:
+        sprint.estado_sprint = 'PEN'
+        print 'Proyecto pendiente'
+
+    # Aca verificamos si ya finalizo
+    if sprint.fecha_fin != None:
+        if datetime.date.today() >= sprint.fecha_fin:
+            sprint.estado_sprint = 'FIN'
+
     uss = sprint.uss.all()
     tipos_us = uss.values('tipoUS').distinct()
     tipos = []
     for t in tipos_us:
         tipo_id = t["tipoUS"]
-        tipos.append([TipoUS.objects.get(id=tipo_id),uss.filter(tipoUS=tipo_id)])
+        tipos.append([TipoUS.objects.get(id=tipo_id), uss.filter(tipoUS=tipo_id)])
 
-
-    return render(request, 'sprint_detail.html', {'sprint': sprint, 'tipos':tipos})
+    return render(request, 'sprint_detail.html', {'sprint': sprint, 'tipos': tipos})
 
 
 @login_required(None, 'login', '/login/')
