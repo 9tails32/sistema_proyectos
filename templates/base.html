@@ -52,13 +52,13 @@
                 <ul class="nav nav-sidebar">
 
                     <li class="{{ dasboard }}"><a href="/">Dashboard <span class="sr-only">(current)</span></a></li>
-                    {% if perms.cliente.can_view %}
+                    {% if perms.cliente.view_cliente %}
                         <li class="{{ cliente }}"><a href="/cliente/">Clientes</a></li>
                     {% endif %}
-                    {% if perms.proyecto.can_view %}
+                    {% if perms.proyecto.view_proyecto %}
                         <li class="{{ proyecto }}"><a href="/proyecto/">Proyectos</a></li>
                     {% endif %}
-                    {% if perms.tipous.ver_tipo_US %}
+                    {% if perms.US.ver_tipo_US %}
                         <li class="{{ tipous }}"><a href="/us/tipo/">Tipo US</a></li>
                     {% endif %}
 
