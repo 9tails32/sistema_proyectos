@@ -127,6 +127,11 @@ def asignar_us(request, pk):
 
 @login_required(None, 'login', '/login/')
 def borrar_sprint(request, pk):
+    """
+    Busca el sprint con pk igual al que es parametro y la elimina.
+    Parametros: recibe el request y el pk del sprint a eliminar.
+    Retorna: Redireccion a lista de sprints.
+    """
     try:
         sprint = Sprint.objects.get(pk=pk)
     except:
@@ -139,6 +144,18 @@ def borrar_sprint(request, pk):
 
 @login_required(None, 'login', '/login/')
 def modificar_sprint(request, pk):
+    """
+        Funcion para actualizar sprint utilizando el form SprintForm.
+        Recibe en el request el form completado o o displaya uno con los campos anteriores en caso de que
+        no se llame a post, y el pk del proyecto al que pertenece el sprint. Controla la validez del form
+        antes de guardarlo como un sprint nuevo en la base de datos.
+        Parametros: Recibe el request.
+        Retorna:
+        -El render del template sprint_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de sprint si el form es valido.
+        -Error, si no existe el proyecto.
+
+        """
     try:
         sprint = Sprint.objects.get(pk=pk)
     except:
