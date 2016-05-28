@@ -33,7 +33,7 @@ class TestViewSprint(TestCase):
 
     def test_create_form_valid(self):
 
-        form=SprintForm({'nombre':'sprint 1'})
+        form=SprintForm({'nombre':'sprint 1', 'fecha_inicio': timezone.now()})
         self.assertTrue(form.is_valid())
         resp = self.client.post('/sprint/create/1/',{'form':form})
         self.assertEqual(resp.status_code, 200)
@@ -50,7 +50,7 @@ class TestViewSprint(TestCase):
         self.assertEqual(resp.status_code, 302)
 
     def test_asignarUS(self):
-        sprint = Sprint(id=3, nombre='sprint 3', proyecto=Proyecto.objects.get(pk=1))
+        sprint = Sprint(id=3, nombre='sprint 3', fecha_inicio= timezone.now(),proyecto=Proyecto.objects.get(pk=1))
         sprint.save()
         tipo = TipoUS(nombre='tipo')
         tipo.save()
