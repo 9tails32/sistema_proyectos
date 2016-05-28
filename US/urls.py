@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^us/(?P<pk>[0-9]+)/$', detail_us, name='us_detail'),
     url(r'^us/cambiar_actividad/(?P<pk>[0-9]+)/$', cambiar_actividad, name='cambiar_actividad'),
     url(r'^us/cambiar_estado_actividad/(?P<pk>[0-9]+)/$', cambiar_estado_actividad, name='cambiar_estado_actividad'),
+    url(r'^us/repriorizar/(?P<pk>[0-9]+)/$', repriorizar, name='repriorizar')
 
 ]

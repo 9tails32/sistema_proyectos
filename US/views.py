@@ -85,7 +85,7 @@ def create_actividad(request, pk):
             actividad = Actividades()
             actividad.tipoUS = tipo
             actividad.nombre = form.cleaned_data['nombre']
-            actividad.numero = Actividades.objects.filter(tipoUS__pk=pk).count()+1
+            actividad.numero = Actividades.objects.filter(tipoUS__pk=pk).count() + 1
             actividad.save()
 
             return HttpResponseRedirect('/us/tipo/' + str(tipo.id))
@@ -110,7 +110,7 @@ def list_actividades(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('add_us',raise_exception=True)
+@permission_required('add_us', raise_exception=True)
 def create_us(request, pk):
     """
         Funcion para crear us utilizando el form USForm.
@@ -146,7 +146,7 @@ def create_us(request, pk):
             us.usuario_asignado = form.cleaned_data['usuario_asignado']
             us.tipoUS = form.cleaned_data['tipoUS']
             if (Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).exists()):
-                us.actividad=Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).get(numero=1)
+                us.actividad = Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).get(numero=1)
 
             us.save()
             return HttpResponseRedirect('/us/us/' + str(us.id))
@@ -236,7 +236,6 @@ def detail_us(request, pk):
     permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
                                                                                            flat=True)
 
-
     return render(request, 'us_detail.html', {'object': us, 'permisos': permisos})
 
 
@@ -305,6 +304,7 @@ def update_us(request, pk):
 
     return render(request, 'us_create.html', {'form': form, 'us': us}, )
 
+
 @login_required(None, 'login', '/login/')
 @permission_required('us.change_actividad', raise_exception=True)
 def cambiar_actividad(request, pk):
@@ -331,8 +331,9 @@ def cambiar_actividad(request, pk):
         form_estado = CambiarEstadoActividadForm(request.POST)
         finalizado = request.POST.get('finalizado')
         if finalizado == 'Si':
-            us.finalizado= True
-        else: us.finalizado= False
+            us.finalizado = True
+        else:
+            us.finalizado = False
         if form.is_valid() and form_estado.is_valid():
             us.estado_actividad = form_estado.cleaned_data['estado_actividad']
             us.actividad = form.cleaned_data['actividad']
@@ -342,13 +343,13 @@ def cambiar_actividad(request, pk):
     else:
         form = CambiarActividadForm(initial={'actividad': us.actividad})
         form_estado = CambiarEstadoActividadForm(initial={'estado_actividad': us.estado_actividad})
-        fin=us.finalizado
+        fin = us.finalizado
     form.fields['actividad'].queryset = actividades
 
-    return render(request, 'cambiar_actividad.html', {'form': form, 'us': us, 'form_estado':form_estado,'fin':fin})
+    return render(request, 'cambiar_actividad.html', {'form': form, 'us': us, 'form_estado': form_estado, 'fin': fin})
+
 
 @permission_required('us.change_estado_actividad', raise_exception=True)
-
 def cambiar_estado_actividad(request, pk):
     """
     Funcion que permite cambiar el estado de la actividad actual del US. Permite a usuarios con permisos restringidos
@@ -364,12 +365,12 @@ def cambiar_estado_actividad(request, pk):
         us = US.objects.get(pk=pk)
     except:
         return HttpResponseRedirect('/proyecto/')
-    if  (us.estado_actividad=='TOD'):
-        us.estado_actividad='DOI'
+    if (us.estado_actividad == 'TOD'):
+        us.estado_actividad = 'DOI'
         us.save()
         return HttpResponseRedirect('/us/us/' + str(us.id))
-    elif (us.estado_actividad=='DOI'):
-        us.estado_actividad='DON'
+    elif (us.estado_actividad == 'DOI'):
+        us.estado_actividad = 'DON'
         us.save()
         return HttpResponseRedirect('/us/us/' + str(us.id))
     else:
@@ -382,7 +383,7 @@ def cambiar_estado_actividad(request, pk):
             return HttpResponseRedirect('/us/us/' + str(us.id))
         else:"""
 
-        return render(request, 'ultimo_estado.html', {'pk':pk})
+        return render(request, 'ultimo_estado.html', {'pk': pk})
 
     """
     if request.method == 'POST':
@@ -397,3 +398,17 @@ def cambiar_estado_actividad(request, pk):
 
     return render(request, 'cambiar_estado_actividad.html', {'form': form, 'us': us})
     """
+
+
+def repriorizar(request, pk):
+    try:
+        us = US.objects.get(pk=pk)
+        us.estado_actividad = 'TOD'
+        us.urgencia = 5
+        us.valor_negocio = 5
+        us.sprint = None
+        us.save()
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    return HttpResponseRedirect('/proyecto/')

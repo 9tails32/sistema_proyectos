@@ -75,6 +75,7 @@ def detail_sprint(request, pk):
         if sprint.fecha_fin <= datetime.date.today():
             print 'Proyecto finalizado'
             sprint.estado_sprint = 'FIN'
+    sprint.save()
 
     uss = sprint.uss.all()
     tipos_us = uss.values('tipoUS').distinct()

@@ -24,6 +24,7 @@
         <p>Duracion: <strong>{{ sprint.duracion }}</strong> dias</p>
         <p>Fecha de inicio: <strong>{{ sprint.fecha_inicio }}</strong></p>
         <p>Fecha de fin: <strong>{{ sprint.fecha_fin }}</strong></p>
+
         {% if sprint.estado_sprint == 'PEN' %}
             {% if perms.sprint.change_sprint %}
                 <a class="btn btn-default" role="button" href="/sprint/update/{{ sprint.id }}/">Modificar</a>{% endif %}
