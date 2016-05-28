@@ -153,6 +153,7 @@ def modificar_sprint(request, pk):
             sprint.save()
             return HttpResponseRedirect('/sprint/' + str(sprint.id))
     else:
-        form = SprintForm()
+        form = SprintForm(initial={'nombre': sprint.nombre,
+                                   'fecha_inicio': sprint.fecha_inicio})
 
-    return render(request, 'sprint_create.html', {'form': form})
+        return render(request, 'sprint_create.html', {'form': form, 'sprint': sprint})
