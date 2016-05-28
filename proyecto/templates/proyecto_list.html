@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+    <title>Proyecto</title>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Proyectos</h1>
+            {% if perms.proyecto.add_proyecto %}<a class="btn btn-primary" href="/proyecto/create/">Crear nuevo</a>{% endif %}
+            <h2 class="sub-header">Listado</h2>
+            <table class="table table-responsive">
+                <thead>
+                <tr>
+                <th>Nombre</th>
+                <th>Lider del proyecto</th>
+                <th>Cliente</th>
+                <th>Estado</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for proyecto in proyecto_list %}
+                <tr>
+                    <td><a href="/proyecto/{{ proyecto.pk }}">{{ proyecto.nombre }}</a></td>
+                    <td>{{proyecto.lider_proyecto}}</td>
+                    <td>{{proyecto.cliente}}</td>
+                    <td>{{proyecto.get_estado_display}}</td>
+                </tr>
+                {% empty %}
+                No existe ningun proyecto.
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endblock %}
+

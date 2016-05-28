@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+    <title>Actividades</title>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Actividades</h1>
+            {% if perms.cliente.crear_actividades %}<a class="btn btn-primary" href="/us/actividades/create/{{ object.id }}">Crear nueva</a>{% endif %}
+            <h2 class="sub-header">Listado</h2>
+            <ul>
+                {% for actividad in actividades_list %}
+                <li><a href="/actividades/{{ actividad.pk }}">{{ actividad.nombre }}</a></li>
+                {% empty %}
+                <li>No existe ninguna actividad.</li>
+                {% endfor %}
+
+            </ul>
+            <a class="btn btn-primary" href="/">Terminar creacion de tipo de US</a>
+
+
+        </div>
+{% endblock %}

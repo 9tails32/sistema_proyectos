@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+    <title>Tipo US</title>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Tipo US</h1>
+            {% if perms.tipous.add_tipous %}<a class="btn btn-primary" href="/us/tipo/create/">Crear nuevo</a>{% endif %}
+            <h2 class="sub-header">Listado</h2>
+            <table class="table table-responsive">
+                <thead>
+                <tr>
+                <th>Nombre</th>
+                <th>Actividades</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for tipo in tipo_us_list %}
+                <tr>
+                    <td><a href="/us/tipo/{{ tipo.pk }}/">{{ tipo.nombre }}</a></td>
+                    <td><ul>{% for act in tipo.actividades.all %}<li>{{act}}</li> {% endfor %}</ul></td>
+                </tr>
+                {% empty %}
+                No existe ningun proyecto.
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endblock %}
+

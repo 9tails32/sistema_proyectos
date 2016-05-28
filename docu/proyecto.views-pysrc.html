@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>proyecto.views</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="proyecto-module.html">Package&nbsp;proyecto</a> ::
+        Module&nbsp;views
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="proyecto.views-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="proyecto.views-module.html">Module proyecto.views</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt class="py-name">decorators</tt> <tt class="py-keyword">import</tt> <tt class="py-name">login_required</tt><tt class="py-op">,</tt> <tt class="py-name">permission_required</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">shortcuts</tt> <tt class="py-keyword">import</tt> <tt class="py-name">render</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module US.views=US.views-module.html,Module cliente.views=cliente.views-module.html,Module equipo.views=equipo.views-module.html,Module login.views=login.views-module.html,Module proyecto.views=proyecto.views-module.html,Module sprint.views=sprint.views-module.html"><a title="US.views
+cliente.views
+equipo.views
+login.views
+proyecto.views
+sprint.views" class="py-name" href="#" onclick="return doclink('link-0', 'views', 'link-0');">views</a></tt><tt class="py-op">.</tt><tt class="py-name">generic</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ListView</tt><tt class="py-op">,</tt> <tt class="py-name">CreateView</tt><tt class="py-op">,</tt> <tt class="py-name">UpdateView</tt><tt class="py-op">,</tt> <tt class="py-name">DetailView</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Package US=US-module.html,Class US.models.US=US.models.US-class.html"><a title="US
+US.models.US" class="py-name" href="#" onclick="return doclink('link-1', 'US', 'link-1');">US</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module US.models=US.models-module.html,Module cliente.models=cliente.models-module.html,Module equipo.models=equipo.models-module.html,Module login.models=login.models-module.html,Module proyecto.models=proyecto.models-module.html,Module sprint.models=sprint.models-module.html"><a title="US.models
+cliente.models
+equipo.models
+login.models
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-2', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class US.models.TipoUS=US.models.TipoUS-class.html"><a title="US.models.TipoUS" class="py-name" href="#" onclick="return doclink('link-3', 'TipoUS', 'link-3');">TipoUS</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Variable US.models.US.proyecto=US.models.US-class.html#proyecto,Variable equipo.models.Equipo.proyecto=equipo.models.Equipo-class.html#proyecto,Package proyecto=proyecto-module.html,Variable sprint.models.Sprint.proyecto=sprint.models.Sprint-class.html#proyecto"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-4', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="US.models
+cliente.models
+equipo.models
+login.models
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-5', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Class proyecto.models.Proyecto=proyecto.models.Proyecto-class.html"><a title="proyecto.models.Proyecto" class="py-name" href="#" onclick="return doclink('link-6', 'Proyecto', 'link-6');">Proyecto</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">utils</tt> <tt class="py-keyword">import</tt> <tt class="py-name">timezone</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-7" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-7', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Module US.forms=US.forms-module.html,Module cliente.forms=cliente.forms-module.html,Module equipo.forms=equipo.forms-module.html,Module login.forms=login.forms-module.html,Module proyecto.forms=proyecto.forms-module.html,Module sprint.forms=sprint.forms-module.html"><a title="US.forms
+cliente.forms
+equipo.forms
+login.forms
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-8', 'forms', 'link-8');">forms</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">http</tt> <tt class="py-keyword">import</tt> <tt class="py-name">HttpResponseRedirect</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="US.forms
+cliente.forms
+equipo.forms
+login.forms
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-9', 'forms', 'link-8');">forms</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="US.models
+cliente.models
+equipo.models
+login.models
+proyecto.models
+sprint.models" class="py-name" href="#" onclick="return doclink('link-10', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">modelform_factory</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt> <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name"><a title="US.forms
+cliente.forms
+equipo.forms
+login.forms
+proyecto.forms
+sprint.forms" class="py-name" href="#" onclick="return doclink('link-11', 'forms', 'link-8');">forms</a></tt> </tt>
+<a name="list_proyecto"></a><div id="list_proyecto-def"><a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"># Create your views here.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'login'</tt><tt class="py-op">,</tt> <tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">permission_required</tt><tt class="py-op">(</tt><tt class="py-string">'proyecto.view_proyecto'</tt><tt class="py-op">,</tt> <tt class="py-name">raise_exception</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt> <a class="py-toggle" href="#" id="list_proyecto-toggle" onclick="return toggle('list_proyecto');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="proyecto.views-module.html#list_proyecto">list_proyecto</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="list_proyecto-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="list_proyecto-expanded"><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">        Vista que permite displayar un listado de los proyectos existentes.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-name">queryset</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="proyecto.models.Proyecto" class="py-name" href="#" onclick="return doclink('link-12', 'Proyecto', 'link-6');">Proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">filter</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name" targets="Variable cliente.models.Cliente.activo=cliente.models.Cliente-class.html#activo,Variable proyecto.models.Proyecto.activo=proyecto.models.Proyecto-class.html#activo"><a title="cliente.models.Cliente.activo
+proyecto.models.Proyecto.activo" class="py-name" href="#" onclick="return doclink('link-13', 'activo', 'link-13');">activo</a></tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'proyecto_list.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'proyecto_list'</tt><tt class="py-op">:</tt> <tt class="py-name">queryset</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="detail_proyecto"></a><div id="detail_proyecto-def"><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'login'</tt><tt class="py-op">,</tt> <tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="detail_proyecto-toggle" onclick="return toggle('detail_proyecto');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="proyecto.views-module.html#detail_proyecto">detail_proyecto</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">,</tt> <tt class="py-param">pk</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="detail_proyecto-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="detail_proyecto-expanded"><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">        Vista que permite displayar los detalles de un proyecto seleccionado.</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt id="link-14" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-14', 'proyecto', 'link-4');">proyecto</a></tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="proyecto.models.Proyecto" class="py-name" href="#" onclick="return doclink('link-15', 'Proyecto', 'link-6');">Proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">pk</tt><tt class="py-op">=</tt><tt class="py-name">pk</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-string">'/proyecto/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt id="link-16" class="py-name" targets="Variable equipo.forms.EquipoForm.permisos=equipo.forms.EquipoForm-class.html#permisos,Variable equipo.models.Equipo.permisos=equipo.models.Equipo-class.html#permisos"><a title="equipo.forms.EquipoForm.permisos
+equipo.models.Equipo.permisos" class="py-name" href="#" onclick="return doclink('link-16', 'permisos', 'link-16');">permisos</a></tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-17', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">equipos</tt><tt class="py-op">.</tt><tt class="py-name">filter</tt><tt class="py-op">(</tt><tt id="link-18" class="py-name" targets="Variable equipo.forms.EquipoForm.usuarios=equipo.forms.EquipoForm-class.html#usuarios,Variable equipo.models.Equipo.usuarios=equipo.models.Equipo-class.html#usuarios"><a title="equipo.forms.EquipoForm.usuarios
+equipo.models.Equipo.usuarios" class="py-name" href="#" onclick="return doclink('link-18', 'usuarios', 'link-18');">usuarios</a></tt><tt class="py-op">=</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">user</tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">distinct</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">values_list</tt><tt class="py-op">(</tt><tt class="py-string">'permisos__codename'</tt><tt class="py-op">,</tt> <tt class="py-name">flat</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt id="link-19" class="py-name" targets="Variable US.forms.USForm.tipoUS=US.forms.USForm-class.html#tipoUS,Variable US.models.Actividades.tipoUS=US.models.Actividades-class.html#tipoUS,Variable US.models.US.tipoUS=US.models.US-class.html#tipoUS"><a title="US.forms.USForm.tipoUS
+US.models.Actividades.tipoUS
+US.models.US.tipoUS" class="py-name" href="#" onclick="return doclink('link-19', 'tipoUS', 'link-19');">tipoUS</a></tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="US.models.TipoUS" class="py-name" href="#" onclick="return doclink('link-20', 'TipoUS', 'link-3');">TipoUS</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-string">'view_proyecto'</tt> <tt class="py-keyword">in</tt> <tt id="link-21" class="py-name"><a title="equipo.forms.EquipoForm.permisos
+equipo.models.Equipo.permisos" class="py-name" href="#" onclick="return doclink('link-21', 'permisos', 'link-16');">permisos</a></tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">user</tt><tt class="py-op">.</tt><tt class="py-name">is_superuser</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">user</tt> <tt class="py-op">==</tt> <tt id="link-22" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-22', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Variable proyecto.forms.CambioEstadoForm.lider_proyecto=proyecto.forms.CambioEstadoForm-class.html#lider_proyecto,Variable proyecto.forms.ProyectoForm.lider_proyecto=proyecto.forms.ProyectoForm-class.html#lider_proyecto,Variable proyecto.models.Proyecto.lider_proyecto=proyecto.models.Proyecto-class.html#lider_proyecto"><a title="proyecto.forms.CambioEstadoForm.lider_proyecto
+proyecto.forms.ProyectoForm.lider_proyecto
+proyecto.models.Proyecto.lider_proyecto" class="py-name" href="#" onclick="return doclink('link-23', 'lider_proyecto', 'link-23');">lider_proyecto</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-string">'/proyecto/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'proyecto_detail.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'object'</tt><tt class="py-op">:</tt> <tt id="link-24" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-24', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">,</tt> <tt class="py-string">'permisos'</tt><tt class="py-op">:</tt> <tt id="link-25" class="py-name"><a title="equipo.forms.EquipoForm.permisos
+equipo.models.Equipo.permisos" class="py-name" href="#" onclick="return doclink('link-25', 'permisos', 'link-16');">permisos</a></tt><tt class="py-op">,</tt> <tt class="py-string">'tipoUS'</tt><tt class="py-op">:</tt> <tt id="link-26" class="py-name"><a title="US.forms.USForm.tipoUS
+US.models.Actividades.tipoUS
+US.models.US.tipoUS" class="py-name" href="#" onclick="return doclink('link-26', 'tipoUS', 'link-19');">tipoUS</a></tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="create_proyecto"></a><div id="create_proyecto-def"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'login'</tt><tt class="py-op">,</tt> <tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">permission_required</tt><tt class="py-op">(</tt><tt class="py-string">'proyecto.add_proyecto'</tt><tt class="py-op">,</tt> <tt class="py-name">raise_exception</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="create_proyecto-toggle" onclick="return toggle('create_proyecto');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="proyecto.views-module.html#create_proyecto">create_proyecto</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="create_proyecto-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="create_proyecto-expanded"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">    Funcion para crear proyecto utilizando el form ProyectoForm.</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">    Recibe en el request el form completado, o displaya uno vacio en caso de que no se llame a</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">    post. Controla la validez del form antes de guardarlo como un proyecto nuevo en la base de datos.</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    Parametros: Recibe el request.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">    Retorna:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    -El render del template proyecto_create.html en caso de form vacio o invalido.</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">    -Redireccion a lista de proyectos si el form es valido</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">method</tt> <tt class="py-op">==</tt> <tt class="py-string">'POST'</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name" targets="Class proyecto.forms.ProyectoForm=proyecto.forms.ProyectoForm-class.html"><a title="proyecto.forms.ProyectoForm" class="py-name" href="#" onclick="return doclink('link-27', 'ProyectoForm', 'link-27');">ProyectoForm</a></tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">POST</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">is_valid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt class="py-name">cd</tt> <tt class="py-op">=</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">cleaned_data</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name"><a title="proyecto.models.Proyecto" class="py-name" href="#" onclick="return doclink('link-28', 'Proyecto', 'link-6');">Proyecto</a></tt><tt class="py-op">(</tt><tt id="link-29" class="py-name" targets="Variable US.forms.ActividadesForm.nombre=US.forms.ActividadesForm-class.html#nombre,Variable US.forms.TipoUSForm.nombre=US.forms.TipoUSForm-class.html#nombre,Variable US.models.Actividades.nombre=US.models.Actividades-class.html#nombre,Variable US.models.TipoUS.nombre=US.models.TipoUS-class.html#nombre,Variable cliente.forms.ClienteForm.nombre=cliente.forms.ClienteForm-class.html#nombre,Variable cliente.models.Cliente.nombre=cliente.models.Cliente-class.html#nombre,Variable equipo.forms.EquipoForm.nombre=equipo.forms.EquipoForm-class.html#nombre,Variable equipo.models.Equipo.nombre=equipo.models.Equipo-class.html#nombre,Variable proyecto.forms.CambioEstadoForm.nombre=proyecto.forms.CambioEstadoForm-class.html#nombre,Variable proyecto.forms.ProyectoForm.nombre=proyecto.forms.ProyectoForm-class.html#nombre,Variable proyecto.models.Proyecto.nombre=proyecto.models.Proyecto-class.html#nombre,Variable sprint.forms.SprintForm.nombre=sprint.forms.SprintForm-class.html#nombre,Variable sprint.models.Sprint.nombre=sprint.models.Sprint-class.html#nombre"><a title="US.forms.ActividadesForm.nombre
+US.forms.TipoUSForm.nombre
+US.models.Actividades.nombre
+US.models.TipoUS.nombre
+cliente.forms.ClienteForm.nombre
+cliente.models.Cliente.nombre
+equipo.forms.EquipoForm.nombre
+equipo.models.Equipo.nombre
+proyecto.forms.CambioEstadoForm.nombre
+proyecto.forms.ProyectoForm.nombre
+proyecto.models.Proyecto.nombre
+sprint.forms.SprintForm.nombre
+sprint.models.Sprint.nombre" class="py-name" href="#" onclick="return doclink('link-29', 'nombre', 'link-29');">nombre</a></tt><tt class="py-op">=</tt><tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'nombre'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                         <tt id="link-30" class="py-name" targets="Variable proyecto.forms.CambioEstadoForm.fecha_inicio=proyecto.forms.CambioEstadoForm-class.html#fecha_inicio,Variable proyecto.forms.ProyectoForm.fecha_inicio=proyecto.forms.ProyectoForm-class.html#fecha_inicio,Variable proyecto.models.Proyecto.fecha_inicio=proyecto.models.Proyecto-class.html#fecha_inicio"><a title="proyecto.forms.CambioEstadoForm.fecha_inicio
+proyecto.forms.ProyectoForm.fecha_inicio
+proyecto.models.Proyecto.fecha_inicio" class="py-name" href="#" onclick="return doclink('link-30', 'fecha_inicio', 'link-30');">fecha_inicio</a></tt><tt class="py-op">=</tt><tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'fecha_inicio'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-31" class="py-name" targets="Variable proyecto.forms.CambioEstadoForm.fecha_fin=proyecto.forms.CambioEstadoForm-class.html#fecha_fin,Variable proyecto.forms.ProyectoForm.fecha_fin=proyecto.forms.ProyectoForm-class.html#fecha_fin,Variable proyecto.models.Proyecto.fecha_fin=proyecto.models.Proyecto-class.html#fecha_fin"><a title="proyecto.forms.CambioEstadoForm.fecha_fin
+proyecto.forms.ProyectoForm.fecha_fin
+proyecto.models.Proyecto.fecha_fin" class="py-name" href="#" onclick="return doclink('link-31', 'fecha_fin', 'link-31');">fecha_fin</a></tt><tt class="py-op">=</tt><tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'fecha_fin'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                         <tt id="link-32" class="py-name"><a title="proyecto.forms.CambioEstadoForm.lider_proyecto
+proyecto.forms.ProyectoForm.lider_proyecto
+proyecto.models.Proyecto.lider_proyecto" class="py-name" href="#" onclick="return doclink('link-32', 'lider_proyecto', 'link-23');">lider_proyecto</a></tt><tt class="py-op">=</tt><tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'lider_proyecto'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-33" class="py-name" targets="Package cliente=cliente-module.html,Variable login.models.Telefono.cliente=login.models.Telefono-class.html#cliente,Variable proyecto.forms.CambioEstadoForm.cliente=proyecto.forms.CambioEstadoForm-class.html#cliente,Variable proyecto.forms.ProyectoForm.cliente=proyecto.forms.ProyectoForm-class.html#cliente,Variable proyecto.models.Proyecto.cliente=proyecto.models.Proyecto-class.html#cliente"><a title="cliente
+login.models.Telefono.cliente
+proyecto.forms.CambioEstadoForm.cliente
+proyecto.forms.ProyectoForm.cliente
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-33', 'cliente', 'link-33');">cliente</a></tt><tt class="py-op">=</tt><tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'cliente'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                         <tt id="link-34" class="py-name" targets="Variable proyecto.forms.CambioEstadoForm.descripcion=proyecto.forms.CambioEstadoForm-class.html#descripcion,Variable proyecto.forms.ProyectoForm.descripcion=proyecto.forms.ProyectoForm-class.html#descripcion,Variable proyecto.models.Proyecto.descripcion=proyecto.models.Proyecto-class.html#descripcion"><a title="proyecto.forms.CambioEstadoForm.descripcion
+proyecto.forms.ProyectoForm.descripcion
+proyecto.models.Proyecto.descripcion" class="py-name" href="#" onclick="return doclink('link-34', 'descripcion', 'link-34');">descripcion</a></tt><tt class="py-op">=</tt><tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'descripcion'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-35" class="py-name" targets="Variable proyecto.forms.CambioEstadoForm.observaciones=proyecto.forms.CambioEstadoForm-class.html#observaciones,Variable proyecto.forms.ProyectoForm.observaciones=proyecto.forms.ProyectoForm-class.html#observaciones,Variable proyecto.models.Proyecto.observaciones=proyecto.models.Proyecto-class.html#observaciones"><a title="proyecto.forms.CambioEstadoForm.observaciones
+proyecto.forms.ProyectoForm.observaciones
+proyecto.models.Proyecto.observaciones" class="py-name" href="#" onclick="return doclink('link-35', 'observaciones', 'link-35');">observaciones</a></tt><tt class="py-op">=</tt><tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'observaciones'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-string">'/proyecto/'</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'proyecto_create.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'form'</tt><tt class="py-op">:</tt> <tt class="py-name">form</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-36" class="py-name"><a title="proyecto.forms.ProyectoForm" class="py-name" href="#" onclick="return doclink('link-36', 'ProyectoForm', 'link-27');">ProyectoForm</a></tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'proyecto_create.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'form'</tt><tt class="py-op">:</tt> <tt class="py-name">form</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
+<a name="cambiar_estado"></a><div id="cambiar_estado-def"><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'login'</tt><tt class="py-op">,</tt> <tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">permission_required</tt><tt class="py-op">(</tt><tt class="py-string">'proyecto.can_cambiar_estado'</tt><tt class="py-op">,</tt> <tt class="py-name">raise_exception</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt> <a class="py-toggle" href="#" id="cambiar_estado-toggle" onclick="return toggle('cambiar_estado');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="proyecto.views-module.html#cambiar_estado">cambiar_estado</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">,</tt> <tt class="py-param">pk</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cambiar_estado-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="cambiar_estado-expanded"><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">        Funcion para actualizar el estado del proyecto utilizando el form CambiarEstadoForm.</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">        Recibe en el request el form completado, o displaya uno con los datos previos del proyecto en</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">        caso de que no se llame a post. Controla la validez del form antes de guardarlo como un proyecto</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">         nuevo en la base de datos.</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">        Parametros: Recibe el request y el pk del proyecto a editar.</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">        Retorna:</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">        -El render del template proyecto_create.html en caso de form vacio o invalido.</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">        -Redireccion a lista de proyectos si el form es valido</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt id="link-37" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-37', 'proyecto', 'link-4');">proyecto</a></tt> <tt class="py-op">=</tt> <tt id="link-38" class="py-name"><a title="proyecto.models.Proyecto" class="py-name" href="#" onclick="return doclink('link-38', 'Proyecto', 'link-6');">Proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">pk</tt><tt class="py-op">=</tt><tt class="py-name">pk</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-string">'/proyecto/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">method</tt> <tt class="py-op">==</tt> <tt class="py-string">'POST'</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-39" class="py-name" targets="Class proyecto.forms.CambioEstadoForm=proyecto.forms.CambioEstadoForm-class.html"><a title="proyecto.forms.CambioEstadoForm" class="py-name" href="#" onclick="return doclink('link-39', 'CambioEstadoForm', 'link-39');">CambioEstadoForm</a></tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">POST</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">form</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">is_valid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">            <tt class="py-name">cd</tt> <tt class="py-op">=</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">cleaned_data</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">            <tt id="link-40" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-40', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Variable proyecto.forms.CambioEstadoForm.estado=proyecto.forms.CambioEstadoForm-class.html#estado,Variable proyecto.models.Proyecto.estado=proyecto.models.Proyecto-class.html#estado"><a title="proyecto.forms.CambioEstadoForm.estado
+proyecto.models.Proyecto.estado" class="py-name" href="#" onclick="return doclink('link-41', 'estado', 'link-41');">estado</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'estado'</tt><tt class="py-op">]</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">            <tt id="link-42" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-42', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-string">'/proyecto/'</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt id="link-43" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-43', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-44" class="py-name"><a title="proyecto.forms.CambioEstadoForm" class="py-name" href="#" onclick="return doclink('link-44', 'CambioEstadoForm', 'link-39');">CambioEstadoForm</a></tt><tt class="py-op">(</tt><tt class="py-name">initial</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-string">'nombre'</tt><tt class="py-op">:</tt> <tt id="link-45" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-45', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="US.forms.ActividadesForm.nombre
+US.forms.TipoUSForm.nombre
+US.models.Actividades.nombre
+US.models.TipoUS.nombre
+cliente.forms.ClienteForm.nombre
+cliente.models.Cliente.nombre
+equipo.forms.EquipoForm.nombre
+equipo.models.Equipo.nombre
+proyecto.forms.CambioEstadoForm.nombre
+proyecto.forms.ProyectoForm.nombre
+proyecto.models.Proyecto.nombre
+sprint.forms.SprintForm.nombre
+sprint.models.Sprint.nombre" class="py-name" href="#" onclick="return doclink('link-46', 'nombre', 'link-29');">nombre</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                                         <tt class="py-string">'fecha_fin'</tt><tt class="py-op">:</tt> <tt id="link-47" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-47', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="proyecto.forms.CambioEstadoForm.fecha_fin
+proyecto.forms.ProyectoForm.fecha_fin
+proyecto.models.Proyecto.fecha_fin" class="py-name" href="#" onclick="return doclink('link-48', 'fecha_fin', 'link-31');">fecha_fin</a></tt><tt class="py-op">,</tt> <tt class="py-string">'fecha_inicio'</tt><tt class="py-op">:</tt> <tt id="link-49" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-49', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="proyecto.forms.CambioEstadoForm.fecha_inicio
+proyecto.forms.ProyectoForm.fecha_inicio
+proyecto.models.Proyecto.fecha_inicio" class="py-name" href="#" onclick="return doclink('link-50', 'fecha_inicio', 'link-30');">fecha_inicio</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                                         <tt class="py-string">'lider_proyecto'</tt><tt class="py-op">:</tt> <tt id="link-51" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-51', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="proyecto.forms.CambioEstadoForm.lider_proyecto
+proyecto.forms.ProyectoForm.lider_proyecto
+proyecto.models.Proyecto.lider_proyecto" class="py-name" href="#" onclick="return doclink('link-52', 'lider_proyecto', 'link-23');">lider_proyecto</a></tt><tt class="py-op">,</tt> <tt class="py-string">'cliente'</tt><tt class="py-op">:</tt> <tt id="link-53" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-53', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="cliente
+login.models.Telefono.cliente
+proyecto.forms.CambioEstadoForm.cliente
+proyecto.forms.ProyectoForm.cliente
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-54', 'cliente', 'link-33');">cliente</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                                         <tt class="py-string">'descripcion'</tt><tt class="py-op">:</tt> <tt id="link-55" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-55', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="proyecto.forms.CambioEstadoForm.descripcion
+proyecto.forms.ProyectoForm.descripcion
+proyecto.models.Proyecto.descripcion" class="py-name" href="#" onclick="return doclink('link-56', 'descripcion', 'link-34');">descripcion</a></tt><tt class="py-op">,</tt> <tt class="py-string">'estado'</tt><tt class="py-op">:</tt> <tt id="link-57" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-57', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="proyecto.forms.CambioEstadoForm.estado
+proyecto.models.Proyecto.estado" class="py-name" href="#" onclick="return doclink('link-58', 'estado', 'link-41');">estado</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                                         <tt class="py-string">'observaciones'</tt><tt class="py-op">:</tt> <tt id="link-59" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-59', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="proyecto.forms.CambioEstadoForm.observaciones
+proyecto.forms.ProyectoForm.observaciones
+proyecto.models.Proyecto.observaciones" class="py-name" href="#" onclick="return doclink('link-60', 'observaciones', 'link-35');">observaciones</a></tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'proyecto_create.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'form'</tt><tt class="py-op">:</tt> <tt class="py-name">form</tt><tt class="py-op">,</tt> <tt class="py-string">'proyecto'</tt><tt class="py-op">:</tt> <tt id="link-61" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-61', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="update_proyecto"></a><div id="update_proyecto-def"><a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'login'</tt><tt class="py-op">,</tt> <tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">permission_required</tt><tt class="py-op">(</tt><tt class="py-string">'proyecto.change_proyecto'</tt><tt class="py-op">,</tt> <tt class="py-name">raise_exception</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt> <a class="py-toggle" href="#" id="update_proyecto-toggle" onclick="return toggle('update_proyecto');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="proyecto.views-module.html#update_proyecto">update_proyecto</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">,</tt> <tt class="py-param">pk</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="update_proyecto-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="update_proyecto-expanded"><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">        Funcion para actualizar proyecto utilizando el form ProyectoForm.</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">        Recibe en el request el form completado, o displaya uno con los datos previos del proyecto en</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">        caso de que no se llame a post. Controla la validez del form antes de guardarlo como un proyecto</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">         nuevo en la base de datos.</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">        Parametros: Recibe el request y el pk del proyecto a editar.</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">        Retorna:</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">        -El render del template proyecto_create.html en caso de form vacio o invalido.</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">        -Redireccion a lista de proyectos si el form es valido</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt id="link-62" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-62', 'proyecto', 'link-4');">proyecto</a></tt> <tt class="py-op">=</tt> <tt id="link-63" class="py-name"><a title="proyecto.models.Proyecto" class="py-name" href="#" onclick="return doclink('link-63', 'Proyecto', 'link-6');">Proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">pk</tt><tt class="py-op">=</tt><tt class="py-name">pk</tt><tt class="py-op">)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-string">'/proyecto/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">method</tt> <tt class="py-op">==</tt> <tt class="py-string">'POST'</tt><tt class="py-op">:</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-64" class="py-name"><a title="proyecto.forms.ProyectoForm" class="py-name" href="#" onclick="return doclink('link-64', 'ProyectoForm', 'link-27');">ProyectoForm</a></tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">POST</tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">is_valid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">            <tt class="py-name">cd</tt> <tt class="py-op">=</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">cleaned_data</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">            <tt id="link-65" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-65', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="US.forms.ActividadesForm.nombre
+US.forms.TipoUSForm.nombre
+US.models.Actividades.nombre
+US.models.TipoUS.nombre
+cliente.forms.ClienteForm.nombre
+cliente.models.Cliente.nombre
+equipo.forms.EquipoForm.nombre
+equipo.models.Equipo.nombre
+proyecto.forms.CambioEstadoForm.nombre
+proyecto.forms.ProyectoForm.nombre
+proyecto.models.Proyecto.nombre
+sprint.forms.SprintForm.nombre
+sprint.models.Sprint.nombre" class="py-name" href="#" onclick="return doclink('link-66', 'nombre', 'link-29');">nombre</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'nombre'</tt><tt class="py-op">]</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">            <tt id="link-67" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-67', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="proyecto.forms.CambioEstadoForm.fecha_fin
+proyecto.forms.ProyectoForm.fecha_fin
+proyecto.models.Proyecto.fecha_fin" class="py-name" href="#" onclick="return doclink('link-68', 'fecha_fin', 'link-31');">fecha_fin</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'fecha_fin'</tt><tt class="py-op">]</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">            <tt id="link-69" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-69', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="proyecto.forms.CambioEstadoForm.fecha_inicio
+proyecto.forms.ProyectoForm.fecha_inicio
+proyecto.models.Proyecto.fecha_inicio" class="py-name" href="#" onclick="return doclink('link-70', 'fecha_inicio', 'link-30');">fecha_inicio</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'fecha_inicio'</tt><tt class="py-op">]</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">            <tt id="link-71" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-71', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="proyecto.forms.CambioEstadoForm.lider_proyecto
+proyecto.forms.ProyectoForm.lider_proyecto
+proyecto.models.Proyecto.lider_proyecto" class="py-name" href="#" onclick="return doclink('link-72', 'lider_proyecto', 'link-23');">lider_proyecto</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'lider_proyecto'</tt><tt class="py-op">]</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">            <tt id="link-73" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-73', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="cliente
+login.models.Telefono.cliente
+proyecto.forms.CambioEstadoForm.cliente
+proyecto.forms.ProyectoForm.cliente
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-74', 'cliente', 'link-33');">cliente</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'cliente'</tt><tt class="py-op">]</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">            <tt id="link-75" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-75', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="proyecto.forms.CambioEstadoForm.descripcion
+proyecto.forms.ProyectoForm.descripcion
+proyecto.models.Proyecto.descripcion" class="py-name" href="#" onclick="return doclink('link-76', 'descripcion', 'link-34');">descripcion</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'descripcion'</tt><tt class="py-op">]</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">            <tt id="link-77" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-77', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="proyecto.forms.CambioEstadoForm.observaciones
+proyecto.forms.ProyectoForm.observaciones
+proyecto.models.Proyecto.observaciones" class="py-name" href="#" onclick="return doclink('link-78', 'observaciones', 'link-35');">observaciones</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cd</tt><tt class="py-op">[</tt><tt class="py-string">'observaciones'</tt><tt class="py-op">]</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">            <tt id="link-79" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-79', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-string">'/proyecto/'</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt id="link-80" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-80', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt id="link-81" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-81', 'proyecto', 'link-4');">proyecto</a></tt> <tt class="py-op">=</tt> <tt id="link-82" class="py-name"><a title="proyecto.models.Proyecto" class="py-name" href="#" onclick="return doclink('link-82', 'Proyecto', 'link-6');">Proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">pk</tt><tt class="py-op">=</tt><tt class="py-name">pk</tt><tt class="py-op">)</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-83" class="py-name"><a title="proyecto.forms.ProyectoForm" class="py-name" href="#" onclick="return doclink('link-83', 'ProyectoForm', 'link-27');">ProyectoForm</a></tt><tt class="py-op">(</tt><tt class="py-name">initial</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-string">'nombre'</tt><tt class="py-op">:</tt> <tt id="link-84" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-84', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="US.forms.ActividadesForm.nombre
+US.forms.TipoUSForm.nombre
+US.models.Actividades.nombre
+US.models.TipoUS.nombre
+cliente.forms.ClienteForm.nombre
+cliente.models.Cliente.nombre
+equipo.forms.EquipoForm.nombre
+equipo.models.Equipo.nombre
+proyecto.forms.CambioEstadoForm.nombre
+proyecto.forms.ProyectoForm.nombre
+proyecto.models.Proyecto.nombre
+sprint.forms.SprintForm.nombre
+sprint.models.Sprint.nombre" class="py-name" href="#" onclick="return doclink('link-85', 'nombre', 'link-29');">nombre</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">                                     <tt class="py-string">'fecha_fin'</tt><tt class="py-op">:</tt> <tt id="link-86" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-86', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-87" class="py-name"><a title="proyecto.forms.CambioEstadoForm.fecha_fin
+proyecto.forms.ProyectoForm.fecha_fin
+proyecto.models.Proyecto.fecha_fin" class="py-name" href="#" onclick="return doclink('link-87', 'fecha_fin', 'link-31');">fecha_fin</a></tt><tt class="py-op">,</tt> <tt class="py-string">'fecha_inicio'</tt><tt class="py-op">:</tt> <tt id="link-88" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-88', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-89" class="py-name"><a title="proyecto.forms.CambioEstadoForm.fecha_inicio
+proyecto.forms.ProyectoForm.fecha_inicio
+proyecto.models.Proyecto.fecha_inicio" class="py-name" href="#" onclick="return doclink('link-89', 'fecha_inicio', 'link-30');">fecha_inicio</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">                                     <tt class="py-string">'lider_proyecto'</tt><tt class="py-op">:</tt> <tt id="link-90" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-90', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-91" class="py-name"><a title="proyecto.forms.CambioEstadoForm.lider_proyecto
+proyecto.forms.ProyectoForm.lider_proyecto
+proyecto.models.Proyecto.lider_proyecto" class="py-name" href="#" onclick="return doclink('link-91', 'lider_proyecto', 'link-23');">lider_proyecto</a></tt><tt class="py-op">,</tt> <tt class="py-string">'cliente'</tt><tt class="py-op">:</tt> <tt id="link-92" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-92', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-93" class="py-name"><a title="cliente
+login.models.Telefono.cliente
+proyecto.forms.CambioEstadoForm.cliente
+proyecto.forms.ProyectoForm.cliente
+proyecto.models.Proyecto.cliente" class="py-name" href="#" onclick="return doclink('link-93', 'cliente', 'link-33');">cliente</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">                                     <tt class="py-string">'descripcion'</tt><tt class="py-op">:</tt> <tt id="link-94" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-94', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-95" class="py-name"><a title="proyecto.forms.CambioEstadoForm.descripcion
+proyecto.forms.ProyectoForm.descripcion
+proyecto.models.Proyecto.descripcion" class="py-name" href="#" onclick="return doclink('link-95', 'descripcion', 'link-34');">descripcion</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                                     <tt class="py-string">'observaciones'</tt><tt class="py-op">:</tt> <tt id="link-96" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-96', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-97" class="py-name"><a title="proyecto.forms.CambioEstadoForm.observaciones
+proyecto.forms.ProyectoForm.observaciones
+proyecto.models.Proyecto.observaciones" class="py-name" href="#" onclick="return doclink('link-97', 'observaciones', 'link-35');">observaciones</a></tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'proyecto_create.html'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'form'</tt><tt class="py-op">:</tt> <tt class="py-name">form</tt><tt class="py-op">,</tt> <tt class="py-string">'proyecto'</tt><tt class="py-op">:</tt> <tt id="link-98" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-98', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"> </tt>
+<a name="delete_proyecto"></a><div id="delete_proyecto-def"><a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'login'</tt><tt class="py-op">,</tt> <tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">permission_required</tt><tt class="py-op">(</tt><tt class="py-string">'proyecto.delete_proyecto'</tt><tt class="py-op">,</tt> <tt class="py-name">raise_exception</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt> <a class="py-toggle" href="#" id="delete_proyecto-toggle" onclick="return toggle('delete_proyecto');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="proyecto.views-module.html#delete_proyecto">delete_proyecto</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">,</tt> <tt class="py-param">pk</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="delete_proyecto-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="delete_proyecto-expanded"><a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">    Busca el proyecto con pk igual al que es parametro y cambia su estado activo a False.</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">    Parametros: recibe el request y el pk del proyecto a eliminar.</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">    Retorna: Redireccion a lista de proyectos.</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt id="link-99" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-99', 'proyecto', 'link-4');">proyecto</a></tt> <tt class="py-op">=</tt> <tt id="link-100" class="py-name"><a title="proyecto.models.Proyecto" class="py-name" href="#" onclick="return doclink('link-100', 'Proyecto', 'link-6');">Proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">pk</tt><tt class="py-op">=</tt><tt class="py-name">pk</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-string">'/proyecto/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">    <tt id="link-101" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-101', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt id="link-102" class="py-name"><a title="cliente.models.Cliente.activo
+proyecto.models.Proyecto.activo" class="py-name" href="#" onclick="return doclink('link-102', 'activo', 'link-13');">activo</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">    <tt id="link-103" class="py-name"><a title="US.models.US.proyecto
+equipo.models.Equipo.proyecto
+proyecto
+sprint.models.Sprint.proyecto" class="py-name" href="#" onclick="return doclink('link-103', 'proyecto', 'link-4');">proyecto</a></tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-string">'/proyecto/'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon May 16 00:51:41 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

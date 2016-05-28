@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+    <title>Proyecto</title>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Proyectos</h1>
+        {% if perms.proyecto.add_proyecto %}
+            <a class="btn btn-primary" href="/proyecto/create/">Crear nuevo</a>{% endif %}
+        <h2 class="sub-header">Detalle</h2>
+        <p>Nombre: <strong>{{ object.nombre }}</strong></p>
+        <p>Fecha de inicio: {{ object.fecha_inicio }}</p>
+        <p>Fecha de fin: {{ object.fecha_fin }}</p>
+        <p>Lider del proyecto: {{ object.lider_proyecto }}</p>
+        <p>Cliente: {{ object.cliente }}</p>
+        <p>Descripción: {{ object.descripcion }}</p>
+        <p>Estado: {{ object.get_estado_display }}</p>
+        <p>Observaciones: {{ object.observaciones }}</p>
+
+        {% if perms.proyecto.change_proyecto %}
+            <a class="btn btn-default" role="button" href="/proyecto/update/{{ object.id }}">Modificar</a>{% endif %}
+        {% if perms.proyecto.delete_proyecto %}
+            <a class="btn btn-danger" role="button" href="/proyecto/delete/{{ object.id }}">Eliminar</a>{% endif %}
+        {% if perms.proyecto.change_estado %}
+            <a class="btn btn-default" role="button" href="/proyecto/cambiar_estado/{{ object.id }}">Cambiar
+                estado</a>{% endif %}
+
+        <h2 class="sub-header">Equipos</h2>
+        {% if perms.equipo.add_equipo or 'add_equipo' in permisos %}
+            <a class="btn btn-primary" href="/equipo/create/{{ object.id }}/">Crear nuevo</a>
+        {% endif %}
+        <table class="table table-responsive">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Integrantes</th>
+                <th>Permisos</th>
+                {% if perms.equipo.delete_equipo or 'delete_equipo' in permisos %}
+                    <th></th>
+                {% endif %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for equipo in object.equipos.all %}
+                <tr>
+                    <td>{{ equipo.nombre }}</td>
+                    <td>
+                        <ul>{% for u in equipo.usuarios.all %}
+                            <li>{{ u }}</li>{% endfor %}</ul>
+                    </td>
+                    <td>
+                        <ul>{% for p in equipo.permisos.all %}
+                            <li>{{ p }}</li>{% endfor %}</ul>
+                    </td>
+                    {% if perms.equipo.delete_equipo or 'delete_equipo' in permisos %}
+                        <td><a class="text-danger" href="/equipo/delete/{{ equipo.id }}">remove</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6">
+                <h2 class="sub-header">Sprints</h2>
+                {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
+                    {% if object.uss.all %}
+                        <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>
+                    {% else %}
+                        <a class="btn btn-primary" href="#"
+                           onClick="alert('No puedes crear Sprints sin tener algun us')">Crear
+                            nuevo</a>
+                    {% endif %}
+                {% endif %}
+                <table class="table table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Duración</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for sprint in object.sprints.all %}
+                        <tr>
+                            <td><a href="/sprint/{{ sprint.id }}/"> {{ sprint.nombre }}</a></td>
+                            <td>{{ sprint.duracion }}</td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6">
+                <h2 class="sub-header">US</h2>
+                {% if perms.US.crear_US or 'add_us' in permisos %}
+                    {% if tipoUS %}
+                        <a class="btn btn-primary" href="/us/us/create/{{ object.id }}/">Crear nuevo</a>
+                    {% else %}
+                        <a class="btn btn-primary" href="#"
+                           onClick="alert('No puedes crear US sin tener algun tipo de US')">Crear
+                            nuevo</a>
+                    {% endif %}
+                {% endif %}
+                <table class="table table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Descripcion Corta</th>
+                        <th>Tipo US</th>
+                        <th>Actividad</th>
+                        <th>Estado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for us in object.uss.all %}
+                        <tr>
+                            <td><a href="/us/us/{{ us.id }}/">{{ us.descripcion_corta }}</a></td>
+                            <td>{{ us.tipoUS }}</td>
+                            {% if us.actividad %}
+                                <td>{{ us.actividad }}</td>
+                                <td>{{ us.get_estado_actividad_display }}</td>
+                            {% else %}
+                                <td>Actividad no asignada</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

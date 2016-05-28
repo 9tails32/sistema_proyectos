@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+<title>Proyecto</title>
+<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'jquery-ui-1.11.4/jquery-ui.css' %}">
+
+{% endblock %}
+
+{% block content %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Proyectos</h1>
+            <h2 class="sub-header">{% if proyecto %}Modificar proyecto {% else %} Crear nuevo proyecto{% endif %}</h2>
+            <div class="col-md-offset-3 col-md-6">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="id_nombre">Nombre:</label>
+                        {{form.nombre}}
+                        <p class="text-danger">{{form.nombre.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_fecha_inicio">Fecha inicio:</label>
+                        {{form.fecha_inicio}}
+                        <p class="text-danger">{{form.fecha_inicio.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_fecha_fin">Fecha fin:</label>
+                        {{form.fecha_fin}}
+                        <p class="text-danger">{{form.fecha_fin.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_lider_proyecto">Lider del proyecto:</label>
+                        {{form.lider_proyecto}}
+                        <p class="text-danger">{{form.lider_proyecto.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_cliente">Cliente:</label>
+                        {{form.cliente}}
+                        <p class="text-danger">{{form.cliente.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_descripcion">Descripcion:</label>
+                        {{form.descripcion}}
+                        <p class="text-danger">{{form.descripcion.errors.0}}</p>
+                    </div>
+                    {% if proyecto and form.estado %}
+                    <div class="form-group">
+                        <label for="id_estado">Estado:</label>
+                        {{form.estado}}
+                        <p class="text-danger">{{form.estado.errors.0}}</p>
+                    </div>
+                    {% endif %}
+                    <div class="form-group">
+                        <label for="id_observaciones">Observaciones:</label>
+                        {{form.observaciones}}
+                        <p class="text-danger">{{form.observaciones.errors.0}}</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="form-control primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'jquery-ui-1.11.4/jquery-ui.js' %}"></script>
+
+  <script>
+ $.datepicker.regional['es'] = {
+ closeText: 'Cerrar',
+ prevText: '<Ant',
+ nextText: 'Sig>',
+ currentText: 'Hoy',
+ monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+ monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+ dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+ dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+ dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+ weekHeader: 'Sm',
+ dateFormat: 'dd/mm/yy',
+ firstDay: 1,
+ isRTL: false,
+ showMonthAfterYear: false,
+ yearSuffix: ''
+ };
+ $.datepicker.setDefaults($.datepicker.regional['es']);
+  $(function() {
+  $( ".selector" ).datepicker({dateFormat: "dd/mm/yy"});
+  });
+  </script>
+{% endblock %}
