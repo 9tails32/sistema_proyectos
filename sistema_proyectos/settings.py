@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Modulos de teceros
-    # Modulos Generados en el proyecto
+    'auditlog',
+
     'login',
     'cliente',
     'proyecto',
@@ -59,6 +59,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'auditlog.middleware.AuditlogMiddleware',
+
 ]
 
 ROOT_URLCONF = 'sistema_proyectos.urls'

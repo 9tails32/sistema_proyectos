@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^delete_telefono/(?P<pk>[0-9]+)/$', views.delete_telefono, name='delete_telefono'),
     url(r'^modificar_telefono/(?P<pk>[0-9]+)/$', views.modificar_telefono, name='modificar_telefono'),
     url(r'configuracion/',views.configuracion,name='configuracion'),
+    url(r'log/',views.log_general,name='log')
 ]

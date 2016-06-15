@@ -1,4 +1,6 @@
 #encoding:utf-8
+from auditlog.models import AuditlogHistoryField
+from auditlog.registry import auditlog
 from django.utils import timezone
 from django.db import models
 from login.models import Usuario
@@ -38,6 +40,8 @@ class Proyecto (models.Model):
     cliente = models.ForeignKey(Cliente, on_delete= models.DO_NOTHING)
     activo = models.BooleanField(default=True)
 
+    history = AuditlogHistoryField()
+
     class Meta:
         permissions = (
             ("view_proyecto", "Puede ver proyecto"),
@@ -51,5 +55,4 @@ class Proyecto (models.Model):
     def __unicode__ (self):
         return self.nombre
 
-
-
+auditlog.register(Proyecto)

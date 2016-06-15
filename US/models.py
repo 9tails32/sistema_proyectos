@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+from auditlog.models import AuditlogHistoryField
+from auditlog.registry import auditlog
 from django.db import models
 from proyecto.models import Proyecto
 from sprint.models import Sprint
@@ -15,6 +17,7 @@ class TipoUS(models.Model):
     """
     nombre = models.TextField(default="")
 
+    history = AuditlogHistoryField()
     class Meta:
         permissions = (
             ("ver_tipo_US", "Puede ver tipos de US"),
@@ -23,7 +26,6 @@ class TipoUS(models.Model):
 
     def __unicode__(self):
         return self.nombre
-
 
 
 
@@ -38,6 +40,8 @@ class Actividades(models.Model):
     tipoUS = models.ForeignKey(TipoUS, related_name='actividades')
     numero = models.IntegerField(default=0)
 
+    history = AuditlogHistoryField()
+
     class Meta:
         permissions = (
             ("ver_actividades", "Puede ver actividades"),
@@ -46,7 +50,6 @@ class Actividades(models.Model):
 
     def __unicode__(self):
         return self.nombre
-
 
 class US(models.Model):
     """
@@ -82,6 +85,8 @@ class US(models.Model):
     )
     estado_actividad = models.CharField(max_length=3, choices=options_estado_actividad, default='TOD')
 
+    history = AuditlogHistoryField()
+
     class Meta:
         permissions = (
             ("ver_US", "Puede ver US"),
@@ -93,3 +98,8 @@ class US(models.Model):
 
     def __unicode__(self):
         return unicode(self.descripcion_corta)
+
+
+auditlog.register(TipoUS)
+auditlog.register(Actividades)
+auditlog.register(US)

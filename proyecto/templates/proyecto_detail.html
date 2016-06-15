@@ -9,7 +9,9 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Proyectos</h1>
         {% if perms.proyecto.add_proyecto %}
-            <a class="btn btn-primary" href="/proyecto/create/">Crear nuevo</a>{% endif %}
+            <a class="btn btn-primary" href="/proyecto/create/">Crear nuevo</a>
+        {% endif %}
+        <a class="btn btn-primary" href="/proyecto/log_proyecto/{{ object.id }}/">Log</a>
         <h2 class="sub-header">Detalle</h2>
         <p>Nombre: <strong>{{ object.nombre }}</strong></p>
         <p>Fecha de inicio: {{ object.fecha_inicio }}</p>
@@ -82,7 +84,7 @@
                         <th>Nombre</th>
                         <th>Duración</th>
                         {% if perms.sprint.delete_sprint or 'delete_sprint' in permisos %}
-                        <th>Eliminar</th>
+                            <th>Eliminar</th>
                         {% endif %}
 
                     </tr>
@@ -93,9 +95,9 @@
                             <td><a href="/sprint/{{ sprint.id }}/"> {{ sprint.nombre }}</a></td>
                             <td>{{ sprint.duracion }}</td>
                             {% if sprint.estado_sprint == 'PEN' %}
-                            {% if perms.sprint.delete_sprint or 'delete_sprint' in permisos %}
-                            <td><a class="text-danger" href="/sprint/delete/{{ sprint.id }}">remove</a></td>
-                            {% endif %}
+                                {% if perms.sprint.delete_sprint or 'delete_sprint' in permisos %}
+                                    <td><a class="text-danger" href="/sprint/delete/{{ sprint.id }}">remove</a></td>
+                                {% endif %}
                             {% endif %}
 
                         </tr>

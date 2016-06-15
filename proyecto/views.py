@@ -1,14 +1,11 @@
+from auditlog.models import LogEntry
 from django.contrib.auth.decorators import login_required, permission_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
 
 from US.models import TipoUS
-from proyecto.models import Proyecto
-from django.utils import timezone
 from proyecto.forms import *
-from django.http import HttpResponseRedirect
-from django.forms.models import modelform_factory
-from django import forms
+from proyecto.models import Proyecto
 
 
 # Create your views here.
@@ -168,3 +165,28 @@ def delete_proyecto(request, pk):
     proyecto.save()
 
     return HttpResponseRedirect('/proyecto/')
+
+
+@login_required(None, 'login', '/login/')
+def log_proyecto(request, pk):
+    try:
+        proyecto = Proyecto.objects.get(pk=pk)
+        log = list(LogEntry.objects.get_for_object(proyecto))
+
+        equipos = proyecto.equipos.all()
+
+        log_equipos = list(LogEntry.objects.get_for_objects(equipos))
+        log.extend(log_equipos)
+
+        sprints = proyecto.sprints.all()
+        log_sprints = list(LogEntry.objects.get_for_objects(sprints))
+        log.extend(log_sprints)
+
+        uss = proyecto.uss.all()
+        log_uss = list(LogEntry.objects.get_for_objects(uss))
+        log.extend(log_uss)
+
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    return render(request, 'log_proyecto.html', {'log_proyecto': log})
