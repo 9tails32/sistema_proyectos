@@ -5,6 +5,10 @@ from django.shortcuts import render
 
 from US.models import TipoUS
 from proyecto.forms import *
+from django.http import HttpResponseRedirect
+from django.forms.models import modelform_factory
+from django import forms
+from equipo.views import enviar_notificacion
 from proyecto.models import Proyecto
 
 
@@ -64,6 +68,12 @@ def create_proyecto(request):
                          lider_proyecto=cd['lider_proyecto'], cliente=cd['cliente'],
                          descripcion=cd['descripcion'], observaciones=cd['observaciones'])
             p.save()
+            lider=p.lider_proyecto
+            if (lider.noti_creacion_proyecto):
+                email_noti = lider.email
+                enviar_notificacion(email_noti,
+                                    'Se te ha asignado como lider del proyecto "' + p.nombre + '"')
+
             return HttpResponseRedirect('/proyecto/' + str(p.id))
         else:
             return render(request, 'proyecto_create.html', {'form': form})
@@ -138,6 +148,11 @@ def update_proyecto(request, pk):
             proyecto.descripcion = cd['descripcion']
             proyecto.observaciones = cd['observaciones']
             proyecto.save()
+            lider = proyecto.lider_proyecto
+            if (lider.noti_creacion_proyecto):
+                email_noti = lider.email
+                enviar_notificacion(email_noti,
+                                    'Se te ha asignado como lider del proyecto "' + proyecto.nombre + '"')
             return HttpResponseRedirect('/proyecto/' + str(proyecto.id))
     else:
         proyecto = Proyecto.objects.get(pk=pk)

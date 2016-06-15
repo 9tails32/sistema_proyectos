@@ -2,10 +2,12 @@ import datetime
 from datetime import timedelta
 
 from django.contrib.auth.decorators import login_required
+from django.core.mail import EmailMessage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from US.models import TipoUS
+from login.models import Usuario
 from sprint.forms import *
 from sprint.models import Sprint
 
@@ -30,7 +32,9 @@ def create_sprint(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
+
     if request.method == 'POST':
+        lider=Usuario.objects.get(pk=proyecto.lider_proyecto.pk)
         form = SprintForm(request.POST)
         if form.is_valid():
             sprint = Sprint()
@@ -38,6 +42,7 @@ def create_sprint(request, pk):
             sprint.nombre = form.cleaned_data['nombre']
             sprint.fecha_inicio = form.cleaned_data['fecha_inicio']
             sprint.save()
+
             return HttpResponseRedirect('/proyecto/' + str(proyecto.id))
     else:
         form = SprintForm()
