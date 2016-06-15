@@ -385,12 +385,11 @@ def cambiar_actividad(request, pk):
                                         us.proyecto.nombre + '".')
 
             return HttpResponseRedirect('/us/us/' + str(us.id))
-    else:
-        form = CambiarActividadForm(initial={'actividad': us.actividad})
-        form_estado = CambiarEstadoActividadForm(initial={'estado_actividad': us.estado_actividad})
-        fin = us.finalizado
-    form.fields['actividad'].queryset = actividades
-
+        else:
+            form = CambiarActividadForm(initial={'actividad': us.actividad})
+            form_estado = CambiarEstadoActividadForm(initial={'estado_actividad': us.estado_actividad})
+            fin = us.finalizado
+        form.fields['actividad'].queryset = actividades
         return render(request, 'cambiar_actividad.html', {'form': form, 'us': us, 'form_estado': form_estado, 'fin': fin})
     else:
         raise PermissionDenied
@@ -436,29 +435,11 @@ def cambiar_estado_actividad(request, pk):
 
             return HttpResponseRedirect('/us/us/' + str(us.id))
         else:
-            """
-            actividad_nueva=Actividades.objects.filter(tipoUS__pk=pk).filter(numero__gt=us.actividad.numero).order_by('numero')[0:1]
-            if actividad_nueva:
-                us.actividad=actividad_nueva[0]
-                us.estado_actividad = 'TOD'
-                us.save()
-                return HttpResponseRedirect('/us/us/' + str(us.id))
-            else:"""
-
             return render(request, 'ultimo_estado.html', {'pk': pk})
-
-        """
-        if request.method == 'POST':
-            form = CambiarEstadoActividadForm(request.POST)
-            if form.is_valid():
-                us.estado_actividad = form.cleaned_data['estado_actividad']
-                us.save()
-                return HttpResponseRedirect('/us/us/' + str(us.id))
-                """
     else:
         raise PermissionDenied
 
-
+@login_required(None, 'login', '/login/')
 def repriorizar(request, pk):
 
     try:

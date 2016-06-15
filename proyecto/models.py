@@ -46,6 +46,7 @@ class Proyecto (models.Model):
         permissions = (
             ("view_proyecto", "Puede ver proyecto"),
             ("change_estado", "Puede cambiar el estado del proyecto"),
+            ("view_log", "Puede cambiar el estado del proyecto"),
         )
 
     def hacerLider (self, lider):
