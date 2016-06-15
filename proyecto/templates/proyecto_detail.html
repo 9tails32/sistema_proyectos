@@ -65,6 +65,7 @@
         </table>
 
         <div class="row">
+            {% if perms.sprint.view_sprint or 'view_sprint' in permisos %}
             <div class="col-md-6 col-sm-6 col-lg-6">
                 <h2 class="sub-header">Sprints</h2>
                 {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
@@ -103,6 +104,7 @@
                     </tbody>
                 </table>
             </div>
+            {% endif %}
             <div class="col-md-6 col-sm-6 col-lg-6">
                 <h2 class="sub-header">US</h2>
                 {% if perms.US.crear_US or 'add_us' in permisos %}
@@ -125,6 +127,7 @@
                     </thead>
                     <tbody>
                     {% for us in object.uss.all %}
+                        {% if 'view_us' in permisos or perms.us.view_us or us.usuario_asignado == user %}
                         <tr>
                             <td><a href="/us/us/{{ us.id }}/">{{ us.descripcion_corta }}</a></td>
                             <td>{{ us.tipoUS }}</td>
@@ -135,6 +138,7 @@
                                 <td>Actividad no asignada</td>
                             {% endif %}
                         </tr>
+                        {% endif %}
                     {% endfor %}
                     </tbody>
                 </table>

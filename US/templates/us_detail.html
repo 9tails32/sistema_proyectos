@@ -40,8 +40,11 @@
                 {% endif %}
             {% endif %}
         {% elif object.sprint.estado_sprint == 'FIN' and not object.finalizado or not obejct.sprint == None %}
+        {% if perms.us.repriorizar or 'repriorizar' in permisos %}
             <p><Strong>El sprint que contenia a este US ha finalizado, si desea volver a colocar este US con prioridad
                 alta presione <a href="/us/us/repriorizar/{{ object.id }}">aqui</a></Strong></p>
+        {% endif %}
+
         {% else %}
             <p><strong>Sprint finalizado</strong></p>
         {% endif %}

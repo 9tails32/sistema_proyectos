@@ -18,7 +18,6 @@ class TipoUS(models.Model):
     class Meta:
         permissions = (
             ("ver_tipo_US", "Puede ver tipos de US"),
-            ("crear_Tipo_US", "Puede crear Tipos de US"),
         )
 
     def __unicode__(self):
@@ -88,6 +87,7 @@ class US(models.Model):
             ("crear_US", "Puede crear US"),
             ("change_actividad","Puede cambiar actividad"),
             ("change_estado_actividad","Puede cambiar el estado de actividad"),
+            ("repriorizar", "Puede repriorizar el US"),
 
         )
 
