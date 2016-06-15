@@ -148,11 +148,11 @@ def update_proyecto(request, pk):
             proyecto.descripcion = cd['descripcion']
             proyecto.observaciones = cd['observaciones']
             proyecto.save()
-            lider = p.lider_proyecto
+            lider = proyecto.lider_proyecto
             if (lider.noti_creacion_proyecto):
                 email_noti = lider.email
                 enviar_notificacion(email_noti,
-                                    'Se te ha asignado como lider del proyecto "' + p.nombre + '"')
+                                    'Se te ha asignado como lider del proyecto "' + proyecto.nombre + '"')
             return HttpResponseRedirect('/proyecto/' + str(proyecto.id))
     else:
         proyecto = Proyecto.objects.get(pk=pk)
