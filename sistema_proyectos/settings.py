@@ -162,3 +162,12 @@ SUIT_CONFIG = {
     # misc
     # 'LIST_PER_PAGE': 15
 }
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'gmacchi@bellbird.com.py'
+EMAIL_HOST_PASSWORD = 'cerrop1912'
+DEFAULT_FROM_EMAIL = 'gmacchi@bellbird.com.py'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+SERVER_EMAIL = 'gmacchi@bellbird.com.py'

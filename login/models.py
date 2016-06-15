@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.contrib.auth.models import User, AbstractUser
+from django.contrib.auth.models import AbstractUser
 from cliente.models import Cliente
 # Create your models here.
 
@@ -20,9 +20,13 @@ class Usuario (AbstractUser):
         ('txt', 'Texto Plano')
     )
     formato_notificaciones = models.CharField(max_length=3, choices=formato, default='htm', help_text='Formato')
-    noti_creacion_proyecto = models.BooleanField(default=True)
-    noti_creacion_usuario = models.BooleanField(default=True)
-    noti_creacion_equipos = models.BooleanField(default=True)
+    noti_creacion_proyecto = models.BooleanField(default=False)
+    noti_creacion_usuario = models.BooleanField(default=False)
+    noti_creacion_equipos = models.BooleanField(default=False)
+    noti_cambio_estado_actividades = models.BooleanField(default=False)
+    noti_us_asignado = models.BooleanField(default=False)
+    noti_cambio_actividades = models.BooleanField(default=False)
+
 
     def __unicode__(self):
         return self.username

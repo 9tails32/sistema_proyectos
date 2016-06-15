@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.forms import formset_factory, BaseFormSet
 from US.models import *
 from US.forms import *
-
+from equipo.views import enviar_notificacion
 
 # Create your views here.
 @login_required(None, 'login', '/login/')
@@ -148,6 +148,11 @@ def create_us(request, pk):
                 us.actividad = Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).get(numero=1)
 
             us.save()
+            usuario = us.usuario_asignado
+            if (usuario.noti_cambio_estado_actividades):
+                email_noti = usuario.email
+                enviar_notificacion(email_noti, 'Se le ha asignado un US en el proyecto ' + us.proyecto.nombre +
+                                        '.')
             return HttpResponseRedirect('/us/us/' + str(us.id))
 
     return render(request, 'us_create.html', {'form': form}, )
@@ -286,6 +291,11 @@ def update_us(request, pk):
             us.usuario_asignado = form.cleaned_data['usuario_asignado']
             us.tipoUS = form.cleaned_data['tipoUS']
             us.save()
+            usuario = us.usuario_asignado
+            if (usuario.noti_cambio_estado_actividades):
+                email_noti = usuario.email
+                enviar_notificacion(email_noti, 'Se le ha asignado un US en el proyecto ' + us.proyecto.nombre +'.')
+
             return HttpResponseRedirect('/us/us/' + str(us.id))
     else:
         form = USForm(initial={'descripcion_corta': us.descripcion_corta,
@@ -334,6 +344,17 @@ def cambiar_actividad(request, pk):
             us.actividad = form.cleaned_data['actividad']
 
             us.save()
+            usuario=us.usuario_asignado
+            if (usuario.noti_cambio_estado_actividades):
+                email_noti = usuario.email
+                if(us.finalizado):
+                    enviar_notificacion(email_noti, 'El US asignado en el proyecto '+us.proyecto.nombre+
+                                        ' ha sido evaluado y finalizado.')
+                else:
+                    enviar_notificacion(email_noti,
+                                        'Se te ha asignado una nueva actividad en el US de ' +
+                                        us.proyecto.nombre + '".')
+
             return HttpResponseRedirect('/us/us/' + str(us.id))
     else:
         form = CambiarActividadForm(initial={'actividad': us.actividad})
@@ -360,13 +381,24 @@ def cambiar_estado_actividad(request, pk):
         us = US.objects.get(pk=pk)
     except:
         return HttpResponseRedirect('/proyecto/')
+    lider=us.proyecto.lider_proyecto
     if (us.estado_actividad == 'TOD'):
         us.estado_actividad = 'DOI'
         us.save()
+        if (lider.noti_cambio_estado_actividades):
+            email_noti = lider.email
+            enviar_notificacion(email_noti,
+                                'El usuario '+us.usuario_asignado.username+' ha registrado un avance en el proyecto ' + us.proyecto.nombre + '".')
+
         return HttpResponseRedirect('/us/us/' + str(us.id))
     elif (us.estado_actividad == 'DOI'):
         us.estado_actividad = 'DON'
         us.save()
+        if (lider.noti_cambio_estado_actividades):
+            email_noti = lider.email
+            enviar_notificacion(email_noti,
+                                'El usuario ' + us.usuario_asignado.username + ' ha registrado un avance en el proyecto ' + us.proyecto.nombre + '".')
+
         return HttpResponseRedirect('/us/us/' + str(us.id))
     else:
         """
