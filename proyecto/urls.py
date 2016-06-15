@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'cambiar_estado/(?P<pk>[0-9]+)/$', cambiar_estado, name='proyecto_estado'),
     url(r'delete/(?P<pk>[0-9]+)/$', delete_proyecto, name='proyecto_delete'),
     url(r'^(?P<pk>[0-9]+)/$', detail_proyecto, name='proyecto_detail'),
-
+    url(r'log_proyecto/(?P<pk>[0-9]+)/$',log_proyecto,name='log_proyecto')
 ]

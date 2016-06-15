@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Modulos de teceros
-    # Modulos Generados en el proyecto
+    'auditlog',
+
     'login',
     'cliente',
     'proyecto',
@@ -59,6 +59,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'auditlog.middleware.AuditlogMiddleware',
+
 ]
 
 ROOT_URLCONF = 'sistema_proyectos.urls'
@@ -162,3 +164,12 @@ SUIT_CONFIG = {
     # misc
     # 'LIST_PER_PAGE': 15
 }
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'gmacchi@bellbird.com.py'
+EMAIL_HOST_PASSWORD = 'cerrop1912'
+DEFAULT_FROM_EMAIL = 'gmacchi@bellbird.com.py'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+SERVER_EMAIL = 'gmacchi@bellbird.com.py'

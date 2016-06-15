@@ -1,2 +1,4 @@
 Django==1.9.5
+django-auditlog==0.3.3
+django-jsonfield==1.0.0
 django-suit==0.2.18
