@@ -246,7 +246,11 @@ def detail_us(request, pk):
     permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
                                                                                            flat=True)
     if ('view_us' in permisos or us.usuario_asignado == request.user or request.user.is_staff):
-        return render(request, 'us_detail.html', {'object': us, 'permisos': permisos})
+        if(us.proyecto.estado == 'FIN' or us.proyecto.estado == 'ANU'):
+            bloqueo = 'SI'
+        else:
+            bloqueo = 'NO'
+        return render(request, 'us_detail.html', {'object': us, 'permisos': permisos, 'bloqueo':bloqueo})
     else:
         raise PermissionDenied
 

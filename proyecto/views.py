@@ -1,3 +1,4 @@
+import datetime
 from auditlog.models import LogEntry
 from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponseRedirect
@@ -36,14 +37,33 @@ def detail_proyecto(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
+    # Aca verificamos si ya inicio el proyecto
+    if (proyecto.estado!='ANU' and proyecto.estado!='FIN'):
+        if (datetime.date.today() <= proyecto.fecha_inicio):
+            if proyecto.estado == 'PEN':
+                proyecto.estado = 'PEN'
+            else:
+                print 'Proyecto iniciado'
+                proyecto.estado = 'ACT'
+
+        # Aca verificamos si ya finalizo
+        if proyecto.fecha_fin <= datetime.date.today():
+            print 'Proyecto finalizado'
+            proyecto.estado = 'FIN'
+    proyecto.save()
     permisos = proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
 
     tipoUS = TipoUS.objects.all()
 
     if not 'view_proyecto' in permisos and not request.user.is_superuser and not request.user == proyecto.lider_proyecto:
         return HttpResponseRedirect('/proyecto/')
-
-    return render(request, 'proyecto_detail.html', {'object': proyecto, 'permisos': permisos, 'tipoUS': tipoUS})
+    if proyecto.estado == 'FIN' or proyecto.estado=='ANU' :
+        bloqueo='SI'
+    else:
+        bloqueo='NO'
+    print bloqueo
+    return render(request, 'proyecto_detail.html', {'object': proyecto, 'permisos': permisos, 'tipoUS': tipoUS,
+                                                    'bloqueo':bloqueo})
 
 
 @login_required(None, 'login', '/login/')
