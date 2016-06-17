@@ -23,7 +23,9 @@ def create_equipo (request, pk):
         return HttpResponseRedirect('/proyecto/')
 
     permisos = proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
-    if ('update' in permisos or request.user.is_staff):
+    print request.user.has_perms('equipo.add_equipo')
+    print request.user.get_all_permissions()
+    if ('update' in permisos or request.user.is_staff or request.user.has_perm('equipo.add_equipo')):
         lider = Usuario.objects.get(pk=proyecto.lider_proyecto.pk)
         if request.method == 'POST':
             form = EquipoForm(request.POST)
@@ -54,7 +56,7 @@ def delete_equipo(request, pk):
         return HttpResponseRedirect('/')
 
     permisos = equipo.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
-    if ('delete_equipo' in permisos or request.user.is_staff):
+    if ('delete_equipo' in permisos or request.user.is_staff or request.user.has_perm('equipo.delete_equipo')):
         proyecto = equipo.proyecto
 
         equipo.delete()
@@ -63,3 +65,39 @@ def delete_equipo(request, pk):
     else:
         raise PermissionDenied
 
+@login_required(None, 'login', '/login/')
+def update_equipo(request, pk):
+    """
+        Funcion para actualizar proyecto utilizando el form ProyectoForm.
+        Recibe en el request el form completado, o displaya uno con los datos previos del proyecto en
+        caso de que no se llame a post. Controla la validez del form antes de guardarlo como un proyecto
+         nuevo en la base de datos.
+        Parametros: Recibe el request y el pk del proyecto a editar.
+        Retorna:
+        -El render del template proyecto_create.html en caso de form vacio o invalido.
+        -Redireccion a lista de proyectos si el form es valido
+
+    """
+    try:
+        equipo = Equipo.objects.get(pk=pk)
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    permisos = equipo.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
+    if ('change_equipo' in permisos or request.user.is_staff or request.user.has_perm('equipo.delete_equipo')):
+        if request.method == 'POST':
+            form = EquipoForm(request.POST)
+            if form.is_valid():
+                cd = form.cleaned_data
+                equipo.nombre = form.cleaned_data['nombre']
+                equipo.permisos = form.cleaned_data['permisos']
+                equipo.usuarios = form.cleaned_data['usuarios']
+                equipo.save()
+                return HttpResponseRedirect('/proyecto/' + str(equipo.proyecto.id))
+        else:
+            form = EquipoForm(initial={'nombre': equipo.nombre,
+                                         'permisos': equipo.permisos.all(),
+                                         'usuarios': equipo.usuarios.all()})
+            return render(request, 'equipo_create.html', {'form': form, 'equipo': equipo})
+    else:
+        raise PermissionDenied

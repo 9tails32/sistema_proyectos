@@ -48,6 +48,12 @@
                         <th></th>
                     {% endifequal %}
                 {% endif %}
+                {% if perms.equipo.update_equipo or 'update_equipo' in permisos%}
+                    {% ifequal bloqueo 'NO' %}
+
+                        <th></th>
+                    {% endifequal %}
+                {% endif %}
             </tr>
             </thead>
             <tbody>
@@ -64,7 +70,12 @@
                     </td>
                     {% if perms.equipo.delete_equipo or 'delete_equipo' in permisos %}
                         {% ifequal bloqueo 'NO' %}
-                            <td><a class="text-danger" href="/equipo/delete/{{ equipo.id }}">remove</a></td>
+                            <td><a class="text-danger" href="/equipo/delete/{{ equipo.id }}">borrar</a></td>
+                        {% endifequal %}
+                    {% endif %}
+                    {% if perms.equipo.update_equipo or 'update_equipo' in permisos %}
+                        {% ifequal bloqueo 'NO' %}
+                            <td><a href="/equipo/update/{{ equipo.id }}">modificar</a></td>
                         {% endifequal %}
                     {% endif %}
                 </tr>

@@ -89,7 +89,6 @@ class US(models.Model):
     class Meta:
         permissions = (
             ("ver_US", "Puede ver US"),
-            ("crear_US", "Puede crear US"),
             ("change_actividad","Puede cambiar actividad"),
             ("change_estado_actividad","Puede cambiar el estado de actividad"),
             ("repriorizar", "Puede repriorizar el US"),

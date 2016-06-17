@@ -27,40 +27,265 @@
   "model": "contenttypes.contenttype",
   "pk": 4,
   "fields": {
-    "app_label": "auth",
-    "model": "user"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 5,
-  "fields": {
     "app_label": "contenttypes",
     "model": "contenttype"
   }
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 6,
+  "pk": 5,
   "fields": {
     "app_label": "sessions",
     "model": "session"
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "lu91vjlodz42czshrv8039yhmkdiq5q7",
+  "model": "contenttypes.contenttype",
+  "pk": 6,
   "fields": {
-    "session_data": "YmY5ZDIzODk4OGE4MWUwY2MwZDg0ZTBjOTJmMjNlZWJkZDUzZWFkZjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE5MzE0YWNmMTdhM2VjMzBkODdhMWJjYjZiNjhiYWQ2Y2ZjMzI0NGEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
-    "expire_date": "2016-04-20T20:38:33.715Z"
+    "app_label": "auditlog",
+    "model": "logentry"
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "yit0v8tme7nz8w74utp68x4finheic0n",
+  "model": "contenttypes.contenttype",
+  "pk": 7,
   "fields": {
-    "session_data": "YmY5ZDIzODk4OGE4MWUwY2MwZDg0ZTBjOTJmMjNlZWJkZDUzZWFkZjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE5MzE0YWNmMTdhM2VjMzBkODdhMWJjYjZiNjhiYWQ2Y2ZjMzI0NGEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
-    "expire_date": "2016-04-22T18:24:22.059Z"
+    "app_label": "login",
+    "model": "usuario"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "login",
+    "model": "telefono"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "cliente",
+    "model": "cliente"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "proyecto",
+    "model": "proyecto"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "equipo",
+    "model": "equipo"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "sprint",
+    "model": "sprint"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "US",
+    "model": "tipous"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "US",
+    "model": "actividades"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "US",
+    "model": "us"
+  }
+},
+{
+  "model": "cliente.cliente",
+  "pk": 1,
+  "fields": {
+    "nombre": "Juan Gonzalez",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": true
+  }
+},
+{
+  "model": "cliente.cliente",
+  "pk": 2,
+  "fields": {
+    "nombre": "Juan Perez",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": true
+  }
+},
+{
+  "model": "cliente.cliente",
+  "pk": 3,
+  "fields": {
+    "nombre": "Jorge Perez",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": true
+  }
+},
+{
+  "model": "cliente.cliente",
+  "pk": 4,
+  "fields": {
+    "nombre": "Jorge Gonzalez",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": true
+  }
+},
+{
+  "model": "cliente.cliente",
+  "pk": 5,
+  "fields": {
+    "nombre": "Guillermo Macchi",
+    "direccion": "Nicanor Torales, 4 De Julio",
+    "email": "guillemacchi01@gmail.com",
+    "activo": true
+  }
+},
+{
+  "model": "cliente.cliente",
+  "pk": 6,
+  "fields": {
+    "nombre": "Ra\u00fal Burr\u00f3",
+    "direccion": "Mcal. Lopez 101",
+    "email": "rauleburro@gmail.com",
+    "activo": true
+  }
+},
+{
+  "model": "cliente.cliente",
+  "pk": 7,
+  "fields": {
+    "nombre": "Rub\u00e9n Figueredo",
+    "direccion": "Mcal. Lopez 101",
+    "email": "shishi9tail@hotmail.com",
+    "activo": true
+  }
+},
+{
+  "model": "cliente.cliente",
+  "pk": 8,
+  "fields": {
+    "nombre": "Prueba 1",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": true
+  }
+},
+{
+  "model": "sprint.sprint",
+  "pk": 1,
+  "fields": {
+    "nombre": "Sprint 1",
+    "duracion": 10,
+    "proyecto": 1,
+    "estado_sprint": "INI",
+    "fecha_inicio": "2016-06-17",
+    "fecha_fin": "2016-06-27"
+  }
+},
+{
+  "model": "US.tipous",
+  "pk": 1,
+  "fields": {
+    "nombre": "Flujo normal"
+  }
+},
+{
+  "model": "US.tipous",
+  "pk": 2,
+  "fields": {
+    "nombre": "Tipo 1"
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 1,
+  "fields": {
+    "nombre": "Planificacion",
+    "tipoUS": 1,
+    "numero": 1
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 2,
+  "fields": {
+    "nombre": "Dise\u00f1o",
+    "tipoUS": 1,
+    "numero": 2
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 3,
+  "fields": {
+    "nombre": "Desarrollo",
+    "tipoUS": 1,
+    "numero": 3
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 4,
+  "fields": {
+    "nombre": "Mantenimiento",
+    "tipoUS": 1,
+    "numero": 4
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 5,
+  "fields": {
+    "nombre": "Act 1",
+    "tipoUS": 2,
+    "numero": 1
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 6,
+  "fields": {
+    "nombre": "Act 2",
+    "tipoUS": 2,
+    "numero": 2
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 7,
+  "fields": {
+    "nombre": "Act 3",
+    "tipoUS": 2,
+    "numero": 3
   }
 },
 {
@@ -148,376 +373,1961 @@
   "model": "auth.permission",
   "pk": 10,
   "fields": {
-    "name": "Can add user",
-    "content_type": 4,
-    "codename": "add_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 11,
-  "fields": {
-    "name": "Can change user",
-    "content_type": 4,
-    "codename": "change_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 12,
-  "fields": {
-    "name": "Can delete user",
-    "content_type": 4,
-    "codename": "delete_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 13,
-  "fields": {
     "name": "Can add content type",
-    "content_type": 5,
+    "content_type": 4,
     "codename": "add_contenttype"
   }
 },
 {
   "model": "auth.permission",
-  "pk": 14,
+  "pk": 11,
   "fields": {
     "name": "Can change content type",
-    "content_type": 5,
+    "content_type": 4,
     "codename": "change_contenttype"
   }
 },
 {
   "model": "auth.permission",
-  "pk": 15,
+  "pk": 12,
   "fields": {
     "name": "Can delete content type",
-    "content_type": 5,
+    "content_type": 4,
     "codename": "delete_contenttype"
   }
 },
 {
   "model": "auth.permission",
-  "pk": 16,
+  "pk": 13,
   "fields": {
     "name": "Can add session",
-    "content_type": 6,
+    "content_type": 5,
     "codename": "add_session"
   }
 },
 {
   "model": "auth.permission",
-  "pk": 17,
+  "pk": 14,
   "fields": {
     "name": "Can change session",
-    "content_type": 6,
+    "content_type": 5,
     "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 6,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 6,
+    "codename": "change_logentry"
   }
 },
 {
   "model": "auth.permission",
   "pk": 18,
   "fields": {
-    "name": "Can delete session",
+    "name": "Can delete log entry",
     "content_type": 6,
-    "codename": "delete_session"
+    "codename": "delete_logentry"
   }
 },
 {
-  "model": "auth.user",
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 7,
+    "codename": "add_usuario"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 7,
+    "codename": "change_usuario"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 7,
+    "codename": "delete_usuario"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can add telefono",
+    "content_type": 8,
+    "codename": "add_telefono"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can change telefono",
+    "content_type": 8,
+    "codename": "change_telefono"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can delete telefono",
+    "content_type": 8,
+    "codename": "delete_telefono"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add cliente",
+    "content_type": 9,
+    "codename": "add_cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change cliente",
+    "content_type": 9,
+    "codename": "change_cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete cliente",
+    "content_type": 9,
+    "codename": "delete_cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Puede ver cliente",
+    "content_type": 9,
+    "codename": "view_cliente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add proyecto",
+    "content_type": 10,
+    "codename": "add_proyecto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change proyecto",
+    "content_type": 10,
+    "codename": "change_proyecto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete proyecto",
+    "content_type": 10,
+    "codename": "delete_proyecto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Puede ver proyecto",
+    "content_type": 10,
+    "codename": "view_proyecto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Puede cambiar el estado del proyecto",
+    "content_type": 10,
+    "codename": "change_estado"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Puede cambiar el estado del proyecto",
+    "content_type": 10,
+    "codename": "view_log"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can add equipo",
+    "content_type": 11,
+    "codename": "add_equipo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can change equipo",
+    "content_type": 11,
+    "codename": "change_equipo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can delete equipo",
+    "content_type": 11,
+    "codename": "delete_equipo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can add sprint",
+    "content_type": 12,
+    "codename": "add_sprint"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can change sprint",
+    "content_type": 12,
+    "codename": "change_sprint"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can delete sprint",
+    "content_type": 12,
+    "codename": "delete_sprint"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Puede ver Sprint",
+    "content_type": 12,
+    "codename": "ver_sprint"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Puede eliminar un sprint",
+    "content_type": 12,
+    "codename": "borrar_sprint"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can add tipo us",
+    "content_type": 13,
+    "codename": "add_tipous"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can change tipo us",
+    "content_type": 13,
+    "codename": "change_tipous"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can delete tipo us",
+    "content_type": 13,
+    "codename": "delete_tipous"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Puede ver tipos de US",
+    "content_type": 13,
+    "codename": "ver_tipo_US"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can add actividades",
+    "content_type": 14,
+    "codename": "add_actividades"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can change actividades",
+    "content_type": 14,
+    "codename": "change_actividades"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can delete actividades",
+    "content_type": 14,
+    "codename": "delete_actividades"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Puede ver actividades",
+    "content_type": 14,
+    "codename": "ver_actividades"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add us",
+    "content_type": 15,
+    "codename": "add_us"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change us",
+    "content_type": 15,
+    "codename": "change_us"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete us",
+    "content_type": 15,
+    "codename": "delete_us"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Puede ver US",
+    "content_type": 15,
+    "codename": "ver_US"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Puede cambiar actividad",
+    "content_type": 15,
+    "codename": "change_actividad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Puede cambiar el estado de actividad",
+    "content_type": 15,
+    "codename": "change_estado_actividad"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Puede repriorizar el US",
+    "content_type": 15,
+    "codename": "repriorizar"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Puede ver Sprint",
+    "content_type": 12,
+    "codename": "view_sprint"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Puede asignar US al Sprint",
+    "content_type": 12,
+    "codename": "asignar_us"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Puede iniciar el Sprint",
+    "content_type": 12,
+    "codename": "iniciar_sprint"
+  }
+},
+{
+  "model": "login.usuario",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$24000$9ZMjZ0aHwpQo$zrVyTZoNfOdvyS4SNY63tQbNTsNzPtNkhEI2TI8GPPY=",
-    "last_login": "2016-04-08T18:24:22.057Z",
+    "password": "pbkdf2_sha256$24000$QX6lfSROzbkQ$vlQPfsvnT26mW/awXkIxDQ2UrWRSFibetpAl+cpUexk=",
+    "last_login": "2016-06-17T13:19:44.153Z",
     "is_superuser": true,
     "username": "gmacchi",
     "first_name": "",
     "last_name": "",
-    "email": "",
+    "email": "guillemacchi01@gmail.com",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2016-04-06T20:38:24.751Z",
+    "date_joined": "2016-06-17T13:18:51.622Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
     "groups": [],
     "user_permissions": []
   }
 },
 {
-  "model": "auth.user",
+  "model": "login.usuario",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$FcPdqECeYbG6$K+Z8irO/h45ojGQYkUgDMrq+5QHcR5Yg4+6gi/Zv8HE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "rauleburro",
+    "first_name": "",
+    "last_name": "",
+    "email": "rauleburro@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:20:47Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "login.usuario",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$qZFdEN4IYnSG$QGQYIbY87cobDgQtIYZTDHl9+r9kaz6uD47lQ41dn08=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "rubenfig",
+    "first_name": "",
+    "last_name": "",
+    "email": "shishi9tail@hotmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:21:26Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "login.usuario",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$4SoZZlMWzrVf$jjrr3TXSzRHOOTm1KVMmaE5/eRbfLY1OINL5bhgl2ac=",
+    "last_login": "2016-06-17T13:31:14.381Z",
+    "is_superuser": false,
+    "username": "prueba1",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:22:20Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "login.usuario",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$fnyDxD5ERnjK$S6CfEH6UwwCgNkviYo2/bP1UE3KQ+ifNM36tQlzYEj0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "prueba2",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:22:58Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "login.usuario",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$x1nUnCgl382r$RIPb2de67gUXDt+y1neGNLq4mW9c8fOuqdEB0uVK/U8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "prueba3",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:23:13Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "login.usuario",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$U8UGZhJnFIxQ$fWnv5Xn2rW9zEJfenjLI9uZXmQ0HpZr9tJR+xwkfMIU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "prueba4",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:23:43Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "login.usuario",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$6us9xJomprRJ$FOGjKsXbyYpoxMzbydcU4dQRihc7o674hRfqkknQVGs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "prueba5",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:24:07Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 1,
+  "fields": {
+    "nombre": "Sistema Proyectos",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema para control de proyectos.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 2,
+  "fields": {
+    "nombre": "Sistema 1",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 3,
+  "fields": {
+    "nombre": "Sistema 2",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 4,
+  "fields": {
+    "nombre": "Sistema 3",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 5,
+  "fields": {
+    "nombre": "Sistema 4",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 6,
+  "fields": {
+    "nombre": "Sistema 5",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 7,
+  "fields": {
+    "nombre": "Sistema 6",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 8,
+  "fields": {
+    "nombre": "Sistema 7",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 9,
+  "fields": {
+    "nombre": "Sistema 8",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 10,
+  "fields": {
+    "nombre": "Sistema 9",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "equipo.equipo",
+  "pk": 2,
+  "fields": {
+    "nombre": "Desarrolladores",
+    "proyecto": 1,
+    "permisos": [
+      32,
+      41
+    ],
+    "usuarios": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  }
+},
+{
+  "model": "US.us",
+  "pk": 2,
+  "fields": {
+    "sprint": 2,
+    "proyecto": 1,
+    "descripcion_corta": "Login",
+    "descripcion_larga": "Funcion de login",
+    "tiempo_planificado": 10,
+    "valor_negocio": 3,
+    "urgencia": 3,
+    "usuario_asignado": 4,
+    "tipoUS": 1,
+    "actividad": 2,
+    "finalizado": false,
+    "estado_actividad": "DON"
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 1,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "gmacchi",
+    "action": 0,
+    "changes": "{\"username\": [\"None\", \"gmacchi\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"noti_creacion_usuario\": [\"None\", \"False\"], \"telefonos\": [\"None\", \"login.Telefono.None\"], \"noti_creacion_equipos\": [\"None\", \"False\"], \"noti_cambio_estado_actividades\": [\"None\", \"False\"], \"lider\": [\"None\", \"proyecto.Proyecto.None\"], \"is_active\": [\"None\", \"True\"], \"noti_us_asignado\": [\"None\", \"False\"], \"noti_cambio_actividades\": [\"None\", \"False\"], \"direccion\": [\"None\", \"\"], \"is_superuser\": [\"None\", \"True\"], \"is_staff\": [\"None\", \"True\"], \"noti_creacion_proyecto\": [\"None\", \"False\"], \"id\": [\"None\", \"1\"], \"password\": [\"None\", \"pbkdf2_sha256$24000$QX6lfSROzbkQ$vlQPfsvnT26mW/awXkIxDQ2UrWRSFibetpAl+cpUexk=\"], \"email\": [\"None\", \"guillemacchi01@gmail.com\"], \"cedula\": [\"None\", \"0\"], \"date_joined\": [\"None\", \"2016-06-17 13:18:51.622603+00:00\"]}",
+    "actor": null,
+    "remote_addr": null,
+    "timestamp": "2016-06-17T13:18:51.754Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 2,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "gmacchi",
+    "action": 1,
+    "changes": "{\"last_login\": [\"None\", \"2016-06-17 13:19:44.153624+00:00\"]}",
+    "actor": null,
+    "remote_addr": null,
+    "timestamp": "2016-06-17T13:19:44.156Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 3,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "rauleburro",
+    "action": 0,
+    "changes": "{\"username\": [\"None\", \"rauleburro\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"noti_creacion_usuario\": [\"None\", \"False\"], \"telefonos\": [\"None\", \"login.Telefono.None\"], \"noti_creacion_equipos\": [\"None\", \"False\"], \"noti_cambio_estado_actividades\": [\"None\", \"False\"], \"lider\": [\"None\", \"proyecto.Proyecto.None\"], \"is_active\": [\"None\", \"True\"], \"noti_us_asignado\": [\"None\", \"False\"], \"noti_cambio_actividades\": [\"None\", \"False\"], \"direccion\": [\"None\", \"\"], \"is_superuser\": [\"None\", \"False\"], \"is_staff\": [\"None\", \"False\"], \"noti_creacion_proyecto\": [\"None\", \"False\"], \"id\": [\"None\", \"2\"], \"password\": [\"None\", \"pbkdf2_sha256$24000$FcPdqECeYbG6$K+Z8irO/h45ojGQYkUgDMrq+5QHcR5Yg4+6gi/Zv8HE=\"], \"email\": [\"None\", \"\"], \"cedula\": [\"None\", \"0\"], \"date_joined\": [\"None\", \"2016-06-17 13:20:47.898256+00:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:20:48.028Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 4,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "rauleburro",
+    "action": 1,
+    "changes": "{\"email\": [\"\", \"rauleburro@gmail.com\"], \"date_joined\": [\"2016-06-17 13:20:47.898256+00:00\", \"2016-06-17 09:20:47-04:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:21:03.898Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 5,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "3",
+    "object_id": 3,
+    "object_repr": "rubenfig",
+    "action": 0,
+    "changes": "{\"username\": [\"None\", \"rubenfig\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"noti_creacion_usuario\": [\"None\", \"False\"], \"telefonos\": [\"None\", \"login.Telefono.None\"], \"noti_creacion_equipos\": [\"None\", \"False\"], \"noti_cambio_estado_actividades\": [\"None\", \"False\"], \"lider\": [\"None\", \"proyecto.Proyecto.None\"], \"is_active\": [\"None\", \"True\"], \"noti_us_asignado\": [\"None\", \"False\"], \"noti_cambio_actividades\": [\"None\", \"False\"], \"direccion\": [\"None\", \"\"], \"is_superuser\": [\"None\", \"False\"], \"is_staff\": [\"None\", \"False\"], \"noti_creacion_proyecto\": [\"None\", \"False\"], \"id\": [\"None\", \"3\"], \"password\": [\"None\", \"pbkdf2_sha256$24000$qZFdEN4IYnSG$QGQYIbY87cobDgQtIYZTDHl9+r9kaz6uD47lQ41dn08=\"], \"email\": [\"None\", \"\"], \"cedula\": [\"None\", \"0\"], \"date_joined\": [\"None\", \"2016-06-17 13:21:26.645497+00:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:21:26.770Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 6,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "3",
+    "object_id": 3,
+    "object_repr": "rubenfig",
+    "action": 1,
+    "changes": "{\"email\": [\"\", \"shishi9tail@hotmail.com\"], \"date_joined\": [\"2016-06-17 13:21:26.645497+00:00\", \"2016-06-17 09:21:26-04:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:21:45.156Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 7,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "4",
+    "object_id": 4,
+    "object_repr": "prueba1",
+    "action": 0,
+    "changes": "{\"username\": [\"None\", \"prueba1\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"noti_creacion_usuario\": [\"None\", \"False\"], \"telefonos\": [\"None\", \"login.Telefono.None\"], \"noti_creacion_equipos\": [\"None\", \"False\"], \"noti_cambio_estado_actividades\": [\"None\", \"False\"], \"lider\": [\"None\", \"proyecto.Proyecto.None\"], \"is_active\": [\"None\", \"True\"], \"noti_us_asignado\": [\"None\", \"False\"], \"noti_cambio_actividades\": [\"None\", \"False\"], \"direccion\": [\"None\", \"\"], \"is_superuser\": [\"None\", \"False\"], \"is_staff\": [\"None\", \"False\"], \"noti_creacion_proyecto\": [\"None\", \"False\"], \"id\": [\"None\", \"4\"], \"password\": [\"None\", \"pbkdf2_sha256$24000$4SoZZlMWzrVf$jjrr3TXSzRHOOTm1KVMmaE5/eRbfLY1OINL5bhgl2ac=\"], \"email\": [\"None\", \"\"], \"cedula\": [\"None\", \"0\"], \"date_joined\": [\"None\", \"2016-06-17 13:22:20.971415+00:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:22:21.101Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 8,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "4",
+    "object_id": 4,
+    "object_repr": "prueba1",
+    "action": 1,
+    "changes": "{\"email\": [\"\", \"info@bellbird.com.py\"], \"date_joined\": [\"2016-06-17 13:22:20.971415+00:00\", \"2016-06-17 09:22:20-04:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:22:44.970Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 9,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "5",
+    "object_id": 5,
+    "object_repr": "prueba2",
+    "action": 0,
+    "changes": "{\"username\": [\"None\", \"prueba2\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"noti_creacion_usuario\": [\"None\", \"False\"], \"telefonos\": [\"None\", \"login.Telefono.None\"], \"noti_creacion_equipos\": [\"None\", \"False\"], \"noti_cambio_estado_actividades\": [\"None\", \"False\"], \"lider\": [\"None\", \"proyecto.Proyecto.None\"], \"is_active\": [\"None\", \"True\"], \"noti_us_asignado\": [\"None\", \"False\"], \"noti_cambio_actividades\": [\"None\", \"False\"], \"direccion\": [\"None\", \"\"], \"is_superuser\": [\"None\", \"False\"], \"is_staff\": [\"None\", \"False\"], \"noti_creacion_proyecto\": [\"None\", \"False\"], \"id\": [\"None\", \"5\"], \"password\": [\"None\", \"pbkdf2_sha256$24000$fnyDxD5ERnjK$S6CfEH6UwwCgNkviYo2/bP1UE3KQ+ifNM36tQlzYEj0=\"], \"email\": [\"None\", \"\"], \"cedula\": [\"None\", \"0\"], \"date_joined\": [\"None\", \"2016-06-17 13:22:58.212620+00:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:22:58.336Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 10,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "6",
+    "object_id": 6,
+    "object_repr": "prueba3",
+    "action": 0,
+    "changes": "{\"username\": [\"None\", \"prueba3\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"noti_creacion_usuario\": [\"None\", \"False\"], \"telefonos\": [\"None\", \"login.Telefono.None\"], \"noti_creacion_equipos\": [\"None\", \"False\"], \"noti_cambio_estado_actividades\": [\"None\", \"False\"], \"lider\": [\"None\", \"proyecto.Proyecto.None\"], \"is_active\": [\"None\", \"True\"], \"noti_us_asignado\": [\"None\", \"False\"], \"noti_cambio_actividades\": [\"None\", \"False\"], \"direccion\": [\"None\", \"\"], \"is_superuser\": [\"None\", \"False\"], \"is_staff\": [\"None\", \"False\"], \"noti_creacion_proyecto\": [\"None\", \"False\"], \"id\": [\"None\", \"6\"], \"password\": [\"None\", \"pbkdf2_sha256$24000$x1nUnCgl382r$RIPb2de67gUXDt+y1neGNLq4mW9c8fOuqdEB0uVK/U8=\"], \"email\": [\"None\", \"\"], \"cedula\": [\"None\", \"0\"], \"date_joined\": [\"None\", \"2016-06-17 13:23:13.685015+00:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:23:13.806Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
   "pk": 11,
   "fields": {
-    "password": "pbkdf2_sha256$24000$85RBsQ5iYLqV$tnCIEnFOnaNLpNeceT7qPacLZD8JgzuPwXlWD1ZCgR8=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user1",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.373Z",
-    "groups": [],
-    "user_permissions": []
+    "content_type": 7,
+    "object_pk": "6",
+    "object_id": 6,
+    "object_repr": "prueba3",
+    "action": 1,
+    "changes": "{\"email\": [\"\", \"info@bellbird.com.py\"], \"date_joined\": [\"2016-06-17 13:23:13.685015+00:00\", \"2016-06-17 09:23:13-04:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:23:21.013Z",
+    "additional_data": null
   }
 },
 {
-  "model": "auth.user",
+  "model": "auditlog.logentry",
   "pk": 12,
   "fields": {
-    "password": "pbkdf2_sha256$24000$yd19aiIJpDpn$l7Et+CIrWoHX0DxcvTZOQYLf7Sh9V0XjqUWyrugTr+c=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user2",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.507Z",
-    "groups": [],
-    "user_permissions": []
+    "content_type": 7,
+    "object_pk": "5",
+    "object_id": 5,
+    "object_repr": "prueba2",
+    "action": 1,
+    "changes": "{\"email\": [\"\", \"info@bellbird.com.py\"], \"date_joined\": [\"2016-06-17 13:22:58.212620+00:00\", \"2016-06-17 09:22:58-04:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:23:28.172Z",
+    "additional_data": null
   }
 },
 {
-  "model": "auth.user",
+  "model": "auditlog.logentry",
   "pk": 13,
   "fields": {
-    "password": "pbkdf2_sha256$24000$GNQWTRiA0RB5$zyIJJcCI6voiuVQNo5cHxGtdeiMr8O7WYAhWvym+Npo=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user3",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.637Z",
-    "groups": [],
-    "user_permissions": []
+    "content_type": 7,
+    "object_pk": "7",
+    "object_id": 7,
+    "object_repr": "prueba4",
+    "action": 0,
+    "changes": "{\"username\": [\"None\", \"prueba4\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"noti_creacion_usuario\": [\"None\", \"False\"], \"telefonos\": [\"None\", \"login.Telefono.None\"], \"noti_creacion_equipos\": [\"None\", \"False\"], \"noti_cambio_estado_actividades\": [\"None\", \"False\"], \"lider\": [\"None\", \"proyecto.Proyecto.None\"], \"is_active\": [\"None\", \"True\"], \"noti_us_asignado\": [\"None\", \"False\"], \"noti_cambio_actividades\": [\"None\", \"False\"], \"direccion\": [\"None\", \"\"], \"is_superuser\": [\"None\", \"False\"], \"is_staff\": [\"None\", \"False\"], \"noti_creacion_proyecto\": [\"None\", \"False\"], \"id\": [\"None\", \"7\"], \"password\": [\"None\", \"pbkdf2_sha256$24000$U8UGZhJnFIxQ$fWnv5Xn2rW9zEJfenjLI9uZXmQ0HpZr9tJR+xwkfMIU=\"], \"email\": [\"None\", \"\"], \"cedula\": [\"None\", \"0\"], \"date_joined\": [\"None\", \"2016-06-17 13:23:43.714409+00:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:23:43.839Z",
+    "additional_data": null
   }
 },
 {
-  "model": "auth.user",
+  "model": "auditlog.logentry",
   "pk": 14,
   "fields": {
-    "password": "pbkdf2_sha256$24000$Jmmt64JjNkKL$GgY1dOyWatF0ziGIw9JZsN+UeRz3pJjyjduwcbJLl2U=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user4",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.772Z",
-    "groups": [],
-    "user_permissions": []
+    "content_type": 7,
+    "object_pk": "7",
+    "object_id": 7,
+    "object_repr": "prueba4",
+    "action": 1,
+    "changes": "{\"email\": [\"\", \"info@bellbird.com.py\"], \"date_joined\": [\"2016-06-17 13:23:43.714409+00:00\", \"2016-06-17 09:23:43-04:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:23:49.447Z",
+    "additional_data": null
   }
 },
 {
-  "model": "auth.user",
+  "model": "auditlog.logentry",
   "pk": 15,
   "fields": {
-    "password": "pbkdf2_sha256$24000$nqwNyQu0m7XT$dzwCTUsW8V/ZkbQq9ktNYlymlZPhAu01sz4+AqdJ7GA=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user5",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.896Z",
-    "groups": [],
-    "user_permissions": []
+    "content_type": 7,
+    "object_pk": "8",
+    "object_id": 8,
+    "object_repr": "prueba5",
+    "action": 0,
+    "changes": "{\"username\": [\"None\", \"prueba5\"], \"first_name\": [\"None\", \"\"], \"last_name\": [\"None\", \"\"], \"noti_creacion_usuario\": [\"None\", \"False\"], \"telefonos\": [\"None\", \"login.Telefono.None\"], \"noti_creacion_equipos\": [\"None\", \"False\"], \"noti_cambio_estado_actividades\": [\"None\", \"False\"], \"lider\": [\"None\", \"proyecto.Proyecto.None\"], \"is_active\": [\"None\", \"True\"], \"noti_us_asignado\": [\"None\", \"False\"], \"noti_cambio_actividades\": [\"None\", \"False\"], \"direccion\": [\"None\", \"\"], \"is_superuser\": [\"None\", \"False\"], \"is_staff\": [\"None\", \"False\"], \"noti_creacion_proyecto\": [\"None\", \"False\"], \"id\": [\"None\", \"8\"], \"password\": [\"None\", \"pbkdf2_sha256$24000$6us9xJomprRJ$FOGjKsXbyYpoxMzbydcU4dQRihc7o674hRfqkknQVGs=\"], \"email\": [\"None\", \"\"], \"cedula\": [\"None\", \"0\"], \"date_joined\": [\"None\", \"2016-06-17 13:24:07.709069+00:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:24:07.829Z",
+    "additional_data": null
   }
 },
 {
-  "model": "auth.user",
+  "model": "auditlog.logentry",
   "pk": 16,
   "fields": {
-    "password": "pbkdf2_sha256$24000$6WyMeR5GufUR$OS2v5HN1HQklt/23RxWGRr1nzXdfqTK7IzRnhrtmJcU=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user6",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:35.020Z",
-    "groups": [],
-    "user_permissions": []
+    "content_type": 7,
+    "object_pk": "8",
+    "object_id": 8,
+    "object_repr": "prueba5",
+    "action": 1,
+    "changes": "{\"email\": [\"\", \"info@bellbird.com.py\"], \"date_joined\": [\"2016-06-17 13:24:07.709069+00:00\", \"2016-06-17 09:24:07-04:00\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:24:15.445Z",
+    "additional_data": null
   }
 },
 {
-  "model": "auth.user",
+  "model": "auditlog.logentry",
   "pk": 17,
   "fields": {
-    "password": "pbkdf2_sha256$24000$jA2jqLtkgELY$N2wdqrJqjdGm00Sk2Q2/homRSMiRoNii3fOtN95SEA0=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user7",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:35.152Z",
-    "groups": [],
-    "user_permissions": []
+    "content_type": 9,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "Juan Gonzalez",
+    "action": 0,
+    "changes": "{\"telefonos\": [\"None\", \"login.Telefono.None\"], \"email\": [\"None\", \"info@bellbird.com.py\"], \"activo\": [\"None\", \"True\"], \"nombre\": [\"None\", \"Juan Gonzalez\"], \"direccion\": [\"None\", \"Mcal. Lopez 101\"], \"id\": [\"None\", \"1\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:24:47.789Z",
+    "additional_data": null
   }
 },
 {
-  "model": "auth.user",
+  "model": "auditlog.logentry",
   "pk": 18,
   "fields": {
-    "password": "pbkdf2_sha256$24000$fCemO9yyAFNP$FX9nrmcFXwS0HSNwRlfdj2rtC6+qHcrf4ObQw6cGC4k=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user8",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:35.282Z",
-    "groups": [],
-    "user_permissions": []
+    "content_type": 9,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Juan Perez",
+    "action": 0,
+    "changes": "{\"telefonos\": [\"None\", \"login.Telefono.None\"], \"email\": [\"None\", \"info@bellbird.com.py\"], \"activo\": [\"None\", \"True\"], \"nombre\": [\"None\", \"Juan Perez\"], \"direccion\": [\"None\", \"Mcal. Lopez 101\"], \"id\": [\"None\", \"2\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:24:58.808Z",
+    "additional_data": null
   }
 },
 {
-  "model": "auth.user",
+  "model": "auditlog.logentry",
   "pk": 19,
   "fields": {
-    "password": "pbkdf2_sha256$24000$qxvwJpAQBaHz$TYWjGln5N64sXO+01fIrv9YU8gkw+XZf0H4w7e8yr+A=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user9",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:35.408Z",
-    "groups": [],
-    "user_permissions": []
+    "content_type": 9,
+    "object_pk": "3",
+    "object_id": 3,
+    "object_repr": "Jorge Perez",
+    "action": 0,
+    "changes": "{\"telefonos\": [\"None\", \"login.Telefono.None\"], \"email\": [\"None\", \"info@bellbird.com.py\"], \"activo\": [\"None\", \"True\"], \"nombre\": [\"None\", \"Jorge Perez\"], \"direccion\": [\"None\", \"Mcal. Lopez 101\"], \"id\": [\"None\", \"3\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:25:14.402Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 20,
+  "fields": {
+    "content_type": 9,
+    "object_pk": "4",
+    "object_id": 4,
+    "object_repr": "Jorge Gonzalez",
+    "action": 0,
+    "changes": "{\"telefonos\": [\"None\", \"login.Telefono.None\"], \"email\": [\"None\", \"info@bellbird.com.py\"], \"activo\": [\"None\", \"True\"], \"nombre\": [\"None\", \"Jorge Gonzalez\"], \"direccion\": [\"None\", \"Mcal. Lopez 101\"], \"id\": [\"None\", \"4\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:25:32.326Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 21,
+  "fields": {
+    "content_type": 9,
+    "object_pk": "5",
+    "object_id": 5,
+    "object_repr": "Guillermo Macchi",
+    "action": 0,
+    "changes": "{\"telefonos\": [\"None\", \"login.Telefono.None\"], \"email\": [\"None\", \"guillemacchi01@gmail.com\"], \"activo\": [\"None\", \"True\"], \"nombre\": [\"None\", \"Guillermo Macchi\"], \"direccion\": [\"None\", \"Nicanor Torales, 4 De Julio\"], \"id\": [\"None\", \"5\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:25:39.699Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 22,
+  "fields": {
+    "content_type": 9,
+    "object_pk": "6",
+    "object_id": 6,
+    "object_repr": "Ra\u00fal Burr\u00f3",
+    "action": 0,
+    "changes": "{\"telefonos\": [\"None\", \"login.Telefono.None\"], \"email\": [\"None\", \"rauleburro@gmail.com\"], \"activo\": [\"None\", \"True\"], \"nombre\": [\"None\", \"Ra\\u00fal Burr\\u00f3\"], \"direccion\": [\"None\", \"Mcal. Lopez 101\"], \"id\": [\"None\", \"6\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:25:57.367Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 23,
+  "fields": {
+    "content_type": 9,
+    "object_pk": "7",
+    "object_id": 7,
+    "object_repr": "Rub\u00e9n Figueredo",
+    "action": 0,
+    "changes": "{\"telefonos\": [\"None\", \"login.Telefono.None\"], \"email\": [\"None\", \"shishi9tail@hotmail.com\"], \"activo\": [\"None\", \"True\"], \"nombre\": [\"None\", \"Rub\\u00e9n Figueredo\"], \"direccion\": [\"None\", \"Mcal. Lopez 101\"], \"id\": [\"None\", \"7\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:26:16.308Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 24,
+  "fields": {
+    "content_type": 9,
+    "object_pk": "8",
+    "object_id": 8,
+    "object_repr": "Prueba 1",
+    "action": 0,
+    "changes": "{\"telefonos\": [\"None\", \"login.Telefono.None\"], \"email\": [\"None\", \"info@bellbird.com.py\"], \"activo\": [\"None\", \"True\"], \"nombre\": [\"None\", \"Prueba 1\"], \"direccion\": [\"None\", \"Mcal. Lopez 101\"], \"id\": [\"None\", \"8\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:26:36.738Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 25,
+  "fields": {
+    "content_type": 13,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "Flujo normal",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Flujo normal\"], \"actividades\": [\"None\", \"US.Actividades.None\"], \"uss\": [\"None\", \"US.US.None\"], \"id\": [\"None\", \"1\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:26:56.856Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 26,
+  "fields": {
+    "content_type": 14,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "Planificacion",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Planificacion\"], \"tipoUS\": [\"None\", \"Flujo normal\"], \"id\": [\"None\", \"1\"], \"numero\": [\"None\", \"1\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:27:06.300Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 27,
+  "fields": {
+    "content_type": 14,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Dise\u00f1o",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Dise\\u00f1o\"], \"tipoUS\": [\"None\", \"Flujo normal\"], \"id\": [\"None\", \"2\"], \"numero\": [\"None\", \"2\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:27:12.371Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 28,
+  "fields": {
+    "content_type": 14,
+    "object_pk": "3",
+    "object_id": 3,
+    "object_repr": "Desarrollo",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Desarrollo\"], \"tipoUS\": [\"None\", \"Flujo normal\"], \"id\": [\"None\", \"3\"], \"numero\": [\"None\", \"3\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:27:17.556Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 29,
+  "fields": {
+    "content_type": 14,
+    "object_pk": "4",
+    "object_id": 4,
+    "object_repr": "Mantenimiento",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Mantenimiento\"], \"tipoUS\": [\"None\", \"Flujo normal\"], \"id\": [\"None\", \"4\"], \"numero\": [\"None\", \"4\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:27:23.503Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 30,
+  "fields": {
+    "content_type": 13,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Tipo 1",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Tipo 1\"], \"actividades\": [\"None\", \"US.Actividades.None\"], \"uss\": [\"None\", \"US.US.None\"], \"id\": [\"None\", \"2\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:28:17.566Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 31,
+  "fields": {
+    "content_type": 14,
+    "object_pk": "5",
+    "object_id": 5,
+    "object_repr": "Act 1",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Act 1\"], \"tipoUS\": [\"None\", \"Tipo 1\"], \"id\": [\"None\", \"5\"], \"numero\": [\"None\", \"1\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:28:21.848Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 32,
+  "fields": {
+    "content_type": 14,
+    "object_pk": "6",
+    "object_id": 6,
+    "object_repr": "Act 2",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Act 2\"], \"tipoUS\": [\"None\", \"Tipo 1\"], \"id\": [\"None\", \"6\"], \"numero\": [\"None\", \"2\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:28:26.528Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 33,
+  "fields": {
+    "content_type": 14,
+    "object_pk": "7",
+    "object_id": 7,
+    "object_repr": "Act 3",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Act 3\"], \"tipoUS\": [\"None\", \"Tipo 1\"], \"id\": [\"None\", \"7\"], \"numero\": [\"None\", \"3\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:28:31.726Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 34,
+  "fields": {
+    "content_type": 10,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "Sistema Proyectos",
+    "action": 0,
+    "changes": "{\"sprints\": [\"None\", \"sprint.Sprint.None\"], \"equipos\": [\"None\", \"equipo.Equipo.None\"], \"fecha_creacion\": [\"None\", \"2016-06-17\"], \"fecha_fin\": [\"None\", \"2016-12-31\"], \"cliente\": [\"None\", \"Juan Gonzalez\"], \"activo\": [\"None\", \"True\"], \"fecha_inicio\": [\"None\", \"2016-06-01\"], \"id\": [\"None\", \"1\"], \"lider_proyecto\": [\"None\", \"rauleburro\"], \"nombre\": [\"None\", \"Sistema Proyectos\"], \"descripcion\": [\"None\", \"Sistema para control de proyectos.\"], \"uss\": [\"None\", \"US.US.None\"], \"estado\": [\"None\", \"PEN\"], \"observaciones\": [\"None\", \"No hay observaciones.\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:29:53.386Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 36,
+  "fields": {
+    "content_type": 7,
+    "object_pk": "4",
+    "object_id": 4,
+    "object_repr": "prueba1",
+    "action": 1,
+    "changes": "{\"last_login\": [\"None\", \"2016-06-17 13:31:14.381330+00:00\"]}",
+    "actor": null,
+    "remote_addr": null,
+    "timestamp": "2016-06-17T13:31:14.383Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 37,
+  "fields": {
+    "content_type": 11,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "Desarrolladores",
+    "action": 2,
+    "changes": "{\"nombre\": [\"Desarrolladores\", \"None\"], \"id\": [\"1\", \"None\"], \"proyecto\": [\"Sistema Proyectos\", \"None\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:39:09.903Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 38,
+  "fields": {
+    "content_type": 11,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Desarrolladores",
+    "action": 0,
+    "changes": "{\"nombre\": [\"None\", \"Desarrolladores\"], \"id\": [\"None\", \"2\"], \"proyecto\": [\"None\", \"Sistema Proyectos\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T13:39:57.357Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 40,
+  "fields": {
+    "content_type": 15,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "Login",
+    "action": 2,
+    "changes": "{\"tiempo_planificado\": [\"10\", \"None\"], \"descripcion_corta\": [\"Login\", \"None\"], \"estado_actividad\": [\"TOD\", \"None\"], \"usuario_asignado\": [\"prueba1\", \"None\"], \"actividad\": [\"Planificacion\", \"None\"], \"finalizado\": [\"False\", \"None\"], \"tipoUS\": [\"Flujo normal\", \"None\"], \"urgencia\": [\"3\", \"None\"], \"proyecto\": [\"Sistema Proyectos\", \"None\"], \"descripcion_larga\": [\"Funciones de login\", \"None\"], \"id\": [\"1\", \"None\"], \"valor_negocio\": [\"3\", \"None\"]}",
+    "actor": 4,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:18:27.785Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 41,
+  "fields": {
+    "content_type": 15,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Login",
+    "action": 0,
+    "changes": "{\"tiempo_planificado\": [\"None\", \"10\"], \"descripcion_corta\": [\"None\", \"Login\"], \"estado_actividad\": [\"None\", \"TOD\"], \"usuario_asignado\": [\"None\", \"prueba1\"], \"actividad\": [\"None\", \"Planificacion\"], \"finalizado\": [\"None\", \"False\"], \"tipoUS\": [\"None\", \"Flujo normal\"], \"urgencia\": [\"None\", \"3\"], \"proyecto\": [\"None\", \"Sistema Proyectos\"], \"descripcion_larga\": [\"None\", \"Funcion de login\"], \"id\": [\"None\", \"2\"], \"valor_negocio\": [\"None\", \"3\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:19:22.470Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 43,
+  "fields": {
+    "content_type": 10,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "Sistema Proyectos",
+    "action": 1,
+    "changes": "{\"estado\": [\"PEN\", \"ACT\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:45:17.187Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 46,
+  "fields": {
+    "content_type": 12,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Sprint 1",
+    "action": 0,
+    "changes": "{\"estado_sprint\": [\"None\", \"PEN\"], \"fecha_inicio\": [\"None\", \"2016-06-17\"], \"uss\": [\"None\", \"US.US.None\"], \"duracion\": [\"None\", \"0\"], \"nombre\": [\"None\", \"Sprint 1\"], \"proyecto\": [\"None\", \"Sistema Proyectos\"], \"id\": [\"None\", \"2\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:45:34.094Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 47,
+  "fields": {
+    "content_type": 12,
+    "object_pk": "1",
+    "object_id": 1,
+    "object_repr": "Sprint 1",
+    "action": 2,
+    "changes": "{\"fecha_fin\": [\"2016-06-17\", \"None\"], \"estado_sprint\": [\"FIN\", \"None\"], \"fecha_inicio\": [\"2016-06-17\", \"None\"], \"uss\": [\"US.US.None\", \"None\"], \"duracion\": [\"0\", \"None\"], \"nombre\": [\"Sprint 1\", \"None\"], \"proyecto\": [\"Sistema Proyectos\", \"None\"], \"id\": [\"1\", \"None\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:46:01.506Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 48,
+  "fields": {
+    "content_type": 12,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Sprint 1",
+    "action": 1,
+    "changes": "{\"duracion\": [\"0\", \"10\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:46:08.912Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 49,
+  "fields": {
+    "content_type": 12,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Sprint 1",
+    "action": 1,
+    "changes": "{\"fecha_fin\": [\"None\", \"2016-06-27\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:46:08.941Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 50,
+  "fields": {
+    "content_type": 12,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Sprint 1",
+    "action": 1,
+    "changes": "{\"estado_sprint\": [\"PEN\", \"INI\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:46:18.532Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 51,
+  "fields": {
+    "content_type": 15,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Login",
+    "action": 1,
+    "changes": "{\"estado_actividad\": [\"TOD\", \"DOI\"]}",
+    "actor": 4,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:47:23.981Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 52,
+  "fields": {
+    "content_type": 15,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Login",
+    "action": 1,
+    "changes": "{\"estado_actividad\": [\"DOI\", \"DON\"]}",
+    "actor": 4,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:47:29.805Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 53,
+  "fields": {
+    "content_type": 15,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Login",
+    "action": 1,
+    "changes": "{\"actividad\": [\"Planificacion\", \"Dise\\u00f1o\"], \"estado_actividad\": [\"DON\", \"TOD\"]}",
+    "actor": 1,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:47:49.047Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 54,
+  "fields": {
+    "content_type": 15,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Login",
+    "action": 1,
+    "changes": "{\"estado_actividad\": [\"TOD\", \"DOI\"]}",
+    "actor": 4,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:48:03.784Z",
+    "additional_data": null
+  }
+},
+{
+  "model": "auditlog.logentry",
+  "pk": 55,
+  "fields": {
+    "content_type": 15,
+    "object_pk": "2",
+    "object_id": 2,
+    "object_repr": "Login",
+    "action": 1,
+    "changes": "{\"estado_actividad\": [\"DOI\", \"DON\"]}",
+    "actor": 4,
+    "remote_addr": "127.0.0.1",
+    "timestamp": "2016-06-17T14:48:07.978Z",
+    "additional_data": null
   }
 },
 {
   "model": "admin.logentry",
   "pk": 1,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.386Z",
+    "action_time": "2016-06-17T13:20:48.029Z",
     "user": 1,
-    "content_type": 4,
+    "content_type": 7,
     "object_id": "2",
-    "object_repr": "user1",
-    "action_flag": 3,
-    "change_message": ""
+    "object_repr": "rauleburro",
+    "action_flag": 1,
+    "change_message": "Added."
   }
 },
 {
   "model": "admin.logentry",
   "pk": 2,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.397Z",
+    "action_time": "2016-06-17T13:21:03.903Z",
     "user": 1,
-    "content_type": 4,
-    "object_id": "3",
-    "object_repr": "user2",
-    "action_flag": 3,
-    "change_message": ""
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "rauleburro",
+    "action_flag": 2,
+    "change_message": "Modifica email."
   }
 },
 {
   "model": "admin.logentry",
   "pk": 3,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.399Z",
+    "action_time": "2016-06-17T13:21:26.770Z",
     "user": 1,
-    "content_type": 4,
-    "object_id": "4",
-    "object_repr": "user3",
-    "action_flag": 3,
-    "change_message": ""
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "rubenfig",
+    "action_flag": 1,
+    "change_message": "Added."
   }
 },
 {
   "model": "admin.logentry",
   "pk": 4,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.401Z",
+    "action_time": "2016-06-17T13:21:45.160Z",
     "user": 1,
-    "content_type": 4,
-    "object_id": "5",
-    "object_repr": "user4",
-    "action_flag": 3,
-    "change_message": ""
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "rubenfig",
+    "action_flag": 2,
+    "change_message": "Modifica email."
   }
 },
 {
   "model": "admin.logentry",
   "pk": 5,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.403Z",
+    "action_time": "2016-06-17T13:22:21.101Z",
     "user": 1,
-    "content_type": 4,
-    "object_id": "6",
-    "object_repr": "user5",
-    "action_flag": 3,
-    "change_message": ""
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "prueba1",
+    "action_flag": 1,
+    "change_message": "Added."
   }
 },
 {
   "model": "admin.logentry",
   "pk": 6,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.405Z",
+    "action_time": "2016-06-17T13:22:44.975Z",
     "user": 1,
-    "content_type": 4,
-    "object_id": "7",
-    "object_repr": "user6",
-    "action_flag": 3,
-    "change_message": ""
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "prueba1",
+    "action_flag": 2,
+    "change_message": "Modifica email."
   }
 },
 {
   "model": "admin.logentry",
   "pk": 7,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.408Z",
+    "action_time": "2016-06-17T13:22:58.336Z",
     "user": 1,
-    "content_type": 4,
-    "object_id": "8",
-    "object_repr": "user7",
-    "action_flag": 3,
-    "change_message": ""
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "prueba2",
+    "action_flag": 1,
+    "change_message": "Added."
   }
 },
 {
   "model": "admin.logentry",
   "pk": 8,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.410Z",
+    "action_time": "2016-06-17T13:23:13.806Z",
     "user": 1,
-    "content_type": 4,
-    "object_id": "9",
-    "object_repr": "user8",
-    "action_flag": 3,
-    "change_message": ""
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "prueba3",
+    "action_flag": 1,
+    "change_message": "Added."
   }
 },
 {
   "model": "admin.logentry",
   "pk": 9,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.411Z",
+    "action_time": "2016-06-17T13:23:21.018Z",
     "user": 1,
-    "content_type": 4,
-    "object_id": "10",
-    "object_repr": "user9",
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "prueba3",
+    "action_flag": 2,
+    "change_message": "Modifica email."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2016-06-17T13:23:28.177Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "prueba2",
+    "action_flag": 2,
+    "change_message": "Modifica email."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2016-06-17T13:23:43.840Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "prueba4",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2016-06-17T13:23:49.452Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "prueba4",
+    "action_flag": 2,
+    "change_message": "Modifica email."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2016-06-17T13:24:07.830Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "prueba5",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2016-06-17T13:24:15.449Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "prueba5",
+    "action_flag": 2,
+    "change_message": "Modifica email."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2016-06-17T13:24:47.789Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Juan Gonzalez",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2016-06-17T13:24:58.809Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Juan Perez",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2016-06-17T13:25:14.403Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Jorge Perez",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2016-06-17T13:25:32.327Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "Jorge Gonzalez",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2016-06-17T13:25:39.699Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Guillermo Macchi",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2016-06-17T13:25:57.368Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Ra\u00fal Burr\u00f3",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2016-06-17T13:26:16.308Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "Rub\u00e9n Figueredo",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2016-06-17T13:26:36.739Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "8",
+    "object_repr": "Prueba 1",
+    "action_flag": 1,
+    "change_message": "Added."
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2016-06-17T14:46:01.501Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "Sprint 1",
     "action_flag": 3,
     "change_message": ""
   }

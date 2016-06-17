@@ -34,7 +34,7 @@ def list_tipo_us(request):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('US.crear_tipo_US', raise_exception=True)
+@permission_required('US.add_tipous', raise_exception=True)
 def create_tipo(request):
     """
         Funcion para crear tipo de US utilizando el form TipoUSForm.
@@ -61,7 +61,7 @@ def create_tipo(request):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('tipous.delete_tipous', raise_exception=True)
+@permission_required('US.delete_tipous', raise_exception=True)
 def delete_tipo_us(request, pk):
     """
     Busca el tipo de us con pk igual al que es parametro y elimina si no contiene ningun US.
@@ -79,7 +79,7 @@ def delete_tipo_us(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('tipous.change_tipous', raise_exception=True)
+@permission_required('US.change_tipous', raise_exception=True)
 def update_tipo_us(request, pk):
     """
         Funcion para actualizar tipo de US utilizando el form TipoUSForm.
@@ -113,7 +113,7 @@ def update_tipo_us(request, pk):
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('US.crear_actividades', raise_exception=True)
+@permission_required('US.add_actividades', raise_exception=True)
 def create_actividad(request, pk):
     """
         Funcion para crear actividad utilizando el form ActividadesForm.
@@ -183,39 +183,42 @@ def create_us(request, pk):
 
     permisos = proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
                                                                                         flat=True)
+    print request.user.get_all_permissions()
+    if ('add_us' in permisos or request.user.is_staff or request.user.has_perm('US.add_us')):
+        form = USForm(request.POST or None)
+        equipos = proyecto.equipos.all()
+        usuarios = Usuario.objects.filter(Q(equipos__in=equipos) | Q(lider=proyecto)).distinct()
 
-    form = USForm(request.POST or None)
-    equipos = proyecto.equipos.all()
-    usuarios = Usuario.objects.filter(Q(equipos__in=equipos) | Q(lider=proyecto)).distinct()
+        form.fields["usuario_asignado"].queryset = usuarios
+        if request.method == 'POST':
+            if form.is_valid():
+                us = US()
+                us.proyecto = proyecto
+                us.descripcion_corta = form.cleaned_data['descripcion_corta']
+                us.descripcion_larga = form.cleaned_data['descripcion_larga']
+                us.tiempo_planificado = form.cleaned_data['tiempo_planificado']
+                us.valor_negocio = form.cleaned_data['valor_negocio']
+                us.urgencia = form.cleaned_data['urgencia']
+                us.usuario_asignado = form.cleaned_data['usuario_asignado']
+                us.tipoUS = form.cleaned_data['tipoUS']
+                if (Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).exists()):
+                    us.actividad = Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).get(numero=1)
 
-    form.fields["usuario_asignado"].queryset = usuarios
-    if request.method == 'POST':
-        if form.is_valid():
-            us = US()
-            us.proyecto = proyecto
-            us.descripcion_corta = form.cleaned_data['descripcion_corta']
-            us.descripcion_larga = form.cleaned_data['descripcion_larga']
-            us.tiempo_planificado = form.cleaned_data['tiempo_planificado']
-            us.valor_negocio = form.cleaned_data['valor_negocio']
-            us.urgencia = form.cleaned_data['urgencia']
-            us.usuario_asignado = form.cleaned_data['usuario_asignado']
-            us.tipoUS = form.cleaned_data['tipoUS']
-            if (Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).exists()):
-                us.actividad = Actividades.objects.filter(tipoUS__pk=us.tipoUS.pk).get(numero=1)
+                us.save()
+                usuario = us.usuario_asignado
+                if (usuario.noti_cambio_estado_actividades):
+                    email_noti = usuario.email
+                    enviar_notificacion(email_noti, 'Se le ha asignado un US en el proyecto ' + us.proyecto.nombre +
+                                            '.')
+                return HttpResponseRedirect('/us/us/' + str(us.id))
 
-            us.save()
-            usuario = us.usuario_asignado
-            if (usuario.noti_cambio_estado_actividades):
-                email_noti = usuario.email
-                enviar_notificacion(email_noti, 'Se le ha asignado un US en el proyecto ' + us.proyecto.nombre +
-                                        '.')
-            return HttpResponseRedirect('/us/us/' + str(us.id))
-
-    return render(request, 'us_create.html', {'form': form}, )
+        return render(request, 'us_create.html', {'form': form}, )
+    else:
+        raise PermissionDenied
 
 
 @login_required(None, 'login', '/login/')
-@permission_required('tipous.delete_tipous', raise_exception=True)
+@permission_required('US.delete_actividades', raise_exception=True)
 def delete_actividad(request, pk):
     """
     Busca la actividad con pk igual al que es parametro y la elimina.
@@ -245,7 +248,7 @@ def detail_us(request, pk):
 
     permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
                                                                                            flat=True)
-    if ('view_us' in permisos or us.usuario_asignado == request.user or request.user.is_staff):
+    if ('view_us' in permisos or us.usuario_asignado == request.user or request.user.is_staff or request.user.has_perm('US.view_us')):
         if(us.proyecto.estado == 'FIN' or us.proyecto.estado == 'ANU'):
             bloqueo = 'SI'
         else:
@@ -271,7 +274,7 @@ def delete_us(request, pk):
         return HttpResponseRedirect('/proyecto/')
 
     permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
-    if ('delete_us' in permisos or request.user.is_staff):
+    if ('delete_us' in permisos or request.user.is_staff or request.user.has_perm('US.delete_us')):
         proyecto = us.proyecto
         us.delete()
     else:
@@ -299,9 +302,9 @@ def update_us(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
-                                                                                               flat=True)
-    if ('update_us' in permisos or request.user.is_staff):
+    permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
+    print permisos
+    if ('change_us' in permisos or request.user.is_staff or request.user.has_perm('US.change_us')):
         equipos = us.proyecto.equipos.all()
         usuarios = Usuario.objects.filter(Q(equipos__in=equipos) | Q(lider=us.proyecto)).distinct()
         if request.method == 'POST':
@@ -360,7 +363,7 @@ def cambiar_actividad(request, pk):
 
     permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
                                                                                            flat=True)
-    if ('update_us' in permisos or request.user.is_staff):
+    if ('change_actividad' in permisos or request.user.is_staff or request.user.has_perm('US.change_actividad')):
         actividades = us.tipoUS.actividades.all()
 
         if request.method == 'POST':
@@ -416,9 +419,9 @@ def cambiar_estado_actividad(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
-    permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
-                                                                                               flat=True)
-    if ('update_us' in permisos or request.user.is_staff):
+    permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
+    print permisos
+    if ('change_estado_actividad' in permisos or request.user.is_staff or us.usuario_asignado == request.user or request.user.has_perm('US.change_estado_actividad')):
         lider=us.proyecto.lider_proyecto
         if (us.estado_actividad == 'TOD'):
             us.estado_actividad = 'DOI'
@@ -452,7 +455,7 @@ def repriorizar(request, pk):
         return HttpResponseRedirect('/proyecto/')
 
     permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
-    if ('update_us' in permisos or request.user.is_staff):
+    if ('update_us' in permisos or request.user.is_staff or request.user.has_perm('US.updata_us')):
         us.estado_actividad = 'TOD'
         us.urgencia = 5
         us.valor_negocio = 5
