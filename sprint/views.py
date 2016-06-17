@@ -73,7 +73,9 @@ def detail_sprint(request, pk):
         sprint.estado_sprint = 'PEN'
     else:
         sprint.estado_sprint = 'INI'
-
+        if (sprint.proyecto.estado=='PEN'):
+            sprint.proyecto.estado='ACT'
+            sprint.proyecto.save()
         # Aca verificamos si ya finalizo
     if sprint.fecha_fin != None:
         if sprint.fecha_fin <= datetime.date.today():
@@ -196,6 +198,9 @@ def iniciar_sprint(request, pk):
         sprint.fecha_fin = sprint.fecha_inicio + timedelta(days=sprint.duracion)
         print 'Proyecto iniciado'
         sprint.estado_sprint = 'INI'
+        if (sprint.proyecto.estado == 'PEN'):
+            sprint.proyecto.estado = 'ACT'
+            sprint.proyecto.save()
         sprint.save()
     except:
         return HttpResponseRedirect('/proyecto/')
