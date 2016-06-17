@@ -81,18 +81,6 @@
 },
 {
   "model": "sprint.sprint",
-  "pk": 1,
-  "fields": {
-    "nombre": "Sprint 1",
-    "duracion": 10,
-    "proyecto": 1,
-    "estado_sprint": "INI",
-    "fecha_inicio": "2016-06-17",
-    "fecha_fin": "2016-06-27"
-  }
-},
-{
-  "model": "sprint.sprint",
   "pk": 2,
   "fields": {
     "nombre": "Sprint 2",
