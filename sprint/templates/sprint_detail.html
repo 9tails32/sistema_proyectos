@@ -10,9 +10,11 @@
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Sprint</h1>
-        {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
+        {% if perms.sprint.add_sprint or 'add_sprint' in permisos and bloqueo == 'NO'%}
             {% if sprint.proyecto.uss.all %}
                 <a class="btn btn-primary" href="/sprint/create/{{ sprint.proyecto.id }}/">Crear nuevo</a>
+            {% elif bloqueo == 'NO'%}
+                <p>Proyecto finalizado o anulado.</p>
             {% else %}
                 <a class="btn btn-primary" href="#"
                    onClick="alert('No puedes crear Sprints sin tener algun us')">Crear
@@ -25,18 +27,19 @@
         <p>Fecha de inicio: <strong>{{ sprint.fecha_inicio }}</strong></p>
         <p>Fecha de fin: <strong>{{ sprint.fecha_fin }}</strong></p>
 
-        {% if sprint.estado_sprint == 'PEN' %}
+        {% if sprint.estado_sprint == 'PEN' and bloqueo == 'NO' %}
             {% if perms.sprint.change_sprint or 'change_sprint' in permisos %}
-                <a class="btn btn-default" role="button" href="/sprint/update/{{ sprint.id }}/">Modificar</a>{% endif %}
+                <a class="btn btn-default" role="button" href="/sprint/update/{{ sprint.id }}/">Modificar</a>
+            {% endif %}
             {% if perms.sprint.delete_sprint and not sprint.uss.all or 'delete_sprint' in permisos and not sprint.uss.all %}
                 <a class="btn btn-danger" role="button" href="/sprint/delete/{{ sprint.id }}/">Eliminar</a>
             {% endif %}
             <a class="btn btn-primary" role="button" href="/sprint/iniciar/{{ sprint.id }}">Iniciar Sprint</a>
         {% else %}
-            <p><strong>Proyecto {{ sprint.get_estado_sprint_display }}, no se pueden hacer cambios</strong></p>
+            <p><strong>No se pueden hacer cambios porque el sprint esta activo, o el proyecto esta finalizado.</strong></p>
         {% endif %}
         <h2 class="sub-header">US</h2>
-        {% if sprint.estado_sprint == 'PEN' %}
+        {% if sprint.estado_sprint == 'PEN' and bloqueo == 'NO' %}
             {% if perms.sprint.asignar_us or 'asignar_us' in permisos %}
                 <a class="btn btn-primary" href="/sprint/asignar_us/{{ sprint.id }}/">Asignar US</a>
             {% endif %}

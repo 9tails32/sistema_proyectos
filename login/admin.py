@@ -12,7 +12,9 @@ class MyUserAdmin(UserAdmin):
     form = MyUserChangeForm
 
     fieldsets = UserAdmin.fieldsets + (
-            (None, {'fields': ('cedula','direccion','formato_notificaciones','hora_notificaciones','noti_creacion_proyecto','noti_creacion_usuario','noti_creacion_equipos')}),
+            (None, {'fields': ('cedula','direccion', 'noti_cambio_actividades',
+                               'noti_us_asignado','noti_cambio_estado_actividades',
+                               'noti_creacion_proyecto','noti_creacion_equipos')}),
     )
 
 # Register your models here.

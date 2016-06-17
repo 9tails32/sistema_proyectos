@@ -78,15 +78,14 @@ def detail_sprint(request, pk):
 
         if (datetime.date.today() <= sprint.fecha_inicio) and sprint.estado_sprint == 'PEN':
             sprint.estado_sprint = 'PEN'
-            print 'Proyecto pendiente'
         else:
-            print 'Proyecto iniciado'
             sprint.estado_sprint = 'INI'
-
-        # Aca verificamos si ya finalizo
+            if (sprint.proyecto.estado=='PEN'):
+                sprint.proyecto.estado='ACT'
+                sprint.proyecto.save()
+            # Aca verificamos si ya finalizo
         if sprint.fecha_fin != None:
             if sprint.fecha_fin <= datetime.date.today():
-                print 'Proyecto finalizado'
                 sprint.estado_sprint = 'FIN'
         sprint.save()
 
@@ -96,8 +95,11 @@ def detail_sprint(request, pk):
         for t in tipos_us:
             tipo_id = t["tipoUS"]
             tipos.append([TipoUS.objects.get(id=tipo_id), uss.filter(tipoUS=tipo_id)])
-
-        return render(request, 'sprint_detail.html', {'sprint': sprint, 'tipos': tipos})
+        if (sprint.proyecto.estado=='FIN' or sprint.proyecto.estado=='ANU'):
+            bloqueo='SI'
+        else:
+            bloqueo='NO'
+        return render(request, 'sprint_detail.html', {'sprint': sprint, 'tipos': tipos, 'bloqueo':bloqueo})
     else:
         raise PermissionDenied
 
@@ -223,6 +225,9 @@ def iniciar_sprint(request, pk):
         sprint.fecha_fin = sprint.fecha_inicio + timedelta(days=sprint.duracion)
         print 'Proyecto iniciado'
         sprint.estado_sprint = 'INI'
+        if (sprint.proyecto.estado == 'PEN'):
+            sprint.proyecto.estado = 'ACT'
+            sprint.proyecto.save()
         sprint.save()
         return HttpResponseRedirect('/sprint/' + str(sprint.id))
     else:

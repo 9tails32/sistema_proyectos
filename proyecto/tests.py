@@ -40,6 +40,21 @@ class TestViewProyecto(TestCase):
                              'observaciones': 'No hay observaciones'})
         self.assertFalse(form.is_valid())
 
+    def test_log(self):
+        usuario = Usuario.objects.create_user(username='user1', email='asd@asd.com', password='mangekyou',
+                                              is_staff=True, is_superuser=True)
+        cliente = Cliente(nombre='client1', direccion='Azara', email='asd@hotmail.com')
+        cliente.save()
+        usuario.save()
+        self.client.login(username='user1', password='mangekyou')
+        proyecto = Proyecto(id=1, nombre='proyecto',
+                            fecha_fin=timezone.now(), fecha_inicio=timezone.now(),
+                            lider_proyecto=usuario, cliente=cliente,
+                            descripcion='Descripcion',
+                            )
+        proyecto.save()
+        resp = self.client.get('/proyecto/log_proyecto/1')
+        self.assertEqual(resp.status_code, 301)
 
 
 
