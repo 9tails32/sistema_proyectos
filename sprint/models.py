@@ -34,9 +34,9 @@ class Sprint(models.Model):
 
     class Meta:
         permissions = (
-            ("ver_sprint", "Puede ver Sprint"),
-            ("crear_sprint", "Puede crear un nuevo Sprint"),
-            ("borrar_sprint", "Puede eliminar un sprint"),
+            ("view_sprint", "Puede ver Sprint"),
+            ("asignar_us", "Puede asignar US al Sprint"),
+            ("iniciar_sprint", "Puede iniciar el Sprint"),
         )
 
     def __unicode__(self):

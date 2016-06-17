@@ -70,7 +70,7 @@
             {% if perms.sprint.view_sprint or 'view_sprint' in permisos %}
             <div class="col-md-6 col-sm-6 col-lg-6">
                 <h2 class="sub-header">Sprints</h2>
-                {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
+                {% if perms.sprint.add_sprint or 'add_sprint' in permisos %}
                     {% if object.uss.all %}
                         <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>
                     {% else %}
@@ -109,7 +109,7 @@
             {% endif %}
             <div class="col-md-6 col-sm-6 col-lg-6">
                 <h2 class="sub-header">US</h2>
-                {% if perms.US.crear_US or 'add_us' in permisos %}
+                {% if perms.US.add_us or 'add_us' in permisos %}
                     {% if tipoUS %}
                         <a class="btn btn-primary" href="/us/us/create/{{ object.id }}/">Crear nuevo</a>
                     {% else %}
