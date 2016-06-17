@@ -31,7 +31,7 @@ class TestViewUS(TestCase):
         actividad = Actividades(pk=3, nombre='actividad', tipoUS=TipoUS.objects.get(pk=1))
         actividad.save()
         us = US(descripcion_corta='a', descripcion_larga='a', tiempo_planificado=3, valor_negocio=1,
-                urgencia=1, tipoUS=tipo, usuario_asignado=Usuario.objects.get(pk=1))
+                urgencia=1, tipoUS=tipo, usuario_asignado=Usuario.objects.get(pk=1), proyecto=proyecto)
 
         us.save()
 
