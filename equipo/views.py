@@ -7,13 +7,22 @@ from proyecto.models import Proyecto
 from equipo.models import *
 from equipo.forms import *
 
+def validateEmail( email ):
+    from django.core.validators import validate_email
+    from django.core.exceptions import ValidationError
+    try:
+        validate_email( email )
+        return True
+    except ValidationError:
+        return False
 
 def enviar_notificacion (email, contenido):
-    subject, from_mail, to = 'Sistema de Gestion de Proyectos', 'gmacchi@bellbird.com.py', email
-    html_content = '<p>Este mensaje es enviado para notificar sobre lo siguiente:</p><p>'+contenido+'</p>'
-    msg = EmailMessage(subject, html_content, from_mail, [to])
-    msg.content_subtype = "html"  # Main content is now text/html
-    msg.send()
+    if (validateEmail(email)):
+        subject, from_mail, to = 'Sistema de Gestion de Proyectos', 'gmacchi@bellbird.com.py', email
+        html_content = '<p>Este mensaje es enviado para notificar sobre lo siguiente:</p><p>'+contenido+'</p>'
+        msg = EmailMessage(subject, html_content, from_mail, [to])
+        msg.content_subtype = "html"  # Main content is now text/html
+        msg.send()
 
 @login_required(None, 'login', '/login/')
 def create_equipo (request, pk):

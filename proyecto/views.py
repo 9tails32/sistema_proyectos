@@ -48,7 +48,7 @@ def detail_proyecto(request, pk):
                 proyecto.estado = 'ACT'
 
         # Aca verificamos si ya finalizo
-        if proyecto.fecha_fin <= datetime.date.today():
+        if proyecto.fecha_fin < datetime.date.today():
             print 'Proyecto finalizado'
             proyecto.estado = 'FIN'
     proyecto.save()
