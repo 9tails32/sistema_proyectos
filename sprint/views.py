@@ -34,7 +34,7 @@ def create_sprint(request, pk):
         return HttpResponseRedirect('/proyecto/')
 
     permisos = proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
-    if ('create_sprint' in permisos or request.user.is_staff):
+    if 'add_sprint' in permisos or request.user.is_staff or request.user.has_perm('sprint.add_sprint'):
         if request.method == 'POST':
             lider=Usuario.objects.get(pk=proyecto.lider_proyecto.pk)
             form = SprintForm(request.POST)
@@ -70,7 +70,7 @@ def detail_sprint(request, pk):
         return HttpResponseRedirect('/proyecto/')
 
     permisos = sprint.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
-    if ('create_sprint' in permisos or request.user.is_staff):
+    if ('view_sprint' in permisos or request.user.is_staff or request.user.has_perm('sprint.view_sprint')):
         if sprint.duracion > 0:
             sprint.fecha_fin = sprint.fecha_inicio + timedelta(days=sprint.duracion)
 
@@ -122,7 +122,7 @@ def asignar_us(request, pk):
 
     permisos = sprint.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
                                                                                                flat=True)
-    if ('asignar_us' in permisos or request.user.is_staff):
+    if ('asignar_us' in permisos or request.user.is_staff or request.user.has_perm('sprint.asignar_us')):
         uss = US.objects.filter(Q(proyecto=sprint.proyecto, sprint=None) | Q(sprint=sprint))
 
         if request.method == 'POST':
@@ -158,7 +158,7 @@ def borrar_sprint(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
     permisos = sprint.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
-    if ('delete_sprint' in permisos or request.user.is_staff):
+    if ('delete_sprint' in permisos or request.user.is_staff or request.user.has_perm('sprint.delete_sprint')):
         sprint.delete()
 
         return HttpResponseRedirect('/proyecto/')
@@ -186,7 +186,7 @@ def modificar_sprint(request, pk):
         return HttpResponseRedirect('/proyecto/')
 
     permisos = sprint.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
-    if ('delete_sprint' in permisos or request.user.is_staff):
+    if ('change_sprint' in permisos or request.user.is_staff or request.user.has_perm('sprint.change_sprint')):
         if request.method == 'POST':
             form = SprintForm(request.POST)
             if form.is_valid():
@@ -220,7 +220,7 @@ def iniciar_sprint(request, pk):
 
     permisos = sprint.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
                                                                                                flat=True)
-    if ('iniciar_sprint' in permisos or request.user.is_staff):
+    if ('iniciar_sprint' in permisos or request.user.is_staff or request.user.has_perm('sprint.iniciar_sprint')):
         sprint.fecha_inicio = datetime.date.today()
         sprint.fecha_fin = sprint.fecha_inicio + timedelta(days=sprint.duracion)
         print 'Proyecto iniciado'
