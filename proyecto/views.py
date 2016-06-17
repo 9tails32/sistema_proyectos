@@ -204,6 +204,16 @@ def delete_proyecto(request, pk):
 
 @login_required(None, 'login', '/login/')
 def log_proyecto(request, pk):
+    """
+    Funcion que displaya el log de las actividades realizadas en el proyecto. Recibe el pk del
+    Proyecto sobre el cual se quiere revisar el log.
+    :param request:
+    :type request:
+    :param pk:
+    :type pk:
+    :return:
+    :rtype:
+    """
     try:
         proyecto = Proyecto.objects.get(pk=pk)
         log = list(LogEntry.objects.get_for_object(proyecto))
