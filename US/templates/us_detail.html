@@ -8,7 +8,7 @@
 {% block content %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">US</h1>
-        {% if perms.us.add_us %}
+        {% if perms.us.add_us and bloqueo == 'NO'%}
             <a class="btn btn-primary" href="/us/us/create/{{ object.proyecto.id }}/">Crear nuevo</a>{% endif %}
         <h2 class="sub-header">Detalle</h2>
         <p>Descripcion corta: <strong>{{ object.descripcion_corta }}</strong></p>
@@ -24,24 +24,26 @@
             <p>Estado actividad: {% if object.actividad %}{{ object.get_estado_actividad_display }}{% endif %} </p>
         {% endif %}
         {% if object.sprint.estado_sprint == 'PEN' or object.sprint == None %}
-            {% if perms.us.change_us or 'change_us' in permisos %}
+            {% if perms.US.change_us or 'change_us' in permisos and bloqueo == 'NO'%}
                 <a class="btn btn-default" role="button" href="/us/us/update/{{ object.id }}">Modificar</a>{% endif %}
-            {% if perms.us.delete_us or 'delete_us' in permisos %}
+            {% if perms.US.delete_us and bloqueo == 'NO' or 'delete_us' in permisos and bloqueo == 'NO' %}
                 <a class="btn btn-danger" role="button" href="/us/us/delete/{{ object.id }}">Eliminar</a>{% endif %}
         {% elif object.sprint.estado_sprint == 'INI' %}
-            {% if perms.us.change_actividad or 'change_actividad' in permisos %}
+            {% if perms.US.change_actividad or 'change_actividad' in permisos and bloqueo == 'NO'%}
                 <a class="btn btn-default" role="button" href="/us/us/cambiar_actividad/{{ object.id }}">Cambiar
                     actividad</a>{% endif %}
             {% if not object.finalizado %}
-
-                {% if perms.us.change_estado_actividad or 'change_estado_actividad' in permisos %}
+                {% if object.usuario_asignado == user and bloqueo == 'NO' or perms.US.change_estado_actividad and bloqueo == 'NO' or 'change_estado_actividad' in permisos and bloqueo == 'NO'%}
                     <a class="btn btn-default" role="button" href="/us/us/cambiar_estado_actividad/{{ object.id }}">Cambiar
                         estado de actividad</a>
                 {% endif %}
             {% endif %}
         {% elif object.sprint.estado_sprint == 'FIN' and not object.finalizado or not obejct.sprint == None %}
+        {% if perms.US.repriorizar or 'repriorizar' in permisos and bloqueo == 'NO'%}
             <p><Strong>El sprint que contenia a este US ha finalizado, si desea volver a colocar este US con prioridad
                 alta presione <a href="/us/us/repriorizar/{{ object.id }}">aqui</a></Strong></p>
+        {% endif %}
+
         {% else %}
             <p><strong>Sprint finalizado</strong></p>
         {% endif %}

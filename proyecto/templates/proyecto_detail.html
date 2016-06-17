@@ -9,7 +9,9 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Proyectos</h1>
         {% if perms.proyecto.add_proyecto %}
-            <a class="btn btn-primary" href="/proyecto/create/">Crear nuevo</a>{% endif %}
+            <a class="btn btn-primary" href="/proyecto/create/">Crear nuevo</a>
+        {% endif %}
+        <a class="btn btn-primary" href="/proyecto/log_proyecto/{{ object.id }}/">Log</a>
         <h2 class="sub-header">Detalle</h2>
         <p>Nombre: <strong>{{ object.nombre }}</strong></p>
         <p>Fecha de inicio: {{ object.fecha_inicio }}</p>
@@ -29,8 +31,10 @@
                 estado</a>{% endif %}
 
         <h2 class="sub-header">Equipos</h2>
-        {% if perms.equipo.add_equipo or 'add_equipo' in permisos %}
+        {% if perms.equipo.add_equipo or 'add_equipo' in permisos%}
+            {% ifequal bloqueo 'NO' %}
             <a class="btn btn-primary" href="/equipo/create/{{ object.id }}/">Crear nuevo</a>
+            {% endifequal %}
         {% endif %}
         <table class="table table-responsive">
             <thead>
@@ -38,8 +42,17 @@
                 <th>Nombre</th>
                 <th>Integrantes</th>
                 <th>Permisos</th>
-                {% if perms.equipo.delete_equipo or 'delete_equipo' in permisos %}
-                    <th></th>
+                {% if perms.equipo.delete_equipo or 'delete_equipo' in permisos%}
+                    {% ifequal bloqueo 'NO' %}
+
+                        <th></th>
+                    {% endifequal %}
+                {% endif %}
+                {% if perms.equipo.update_equipo or 'update_equipo' in permisos%}
+                    {% ifequal bloqueo 'NO' %}
+
+                        <th></th>
+                    {% endifequal %}
                 {% endif %}
             </tr>
             </thead>
@@ -56,7 +69,14 @@
                             <li>{{ p }}</li>{% endfor %}</ul>
                     </td>
                     {% if perms.equipo.delete_equipo or 'delete_equipo' in permisos %}
-                        <td><a class="text-danger" href="/equipo/delete/{{ equipo.id }}">remove</a></td>
+                        {% ifequal bloqueo 'NO' %}
+                            <td><a class="text-danger" href="/equipo/delete/{{ equipo.id }}">borrar</a></td>
+                        {% endifequal %}
+                    {% endif %}
+                    {% if perms.equipo.update_equipo or 'update_equipo' in permisos %}
+                        {% ifequal bloqueo 'NO' %}
+                            <td><a href="/equipo/update/{{ equipo.id }}">modificar</a></td>
+                        {% endifequal %}
                     {% endif %}
                 </tr>
             {% endfor %}
@@ -65,16 +85,19 @@
         </table>
 
         <div class="row">
+            {% if perms.sprint.view_sprint or 'view_sprint' in permisos %}
             <div class="col-md-6 col-sm-6 col-lg-6">
                 <h2 class="sub-header">Sprints</h2>
-                {% if perms.sprint.crear_sprint or 'add_sprint' in permisos %}
-                    {% if object.uss.all %}
-                        <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>
-                    {% else %}
-                        <a class="btn btn-primary" href="#"
-                           onClick="alert('No puedes crear Sprints sin tener algun us')">Crear
-                            nuevo</a>
-                    {% endif %}
+                {% if perms.sprint.add_sprint or 'add_sprint' in permisos %}
+                    {% ifequal bloqueo 'NO' %}
+                        {% if object.uss.all %}
+                            <a class="btn btn-primary" href="/sprint/create/{{ object.id }}/">Crear nuevo</a>
+                        {% else %}
+                            <a class="btn btn-primary" href="#"
+                               onClick="alert('No puedes crear Sprints sin tener algun us')">Crear
+                                nuevo</a>
+                        {% endif %}
+                    {% endifequal %}
                 {% endif %}
                 <table class="table table-responsive">
                     <thead>
@@ -82,7 +105,9 @@
                         <th>Nombre</th>
                         <th>Duración</th>
                         {% if perms.sprint.delete_sprint or 'delete_sprint' in permisos %}
-                        <th>Eliminar</th>
+                            {% ifequal bloqueo 'NO' %}
+                                <th>Eliminar</th>
+                            {% endifequal %}
                         {% endif %}
 
                     </tr>
@@ -93,9 +118,11 @@
                             <td><a href="/sprint/{{ sprint.id }}/"> {{ sprint.nombre }}</a></td>
                             <td>{{ sprint.duracion }}</td>
                             {% if sprint.estado_sprint == 'PEN' %}
-                            {% if perms.sprint.delete_sprint or 'delete_sprint' in permisos %}
-                            <td><a class="text-danger" href="/sprint/delete/{{ sprint.id }}">remove</a></td>
-                            {% endif %}
+                                {% if perms.sprint.delete_sprint or 'delete_sprint' in permisos%}
+                                    {% ifequal bloqueo 'NO' %}
+                                        <td><a class="text-danger" href="/sprint/delete/{{ sprint.id }}">remove</a></td>
+                                    {% endifequal %}
+                                {% endif %}
                             {% endif %}
 
                         </tr>
@@ -103,16 +130,19 @@
                     </tbody>
                 </table>
             </div>
+            {% endif %}
             <div class="col-md-6 col-sm-6 col-lg-6">
                 <h2 class="sub-header">US</h2>
-                {% if perms.US.crear_US or 'add_us' in permisos %}
-                    {% if tipoUS %}
-                        <a class="btn btn-primary" href="/us/us/create/{{ object.id }}/">Crear nuevo</a>
-                    {% else %}
-                        <a class="btn btn-primary" href="#"
-                           onClick="alert('No puedes crear US sin tener algun tipo de US')">Crear
-                            nuevo</a>
-                    {% endif %}
+                {% if perms.US.add_us or 'add_us' in permisos %}
+                    {% ifequal bloqueo 'NO' %}
+                        {% if tipoUS %}
+                            <a class="btn btn-primary" href="/us/us/create/{{ object.id }}/">Crear nuevo</a>
+                        {% else %}
+                            <a class="btn btn-primary" href="#"
+                               onClick="alert('No puedes crear US sin tener algun tipo de US')">Crear
+                                nuevo</a>
+                        {% endif %}
+                    {% endifequal %}
                 {% endif %}
                 <table class="table table-responsive">
                     <thead>
@@ -125,6 +155,7 @@
                     </thead>
                     <tbody>
                     {% for us in object.uss.all %}
+                        {% if 'view_us' in permisos or perms.us.view_us or us.usuario_asignado == user %}
                         <tr>
                             <td><a href="/us/us/{{ us.id }}/">{{ us.descripcion_corta }}</a></td>
                             <td>{{ us.tipoUS }}</td>
@@ -135,6 +166,7 @@
                                 <td>Actividad no asignada</td>
                             {% endif %}
                         </tr>
+                        {% endif %}
                     {% endfor %}
                     </tbody>
                 </table>

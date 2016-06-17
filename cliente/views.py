@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required, permission_required
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
 from django.views.generic import CreateView,ListView,UpdateView, DetailView
 from cliente.models import Cliente
@@ -10,19 +10,16 @@ from cliente.forms import *
 
 # Create your views here.
 @login_required(None, 'login', '/login/')
-@permission_required('cliente.can_view',raise_exception=True)
+@permission_required('cliente.view_cliente',raise_exception=True)
 def list_cliente (request):
     cliente_list = Cliente.objects.filter(activo=True)
 
     return render(request,'cliente_list.html', {'cliente_list': cliente_list})
 
 @login_required(None, 'login', '/login/')
-@permission_required('cliente.can_view',raise_exception=True)
+@permission_required('cliente.view_cliente',raise_exception=True)
 def detail_cliente(request,pk):
-    try:
-        cliente = Cliente.objects.get(pk=pk)
-    except:
-        return HttpResponseRedirect('/cliente/')
+    cliente = get_object_or_404(Cliente,pk=pk)
 
     return render(request, 'cliente_detail.html', {'object': cliente})
 
@@ -30,10 +27,7 @@ def detail_cliente(request,pk):
 @login_required(None, 'login', '/login/')
 @permission_required('login.add_telefono',raise_exception=True)
 def create_telefono (request, pk):
-    try:
-        cliente = Cliente.objects.get(pk=pk)
-    except:
-        return HttpResponseRedirect('/cliente/')
+    cliente = get_object_or_404(Cliente,pk=pk)
 
     if request.method == 'POST':
         form = TelefonoForm(request.POST)
@@ -89,10 +83,7 @@ def update_cliente (request, pk):
         -Redireccion a lista de clientes si el form es valido
 
     """
-    try:
-        cliente = Cliente.objects.get(pk=pk)
-    except:
-        return HttpResponseRedirect('/cliente/')
+    cliente = get_object_or_404(Cliente,pk=pk)
 
     if request.method == 'POST':
         form = ClienteForm(request.POST)
@@ -108,17 +99,14 @@ def update_cliente (request, pk):
         return render(request, 'cliente_create.html', {'form': form,'cliente':cliente},context_instance=RequestContext(request))
 
 @login_required(None, 'login', '/login/')
-@permission_required('cliente.delete_cliente',raise_exception=True)
+@permission_required('cliente.delete_cliente', raise_exception=True)
 def delete_cliente(request, pk):
     """
         Busca el cliente con pk igual al que es parametro y cambia su estado activo a False.
         Parametros: recibe el request y el pk del cliente a eliminar.
         Retorna: Redireccion a lista de clientes.
     """
-    try:
-        cliente = Cliente.objects.get(pk=pk)
-    except:
-        return HttpResponseRedirect('/cliente/')
+    cliente = get_object_or_404(Cliente,pk=pk)
 
     cliente.activo = False
     cliente.save()

@@ -1,14 +1,16 @@
+import datetime
+from auditlog.models import LogEntry
 from django.contrib.auth.decorators import login_required, permission_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
 
 from US.models import TipoUS
-from proyecto.models import Proyecto
-from django.utils import timezone
 from proyecto.forms import *
 from django.http import HttpResponseRedirect
 from django.forms.models import modelform_factory
 from django import forms
+from equipo.views import enviar_notificacion
+from proyecto.models import Proyecto
 
 
 # Create your views here.
@@ -35,14 +37,33 @@ def detail_proyecto(request, pk):
     except:
         return HttpResponseRedirect('/proyecto/')
 
+    # Aca verificamos si ya inicio el proyecto
+    if (proyecto.estado!='ANU' and proyecto.estado!='FIN'):
+        if (datetime.date.today() <= proyecto.fecha_inicio):
+            if proyecto.estado == 'PEN':
+                proyecto.estado = 'PEN'
+            else:
+                print 'Proyecto iniciado'
+                proyecto.estado = 'ACT'
+
+        # Aca verificamos si ya finalizo
+        if proyecto.fecha_fin <= datetime.date.today():
+            print 'Proyecto finalizado'
+            proyecto.estado = 'FIN'
+    proyecto.save()
     permisos = proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename', flat=True)
 
     tipoUS = TipoUS.objects.all()
 
     if not 'view_proyecto' in permisos and not request.user.is_superuser and not request.user == proyecto.lider_proyecto:
         return HttpResponseRedirect('/proyecto/')
-
-    return render(request, 'proyecto_detail.html', {'object': proyecto, 'permisos': permisos, 'tipoUS': tipoUS})
+    if proyecto.estado == 'FIN' or proyecto.estado=='ANU' :
+        bloqueo='SI'
+    else:
+        bloqueo='NO'
+    print bloqueo
+    return render(request, 'proyecto_detail.html', {'object': proyecto, 'permisos': permisos, 'tipoUS': tipoUS,
+                                                    'bloqueo':bloqueo})
 
 
 @login_required(None, 'login', '/login/')
@@ -67,6 +88,12 @@ def create_proyecto(request):
                          lider_proyecto=cd['lider_proyecto'], cliente=cd['cliente'],
                          descripcion=cd['descripcion'], observaciones=cd['observaciones'])
             p.save()
+            lider=p.lider_proyecto
+            if (lider.noti_creacion_proyecto):
+                email_noti = lider.email
+                enviar_notificacion(email_noti,
+                                    'Se te ha asignado como lider del proyecto "' + p.nombre + '"')
+
             return HttpResponseRedirect('/proyecto/' + str(p.id))
         else:
             return render(request, 'proyecto_create.html', {'form': form})
@@ -141,6 +168,11 @@ def update_proyecto(request, pk):
             proyecto.descripcion = cd['descripcion']
             proyecto.observaciones = cd['observaciones']
             proyecto.save()
+            lider = proyecto.lider_proyecto
+            if (lider.noti_creacion_proyecto):
+                email_noti = lider.email
+                enviar_notificacion(email_noti,
+                                    'Se te ha asignado como lider del proyecto "' + proyecto.nombre + '"')
             return HttpResponseRedirect('/proyecto/' + str(proyecto.id))
     else:
         proyecto = Proyecto.objects.get(pk=pk)
@@ -168,3 +200,28 @@ def delete_proyecto(request, pk):
     proyecto.save()
 
     return HttpResponseRedirect('/proyecto/')
+
+
+@login_required(None, 'login', '/login/')
+def log_proyecto(request, pk):
+    try:
+        proyecto = Proyecto.objects.get(pk=pk)
+        log = list(LogEntry.objects.get_for_object(proyecto))
+
+        equipos = proyecto.equipos.all()
+
+        log_equipos = list(LogEntry.objects.get_for_objects(equipos))
+        log.extend(log_equipos)
+
+        sprints = proyecto.sprints.all()
+        log_sprints = list(LogEntry.objects.get_for_objects(sprints))
+        log.extend(log_sprints)
+
+        uss = proyecto.uss.all()
+        log_uss = list(LogEntry.objects.get_for_objects(uss))
+        log.extend(log_uss)
+
+    except:
+        return HttpResponseRedirect('/proyecto/')
+
+    return render(request, 'log_proyecto.html', {'log_proyecto': log})

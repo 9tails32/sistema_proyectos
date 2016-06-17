@@ -1,12 +1,14 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from auditlog.models import LogEntry
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from models import Telefono, Usuario
-from proyecto.models import Proyecto
+from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+
 from cliente.forms import TelefonoForm
 from login.forms import ConfiguracionForm
-from django.db.models import Q
+from models import Telefono, Usuario
+from proyecto.models import Proyecto
 
 
 def login_user(request):
@@ -54,18 +56,20 @@ def logout_user(request):
 @login_required(None, 'login', '/login/')
 def dashboard(request):
     """Funcion que muestra el menu principal del sistema"""
-    user= request.user
+    user = request.user
     if user.equipos:
         result = []
-        proyectos = Proyecto.objects.filter(Q(activo=True,equipos__in=user.equipos.values('id')) |Q(activo=True,lider_proyecto=user) ).distinct()
+        proyectos = Proyecto.objects.filter(
+            Q(activo=True, equipos__in=user.equipos.values('id')) | Q(activo=True, lider_proyecto=user)).distinct()
 
         for p in proyectos:
             permisos = []
-            equipos = p.equipos.all().values_list('permisos__codename', flat=True)#.filter(usuarios=user.id).distinct().values_list('permisos__codename', flat=True)
+            equipos = p.equipos.all().values_list('permisos__codename',
+                                                  flat=True)  # .filter(usuarios=user.id).distinct().values_list('permisos__codename', flat=True)
             permisos.extend(equipos)
-            result.append([p,permisos])
+            result.append([p, permisos])
 
-    return render(request, 'dashboard.html', {'proyectos':result})
+    return render(request, 'dashboard.html', {'proyectos': result})
 
 
 @login_required(None, 'login', '/login/')
@@ -107,34 +111,52 @@ def modificar_telefono(request, pk):
 
     return render(request, 'edit_telefono.html', {'form': form})
 
+
 @login_required(None, 'login', '/login/')
 def configuracion(request):
-    """funcion paa la configuracion del sistema"""
+    """funcion para la configuracion del sistema"""
 
     try:
         usuario = Usuario.objects.get(pk=request.user.id)
     except:
         return HttpResponseRedirect('/login/')
-
+    es_lider = False
     if request.method == 'POST':
         form = ConfiguracionForm(request.POST)
-        print form.errors
         if form.is_valid():
-            print form.cleaned_data['formato_notificaciones']
-            usuario.hora_notificaciones = form.cleaned_data['hora_notificaciones']
-            usuario.formato_notificaciones = form.cleaned_data['formato_notificaciones']
+            usuario.email = form.cleaned_data['email_noti']
             usuario.noti_creacion_proyecto = form.cleaned_data['noti_creacion_proyecto']
             usuario.noti_creacion_equipos = form.cleaned_data['noti_creacion_equipo']
-            usuario.noti_creacion_usuario = form.cleaned_data['noti_creacion_usuario']
+            usuario.noti_cambio_estado_actividades = form.cleaned_data['noti_cambio_estado_actividades']
+            usuario.noti_cambio_actividades = form.cleaned_data['noti_cambio_actividades']
+            usuario.noti_us_asignado = form.cleaned_data['noti_us_asignado']
             usuario.save()
             return HttpResponseRedirect('/')
     else:
-        usuario = Usuario.objects.get(pk=request.user.id)
-        print usuario.formato_notificaciones
-        form = ConfiguracionForm(initial={'hora_notificaciones': usuario.hora_notificaciones,
-                                  'formato_notificaciones': usuario.formato_notificaciones,
+        Usuario.objects.get(pk=request.user.id)
+        user = request.user
+
+        if user.equipos:
+
+            proyectos = Proyecto.objects.filter(
+                Q(activo=True, equipos__in=user.equipos.values('id')) | Q(activo=True, lider_proyecto=user)).distinct()
+            if (proyectos.count()>0):
+                es_lider=True
+
+
+        form = ConfiguracionForm(initial={
+                                  'email_noti': usuario.email,
                                   'noti_creacion_proyecto': usuario.noti_creacion_proyecto,
-                                  'noti_creacion_usuario': usuario.noti_creacion_usuario,
-                                  'noti_creacion_equipo': usuario.noti_creacion_equipos
+                                  'noti_creacion_equipo': usuario.noti_creacion_equipos,
+                                  'noti_cambio_actividades': usuario.noti_cambio_actividades,
+                                  'noti_cambio_estado_actividades': usuario.noti_cambio_estado_actividades,
+                                  'noti_us_asignado':usuario.noti_us_asignado,
                                   })
-    return render(request, 'configuracion.html', {'form': form, 'usuario': usuario})
+    return render(request, 'configuracion.html', {'form': form, 'usuario': usuario,'es_lider':es_lider})
+
+
+@login_required(None, 'login', '/login/')
+def log_general(request):
+    log_g = LogEntry.objects.all()
+
+    return render(request, 'log.html', {'log_g': log_g})

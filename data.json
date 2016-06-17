@@ -1,525 +1,742 @@
 [
 {
-  "model": "contenttypes.contenttype",
+  "model": "cliente.cliente",
   "pk": 1,
   "fields": {
-    "app_label": "admin",
-    "model": "logentry"
+    "nombre": "Juan Gonzalez",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": true
   }
 },
 {
-  "model": "contenttypes.contenttype",
+  "model": "cliente.cliente",
   "pk": 2,
   "fields": {
-    "app_label": "auth",
-    "model": "permission"
+    "nombre": "Juan Perez",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": true
   }
 },
 {
-  "model": "contenttypes.contenttype",
+  "model": "cliente.cliente",
   "pk": 3,
   "fields": {
-    "app_label": "auth",
-    "model": "group"
+    "nombre": "Jorge Perez",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": true
   }
 },
 {
-  "model": "contenttypes.contenttype",
+  "model": "cliente.cliente",
   "pk": 4,
   "fields": {
-    "app_label": "auth",
-    "model": "user"
+    "nombre": "Jorge Gonzalez",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": true
   }
 },
 {
-  "model": "contenttypes.contenttype",
+  "model": "cliente.cliente",
   "pk": 5,
   "fields": {
-    "app_label": "contenttypes",
-    "model": "contenttype"
+    "nombre": "Guillermo Macchi",
+    "direccion": "Nicanor Torales, 4 De Julio",
+    "email": "guillemacchi01@gmail.com",
+    "activo": true
   }
 },
 {
-  "model": "contenttypes.contenttype",
+  "model": "cliente.cliente",
   "pk": 6,
   "fields": {
-    "app_label": "sessions",
-    "model": "session"
+    "nombre": "Ra\u00fal Burr\u00f3",
+    "direccion": "Mcal. Lopez 101",
+    "email": "rauleburro@gmail.com",
+    "activo": true
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "lu91vjlodz42czshrv8039yhmkdiq5q7",
-  "fields": {
-    "session_data": "YmY5ZDIzODk4OGE4MWUwY2MwZDg0ZTBjOTJmMjNlZWJkZDUzZWFkZjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE5MzE0YWNmMTdhM2VjMzBkODdhMWJjYjZiNjhiYWQ2Y2ZjMzI0NGEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
-    "expire_date": "2016-04-20T20:38:33.715Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "yit0v8tme7nz8w74utp68x4finheic0n",
-  "fields": {
-    "session_data": "YmY5ZDIzODk4OGE4MWUwY2MwZDg0ZTBjOTJmMjNlZWJkZDUzZWFkZjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE5MzE0YWNmMTdhM2VjMzBkODdhMWJjYjZiNjhiYWQ2Y2ZjMzI0NGEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
-    "expire_date": "2016-04-22T18:24:22.059Z"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 1,
-  "fields": {
-    "name": "Can add log entry",
-    "content_type": 1,
-    "codename": "add_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 2,
-  "fields": {
-    "name": "Can change log entry",
-    "content_type": 1,
-    "codename": "change_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 3,
-  "fields": {
-    "name": "Can delete log entry",
-    "content_type": 1,
-    "codename": "delete_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 4,
-  "fields": {
-    "name": "Can add permission",
-    "content_type": 2,
-    "codename": "add_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 5,
-  "fields": {
-    "name": "Can change permission",
-    "content_type": 2,
-    "codename": "change_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 6,
-  "fields": {
-    "name": "Can delete permission",
-    "content_type": 2,
-    "codename": "delete_permission"
-  }
-},
-{
-  "model": "auth.permission",
+  "model": "cliente.cliente",
   "pk": 7,
   "fields": {
-    "name": "Can add group",
-    "content_type": 3,
-    "codename": "add_group"
+    "nombre": "Rub\u00e9n Figueredo",
+    "direccion": "Mcal. Lopez 101",
+    "email": "shishi9tail@hotmail.com",
+    "activo": true
   }
 },
 {
-  "model": "auth.permission",
+  "model": "cliente.cliente",
   "pk": 8,
   "fields": {
-    "name": "Can change group",
-    "content_type": 3,
-    "codename": "change_group"
+    "nombre": "Prueba 1",
+    "direccion": "Mcal. Lopez 101",
+    "email": "info@bellbird.com.py",
+    "activo": false
   }
 },
 {
-  "model": "auth.permission",
-  "pk": 9,
+  "model": "sprint.sprint",
+  "pk": 2,
   "fields": {
-    "name": "Can delete group",
-    "content_type": 3,
-    "codename": "delete_group"
+    "nombre": "Sprint 2",
+    "duracion": 10,
+    "proyecto": 1,
+    "estado_sprint": "INI",
+    "fecha_inicio": "2016-06-17",
+    "fecha_fin": "2016-06-27"
   }
 },
 {
-  "model": "auth.permission",
-  "pk": 10,
-  "fields": {
-    "name": "Can add user",
-    "content_type": 4,
-    "codename": "add_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 11,
-  "fields": {
-    "name": "Can change user",
-    "content_type": 4,
-    "codename": "change_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 12,
-  "fields": {
-    "name": "Can delete user",
-    "content_type": 4,
-    "codename": "delete_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 13,
-  "fields": {
-    "name": "Can add content type",
-    "content_type": 5,
-    "codename": "add_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 14,
-  "fields": {
-    "name": "Can change content type",
-    "content_type": 5,
-    "codename": "change_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 15,
-  "fields": {
-    "name": "Can delete content type",
-    "content_type": 5,
-    "codename": "delete_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 16,
-  "fields": {
-    "name": "Can add session",
-    "content_type": 6,
-    "codename": "add_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 17,
-  "fields": {
-    "name": "Can change session",
-    "content_type": 6,
-    "codename": "change_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 18,
-  "fields": {
-    "name": "Can delete session",
-    "content_type": 6,
-    "codename": "delete_session"
-  }
-},
-{
-  "model": "auth.user",
+  "model": "US.tipous",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$24000$9ZMjZ0aHwpQo$zrVyTZoNfOdvyS4SNY63tQbNTsNzPtNkhEI2TI8GPPY=",
-    "last_login": "2016-04-08T18:24:22.057Z",
+    "nombre": "Flujo normal"
+  }
+},
+{
+  "model": "US.tipous",
+  "pk": 2,
+  "fields": {
+    "nombre": "Tipo 1"
+  }
+},
+{
+  "model": "US.tipous",
+  "pk": 3,
+  "fields": {
+    "nombre": "Tipo 2"
+  }
+},
+{
+  "model": "US.tipous",
+  "pk": 4,
+  "fields": {
+    "nombre": "Tipo 3"
+  }
+},
+{
+  "model": "US.tipous",
+  "pk": 5,
+  "fields": {
+    "nombre": "Tipo 4"
+  }
+},
+  {
+  "model": "US.tipous",
+  "pk": 6,
+  "fields": {
+    "nombre": "Tipo 5"
+  }
+},
+{
+  "model": "US.tipous",
+  "pk": 7,
+  "fields": {
+    "nombre": "Tipo 6"
+  }
+},
+{
+  "model": "US.tipous",
+  "pk": 8,
+  "fields": {
+    "nombre": "Tipo 7"
+  }
+},
+{
+  "model": "US.tipous",
+  "pk": 9,
+  "fields": {
+    "nombre": "Tipo 8"
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 1,
+  "fields": {
+    "nombre": "Planificacion",
+    "tipoUS": 1,
+    "numero": 1
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 2,
+  "fields": {
+    "nombre": "Dise\u00f1o",
+    "tipoUS": 1,
+    "numero": 2
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 3,
+  "fields": {
+    "nombre": "Desarrollo",
+    "tipoUS": 1,
+    "numero": 3
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 4,
+  "fields": {
+    "nombre": "Mantenimiento",
+    "tipoUS": 1,
+    "numero": 4
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 5,
+  "fields": {
+    "nombre": "Act 1",
+    "tipoUS": 2,
+    "numero": 1
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 6,
+  "fields": {
+    "nombre": "Act 2",
+    "tipoUS": 2,
+    "numero": 2
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 7,
+  "fields": {
+    "nombre": "Act 3",
+    "tipoUS": 2,
+    "numero": 3
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 8,
+  "fields": {
+    "nombre": "Actividad 1",
+    "tipoUS": 3,
+    "numero": 1
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 9,
+  "fields": {
+    "nombre": "Actividad 2",
+    "tipoUS": 3,
+    "numero": 2
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 10,
+  "fields": {
+    "nombre": "Actividad 3",
+    "tipoUS": 3,
+    "numero": 3
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 11,
+  "fields": {
+    "nombre": "Actividad 4",
+    "tipoUS": 3,
+    "numero": 4
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 12,
+  "fields": {
+    "nombre": "Actividad 1",
+    "tipoUS": 4,
+    "numero": 1
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 13,
+  "fields": {
+    "nombre": "Actividad 1",
+    "tipoUS": 5,
+    "numero": 1
+  }
+},
+{
+  "model": "US.actividades",
+  "pk": 14,
+  "fields": {
+    "nombre": "Actividad 2",
+    "tipoUS": 5,
+    "numero": 2
+  }
+},
+{
+  "model": "login.usuario",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$24000$QX6lfSROzbkQ$vlQPfsvnT26mW/awXkIxDQ2UrWRSFibetpAl+cpUexk=",
+    "last_login": "2016-06-17T17:07:37.324Z",
     "is_superuser": true,
     "username": "gmacchi",
     "first_name": "",
     "last_name": "",
-    "email": "",
+    "email": "guillemacchi01@gmail.com",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2016-04-06T20:38:24.751Z",
+    "date_joined": "2016-06-17T13:18:51.622Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
     "groups": [],
     "user_permissions": []
   }
 },
 {
-  "model": "auth.user",
-  "pk": 11,
-  "fields": {
-    "password": "pbkdf2_sha256$24000$85RBsQ5iYLqV$tnCIEnFOnaNLpNeceT7qPacLZD8JgzuPwXlWD1ZCgR8=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user1",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.373Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 12,
-  "fields": {
-    "password": "pbkdf2_sha256$24000$yd19aiIJpDpn$l7Et+CIrWoHX0DxcvTZOQYLf7Sh9V0XjqUWyrugTr+c=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user2",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.507Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 13,
-  "fields": {
-    "password": "pbkdf2_sha256$24000$GNQWTRiA0RB5$zyIJJcCI6voiuVQNo5cHxGtdeiMr8O7WYAhWvym+Npo=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user3",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.637Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 14,
-  "fields": {
-    "password": "pbkdf2_sha256$24000$Jmmt64JjNkKL$GgY1dOyWatF0ziGIw9JZsN+UeRz3pJjyjduwcbJLl2U=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user4",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.772Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 15,
-  "fields": {
-    "password": "pbkdf2_sha256$24000$nqwNyQu0m7XT$dzwCTUsW8V/ZkbQq9ktNYlymlZPhAu01sz4+AqdJ7GA=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user5",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:34.896Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 16,
-  "fields": {
-    "password": "pbkdf2_sha256$24000$6WyMeR5GufUR$OS2v5HN1HQklt/23RxWGRr1nzXdfqTK7IzRnhrtmJcU=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user6",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:35.020Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 17,
-  "fields": {
-    "password": "pbkdf2_sha256$24000$jA2jqLtkgELY$N2wdqrJqjdGm00Sk2Q2/homRSMiRoNii3fOtN95SEA0=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user7",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:35.152Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 18,
-  "fields": {
-    "password": "pbkdf2_sha256$24000$fCemO9yyAFNP$FX9nrmcFXwS0HSNwRlfdj2rtC6+qHcrf4ObQw6cGC4k=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user8",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:35.282Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 19,
-  "fields": {
-    "password": "pbkdf2_sha256$24000$qxvwJpAQBaHz$TYWjGln5N64sXO+01fIrv9YU8gkw+XZf0H4w7e8yr+A=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "user9",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2016-04-08T18:28:35.408Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2016-04-08T18:26:49.386Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "2",
-    "object_repr": "user1",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
+  "model": "login.usuario",
   "pk": 2,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.397Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "3",
-    "object_repr": "user2",
-    "action_flag": 3,
-    "change_message": ""
+    "password": "pbkdf2_sha256$24000$FcPdqECeYbG6$K+Z8irO/h45ojGQYkUgDMrq+5QHcR5Yg4+6gi/Zv8HE=",
+    "last_login": "2016-06-17T15:58:06Z",
+    "is_superuser": false,
+    "username": "rauleburro",
+    "first_name": "",
+    "last_name": "",
+    "email": "rauleburro@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:20:47Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": [
+      48,
+      49,
+      50,
+      51,
+      44,
+      45,
+      46,
+      47,
+      53,
+      54,
+      55,
+      25,
+      26,
+      28,
+      35,
+      36,
+      37
+    ]
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "login.usuario",
   "pk": 3,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.399Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "4",
-    "object_repr": "user3",
-    "action_flag": 3,
-    "change_message": ""
+    "password": "pbkdf2_sha256$24000$qZFdEN4IYnSG$QGQYIbY87cobDgQtIYZTDHl9+r9kaz6uD47lQ41dn08=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "rubenfig",
+    "first_name": "",
+    "last_name": "",
+    "email": "shishi9tail@hotmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:21:26Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "login.usuario",
   "pk": 4,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.401Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "5",
-    "object_repr": "user4",
-    "action_flag": 3,
-    "change_message": ""
+    "password": "pbkdf2_sha256$24000$4SoZZlMWzrVf$jjrr3TXSzRHOOTm1KVMmaE5/eRbfLY1OINL5bhgl2ac=",
+    "last_login": "2016-06-17T13:31:14.381Z",
+    "is_superuser": false,
+    "username": "prueba1",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:22:20Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "login.usuario",
   "pk": 5,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.403Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "6",
-    "object_repr": "user5",
-    "action_flag": 3,
-    "change_message": ""
+    "password": "pbkdf2_sha256$24000$fnyDxD5ERnjK$S6CfEH6UwwCgNkviYo2/bP1UE3KQ+ifNM36tQlzYEj0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "prueba2",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:22:58Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "login.usuario",
   "pk": 6,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.405Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "7",
-    "object_repr": "user6",
-    "action_flag": 3,
-    "change_message": ""
+    "password": "pbkdf2_sha256$24000$x1nUnCgl382r$RIPb2de67gUXDt+y1neGNLq4mW9c8fOuqdEB0uVK/U8=",
+    "last_login": "2016-06-17T15:57:48.700Z",
+    "is_superuser": false,
+    "username": "prueba3",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:23:13Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "login.usuario",
   "pk": 7,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.408Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "8",
-    "object_repr": "user7",
-    "action_flag": 3,
-    "change_message": ""
+    "password": "pbkdf2_sha256$24000$U8UGZhJnFIxQ$fWnv5Xn2rW9zEJfenjLI9uZXmQ0HpZr9tJR+xwkfMIU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "prueba4",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:23:43Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "login.usuario",
   "pk": 8,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.410Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "9",
-    "object_repr": "user8",
-    "action_flag": 3,
-    "change_message": ""
+    "password": "pbkdf2_sha256$24000$6us9xJomprRJ$FOGjKsXbyYpoxMzbydcU4dQRihc7o674hRfqkknQVGs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "prueba5",
+    "first_name": "",
+    "last_name": "",
+    "email": "info@bellbird.com.py",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-06-17T13:24:07Z",
+    "cedula": 0,
+    "direccion": "",
+    "noti_creacion_proyecto": false,
+    "noti_creacion_usuario": false,
+    "noti_creacion_equipos": false,
+    "noti_cambio_estado_actividades": false,
+    "noti_us_asignado": false,
+    "noti_cambio_actividades": false,
+    "groups": [],
+    "user_permissions": []
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "proyecto.proyecto",
+  "pk": 1,
+  "fields": {
+    "nombre": "Sistema Proyectos",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema para control de proyectos.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 2,
+  "fields": {
+    "nombre": "Sistema 1",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 3,
+  "fields": {
+    "nombre": "Sistema 2",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 4,
+  "fields": {
+    "nombre": "Sistema 3",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 5,
+  "fields": {
+    "nombre": "Sistema 4",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 6,
+  "fields": {
+    "nombre": "Sistema 5",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 7,
+  "fields": {
+    "nombre": "Sistema 6",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 8,
+  "fields": {
+    "nombre": "Sistema 7",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
   "pk": 9,
   "fields": {
-    "action_time": "2016-04-08T18:26:49.411Z",
-    "user": 1,
-    "content_type": 4,
-    "object_id": "10",
-    "object_repr": "user9",
-    "action_flag": 3,
-    "change_message": ""
+    "nombre": "Sistema 8",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "proyecto.proyecto",
+  "pk": 10,
+  "fields": {
+    "nombre": "Sistema 9",
+    "fecha_creacion": "2016-06-17",
+    "fecha_inicio": "2016-06-01",
+    "fecha_fin": "2016-12-31",
+    "lider_proyecto": 2,
+    "descripcion": "Sistema 1.",
+    "estado": "ACT",
+    "observaciones": "No hay observaciones.",
+    "cliente": 1,
+    "activo": true
+  }
+},
+{
+  "model": "equipo.equipo",
+  "pk": 2,
+  "fields": {
+    "nombre": "Desarrolladores",
+    "proyecto": 1,
+    "permisos": [
+      32,
+      41
+    ],
+    "usuarios": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  }
+},
+{
+  "model": "US.us",
+  "pk": 2,
+  "fields": {
+    "sprint": 2,
+    "proyecto": 1,
+    "descripcion_corta": "Login",
+    "descripcion_larga": "Funcion de login",
+    "tiempo_planificado": 10,
+    "valor_negocio": 3,
+    "urgencia": 3,
+    "usuario_asignado": 4,
+    "tipoUS": 1,
+    "actividad": 2,
+    "finalizado": false,
+    "estado_actividad": "DON"
+  }
+},
+{
+  "model": "US.us",
+  "pk": 3,
+  "fields": {
+    "sprint": null,
+    "proyecto": 1,
+    "descripcion_corta": "Login",
+    "descripcion_larga": "Funcion de login",
+    "tiempo_planificado": 10,
+    "valor_negocio": 5,
+    "urgencia": 5,
+    "usuario_asignado": 6,
+    "tipoUS": 1,
+    "actividad": 1,
+    "finalizado": false,
+    "estado_actividad": "TOD"
+  }
+},
+{
+  "model": "US.us",
+  "pk": 4,
+  "fields": {
+    "sprint": null,
+    "proyecto": 1,
+    "descripcion_corta": "asd",
+    "descripcion_larga": "asd",
+    "tiempo_planificado": 10,
+    "valor_negocio": 5,
+    "urgencia": 5,
+    "usuario_asignado": 4,
+    "tipoUS": 1,
+    "actividad": 1,
+    "finalizado": false,
+    "estado_actividad": "TOD"
   }
 }
 ]

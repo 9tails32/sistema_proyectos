@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+    <title>Log General</title>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Log General</h1>
+        <h2 class="sub-header">Listado</h2>
+        <table class="table table-responsive">
+            <thead>
+            <tr>
+                <th>Actor</th>
+                <th>Fecha</th>
+                <th>Accion</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for log in log_g %}
+                <tr>
+                    <td>{{ log.actor }}</td>
+                    <td>{{ log.timestamp }}</td>
+                    <td>{{ log}}</td>
+                </tr>
+            {% empty %}
+                No existe ningun proyecto.
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
