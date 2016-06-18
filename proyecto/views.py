@@ -1,6 +1,7 @@
 import datetime
 from auditlog.models import LogEntry
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -47,7 +48,7 @@ def detail_proyecto(request, pk):
                 proyecto.estado = 'ACT'
 
         # Aca verificamos si ya finalizo
-        if proyecto.fecha_fin <= datetime.date.today():
+        if proyecto.fecha_fin < datetime.date.today():
             print 'Proyecto finalizado'
             proyecto.estado = 'FIN'
     proyecto.save()
@@ -55,8 +56,9 @@ def detail_proyecto(request, pk):
 
     tipoUS = TipoUS.objects.all()
 
-    if not 'view_proyecto' in permisos and not request.user.is_superuser and not request.user == proyecto.lider_proyecto:
-        return HttpResponseRedirect('/proyecto/')
+    if not 'view_proyecto' in permisos and not request.user.is_superuser and \
+            not request.user == proyecto.lider_proyecto and not request.user.has_perm('proyecto.view_proyecto'):
+        raise PermissionDenied
     if proyecto.estado == 'FIN' or proyecto.estado=='ANU' :
         bloqueo='SI'
     else:
@@ -204,6 +206,16 @@ def delete_proyecto(request, pk):
 
 @login_required(None, 'login', '/login/')
 def log_proyecto(request, pk):
+    """
+    Funcion que displaya el log de las actividades realizadas en el proyecto. Recibe el pk del
+    Proyecto sobre el cual se quiere revisar el log.
+    :param request:
+    :type request:
+    :param pk:
+    :type pk:
+    :return:
+    :rtype:
+    """
     try:
         proyecto = Proyecto.objects.get(pk=pk)
         log = list(LogEntry.objects.get_for_object(proyecto))

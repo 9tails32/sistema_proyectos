@@ -54,7 +54,7 @@ class Telefono(models.Model):
     history = AuditlogHistoryField()
 
     def __unicode__(self):
-        return self.valor
+        return str(self.numero)
 
 
 auditlog.register(Telefono)

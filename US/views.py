@@ -183,7 +183,6 @@ def create_us(request, pk):
 
     permisos = proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',
                                                                                         flat=True)
-    print request.user.get_all_permissions()
     if ('add_us' in permisos or request.user.is_staff or request.user.has_perm('US.add_us')):
         form = USForm(request.POST or None)
         equipos = proyecto.equipos.all()
@@ -303,7 +302,6 @@ def update_us(request, pk):
         return HttpResponseRedirect('/proyecto/')
 
     permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
-    print permisos
     if ('change_us' in permisos or request.user.is_staff or request.user.has_perm('US.change_us')):
         equipos = us.proyecto.equipos.all()
         usuarios = Usuario.objects.filter(Q(equipos__in=equipos) | Q(lider=us.proyecto)).distinct()
@@ -420,7 +418,6 @@ def cambiar_estado_actividad(request, pk):
         return HttpResponseRedirect('/proyecto/')
 
     permisos = us.proyecto.equipos.filter(usuarios=request.user.id).distinct().values_list('permisos__codename',flat=True)
-    print permisos
     if ('change_estado_actividad' in permisos or request.user.is_staff or us.usuario_asignado == request.user or request.user.has_perm('US.change_estado_actividad')):
         lider=us.proyecto.lider_proyecto
         if (us.estado_actividad == 'TOD'):
