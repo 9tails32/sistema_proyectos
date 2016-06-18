@@ -20,7 +20,12 @@ class Usuario(AbstractUser):
     direccion = models.TextField(max_length=50, blank=True, null=False)
 
     # Configuraciones de usuario
-
+    hora_notificaciones = models.TimeField(null=True, default="00:00:00")
+    formato = (
+        ('htm', 'HTML'),
+        ('txt', 'Texto Plano')
+    )
+    formato_notificaciones = models.CharField(max_length=3, choices=formato, default='htm', help_text='Formato')
     noti_creacion_proyecto = models.BooleanField(default=False)
     noti_creacion_usuario = models.BooleanField(default=False)
     noti_creacion_equipos = models.BooleanField(default=False)
